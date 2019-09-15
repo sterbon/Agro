@@ -10,7 +10,7 @@ import {
     errorGettingWallet,
     loggedOut,
     tokenTransferred,
-    fetchWallet
+    fetchWallet,
 } from './scatter_actions';
 
 import {
@@ -19,7 +19,8 @@ import {
     loginHistoryExists,
     getWallet,
     logout,
-    sendTokens
+    sendTokens,
+    uploadCrop
 } from "./scatter_helper";
 
 import {
@@ -104,6 +105,15 @@ function* transferTokens(action){
     }
 }
 
+function* uploadTrans(){
+    try{
+        yield call(uploadCrop);
+        notifySuccess('Uploaded')
+    } catch(e) {
+        notifyError(e.message, 5);
+    }
+}
+
 export default function*  missionsSagas(){
     yield takeLatest(SCATTER_ACTIONS.CONNECT, connectWithScatter);
     yield takeLatest(SCATTER_ACTIONS.ATTEMPT_AUTO_LOGIN, attemptAutoLoginWithScatter);
@@ -111,4 +121,5 @@ export default function*  missionsSagas(){
     yield takeLatest(SCATTER_ACTIONS.GET_WALLET, fetchUserWallet);
     yield takeLatest(SCATTER_ACTIONS.LOG_OUT, logOutUser);
     yield takeLatest(SCATTER_ACTIONS.SEND_TOKEN, transferTokens);
+    yield takeLatest(SCATTER_ACTIONS.UPLOAD_CROP, uploadTrans);
 }

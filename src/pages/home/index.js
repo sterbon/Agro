@@ -6,7 +6,8 @@ import {
     requestLogin,
     fetchWallet,
     logout,
-    sendTokens
+    sendTokens,
+    uploadCrop
 } from '../../scatter/scatter_actions';
 
 const IPFS = require('ipfs-api');
@@ -39,6 +40,7 @@ class Home extends Component {
     };
 
     loginUser = () => this.props.dispatch(requestLogin());
+    uploadDetails = () => this.props.dispatch(uploadCrop());
 
     static getDerivedStateFromProps(props) {
         const
@@ -57,8 +59,8 @@ class Home extends Component {
 
 
     uploadData() {
-        const ipfs = new IPFS({ host: 'ipfs.infura.io', port: 5001, protocol: 'https' });
         // const ipfs = new IPFS.create()
+        const ipfs = new IPFS({ host: 'ipfs.infura.io', port: 5001, protocol: 'https' });
         const {pname, price} = this.state;      
         const data = { pname, price };
 
@@ -75,8 +77,8 @@ class Home extends Component {
             }
             console.log("Image Hash:", result[0].hash)
             console.timeEnd()
-
         })
+        this.uploadDetails()
     }
 
     render() {
@@ -85,7 +87,8 @@ class Home extends Component {
         const {
             loginUser,
             sendTokens,
-            logOutUser
+            logOutUser,
+            uploadDetails
         } = this;
 
         return (

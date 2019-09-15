@@ -21,6 +21,9 @@ export const SCATTER_ACTIONS = {
 
     AUTH_ERROR: 'SCATTER/ERRORS/AUTH_ERROR',
     SEND_TOKEN_ERROR: 'SCATTER/ERRORS/SEND_TOKEN_ERROR',
+
+    UPLOAD_CROP: 'UPLOAD',
+    UPLOADED: 'UPLOADED'
 };
 
 export const attemptAutoLogin  = () => ({type: SCATTER_ACTIONS.ATTEMPT_AUTO_LOGIN});
@@ -43,3 +46,5 @@ export const setWallet         = payload => ({type: SCATTER_ACTIONS.SET_WALLET, 
 export const sendTokens        = payload => ({type: SCATTER_ACTIONS.SEND_TOKEN, payload});
 export const tokenTransferred   = () => ({type: SCATTER_ACTIONS.SEND_TOKEN_SUCCESS});
 
+export const uploadCrop        = payload => ({type: SCATTER_ACTIONS.UPLOAD_CROP, payload});
+export const transactionUpload = () => ({type: SCATTER_ACTIONS.UPLOAD_CROP});

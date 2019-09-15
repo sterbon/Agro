@@ -6,7 +6,7 @@ import {attemptAutoLogin} from './scatter/scatter_actions'
 
 class App extends Component{
     componentDidMount() {
-        // this.props.dispatch(attemptAutoLogin());
+        this.props.dispatch(attemptAutoLogin());
     }
 
     render(){

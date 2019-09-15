@@ -1,6 +1,7 @@
 import ScatterJS from 'scatterjs-core';
 import ScatterEOS from 'scatterjs-plugin-eosjs';
 import Eos from 'eosjs';
+import eosjs from 'eosjs2'
 
 import {
     parseEOS,
@@ -17,10 +18,17 @@ ScatterJS.plugins( new ScatterEOS() );
 const network = {
     blockchain:'eos',
     chainId:'e70aaab8997e1dfce58fbfac80cbbb8fecec7b99cf982a9444273cbc64c41473',
-    host:'jungle.eosmetal.io',
-    port:18888,
-    protocol:'http'
+    host:'jungle2.cryptolions.io',
+    port:443,
+    protocol:'https'
 };
+
+const eosOptions = {
+    expireInSeconds: 60
+}
+
+scatter = ScatterJS.scatter;
+const eos = scatter.eos(network, Eos, eosOptions);
 
 export const loginHistoryExists = () => !!localStorage.getItem("lastLoginAt");
 const setLoginHistory    = () => localStorage.setItem("lastLoginAt", new Date().getTime());
@@ -98,3 +106,26 @@ export const getWallet = () => {
         }
     });
 };
+
+export const uploadCrop = () => {
+
+    eos.transaction({
+        "blocksBehind": 3,
+        "expireSeconds": 30,
+        "actions": [
+            {
+              "account": "sterbon23451",
+              "name": "uploadcrop",
+              "authorization": [
+                {
+                  "actor": "sterbon23451",
+                  "permission": "active"
+                }
+              ],
+              "data": {
+                "text_hash": "Hash"
+              },
+            }
+          ]
+        });
+}
