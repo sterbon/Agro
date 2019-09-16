@@ -108,7 +108,7 @@ function* transferTokens(action){
 function* uploadTrans(){
     try{
         yield call(uploadCrop);
-        notifySuccess('Uploaded')
+        // notifySuccess('Uploaded')
     } catch(e) {
         notifyError(e.message, 5);
     }

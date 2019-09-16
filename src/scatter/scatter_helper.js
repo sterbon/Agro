@@ -5,7 +5,8 @@ import eosjs from 'eosjs2'
 
 import {
     parseEOS,
-    toEOSString
+    toEOSString,
+    notifySuccess
 } from '../utils';
 
 let
@@ -28,7 +29,7 @@ const eosOptions = {
 }
 
 scatter = ScatterJS.scatter;
-const eos = scatter.eos(network, Eos, eosOptions);
+userEosConnection = scatter.eos(network, Eos, eosOptions);
 
 export const loginHistoryExists = () => !!localStorage.getItem("lastLoginAt");
 const setLoginHistory    = () => localStorage.setItem("lastLoginAt", new Date().getTime());
@@ -54,9 +55,6 @@ export const login = ()=> {
     return scatter.getIdentity(requiredFields).then(() => {
         userAccount = scatter.identity.accounts.find(x => x.blockchain === 'eos');
 
-        // Set expiration time for eos connection, can have more options
-        const eosOptions = { expireInSeconds: 60 };
-        userEosConnection = scatter.eos(network, Eos, eosOptions);
         setLoginHistory();
         return {
             name: userAccount.name,
@@ -109,7 +107,7 @@ export const getWallet = () => {
 
 export const uploadCrop = () => {
 
-    eos.transaction({
+    userEosConnection.transaction({
         "blocksBehind": 3,
         "expireSeconds": 30,
         "actions": [
@@ -118,14 +116,14 @@ export const uploadCrop = () => {
               "name": "uploadcrop",
               "authorization": [
                 {
-                  "actor": "sterbon23451",
+                  "actor": userAccount.name,
                   "permission": "active"
                 }
               ],
               "data": {
-                "text_hash": "Hash"
+                "text_hash": 'text_hash'
               },
             }
           ]
-        });
+        }).then(notifySuccess('Uploading'));
 }

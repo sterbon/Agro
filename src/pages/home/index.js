@@ -77,8 +77,10 @@ class Home extends Component {
             }
             console.log("Image Hash:", result[0].hash)
             console.timeEnd()
+            this.setState({hash: result[0].hash})
+            console.log(this.state.hash)
+            this.uploadDetails()
         })
-        this.uploadDetails()
     }
 
     render() {
