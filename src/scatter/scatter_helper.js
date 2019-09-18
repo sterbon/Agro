@@ -105,8 +105,8 @@ export const getWallet = () => {
     });
 };
 
-export const uploadCrop = () => {
-
+export const uploadCrop = (hash) => {
+    console.log()
     userEosConnection.transaction({
         "blocksBehind": 3,
         "expireSeconds": 30,
@@ -121,7 +121,7 @@ export const uploadCrop = () => {
                 }
               ],
               "data": {
-                "text_hash": 'text_hash'
+                "text_hash": hash.payload
               },
             }
           ]

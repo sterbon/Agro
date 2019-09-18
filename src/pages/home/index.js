@@ -27,7 +27,6 @@ class Home extends Component {
             connectedNetworkName: null,
             pname: null,
             price: null,
-            // account details
             loggedIn: false,
             userAccount: {
                 name: null,
@@ -40,7 +39,7 @@ class Home extends Component {
     };
 
     loginUser = () => this.props.dispatch(requestLogin());
-    uploadDetails = () => this.props.dispatch(uploadCrop());
+    uploadDetails = (hash) => this.props.dispatch(uploadCrop(hash));
 
     static getDerivedStateFromProps(props) {
         const
@@ -75,11 +74,11 @@ class Home extends Component {
                 console.log("err")
                 return
             }
-            console.log("Image Hash:", result[0].hash)
+            console.log("Hash:", result[0].hash)
             console.timeEnd()
             this.setState({hash: result[0].hash})
             console.log(this.state.hash)
-            this.uploadDetails()
+            this.uploadDetails(this.state.hash)
         })
     }
 
@@ -90,7 +89,6 @@ class Home extends Component {
             loginUser,
             sendTokens,
             logOutUser,
-            uploadDetails
         } = this;
 
         return (
