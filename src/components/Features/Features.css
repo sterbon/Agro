@@ -1,0 +1,26 @@
+.features{
+    text-align: left;
+    margin-top: 7rem;
+}
+
+.features-grid-top,.features-grid-bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 40px;
+}
+
+.features-grid-bottom {
+    margin: 5rem 0;
+}
+
+.features-card{
+    margin: 0 3.5rem;
+}
+
+.features-text{
+    font-size: 16px;
+    color: #908d75;
+    text-align: justify
+}

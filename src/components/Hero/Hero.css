@@ -1,0 +1,56 @@
+.hero-text{
+    padding: 0 2rem;
+}
+
+.hero-text h2{
+    font-family: 'Monstserrat';
+    font-weight: 700;
+    font-size: 70px;
+    color: #0c0f10;
+    text-decoration: none;
+    margin: 1.2rem;
+}
+
+.hero-para{
+    font-family: 'Monstserrat';
+    font-weight: 500;
+    font-size: 23px;
+    color: #908d75;
+    text-decoration: none;
+    padding: 2.4rem 2rem 0 2rem;
+    text-align: justify;
+    line-height: 2rem
+}
+
+.get-started{
+    margin-top: 2rem;
+    padding: 15px 50px;
+    background: transparent;
+    border: 2px solid #0c0f10;
+    color: #0c0f10;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+.get-started:hover{
+    border: 2px solid #908d75;
+    color: #908d75;
+}
+
+.hero{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 70px;
+    /* background-color: #e7e3d0; */
+}
+
+.hero-gif {
+    margin-left: 3rem;
+    padding-left: 4rem;
+}
+
+.hero-gif img {
+    width: 580px;
+}

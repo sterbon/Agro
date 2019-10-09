@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:500&display=swap');
+
+.nav_links, a, .cta{
+    font-family: 'Monstserrat';
+    font-weight: 500;
+    font-size: 16px;
+    color: #0c0f10;;
+    text-decoration: none;
+}
+
+.nav-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 80px 50px 80px;
+    /* background-color: #e7e3d0; */
+}
+
+.logo{
+    color: #0c0f10;
+    cursor: pointer;
+}
+
+.logo:hover{
+    color: #908d75;
+}
+
+.nav_links-container{
+    list-style: none;
+}
+
+.nav_links-container li{
+    display: inline-block;
+    padding: 0 20px;
+}
+
+.nav_links-container li a{
+    transition: all 0.3s ease 0s;
+}
+
+.nav_links-container li a:hover{
+    color: #908d75;
+}
+
+.cta{
+    padding: 9px 25px;
+    background: transparent;
+    border: 2px solid #0c0f10;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+.cta:hover{
+    border: 2px solid #908d75;
+}

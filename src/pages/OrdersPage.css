@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:500&display=swap');
+
+.ui.header {
+    text-align: center;
+    margin: 1rem;
+}
+
+.order-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ui.button{
+    background: #0c0f10;
+    color: white;
+    font-size: 12px;
+}
+
+#btn-container{
+    margin-top: -.5rem;
+}
+
+h1.head {
+  color: rgba(38, 50, 56, 0.8);
+  text-align: center;
+  margin: 2.5rem 0;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: "Montserrat" !important;
+}
+
+.orderCard {
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+}
+
+.ui.segment.order-segment{
+    width: 80%;
+    display: block;
+    margin: 0;
+    padding: auto 10em auto 10em;
+}
+
+.ui.image.orderProduct-img{
+    width: 190px; 
+    height: auto;
+}
+
+#orderCard-container{
+    padding: 0 .5em;
+}
+
+#order-details{
+    padding-top: .8rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+#order-details h4{
+    color: #908d75;
+    font-family: "Montserrat" !important;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.order-date, #order-amtPaid{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: .5rem;
+    padding: 0 1rem;
+}
+
+.order-img-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 1rem 1rem 1rem;
+}
+
+.order-img-container img{
+    border-radius: 3px;
+}
+ 
+.order-seller h5{
+    text-align: left
+}
+
+.order-date h3{
+    font-size: 14px;
+    color: rgba(38, 50, 56, 0.9);
+    font-family: "Montserrat";
+    font-weight: 700
+}
+
+#test{
+    margin-top: 2rem;
+}
+
+#testing{
+    margin-top: 1rem;
+}
+
+#order-amtPaid h4{
+    color: rgba(38, 50, 56, 1);
+    font-family: "Montserrat";
+    font-weight: 700;
+    font-size: 14px;
+}
+
+#showOrderProducts{
+    margin-top: 1.2em;
+    text-align: center;
+}
+
+.fa-chevron-down, .fa-chevron-up{
+    margin-right: .7em;
+}
+
+#showOrderProducts h4{
+    display: inline-block;
+    color: rgba(38, 50, 56, 0.9);
+    font-family: "Montserrat";
+    font-weight: 700;
+    cursor: pointer
+}
+
+#orderProduct{
+    display: flex;
+    margin-top: 2em;
+}
+
+#orderProduct-details{
+    margin-left: -11em;
+}
+
+#orderProduct-details h4{
+    color: rgba(38, 50, 56, 0.9);
+    font-family: "Montserrat";
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: .5em;
+}
+
+#orderProduct-details h5{
+    font-size: 14px !important;
+    margin-bottom: .5em;
+    text-align: left
+}
+
+#prod-head{
+    font-size: 14px;
+    color: rgba(38, 50, 56, 0.9);
+    font-family: "Montserrat";
+    font-weight: 700;
+}
+
+/* #orderProducts-container{
+    display: none;
+} */
+
+#orderProducts-container{
+    margin-top: 2.5rem;
+}

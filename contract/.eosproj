@@ -1,0 +1,21 @@
+{
+  "main": "foodscm.cpp",
+  "contract": "foodscm",
+  "include": "",
+  "resource": "",
+  "cdt": "v1.6.2",
+  "output": "",
+  "scripts": {
+    "build": ""
+  },
+  "deploy": {
+    "target": "both",
+    "mainnet": "",
+    "kylin": "",
+    "jungle": "",
+    "local": ""
+  },
+  "test": {
+    "npmClient": ""
+  }
+}

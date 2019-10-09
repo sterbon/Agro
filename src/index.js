@@ -1,12 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.scss';
-import 'antd/dist/antd.css';
+import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-
-import {Provider} from 'react-redux';
-import {createStore, applyMiddleware} from 'redux';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
 import rootReducer from './reducers';
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from './rootSaga';
@@ -18,7 +17,9 @@ sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
     <Provider store={store}>
-        <App/>
+        <Router>
+            <App/>
+        </Router>
     </Provider>
     , document.getElementById('root'));
 

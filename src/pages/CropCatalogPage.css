@@ -1,0 +1,28 @@
+.cropCatalogContainer {
+    display: flex;
+    justify-content: space-around;
+    margin: 1rem 0;
+}
+
+.cropCatalogContainer 
+.cropCatalogFilter {
+    margin-top: 1rem;
+    width: 20%;
+}
+
+.cropCatalogContainer 
+.cropCatalogFilter h3 {
+    padding: 0 1.2rem;
+}
+
+.cropCatalogContainer 
+.cropCatalogGrid {
+    width: 75%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.cropCatalogContainer .ui.card {
+    margin: 0;
+    margin: 1rem 0rem;
+}
