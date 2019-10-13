@@ -1,4 +1,4 @@
-import { Image, Segment, Header, Label, Icon, List, Popup, Button } from "semantic-ui-react";
+import { Segment, Header, Button } from "semantic-ui-react";
 // import 'semantic-ui-css/semantic.min.css'
 import React, { Component } from 'react';
 import penny from '../static/images/penny.jpg';
@@ -28,7 +28,7 @@ class OrderCard extends Component {
                         </div>
 
                         <div className="order-img-container">
-                            <img src={penny} width="120px" height="120px" align="left"/>
+                            <img src={penny} width="120px" alt="crop" height="120px" align="left"/>
                             <div id="orderProduct-details" >
                                 <h5 id="pprice" >Qty:  1</h5>
                                 <h4>Rice Bag (100 Kg)</h4>

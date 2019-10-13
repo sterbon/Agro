@@ -1,7 +1,6 @@
 import ScatterJS from 'scatterjs-core';
 import ScatterEOS from 'scatterjs-plugin-eosjs';
 import Eos from 'eosjs';
-import eosjs from 'eosjs2'
 
 import {
     parseEOS,
@@ -14,7 +13,7 @@ let
     userAccount = null,
     userEosConnection = null;
 
-ScatterJS.plugins( new ScatterEOS() );
+ScatterJS.plugins(new ScatterEOS());
 
 const network = {
     blockchain:'eos',

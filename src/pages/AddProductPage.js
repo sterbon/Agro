@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './AddProductPage.css'
 import {
-    requestLogin,
     fetchWallet,
-    logout,
     sendTokens,
     uploadCrop
 } from '../scatter/scatter_actions';
@@ -77,7 +75,7 @@ class AddProductPage extends Component {
     }
 
     render() {
-        const { userAccount, loggedIn, userWallet } = this.props.scatter;
+        const { loggedIn } = this.props.scatter;
 
         // const {
         //     loginUser,

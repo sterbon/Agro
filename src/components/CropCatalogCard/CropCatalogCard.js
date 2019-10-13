@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Card, Image } from 'semantic-ui-react';
+import { Button, Card } from 'semantic-ui-react';
 
 class CropCatalogCard extends Component {
     render() {

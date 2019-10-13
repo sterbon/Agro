@@ -22,21 +22,21 @@ class Nav extends Component {
                 <nav>
                     <ul className="nav_links-container">
                         <Link to="/crop_catalog">
-                            <li className="nav_links"><a href="#">Catalog</a></li>
+                            <li className="nav_links">Catalog</li>
                         </Link>
                         {loggedIn ?
                         <React.Fragment>
                             <Link to="/orders">
-                                <li className="nav_links"><a href="#">Orders</a></li>
+                                <li className="nav_links">Orders</li>
                             </Link>
                             <Link to="/add_crop">
-                                <li className="nav_links"><a href="#">Add Crop</a></li>
+                                <li className="nav_links">Add Crop</li>
                             </Link>
                         </React.Fragment> :
                         <React.Fragment></React.Fragment>
                         }
                         <Link to="/about">
-                            <li className="nav_links"><a href="#">About</a></li>
+                            <li className="nav_links">About</li>
                         </Link>
                     </ul>
                 </nav>

@@ -1,8 +1,5 @@
 import React, {Component} from 'react';
 import './send-tokens.scss';
-import {
-    Form, Input, Button,
-} from 'antd';
 
 const FormItem = Form.Item;
 
@@ -30,21 +27,7 @@ class SendTokens extends Component {
         const {toAccount, amount, memo} = this.state;
         const {submitForm} = this;
         return (
-            <Form onSubmit={submitForm}>
-                <FormItem>
-                    <Input
-                        name="toAccount" value={toAccount} placeholder="receiver account" onChange={this.inputChangeHandler}/>
-                </FormItem>
-                <FormItem>
-                    <Input type="number" name="amount" placeholder="amount EOS"value={amount} onChange={this.inputChangeHandler}/>
-                </FormItem>
-                <FormItem>
-                    <Input name="memo" value={memo} placeholder="memo" onChange={this.inputChangeHandler}/>
-                </FormItem>
-                <FormItem>
-                    <Button htmlType="submit">Send Tokens</Button>
-                </FormItem>
-            </Form>
+            <React.Fragment></React.Fragment>
         );
     }
 

@@ -11,11 +11,11 @@ function Hero()
                 <h2>Digitally</h2>
                 <p className="hero-para">Agro is the easiest and safest way to buy, sell crops online.
                    Discover new ways to monetize and scale your business online with Agro.</p>
-                <a href="#"><button className="get-started">Get Started</button></a>
+                <button className="get-started">Get Started</button>
             </div>
 
             <div className="hero-gif">
-                <img src={gif} />
+                <img src={gif} alt="temp"/>
             </div>
         </section>
     )
