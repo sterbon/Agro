@@ -2,44 +2,69 @@
 
 using namespace std;
 using namespace eosio;
-class [[eosio::contract]] foodscm : public eosio::contract {
 
+class [[eosio::contract]] foodscm : public eosio::contract {
   private:
 
-    struct [[eosio::table]] cropdata {
-        uint64_t id;
-        string crop_hash;
+    struct [[eosio::table]] cropdetails {
+        name customer;
+        string imageHash;
+        string cropName;
+        uint64_t cropAmount;
         
-        auto primary_key()const { return crop_hash; }
+        auto primary_key()const { return customer.value;}
     };
-
-    typedef eosio::multi_index<name("cropdata"), cropdata> crop_data;
-
+    
+    struct [[eosio::table]] userdata 
+    {
+      name customer;
+      string accType;
+      uint64_t tokenBalance;
+      
+      auto primary_key()const { return customer.value;}
+    };
+    
+    typedef eosio::multi_index<name("cropdetails"), cropdetails> crop_data;
+    typedef eosio::multi_index<name("userdata"), userdata> user_data;  
+  
     crop_data _cropdata;
-
+    user_data _userdata;
+  
   public:
+    using contract::contract;
 
-    foodscm( name receiver, name code, datastream<const char*> ds ):contract(receiver, code, ds),
-                       _cropdata(receiver, receiver.value){}
-
+    foodscm( name receiver, name code, datastream<const char*> ds ):
+                                                  contract(receiver, code, ds),
+                       _cropdata(receiver, receiver.value),
+                       _userdata(receiver, receiver.value){}
+    
     [[eosio::action]]
-    void uploadcrop(string text_hash) {
-      auto iter = _cropdata.find(crop_hash);
+    void userdata(name customer, string accType, uint64_t tokenBalance) {
       
-      if(iter == _cropdata.end()) {
-        _cropdata.emplace(_self, [&] (auto& row) {
-            row.id = _cropdata.available_primary_key();
-            row.crop_hash = text_hash;
-        });
-      }
-      
+      _userdata.emplace(_self, [&](auto& row){
+        row.customer = customer;
+        row.accType = accType;
+        row.tokenBalance = tokenBalance;
+      });
+    }
+                       
+    [[eosio::action]]
+    void uploadcrop(name customer, string cropName, uint64_t cropAmount, 
+                                                            string imageHash) {
+        _cropdata.emplace(_self, [&](auto& row) {
+            row.customer = customer;
+            row.cropName = cropName;
+            row.cropAmount = cropAmount;
+            row.imageHash = imageHash;
+        }); 
     }
     
     [[eosio::action]]
-    void login(name user) {
-      require_auth(user);
-      
-      
-      
+    void buycrop(name farmer, name buyer) {
+      //Transfer tokens
+      //Transfer volume
     }
 };
+
+
+
