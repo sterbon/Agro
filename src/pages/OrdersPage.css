@@ -1,51 +1,12 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:500&display=swap');
-
-.ui.header {
-    text-align: center;
-    margin: 1rem;
-}
-
-.order-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.ui.button{
-    background: #0c0f10;
-    color: white;
-    font-size: 12px;
-}
-
-#btn-container{
-    margin-top: -.5rem;
-}
-
-h1.head {
-  color: rgba(38, 50, 56, 0.8);
-  text-align: center;
-  margin: 2.5rem 0;
-  font-size: 14px;
-  font-weight: 500;
-  font-family: "Montserrat" !important;
+.order-container{
+    background: lightyellow;
 }
 
 .orderCard {
     width: 100%;
     max-width: 900px;
-    margin: auto;
-}
-
-.ui.segment.order-segment{
-    width: 80%;
-    display: block;
-    margin: 0;
-    padding: auto 10em auto 10em;
-}
-
-.ui.image.orderProduct-img{
-    width: 190px; 
-    height: auto;
+    margin: 0 auto 1rem auto;
+    padding: 2rem 0;
 }
 
 #orderCard-container{
@@ -53,19 +14,41 @@ h1.head {
 }
 
 #order-details{
-    padding-top: .8rem;
+    padding: 1rem 1rem 0 1rem;
     display: flex;
     justify-content: space-between;
 }
 
 #order-details h4{
-    color: #908d75;
-    font-family: "Montserrat" !important;
+    color: #4A8D86;
+    font-family: "Roboto";
     font-size: 12px;
     font-weight: 700;
 }
 
-.order-date, #order-amtPaid{
+#btn-container{
+    margin-top: -.5rem;
+}
+
+.ui.button{
+    background: #356A74;
+    color: white;
+    font-size: 12px;
+}
+
+.ui.button:hover{
+    background: #2F4858;
+    color: white;
+}
+
+.ui.header {
+    text-align: center;
+    padding: 4rem 2rem 2rem; 
+    color: #2F4858;
+    font-family: 'Roboto';
+}
+
+.orderDate-container, #order-amtPaid{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -74,95 +57,43 @@ h1.head {
     padding: 0 1rem;
 }
 
+.orderDate-container h3{
+    font-size: 14px;
+    color: #2F4858;
+    font-family: "Roboto";
+    font-weight: 500
+}
+
+#orderDate{
+    margin-top: 2rem;
+}
+
+#delivStatus{
+    margin-top: 1rem;
+}
+
 .order-img-container{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 2rem 1rem 1rem 1rem;
+    margin-top: 1.5rem;
 }
 
 .order-img-container img{
     border-radius: 3px;
-}
- 
-.order-seller h5{
-    text-align: left
-}
-
-.order-date h3{
-    font-size: 14px;
-    color: rgba(38, 50, 56, 0.9);
-    font-family: "Montserrat";
-    font-weight: 700
-}
-
-#test{
-    margin-top: 2rem;
-}
-
-#testing{
-    margin-top: 1rem;
-}
-
-#order-amtPaid h4{
-    color: rgba(38, 50, 56, 1);
-    font-family: "Montserrat";
-    font-weight: 700;
-    font-size: 14px;
-}
-
-#showOrderProducts{
-    margin-top: 1.2em;
-    text-align: center;
-}
-
-.fa-chevron-down, .fa-chevron-up{
-    margin-right: .7em;
-}
-
-#showOrderProducts h4{
-    display: inline-block;
-    color: rgba(38, 50, 56, 0.9);
-    font-family: "Montserrat";
-    font-weight: 700;
-    cursor: pointer
-}
-
-#orderProduct{
-    display: flex;
-    margin-top: 2em;
+    margin-left: 1rem;
 }
 
 #orderProduct-details{
-    margin-left: -11em;
+    margin-left: -12em;
+    text-align: left;
 }
 
-#orderProduct-details h4{
-    color: rgba(38, 50, 56, 0.9);
-    font-family: "Montserrat";
-    font-weight: 700;
+#orderProduct-details h4, #order-seller h4{
+    color: #2F4858;
+    font-family: "Roboto";
+    font-weight: 500;
     font-size: 14px;
     margin-bottom: .5em;
-}
-
-#orderProduct-details h5{
-    font-size: 14px !important;
-    margin-bottom: .5em;
-    text-align: left
-}
-
-#prod-head{
-    font-size: 14px;
-    color: rgba(38, 50, 56, 0.9);
-    font-family: "Montserrat";
-    font-weight: 700;
-}
-
-/* #orderProducts-container{
-    display: none;
-} */
-
-#orderProducts-container{
-    margin-top: 2.5rem;
 }

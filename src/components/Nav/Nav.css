@@ -1,56 +1,64 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:500&display=swap');
-
-.nav_links, a, .cta{
-    font-family: 'Monstserrat';
-    font-weight: 500;
-    font-size: 16px;
-    color: #0c0f10;;
-    text-decoration: none;
-}
-
 .nav-container{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    padding: 30px 80px 50px 80px;
-    /* background-color: #e7e3d0; */
+    padding-top:3rem;
 }
 
 .logo{
-    color: #0c0f10;
     cursor: pointer;
+    font-size: 50px;
+    color: #f4f4f4;
+    font-family: 'Great Vibes';
 }
 
 .logo:hover{
-    color: #908d75;
+    color: #fae69e;
+}
+
+.nav_text:hover{
+    background: #f4f4f4;
+    color: #75AE8D;
+    font-size: 14px;
+    padding: .5rem;
+    border-radius: 8px;
 }
 
 .nav_links-container{
     list-style: none;
 }
 
-.nav_links-container li{
+.nav_links, .nav_text, .cta{
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 16px;
+    color: #f4f4f4;
+    text-decoration: none;
+}
+
+.nav_links{
     display: inline-block;
     padding: 0 20px;
 }
 
-.nav_links-container li a{
-    transition: all 0.3s ease 0s;
-}
-
-.nav_links-container li a:hover{
-    color: #908d75;
+.nav_text, .logo{
+    transition: all 0.3s ease-in-out 0s;
 }
 
 .cta{
-    padding: 9px 25px;
-    background: transparent;
-    border: 2px solid #0c0f10;
+    padding: 13px 45px;
+    background: #75AE8D;
+    border: 1.3px solid #f4f4f4 ;
     cursor: pointer;
+    color: #f4f4f4;
+    border-radius: 50px;
     transition: all 0.3s ease 0s;
+    outline: none;
 }
 
 .cta:hover{
-    border: 2px solid #908d75;
+    box-shadow: 1px 1px 8px 1px #fae69e;
+    background: #f4f4f4;
+    color: #75AE8D;
 }

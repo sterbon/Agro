@@ -17,7 +17,6 @@ class App extends Component{
     render(){
         return (
             <React.Fragment>
-                <Nav />
                 <Switch>
                     <Route exact path="/" component={ HomePage } />
                     <Route path="/add_crop" component={ AddProductPage } />

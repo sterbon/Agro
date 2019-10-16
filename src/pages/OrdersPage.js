@@ -1,7 +1,7 @@
 import { Segment, Header, Button } from "semantic-ui-react";
 // import 'semantic-ui-css/semantic.min.css'
 import React, { Component } from 'react';
-import penny from '../static/images/penny.jpg';
+import penny from '../static/images/penny.png';
 import './OrdersPage.css';
 
 class OrderCard extends Component {
@@ -21,28 +21,24 @@ class OrderCard extends Component {
                             <h3>Delivery Status: Shipped</h3>
                         </div> */}
 
-                        <div className="order-date">
-                            <h3 id="test">Order Date: 30/08/2019</h3>
+                        <div className="orderDate-container">
+                            <h3 id="orderDate">Order Date: 30/08/2019</h3>
                             <h3>Expected Delivery Date: 30/08/2019</h3>
-                            <h3 id="testing">Delivery Status: Shipped</h3>
+                            <h3 id="delivStatus">Delivery Status: Shipped</h3>
                         </div>
 
                         <div className="order-img-container">
-                            <img src={penny} width="120px" alt="crop" height="120px" align="left"/>
+                            <img src={penny} width="120px" height="120px" />
                             <div id="orderProduct-details" >
-                                <h5 id="pprice" >Qty:  1</h5>
+                                <h4 id="pprice" >Qty:  1</h4>
                                 <h4>Rice Bag (100 Kg)</h4>
-                                <h5 id="pprice">Rs. 10000</h5>
+                                <h4 id="pprice">Rs. 10000</h4>
                             </div>
-
                             <div id="order-seller">
-                                <h5>Seller ID: </h5>
-                                <h5>Seller Name:</h5>
+                                <h4>Seller ID: </h4>
+                                <h4>Seller Name:</h4>
                             </div>
-                            
-
                         </div>
-                        
                     </div>
                 </Segment>
             </div>
@@ -55,11 +51,13 @@ class OrdersPage extends Component {
     render() {
         return (
             <React.Fragment>
-                <Header as='h3' dividing>
+            <div className="order-container">
+                <Header as='h2'>
                     My Orders
                 </Header>
                 <OrderCard/>
-                <OrderCard/>    
+                <OrderCard/>  
+            </div>  
             </React.Fragment>
         )
     }

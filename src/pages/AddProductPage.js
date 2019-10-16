@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './AddProductPage.css'
+import addProduct from '../static/images/addProduct.png';
 import {
     fetchWallet,
     sendTokens,
@@ -85,7 +86,94 @@ class AddProductPage extends Component {
 
         return (
             <React.Fragment>
-                <div className="addCropComponent">
+            <section className="addProduct">
+                {
+                    loggedIn && 
+                    <>
+                        <div className="addProduct-text">
+                            <h2>Agro</h2>
+                            <p className="addProduct-para">Agro is the easiest and safest way to buy, sell crops online.
+                                Discover new ways to monetize and scale your business online with Agro.</p>
+                            <div className="addProduct-img">
+                                <img src={addProduct} />
+                            </div>
+                        </div>
+
+                        <div className="addCrop-container">
+                            <h2>ADD CROP</h2>
+                            <form className="addCrop-form">
+                                <div className="crop-name">
+                                    <h4><label htmlFor="crop-name">Crop Name</label></h4>
+                                    <input 
+                                        id="pro"
+                                        type="text" 
+                                        name="crop-name"
+                                        placeholder="Crop name"
+                                        value={this.state.pname} 
+                                        onChange={(e) => {
+                                            this.setState({ pname : e.target.value }); 
+                                        }}
+                                        required
+                                    />
+                                </div>
+                                <div className="crop-descrip">
+                                    <h4><label htmlFor="crop-descrip">Description</label></h4>
+                                    <textarea 
+                                        type="text" 
+                                        name="crop-descrip"
+                                        placeholder="Crop description"
+                                    />
+                                </div>
+                                <div className="crop-price">
+                                    <h4><label htmlFor="crop-price">Price</label></h4>
+                                    <input 
+                                        id="price"
+                                        type="number" 
+                                        name="crop-price"
+                                        placeholder="Crop price"
+                                        value={this.state.price} 
+                                        onChange={(e) => { 
+                                            this.setState({ price : e.target.value }); 
+                                        }}
+                                        required
+                                    />
+                                </div>
+                                <div className="submitcrop">
+                                    <button className="cta" 
+                                        name="submit-button" 
+                                        value="Upload"
+                                        onClick={this.uploadData.bind(this)} 
+                                    >Upload</button>
+                                </div>
+                            </form>
+                        </div>
+                    </>
+                }
+            </section>
+            </React.Fragment>
+        );
+    }
+}
+
+const mapStateToProps = ({ scatter }) => {
+    return {
+        scatter,
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return { dispatch };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddProductPage);
+
+
+
+
+
+
+
+                {/* <div className="addCropComponent">
 
                   {loggedIn && 
                     <>
@@ -138,20 +226,4 @@ class AddProductPage extends Component {
                     </form>
                     </>
                   }
-                </div>
-            </React.Fragment>
-        );
-    }
-}
-
-const mapStateToProps = ({ scatter }) => {
-    return {
-        scatter,
-    };
-};
-
-const mapDispatchToProps = (dispatch) => {
-    return { dispatch };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(AddProductPage);
+                </div> */}                                 

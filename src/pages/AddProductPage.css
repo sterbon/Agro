@@ -1,4 +1,4 @@
-.addCropComponent {
+/* .addCropComponent {
     width: 96%;
     max-width: 600px;
     font-family: 'Roboto Slab';
@@ -59,4 +59,103 @@ input[type="submit"]:hover {
     display: flex;
     justify-content: flex-end;
     margin-top: 4rem;
+} */
+
+
+.addProduct{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    overflow-y: hidden ;
+}
+
+.addProduct-text{
+    flex-basis: 30%;
+    padding: 3rem 1.5rem;
+    height: 100vh;
+    background: #fae69e;
+    position: relative;
+}
+
+.addProduct-text h2{
+    font-family: 'Great Vibes';
+    font-weight: 700;
+    font-size: 55px;
+    color: #2F4858;
+    margin: 3rem 2rem 2rem;
+    text-align: left;
+}
+
+.addProduct-para{
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 18px;
+    padding: 1rem 1.2rem;
+    color: #2F4858;
+    text-decoration: none;
+    text-align: justify;
+    line-height: 2rem
+}
+
+.addProduct-img img{
+    position: absolute;
+    width: 500px;
+    top: 65.9%;
+    bottom: 0;
+    right: 0;
+    left: -4%;
+}
+
+
+.addCrop-container{
+    margin: auto;
+    width: 50%;
+    padding: 1rem;
+}
+
+.addCrop-form{
+    padding: 2rem 4rem;
+    background: powderblue;
+    border-radius: 16px;
+    text-align: left;
+    box-shadow: 0 19px 38px rgba(47, 72, 88, .30), 0 15px 12px rgba(47, 72, 88, .22);
+}
+
+.crop-price, .crop-name, .crop-descrip{
+    margin: 2rem 0;
+}
+
+.crop-price input, .crop-name input{
+    padding: .7rem 1rem;
+    width: 90%;
+    outline: none;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1.5px solid #2F4858;
+}
+
+.crop-descrip textarea{
+    padding: .7rem 1rem;
+    width: 90%;
+    outline: none;
+    font-size: 14px;
+    border-radius: 8px;
+    border: 1.5px solid #2F4858;
+}
+
+input::placeholder, textarea::placeholder{
+    color: #2F4858;
+}
+
+.submitcrop .cta{
+    padding: 15px 45px;
+    background: #2F4858;
+    border: 1.3px solid #2F4858 ;
+    cursor: pointer;
+    color: #f4f4f4;
+    border-radius: 50px;
+    transition: all 0.3s ease 0s;
+    outline: none;
+
 }

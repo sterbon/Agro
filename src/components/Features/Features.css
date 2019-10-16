@@ -1,6 +1,18 @@
 .features{
-    text-align: left;
+    text-align: center;
     margin-top: 7rem;
+}
+
+.features h1{
+    color: #fae69e;
+    font-family: 'Roboto';
+    font-size: 45px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    border-bottom: 2px solid #2F4858;
+    width: 11%;
+    margin: 5rem auto;
+    padding-bottom: 1rem;
 }
 
 .features-grid-top,.features-grid-bottom {
@@ -8,7 +20,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 0px 40px;
+    padding: 0 10.2rem;
 }
 
 .features-grid-bottom {
@@ -16,11 +28,32 @@
 }
 
 .features-card{
-    margin: 0 3.5rem;
+    background: #f4f4f4;
+    padding: 2rem;
+    box-sizing: border-box;
+    border-radius: 28px;
+    height: 370px;
+    width: 310px;
+    box-shadow: 0 19px 38px rgba(47, 72, 88, .30), 0 15px 12px rgba(47, 72, 88, .22);
+}
+
+.features-card img{
+    margin-top: 2rem;
+}
+
+.features-card h3{
+    margin-top: 1.5rem;
+    color: #75AE8D;
+    font-family: 'Roboto';
+    font-weight: 700;
 }
 
 .features-text{
-    font-size: 16px;
-    color: #908d75;
-    text-align: justify
+    font-family: 'Roboto';
+    margin-top: 1.5rem;
+    font-size: 14px;
+    font-weight: 500;
+    color: #2F4858;
+    text-align: center;
+    line-height: 1.5rem;
 }

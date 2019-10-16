@@ -18,25 +18,25 @@ class Nav extends Component {
 
         return(
             <header className="nav-container">
-                <Link to="/"><h1 className="logo">AGRO</h1></Link>
+                <Link to="/"><h1 className="logo">Agro</h1></Link>
                 <nav>
                     <ul className="nav_links-container">
                         <Link to="/crop_catalog">
-                            <li className="nav_links">Catalog</li>
+                            <li className="nav_links"><a className="nav_text" href="#">Catalog</a></li>
                         </Link>
                         {loggedIn ?
                         <React.Fragment>
                             <Link to="/orders">
-                                <li className="nav_links">Orders</li>
+                                <li className="nav_links"><a className="nav_text" href="#">Orders</a></li>
                             </Link>
                             <Link to="/add_crop">
-                                <li className="nav_links">Add Crop</li>
+                                <li className="nav_links"><a className="nav_text" href="#">Add Crops</a></li>
                             </Link>
                         </React.Fragment> :
                         <React.Fragment></React.Fragment>
                         }
                         <Link to="/about">
-                            <li className="nav_links">About</li>
+                            <li className="nav_links"><a className="nav_text" href="#">About</a></li>
                         </Link>
                     </ul>
                 </nav>
