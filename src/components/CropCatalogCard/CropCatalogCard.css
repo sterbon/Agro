@@ -1,0 +1,17 @@
+.header{
+    margin: .7rem 0 !important;
+    color: #2F4858 !important;
+    font-family: 'Roboto' !important;
+}
+
+.meta{
+    color: #356A74 !important;
+    font-family: 'Roboto' !important;
+    font-weight: 600;
+    margin-bottom: .8rem;
+}
+
+.description{
+    font: 500 13.5px 'Roboto' !important;
+    color: #2F4858 !important;
+}

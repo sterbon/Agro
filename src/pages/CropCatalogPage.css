@@ -8,6 +8,7 @@
 .cropCatalogFilter {
     margin-top: 1rem;
     width: 20%;
+    text-align: left;
 }
 
 .cropCatalogContainer 
@@ -25,4 +26,5 @@
 .cropCatalogContainer .ui.card {
     margin: 0;
     margin: 1rem 0rem;
+    text-align: center;
 }

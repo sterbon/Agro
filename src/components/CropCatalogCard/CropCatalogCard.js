@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
-import { Button, Card } from 'semantic-ui-react';
+import { Button, Card, Image } from 'semantic-ui-react';
+import './CropCatalogCard.css';
+import productImage from '../../static/images/atta.jpeg'
 
 class CropCatalogCard extends Component {
     render() {
         const { name, price, description } = this.props.crop;
         return (
             <Card>
+                <Image src={productImage} wrapped ui={false} />
                 <Card.Content>
-                    {/* <Image
-                    floated='right'
-                    size='mini'
-                    src='https://react.semantic-ui.com/images/avatar/large/steve.jpg'
-                    /> */}
                     <Card.Header>{ name }</Card.Header>
                     <Card.Meta>Rs. { price }</Card.Meta>
                     <Card.Description>

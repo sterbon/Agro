@@ -3,6 +3,7 @@ import Nav from '../components/Nav/Nav';
 import Hero from '../components/Hero/Hero';
 import Features from '../components/Features/Features';
 import HowitWorks from '../components/HowitWorks/HowitWorks';
+import Catalog from '../pages/CropCatalogPage';
 import './HomePage.css';
 
 class HomePage extends Component {
