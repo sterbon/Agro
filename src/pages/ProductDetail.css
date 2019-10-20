@@ -1,0 +1,101 @@
+.productDetail{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.productDetail-text{
+    flex-basis: 50%;
+    padding: 3rem 1rem;
+}
+
+.ui.image{
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
+    padding: 5rem;
+    margin: auto;
+}
+
+.productDetail-container{
+    margin: auto;
+    width: 50%;
+    padding: 4rem 2rem;
+    margin-left: -5rem;
+    text-align: left;
+}
+
+.subcat{
+    font: 500 14px 'Roboto';
+    padding: 0;
+    margin: 0;
+    color: #356A74;
+}
+
+.productName{
+    margin: 1rem 0;
+    padding: 0;
+    font: 400 37px 'Roboto';
+    color: #2F4858;
+}
+
+.productDescrip{
+    margin: 1rem 0 1.5rem 0;
+    padding: 0;
+    line-height: 2rem;
+    text-align: justify;
+    font-family: 'Roboto';
+    color: #2F4858;
+    font-size: 13px;
+}
+
+.productPrice h4{
+    font: 500 19px 'Roboto';
+    margin: 0;
+    padding: 0;
+    color: #356A74;
+}
+
+.addToCart .ui.button{
+    padding: .8rem;
+    font: 500 13px 'Roboto';
+    letter-spacing: 1px;
+}
+
+.misc-header{
+    margin: 0;
+    padding: 0;
+    padding-top: 1.5rem;
+    font: 500 16px 'Roboto';
+}
+
+.productMisc{
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 35rem 1rem 0
+}
+
+.productQuantity{
+    display: flex;
+    justify-content: space-between;
+    padding: 3rem 20rem 1rem 0;
+    color: #2F4858;
+}
+
+.productQuantity input{
+    width: 50%;
+    outline: none;
+    font-size: 14px;
+    border:none;
+    border-bottom: 1px solid #2F4858;
+}
+
+.productMisc-label p{
+    font: 500 14px 'Roboto';
+    color: #2F4858;
+}
+
+.productMisc-text p{
+    font: 400 14px 'Roboto';
+    color: #356A74
+}

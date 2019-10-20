@@ -8,6 +8,7 @@ import CropCatalogPage from './pages/CropCatalogPage';
 import HomePage from './pages/HomePage';
 import OrdersPage from './pages/OrdersPage';
 import AboutPage from './pages/AboutPage';
+import ProductDetail from './pages/ProductDetail';
 
 class App extends Component{
     componentDidMount() {
