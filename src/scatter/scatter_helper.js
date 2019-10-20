@@ -1,7 +1,6 @@
 import ScatterJS from 'scatterjs-core';
 import ScatterEOS from 'scatterjs-plugin-eosjs';
 import Eos from 'eosjs';
-
 import {
     parseEOS,
     toEOSString,
@@ -127,21 +126,12 @@ export const uploadCrop = (hash) => {
         }).then(notifySuccess('Uploading'));
 }
 
-
-
-//Code to get data from the table
-
-// export const getTable = () => {
-//     const rpc = new JsonRpc(endpoint);
-//     rpc.get_table_rows({
-//       "json": true,
-//       "code": "sterbon23451",   // contract who owns the table
-//       "scope": "sterbon23451",  // scope of the table
-//       "table": "cropdetails",    // name of the table as specified by the contract abi
-//       "limit": 100,
-//     }).then(result => this.setState({ noteTable: result.rows }));
-//   }
-
-//   componentDidMount = () => {
-//     this.getTable();
-//   }
+export const getCropDetailsTable = () => {
+    userEosConnection.getTableRows({
+      "json": true,
+      "code": "sterbon23451",
+      "scope": "sterbon23451",
+      "table": "cropsdetail",
+      "limit": 20,
+    }).then(result => console.log("Result :", result.rows));
+}

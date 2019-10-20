@@ -23,6 +23,7 @@ export const SCATTER_ACTIONS = {
     SEND_TOKEN_ERROR: 'SCATTER/ERRORS/SEND_TOKEN_ERROR',
 
     UPLOAD_CROP: 'UPLOAD',
+    GET_CROPS: 'GET_CROPS',
     UPLOADED: 'UPLOADED'
 };
 
@@ -47,4 +48,5 @@ export const sendTokens        = payload => ({type: SCATTER_ACTIONS.SEND_TOKEN, 
 export const tokenTransferred   = () => ({type: SCATTER_ACTIONS.SEND_TOKEN_SUCCESS});
 
 export const uploadCrop        = payload => ({type: SCATTER_ACTIONS.UPLOAD_CROP, payload});
+export const getCropDetailsTable = () => ({type: SCATTER_ACTIONS.GET_CROPS});
 export const transactionUpload = () => ({type: SCATTER_ACTIONS.UPLOAD_CROP});

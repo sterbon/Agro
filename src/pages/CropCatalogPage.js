@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import './CropCatalogPage.css';
 import FilterAccordian from '../components/FilterAccordian/FilterAccordian';
 import CropCatalogCard from '../components/CropCatalogCard/CropCatalogCard';
+import {
+    getCropDetailsTable,
+} from '../scatter/scatter_actions';
 
 class CropCatalogPage extends Component {
 
     render() {
+        this.props.dispatch(getCropDetailsTable());
         const CropDetailsList = [
             {
                 name: 'Rice',
@@ -59,4 +64,14 @@ class CropCatalogPage extends Component {
     }
 }
 
-export default CropCatalogPage;
+const mapStateToProps = ({ scatter }) => {
+    return {
+        scatter,
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return { dispatch };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CropCatalogPage);
