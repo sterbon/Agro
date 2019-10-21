@@ -24,6 +24,7 @@ class App extends Component{
                     <Route path="/crop_catalog" component={ CropCatalogPage } />
                     <Route path="/orders" component={ OrdersPage } />
                     <Route path="/about" component={ AboutPage } />
+                    <Route path="/product" component={ ProductDetail } />
                 </Switch>
             </React.Fragment>
         );
