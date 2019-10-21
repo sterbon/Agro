@@ -13,7 +13,7 @@ import {
 
 class CropCatalogPage extends Component {
     state = {
-        cropsList: null,
+        cropsList: [],
     }
 
     render() {
@@ -21,7 +21,7 @@ class CropCatalogPage extends Component {
         .then((result) => {
             this.setState({ cropsList : result.rows });
         });
-        const CropCatalogList = this.state.cropsList.map((crop) => {
+        const CropCatalogList = Object.values(this.state.cropsList).map((crop) => {
             if(!crop.sold) {
                 return <CropCatalogCard crop={crop} />
             }
