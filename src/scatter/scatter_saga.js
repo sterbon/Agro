@@ -124,9 +124,9 @@ function* getCrops(){
     }
 }
 
-function* buyCrops(){
+function* buyCrops(productId){
     try{
-        yield call(buyCrop());
+        yield call(buyCrop(productId));
     } catch(e) {
         notifyError(e.message, 1);
     }

@@ -23,14 +23,14 @@ class CropCatalogPage extends Component {
         });
         const CropCatalogList = Object.values(this.state.cropsList).map((crop) => {
             if(!crop.sold) {
-                return <CropCatalogCard crop={crop} />
+                return <CropCatalogCard crop={crop} buyCrop={(productId)=>{this.props.dispatch(buyCrop(productId))}}/>
             }
             return;
         });
 
         return (
             <React.Fragment>
-                <button onClick={()=>{this.props.dispatch(buyCrop())}}>Buy Crop</button>
+                {/* <button onClick={()=>{this.props.dispatch(buyCrop())}}>Buy Crop</button> */}
                     
                 <div className="cropCatalogContainer">
                     <div className="cropCatalogFilter">

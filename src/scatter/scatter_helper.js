@@ -126,7 +126,7 @@ export const uploadCrop = (hash) => {
         }).then(notifySuccess('Uploading'));
 }
 
-export const buyCrop = () => {
+export const buyCrop = (productId) => {
     userEosConnection.transaction({
         "blocksBehind": 3,
         "expireSeconds": 30,
@@ -136,7 +136,7 @@ export const buyCrop = () => {
               "name": "buycrop",
               "data": {
                 "buyer": userAccount.name,
-                "cropPid": "0",
+                "cropPid": productId.payload,
                 "quantity": "0.0001 JUNGLE",
                 "memo": "Buy crop"
               },

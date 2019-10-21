@@ -5,7 +5,8 @@ import productImage from '../../static/images/atta.jpeg'
 
 class CropCatalogCard extends Component {
     render() {
-        const { cropName, price, cropAmount } = this.props.crop;
+        console.log(this.props.crop);
+        const { productId, cropName, price, cropAmount } = this.props.crop;
         return (
             <Card>
                 <Image src={productImage} wrapped ui={false} />
@@ -19,8 +20,11 @@ class CropCatalogCard extends Component {
                 </Card.Content>
                 <Card.Content extra>
                     <div className='ui two buttons'>
-                    <Button basic color='green'>
-                        Show Crop Detail
+                    <Button basic 
+                        color='green'
+                        onClick={()=> this.props.buyCrop(productId)}
+                    >
+                        Buy Crop
                     </Button>
                     </div>
                 </Card.Content>
