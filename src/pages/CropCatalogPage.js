@@ -4,51 +4,29 @@ import './CropCatalogPage.css';
 import FilterAccordian from '../components/FilterAccordian/FilterAccordian';
 import CropCatalogCard from '../components/CropCatalogCard/CropCatalogCard';
 import {
-    getCropDetailsTable,
     buyCrop
 } from '../scatter/scatter_actions';
 
+import {
+    getCropDetailsTable,
+} from '../scatter/scatter_helper';
+
 class CropCatalogPage extends Component {
+    state = {
+        cropsList: null,
+    }
 
     render() {
-        // this.props.dispatch(buyCrop());
-        this.props.dispatch(getCropDetailsTable());
-        const CropDetailsList = [
-            {
-                name: 'Rice',
-                price: '20000',
-                description: 'callback is invoked with three arguments: the value of the element, the index of the element, and the Array object being traversed.'
-            },
-            {
-                name: 'Chilli',
-                price: '2000',
-                description: 'callback is invoked with three arguments: the value of the element, the index of the element, and the Array object being traversed.'
-            },
-            {
-                name: 'Wheat',
-                price: '20000',
-                description: 'callback is invoked with three arguments: the value of the element, the index of the element, and the Array object being traversed.'
-            },
-            {
-                name: 'Coffee',
-                price: '50000',
-                description: 'callback is invoked with three arguments: the value of the element, the index of the element, and the Array object being traversed.'
-            },
-            {
-                name: 'Tea',
-                price: '10000',
-                description: 'callback is invoked with three arguments: the value of the element, the index of the element, and the Array object being traversed.'
-            },
-            {
-                name: 'X',
-                price: '200',
-                description: 'callback is invoked with three arguments: the value of the element, the index of the element, and the Array object being traversed.'
-            },
-        ];
-    
-        const CropCatalogList = CropDetailsList.map((crop) => 
-            <CropCatalogCard crop={crop} />
-        );
+        getCropDetailsTable()
+        .then((result) => {
+            this.setState({ cropsList : result.rows });
+        });
+        const CropCatalogList = this.state.cropsList.map((crop) => {
+            if(!crop.sold) {
+                return <CropCatalogCard crop={crop} />
+            }
+            return;
+        });
 
         return (
             <React.Fragment>

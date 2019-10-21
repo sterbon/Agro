@@ -5,15 +5,16 @@ import productImage from '../../static/images/atta.jpeg'
 
 class CropCatalogCard extends Component {
     render() {
-        const { name, price, description } = this.props.crop;
+        const { cropName, price, cropAmount } = this.props.crop;
         return (
             <Card>
                 <Image src={productImage} wrapped ui={false} />
                 <Card.Content>
-                    <Card.Header>{ name }</Card.Header>
+                    <Card.Header>{ cropName }</Card.Header>
                     <Card.Meta>Rs. { price }</Card.Meta>
+                    <Card.Meta>{ cropAmount } Kg</Card.Meta>
                     <Card.Description>
-                        { description }
+                        lorem ipsum
                     </Card.Description>
                 </Card.Content>
                 <Card.Content extra>

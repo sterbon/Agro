@@ -118,6 +118,7 @@ function* uploadTrans(hash){
 function* getCrops(){
     try{
         yield call(getCropDetailsTable());
+
     } catch(e) {
         notifyError(e.message, 1);
     }

@@ -135,14 +135,14 @@ export const buyCrop = () => {
               "account": "sterbon23451",
               "name": "buycrop",
               "data": {
-                "buyer": "playerspider",
+                "buyer": userAccount.name,
                 "cropPid": "0",
                 "quantity": "0.0001 JUNGLE",
-                "memo": "Test"
+                "memo": "Buy crop"
               },
               "authorization": [
                 {
-                  "actor": "playerspider",
+                  "actor": userAccount.name,
                   "permission": "active"
                 }
               ]
@@ -152,11 +152,11 @@ export const buyCrop = () => {
 }
 
 export const getCropDetailsTable = () => {
-    userEosConnection.getTableRows({
+    return userEosConnection.getTableRows({
       "json": true,
       "code": "sterbon23451",
       "scope": "sterbon23451",
       "table": "cropsdetail",
       "limit": 20,
-    }).then(result => console.log("Result :", result.rows));
+    });
 }
