@@ -22,6 +22,7 @@ import {
     sendTokens,
     uploadCrop,
     getCropDetailsTable,
+    buyCrop,
 } from "./scatter_helper";
 
 import {
@@ -122,6 +123,14 @@ function* getCrops(){
     }
 }
 
+function* buyCrops(){
+    try{
+        yield call(buyCrop());
+    } catch(e) {
+        notifyError(e.message, 1);
+    }
+}
+
 export default function*  missionsSagas(){
     yield takeLatest(SCATTER_ACTIONS.CONNECT, connectWithScatter);
     yield takeLatest(SCATTER_ACTIONS.ATTEMPT_AUTO_LOGIN, attemptAutoLoginWithScatter);
@@ -131,4 +140,5 @@ export default function*  missionsSagas(){
     yield takeLatest(SCATTER_ACTIONS.SEND_TOKEN, transferTokens);
     yield takeLatest(SCATTER_ACTIONS.UPLOAD_CROP, uploadTrans);
     yield takeLatest(SCATTER_ACTIONS.GET_CROPS, getCrops);
+    yield takeLatest(SCATTER_ACTIONS.BUY_CROP, buyCrops);
 }

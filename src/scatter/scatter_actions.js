@@ -24,6 +24,7 @@ export const SCATTER_ACTIONS = {
 
     UPLOAD_CROP: 'UPLOAD',
     GET_CROPS: 'GET_CROPS',
+    BUY_CROP: 'BUY_CROP',
     UPLOADED: 'UPLOADED'
 };
 
@@ -49,4 +50,5 @@ export const tokenTransferred   = () => ({type: SCATTER_ACTIONS.SEND_TOKEN_SUCCE
 
 export const uploadCrop        = payload => ({type: SCATTER_ACTIONS.UPLOAD_CROP, payload});
 export const getCropDetailsTable = () => ({type: SCATTER_ACTIONS.GET_CROPS});
+export const buyCrop        = payload => ({type: SCATTER_ACTIONS.BUY_CROP, payload});
 export const transactionUpload = () => ({type: SCATTER_ACTIONS.UPLOAD_CROP});

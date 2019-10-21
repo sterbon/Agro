@@ -13,7 +13,6 @@ const INITIAL_STATE = {
     userWallet      : null,
     fetchingWallet  : false,
     walletError     : null,
-
     sendingTokens   : false
 };
 

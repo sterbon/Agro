@@ -5,11 +5,13 @@ import FilterAccordian from '../components/FilterAccordian/FilterAccordian';
 import CropCatalogCard from '../components/CropCatalogCard/CropCatalogCard';
 import {
     getCropDetailsTable,
+    buyCrop
 } from '../scatter/scatter_actions';
 
 class CropCatalogPage extends Component {
 
     render() {
+        // this.props.dispatch(buyCrop());
         this.props.dispatch(getCropDetailsTable());
         const CropDetailsList = [
             {
@@ -50,6 +52,8 @@ class CropCatalogPage extends Component {
 
         return (
             <React.Fragment>
+                <button onClick={()=>{this.props.dispatch(buyCrop())}}>Buy Crop</button>
+                    
                 <div className="cropCatalogContainer">
                     <div className="cropCatalogFilter">
                         <h3>FILTER</h3>

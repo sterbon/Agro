@@ -126,6 +126,31 @@ export const uploadCrop = (hash) => {
         }).then(notifySuccess('Uploading'));
 }
 
+export const buyCrop = () => {
+    userEosConnection.transaction({
+        "blocksBehind": 3,
+        "expireSeconds": 30,
+        "actions": [
+            {
+              "account": "sterbon23451",
+              "name": "buycrop",
+              "data": {
+                "buyer": "playerspider",
+                "cropPid": "0",
+                "quantity": "0.0001 JUNGLE",
+                "memo": "Test"
+              },
+              "authorization": [
+                {
+                  "actor": "playerspider",
+                  "permission": "active"
+                }
+              ]
+            }
+          ]
+    }).then(notifySuccess('Uploading'));
+}
+
 export const getCropDetailsTable = () => {
     userEosConnection.getTableRows({
       "json": true,
