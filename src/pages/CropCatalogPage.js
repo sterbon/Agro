@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import './CropCatalogPage.css';
 import FilterAccordian from '../components/FilterAccordian/FilterAccordian';
 import CropCatalogCard from '../components/CropCatalogCard/CropCatalogCard';
+import SecondaryNav from '../components/SecondaryNav/SecondaryNav';
 import {
     buyCrop
 } from '../scatter/scatter_actions';
@@ -21,6 +22,7 @@ class CropCatalogPage extends Component {
         .then((result) => {
             this.setState({ cropsList : result.rows });
         });
+        
         const CropCatalogList = Object.values(this.state.cropsList).map((crop) => {
             if(!crop.sold) {
                 return <CropCatalogCard crop={crop} buyCrop={(productId)=>{this.props.dispatch(buyCrop(productId))}}/>
@@ -31,7 +33,7 @@ class CropCatalogPage extends Component {
         return (
             <React.Fragment>
                 {/* <button onClick={()=>{this.props.dispatch(buyCrop())}}>Buy Crop</button> */}
-                    
+                <SecondaryNav />    
                 <div className="cropCatalogContainer">
                     <div className="cropCatalogFilter">
                         <h3>FILTER</h3>

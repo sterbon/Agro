@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import SecondaryNav from '../components/SecondaryNav/SecondaryNav';
 import './AboutPage.css';
 
 class AboutPage extends Component {
     render() {
         return (
             <React.Fragment>
+                <SecondaryNav />
                 <h3>About Agro</h3>
                 <div className="about-content">
                     With a population of greater than 1.3 billion, India is the second most populous nation in the

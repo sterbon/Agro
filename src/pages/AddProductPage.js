@@ -19,8 +19,8 @@ class AddProductPage extends Component {
             connectingScatter: false,
             requestedTransaction: false,
             connectedNetworkName: null,
-            pname: null,
-            price: null,
+            pname: "",
+            price: undefined,
             loggedIn: false,
             userAccount: {
                 name: null,
@@ -32,7 +32,6 @@ class AddProductPage extends Component {
 
     };
 
-    // loginUser = () => this.props.dispatch(requestLogin());
     uploadDetails = (hash) => this.props.dispatch(uploadCrop(hash));
 
     static getDerivedStateFromProps(props) {
@@ -47,8 +46,6 @@ class AddProductPage extends Component {
     sendTokens = ({ toAccount, amount, memo }) => {
         this.props.dispatch(sendTokens({ toAccount, amount, memo }))
     };
-
-    // logOutUser = () => this.props.dispatch(logout());
 
     uploadData() {
         // const ipfs = new IPFS.create()
@@ -77,12 +74,6 @@ class AddProductPage extends Component {
 
     render() {
         const { loggedIn } = this.props.scatter;
-
-        // const {
-        //     loginUser,
-        //     sendTokens,
-        //     logOutUser,
-        // } = this;
 
         return (
             <React.Fragment>

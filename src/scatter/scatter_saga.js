@@ -21,7 +21,7 @@ import {
     logout,
     sendTokens,
     uploadCrop,
-    getCropDetailsTable,
+    // getCropDetailsTable,
     buyCrop,
 } from "./scatter_helper";
 
@@ -115,14 +115,14 @@ function* uploadTrans(hash){
     }
 }
 
-function* getCrops(){
-    try{
-        yield call(getCropDetailsTable());
+// function* getCrops(){
+//     try{
+//         yield call(getCropDetailsTable());
 
-    } catch(e) {
-        notifyError(e.message, 1);
-    }
-}
+//     } catch(e) {
+//         notifyError(e.message, 1);
+//     }
+// }
 
 function* buyCrops(productId){
     try{
@@ -140,6 +140,6 @@ export default function*  missionsSagas(){
     yield takeLatest(SCATTER_ACTIONS.LOG_OUT, logOutUser);
     yield takeLatest(SCATTER_ACTIONS.SEND_TOKEN, transferTokens);
     yield takeLatest(SCATTER_ACTIONS.UPLOAD_CROP, uploadTrans);
-    yield takeLatest(SCATTER_ACTIONS.GET_CROPS, getCrops);
+    // yield takeLatest(SCATTER_ACTIONS.GET_CROPS, getCrops);
     yield takeLatest(SCATTER_ACTIONS.BUY_CROP, buyCrops);
 }
