@@ -1,20 +1,58 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import './SecondaryNav.css'
+import {
+    requestLogin,
+    logout,
+} from '../../scatter/scatter_actions';
 
-function SecondaryNav(){
-    return(
-        <header className="secondary-nav-container">
-            <h1 className="secondary-logo">Agro</h1>
-            <nav>
-                <ul className="secondary-nav_links-container">
-                    <li className="secondary-nav_links"><a className="secondary-nav_text" href="#">Home</a></li>
-                    <li className="secondary-nav_links"><a className="secondary-nav_text" href="#">Why Us</a></li>
-                    <li className="secondary-nav_links"><a className="secondary-nav_text" href="#">How It Works</a></li>
-                </ul>
-            </nav>
-            <a href="#"><button className="secondary-cta">Login</button></a>
-        </header>
-    )
+class SecondaryNav extends Component {
+    loginUser = () => this.props.dispatch(requestLogin());
+    logOutUser = () => {
+        this.props.dispatch(logout());
+    };
+
+    render() {
+        const { loggedIn } = this.props.scatter;
+
+        return(
+            <header className="secondary-nav-container">
+                <Link to="/">
+                    <h1 className="secondary-logo">Agro</h1>
+                </Link>
+                <nav>
+                    <ul className="secondary-nav_links-container">
+                        <Link to="/">
+                            <li className="secondary-nav_links"><p className="secondary-nav_text" href="#">Home</p></li>
+                        </Link>
+                        <Link to="/crop_catalog">
+                            <li className="secondary-nav_links"><p className="secondary-nav_text" href="#">Catalog</p></li>
+                        </Link>
+                        <Link to="/crop_tracking">
+                            <li className="secondary-nav_links"><p className="secondary-nav_text" href="#">Track</p></li>
+                        </Link>
+                    </ul>
+                </nav>
+                
+                {loggedIn ?
+                    <button className="secondary-cta" onClick={this.logOutUser.bind(this)} value="LOG OUT" >Logout</button> : 
+                    <button className="secondary-cta" onClick={this.loginUser.bind(this)} value="LOG IN" >Login</button>
+                }
+                
+            </header>
+        )
+    }
 }
 
-export default SecondaryNav;
+const mapStateToProps = ({ scatter }) => {
+    return {
+        scatter,
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return { dispatch };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SecondaryNav);

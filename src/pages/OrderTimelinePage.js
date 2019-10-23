@@ -54,7 +54,10 @@ class OrderTimelinePage extends Component {
         const { cropId, cropDetails } = this.state;
         // console.log("Crop Detail: ", cropDetails);
         let timeline = null;
-        if(cropDetails) {
+        if(cropId === "") {
+            timeline = <p className="error-timeline">Enter valid crop ID!</p>
+        }
+        else if(cropDetails && (cropDetails.productId == cropId)) {
             timeline = <Timeline cropDetails={cropDetails}/>;
         }
         else if(cropDetails === undefined) {

@@ -7,7 +7,7 @@ class AboutPage extends Component {
         return (
             <React.Fragment>
                 <SecondaryNav />
-                <h3>About Agro</h3>
+                <h3 className="about-title">About Agro</h3>
                 <div className="about-content">
                     With a population of greater than 1.3 billion, India is the second most populous nation in the
                     world. And with such a big population, dividing and sustainable use of resources is necessary.

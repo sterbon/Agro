@@ -122,11 +122,11 @@ input[type="submit"]:hover {
     box-shadow: 0 19px 38px rgba(47, 72, 88, .30), 0 15px 12px rgba(47, 72, 88, .22);
 }
 
-.crop-price, .crop-name, .crop-descrip{
+.crop-price, .crop-name, .crop-amount{
     margin: 2rem 0;
 }
 
-.crop-price input, .crop-name input{
+.crop-price input, .crop-name input, .crop-amount input{
     padding: .7rem 1rem;
     width: 90%;
     outline: none;

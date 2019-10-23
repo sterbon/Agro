@@ -9,13 +9,13 @@ class CropCatalogCard extends Component {
         const { productId, cropName, price, cropAmount } = this.props.crop;
         return (
             <Card>
-                <Image src={productImage} wrapped ui={false} />
+                {/* <Image src={productImage} wrapped ui={false} /> */}
                 <Card.Content>
                     <Card.Header>{ cropName }</Card.Header>
                     <Card.Meta>Rs. { price }</Card.Meta>
                     <Card.Meta>{ cropAmount } Kg</Card.Meta>
                     <Card.Description>
-                        lorem ipsum
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                     </Card.Description>
                 </Card.Content>
                 <Card.Content extra>
