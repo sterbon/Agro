@@ -157,11 +157,30 @@ export const buyCrop = (productId) => {
 }
 
 export const getCropDetailsTable = () => {
-    return userEosConnection.getTableRows({
-      "json": true,
-      "code": "sterbon23451",
-      "scope": "sterbon23451",
-      "table": "cropsdetail",
-      "limit": 20,
-    });
+    try {
+        return userEosConnection.getTableRows({
+        "json": true,
+        "code": "sterbon23451",
+        "scope": "sterbon23451",
+        "table": "cropsdetail",
+        "limit": 20,
+        });
+    } catch(err) {
+        console.error(err);
+    }
+}
+
+export const getDetailsByCropId = (cropId) => {
+    try {
+        return userEosConnection.getTableRows({
+            "json": true,
+            "code": "sterbon23451",
+            "scope": "sterbon23451",
+            "table": "cropsdetail",
+            "limit": 1,
+            "lower_bound": cropId,
+        });
+    } catch(err) {
+        console.error(err);
+    }
 }

@@ -18,25 +18,40 @@ class Nav extends Component {
 
         return(
             <header className="nav-container">
-                <Link to="/"><h1 className="logo">Agro</h1></Link>
+                <Link to="/">
+                    <h1 className="logo">Agro</h1>
+                </Link>
                 <nav>
                     <ul className="nav_links-container">
                         <Link to="/crop_catalog">
-                            <li className="nav_links"><a className="nav_text" href="#">Catalog</a></li>
+                            <li className="nav_links">
+                                <p className="nav_text" >Catalog</p>
+                            </li>
                         </Link>
                         {loggedIn ?
                         <React.Fragment>
                             <Link to="/orders">
-                                <li className="nav_links"><a className="nav_text" href="#">Orders</a></li>
+                                <li className="nav_links">
+                                    <p className="nav_text" >Orders</p>
+                                </li>
                             </Link>
                             <Link to="/add_crop">
-                                <li className="nav_links"><a className="nav_text" href="#">Add Crops</a></li>
+                                <li className="nav_links">
+                                    <p className="nav_text" >Add Crops</p>
+                                </li>
+                            </Link>
+                            <Link to="/crop_tracking">
+                                <li className="nav_links">
+                                    <p className="nav_text" >Track</p>
+                                </li>
                             </Link>
                         </React.Fragment> :
                         <React.Fragment></React.Fragment>
                         }
                         <Link to="/about">
-                            <li className="nav_links"><a className="nav_text" href="#">About</a></li>
+                            <li className="nav_links">
+                                <p className="nav_text" >About</p>
+                            </li>
                         </Link>
                     </ul>
                 </nav>

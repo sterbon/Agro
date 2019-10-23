@@ -64,12 +64,6 @@ class AddProductPage extends Component {
     render() {
         const { loggedIn } = this.props.scatter;
 
-        // const {
-        //     loginUser,
-        //     sendTokens,
-        //     logOutUser,
-        // } = this;
-
         return (
             <React.Fragment>
             <section className="addProduct">

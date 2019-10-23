@@ -1,6 +1,7 @@
 import { Segment, Header, Button } from "semantic-ui-react";
 // import 'semantic-ui-css/semantic.min.css'
 import React, { Component } from 'react';
+import SecondaryNav from '../components/SecondaryNav/SecondaryNav';
 import penny from '../static/images/penny.png';
 import './OrdersPage.css';
 
@@ -51,13 +52,14 @@ class OrdersPage extends Component {
     render() {
         return (
             <React.Fragment>
-            <div className="order-container">
-                <Header as='h2'>
-                    My Orders
-                </Header>
-                <OrderCard/>
-                <OrderCard/>  
-            </div>  
+                <SecondaryNav />
+                <div className="order-container">
+                    <Header as='h2'>
+                        My Orders
+                    </Header>
+                    <OrderCard/>
+                    <OrderCard/>  
+                </div>  
             </React.Fragment>
         )
     }
