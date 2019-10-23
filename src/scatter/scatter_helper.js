@@ -103,8 +103,8 @@ export const getWallet = () => {
     });
 };
 
-export const uploadCrop = (hash) => {
-    console.log()
+export const uploadCrop = (data) => {
+    // console.log(data)
     userEosConnection.transaction({
         "blocksBehind": 3,
         "expireSeconds": 30,
@@ -112,21 +112,26 @@ export const uploadCrop = (hash) => {
             {
               "account": "sterbon23451",
               "name": "uploadcrop",
+              "data": {
+                "producer": userAccount.name,
+                "cropName": data.payload.pname,
+                "cropAmount": data.payload.camount,
+                "imageHash": "QmImageHash",
+                "price": data.payload.price 
+              },
               "authorization": [
                 {
                   "actor": userAccount.name,
                   "permission": "active"
                 }
-              ],
-              "data": {
-                "text_hash": hash.payload
-              },
+              ]
             }
           ]
         }).then(notifySuccess('Uploading'));
 }
 
 export const buyCrop = (productId) => {
+    console.log(productId)
     userEosConnection.transaction({
         "blocksBehind": 3,
         "expireSeconds": 30,
@@ -137,7 +142,7 @@ export const buyCrop = (productId) => {
               "data": {
                 "buyer": userAccount.name,
                 "cropPid": productId.payload,
-                "quantity": "0.0001 JUNGLE",
+                "price": "1 EOS",
                 "memo": "Buy crop"
               },
               "authorization": [

@@ -107,9 +107,9 @@ function* transferTokens(action){
     }
 }
 
-function* uploadTrans(hash){
+function* uploadTrans(data){
     try{
-        yield call(uploadCrop(hash));
+        yield call(uploadCrop(data));
     } catch(e) {
         notifyError(e.message, 5);
     }

@@ -21,6 +21,7 @@ class AddProductPage extends Component {
             connectedNetworkName: null,
             pname: null,
             price: null,
+            camount: null,
             loggedIn: false,
             userAccount: {
                 name: null,
@@ -33,7 +34,7 @@ class AddProductPage extends Component {
     };
 
     // loginUser = () => this.props.dispatch(requestLogin());
-    uploadDetails = (hash) => this.props.dispatch(uploadCrop(hash));
+    uploadDetails = (data) => this.props.dispatch(uploadCrop(data));
 
     static getDerivedStateFromProps(props) {
         const
@@ -50,30 +51,15 @@ class AddProductPage extends Component {
 
     // logOutUser = () => this.props.dispatch(logout());
 
-    uploadData() {
+    uploadData(e) {
+        e.preventDefault();
         // const ipfs = new IPFS.create()
         const ipfs = new IPFS({ host: 'ipfs.infura.io', port: 5001, protocol: 'https' });
-        const {pname, price} = this.state;      
-        const data = { pname, price };
-
-        console.log('data',data)
-        var buf = Buffer.from(JSON.stringify(data));
-        console.log('Buffer', buf)
-
-        console.time()
-        ipfs.files.add(buf, (error, result) => {
-            if (error) {
-                console.error(error)
-                console.log("err")
-                return
-            }
-            console.log("Hash:", result[0].hash)
-            console.timeEnd()
-            this.setState({hash: result[0].hash})
-            console.log(this.state.hash)
-            this.uploadDetails(this.state.hash)
-        })
+        const {pname, price, camount} = this.state;      
+        const data = { pname, price, camount };
+        this.uploadDetails(data);
     }
+    
 
     render() {
         const { loggedIn } = this.props.scatter;
@@ -116,14 +102,14 @@ class AddProductPage extends Component {
                                         required
                                     />
                                 </div>
-                                <div className="crop-descrip">
+                                {/* <div className="crop-descrip">
                                     <h4><label htmlFor="crop-descrip">Description</label></h4>
                                     <textarea 
                                         type="text" 
                                         name="crop-descrip"
                                         placeholder="Crop description"
                                     />
-                                </div>
+                                </div> */}
                                 <div className="crop-price">
                                     <h4><label htmlFor="crop-price">Price</label></h4>
                                     <input 
@@ -134,6 +120,20 @@ class AddProductPage extends Component {
                                         value={this.state.price} 
                                         onChange={(e) => { 
                                             this.setState({ price : e.target.value }); 
+                                        }}
+                                        required
+                                    />
+                                </div>
+                                <div className="crop-amount">
+                                    <h4><label htmlFor="crop-price">Amount in Kgs</label></h4>
+                                    <input 
+                                        id="amount"
+                                        type="number" 
+                                        name="crop-amount"
+                                        placeholder="Crop Amount"
+                                        value={this.state.camount} 
+                                        onChange={(e) => { 
+                                            this.setState({ camount : e.target.value }); 
                                         }}
                                         required
                                     />

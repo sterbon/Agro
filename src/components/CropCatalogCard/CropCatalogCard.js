@@ -5,7 +5,7 @@ import productImage from '../../static/images/atta.jpeg'
 
 class CropCatalogCard extends Component {
     render() {
-        console.log(this.props.crop);
+        // console.log(this.props.crop);
         const { productId, cropName, price, cropAmount } = this.props.crop;
         return (
             <Card>
