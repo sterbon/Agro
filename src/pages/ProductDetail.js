@@ -1,10 +1,27 @@
 import React from 'react';
 import './ProductDetail.css';
-import { Image, Button } from 'semantic-ui-react'    
+import { Image, Button, Dropdown, Input } from 'semantic-ui-react'    
 import addProduct from '../static/images/atta.jpeg';
 
 
 function ProductDetail() { 
+    const friendOptions = [
+        {
+          key: 'Jenny Hess',
+          text: 'Jenny Hess',
+          value: 'Jenny Hess',
+        },
+        {
+          key: 'Elliot Fu',
+          text: 'Elliot Fu',
+          value: 'Elliot Fu',
+        },
+        {
+          key: 'Stevie Feliciano',
+          text: 'Stevie Feliciano',
+          value: 'Stevie Feliciano',
+        }
+      ]
     return( 
         <section className="productDetail">
             <div className="productDetail-text">
@@ -29,12 +46,19 @@ function ProductDetail() {
             </div>
             <div className="productQuantity">
                 <h4>Quantity</h4>
-                <input 
-                        id="price"
-                        type="number" 
-                        name="crop-price"
-                        placeholder="Crop price"
-                        required
+                <Input
+                    label={{ basic: true, content: 'kg' }}
+                    labelPosition='right'
+                    placeholder='Enter weight...'
+                />
+            </div>
+            <div className="selectProducer">
+                <h4>Quantity</h4>
+                <Dropdown
+                    placeholder='Select Producer'
+                    fluid
+                    selection
+                    options={friendOptions}
                 />
             </div>
             <h4 className="misc-header">About the Product</h4>
