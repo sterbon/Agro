@@ -62,32 +62,36 @@
     letter-spacing: 1px;
 }
 
+.productQuantity, .selectProducer{
+    display: flex;
+    padding: 3rem 20rem 1rem 0;
+    color: #2F4858;
+}
+
+.productQuantity h4, .selectProducer h4{
+    padding-top: .4rem;
+}
+
+.productQuantity .ui.input, .selectProducer .ui.dropdown{
+    width: 70%;
+    outline: none;
+    font-size: 14px;
+    margin: 0 0 0 5rem
+
+}
+
 .misc-header{
     margin: 0;
     padding: 0;
-    padding-top: 1.5rem;
-    font: 500 16px 'Roboto';
+    padding-top: 2.8rem;
+    font: 500 17px 'Roboto';
+    color: #2F4858;
 }
 
 .productMisc{
     display: flex;
     justify-content: space-between;
     padding: 2rem 35rem 1rem 0
-}
-
-.productQuantity{
-    display: flex;
-    justify-content: space-between;
-    padding: 3rem 20rem 1rem 0;
-    color: #2F4858;
-}
-
-.productQuantity input{
-    width: 50%;
-    outline: none;
-    font-size: 14px;
-    border:none;
-    border-bottom: 1px solid #2F4858;
 }
 
 .productMisc-label p{
