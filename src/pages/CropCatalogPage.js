@@ -21,11 +21,14 @@ class CropCatalogPage extends Component {
         
         getCropDetailsTable()
         .then((result) => {
+            // console.log("Rows: ", result.rows)
+
             Object.values(result.rows).forEach((crop) => {
                 if(!crop.sold) {
                     const cropName = crop.cropName.trim();
                     const { cropCatalogList } = this.state;
                     if(cropName in cropCatalogList) {
+                        cropCatalogList[cropName].productId.push(crop.productId);
                         cropCatalogList[cropName].producer.push(crop.producer);
                         cropCatalogList[cropName].cropAmount.push(crop.cropAmount);
                         cropCatalogList[cropName].price.push(crop.price);
@@ -37,6 +40,7 @@ class CropCatalogPage extends Component {
                             cropCatalogList : {
                                 ...cropCatalogList,
                                 [cropName] : {
+                                    productId: [crop.productId],
                                     producer: [crop.producer],
                                     cropAmount: [crop.cropAmount],
                                     price: [crop.price],
@@ -50,8 +54,7 @@ class CropCatalogPage extends Component {
     }
     
     render() {
-        
-        console.log("Render Catalog", this.state.cropCatalogList);
+        // console.log("Render Catalog", this.state.cropCatalogList);
         
         let CropCatalogElement = null;
 
@@ -76,10 +79,10 @@ class CropCatalogPage extends Component {
                 {/* <button onClick={()=>{this.props.dispatch(buyCrop())}}>Buy Crop</button> */}
                 <SecondaryNav />    
                 <div className="cropCatalogContainer">
-                    <div className="cropCatalogFilter">
+                    {/* <div className="cropCatalogFilter">
                         <h3>FILTER</h3>
                         <FilterAccordian />
-                    </div>
+                    </div> */}
                     <div className="cropCatalogGrid">
                         { CropCatalogElement }
                     </div>

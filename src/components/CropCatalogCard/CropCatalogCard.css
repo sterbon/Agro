@@ -4,6 +4,16 @@
     font-family: 'Roboto' !important;
 }
 
+.cropCatalogGrid 
+.ui.card>.image img {
+    height: 240px;
+}
+
+.cropCatalogGrid 
+.ui.card>.content {
+    padding: 0.5rem;
+} 
+
 .meta{
     color: #356A74 !important;
     font-family: 'Roboto' !important;

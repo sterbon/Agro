@@ -24,13 +24,13 @@ class SecondaryNav extends Component {
                 <nav>
                     <ul className="secondary-nav_links-container">
                         <Link to="/">
-                            <li className="secondary-nav_links"><p className="secondary-nav_text" href="#">Home</p></li>
+                            <li className="secondary-nav_links"><p className="secondary-nav_text">Home</p></li>
                         </Link>
                         <Link to="/crop_catalog">
-                            <li className="secondary-nav_links"><p className="secondary-nav_text" href="#">Catalog</p></li>
+                            <li className="secondary-nav_links"><p className="secondary-nav_text">Catalog</p></li>
                         </Link>
                         <Link to="/crop_tracking">
-                            <li className="secondary-nav_links"><p className="secondary-nav_text" href="#">Track</p></li>
+                            <li className="secondary-nav_links"><p className="secondary-nav_text">Track</p></li>
                         </Link>
                     </ul>
                 </nav>
