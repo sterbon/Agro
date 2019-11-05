@@ -1,8 +1,7 @@
 #include <eosio/asset.hpp>
 #include <eosio/eosio.hpp>
 #include <eosio/transaction.hpp>
-#include <eosiolib/crypto.h>
-
+#include <eosio/crypto.hpp>
 
 using namespace std;
 using namespace eosio;
@@ -23,19 +22,19 @@ class [[eosio::contract]] foodscm : public eosio::contract {
         auto primary_key()const { return productId;}
     };
     
-    struct [[eosio::table]] transdetail {
-      uint64_t productId;
-      capi_checksum256 transactionID;
-
-      auto primary_key()const { return productId;}
-    };
-
     struct [[eosio::table]] userdata {
       name customer;
       string accType;
       uint64_t tokenBalance;
 
       auto primary_key()const { return customer.value;}
+    };
+
+    struct [[eosio::table]] transdetail {
+      uint64_t productId;
+      checksum256 transactionID;
+
+      auto primary_key()const { return productId;}
     };
     
     typedef eosio::multi_index<name("cdetail"), cropdetails> crop_data;
@@ -54,16 +53,14 @@ class [[eosio::contract]] foodscm : public eosio::contract {
                        _userdata(receiver, receiver.value),
                        _transdetail(receiver, receiver.value){}
     
-    capi_checksum256 get_trx_id() {
+    checksum256 get_trx_id() {
         size_t size = transaction_size();
         char buf[size];
-        capi_checksum256 h;
         size_t read = read_transaction( buf, size );
         check( size == read, "read_transaction failed");
-        sha256(buf, read, &h);
-        return h;
+        return sha256(buf, read); 
     }
-
+    
     [[eosio::action]]
     void userdata(name customer, string accType, uint64_t tokenBalance) {
       
@@ -89,8 +86,7 @@ class [[eosio::contract]] foodscm : public eosio::contract {
       }); 
     }
     
-    
-  [[eosio::action]]
+ [[eosio::action]]
     void buycrop(name buyer, uint64_t cropPid, asset price, string memo) 
     {
         auto itr = _cropdata.find(cropPid);
