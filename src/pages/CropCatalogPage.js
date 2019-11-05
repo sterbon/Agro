@@ -13,23 +13,64 @@ import {
 } from '../scatter/scatter_helper';
 
 class CropCatalogPage extends Component {
-    state = {
-        cropsList: [],
-    }
-
-    render() {
+    constructor(props) {
+        super(props);
+        this.state = {
+            cropCatalogList: {},
+        }
+        
         getCropDetailsTable()
         .then((result) => {
-            this.setState({ cropsList : result.rows });
+            Object.values(result.rows).forEach((crop) => {
+                if(!crop.sold) {
+                    const cropName = crop.cropName.trim();
+                    const { cropCatalogList } = this.state;
+                    if(cropName in cropCatalogList) {
+                        cropCatalogList[cropName].producer.push(crop.producer);
+                        cropCatalogList[cropName].cropAmount.push(crop.cropAmount);
+                        cropCatalogList[cropName].price.push(crop.price);
+                        
+                        this.setState({ cropCatalogList });
+                    }
+                    else{
+                        this.setState({ 
+                            cropCatalogList : {
+                                ...cropCatalogList,
+                                [cropName] : {
+                                    producer: [crop.producer],
+                                    cropAmount: [crop.cropAmount],
+                                    price: [crop.price],
+                                }
+                            }
+                        });
+                    }
+                }
+            })
         });
+    }
+    
+    render() {
         
-        const CropCatalogList = Object.values(this.state.cropsList).map((crop) => {
-            if(!crop.sold) {
-                return <CropCatalogCard crop={crop} buyCrop={(productId)=>{this.props.dispatch(buyCrop(productId))}}/>
-            }
-            return;
-        });
+        console.log("Render Catalog", this.state.cropCatalogList);
+        
+        let CropCatalogElement = null;
 
+        if(Object.keys(this.state.cropCatalogList).length !== 0){
+            CropCatalogElement = Object.keys(this.state.cropCatalogList).map((cropName) => {
+                return (
+                    <CropCatalogCard 
+                        key={cropName}
+                        cropName={cropName}
+                        details={this.state.cropCatalogList[cropName]} 
+                        buyCrop={(productId)=>{this.props.dispatch(buyCrop(productId))}}
+                    />
+                )
+            });    
+        }
+        else{
+            CropCatalogElement = <p>No Crops</p>;
+        }
+        
         return (
             <React.Fragment>
                 {/* <button onClick={()=>{this.props.dispatch(buyCrop())}}>Buy Crop</button> */}
@@ -40,7 +81,7 @@ class CropCatalogPage extends Component {
                         <FilterAccordian />
                     </div>
                     <div className="cropCatalogGrid">
-                        { CropCatalogList }
+                        { CropCatalogElement }
                     </div>
                 </div>
             </React.Fragment>

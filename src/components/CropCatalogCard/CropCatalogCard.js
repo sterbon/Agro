@@ -5,24 +5,36 @@ import productImage from '../../static/images/atta.jpeg'
 
 class CropCatalogCard extends Component {
     render() {
-        // console.log(this.props.crop);
-        const { productId, cropName, price, cropAmount } = this.props.crop;
+        const { cropName, details } = this.props;
+
+        console.log("Details at card: ", details)
+        let MultipleChoice = null;
+        if(Object.keys(details).length !== 0) {
+            MultipleChoice = Object.keys(details.producer).map((i) => {
+                return(
+                    <span key={i}>
+                        <hr/>
+                        <Card.Meta>Producer {Number(i)+1}: { details.producer[i] }</Card.Meta>
+                        <Card.Meta>R. { details.price[i] } per Kg</Card.Meta>
+                        <Card.Meta>Amount: { details.cropAmount[i] } Kg</Card.Meta>
+                    </span>
+                );
+            })
+        }
+        else {
+            MultipleChoice = <p>No producers currently.</p>
+        }
         return (
             <Card>
-                {/* <Image src={productImage} wrapped ui={false} /> */}
                 <Card.Content>
                     <Card.Header>{ cropName }</Card.Header>
-                    <Card.Meta>Rs. { price }</Card.Meta>
-                    <Card.Meta>{ cropAmount } Kg</Card.Meta>
-                    <Card.Description>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    </Card.Description>
+                    { MultipleChoice }
                 </Card.Content>
                 <Card.Content extra>
                     <div className='ui two buttons'>
                     <Button basic 
                         color='green'
-                        onClick={()=> this.props.buyCrop(productId)}
+                        // onClick={()=> this.props.buyCrop(productId)}
                     >
                         Buy Crop
                     </Button>

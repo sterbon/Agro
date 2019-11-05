@@ -162,7 +162,7 @@ export const getCropDetailsTable = () => {
         "json": true,
         "code": "sterbon23451",
         "scope": "sterbon23451",
-        "table": "cropsdetail",
+        "table": "cdetail",
         "limit": 20,
         });
     } catch(err) {
@@ -176,7 +176,7 @@ export const getDetailsByCropId = (cropId) => {
             "json": true,
             "code": "sterbon23451",
             "scope": "sterbon23451",
-            "table": "cropsdetail",
+            "table": "cdetail",
             "limit": 1,
             "lower_bound": cropId,
         });
