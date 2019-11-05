@@ -1,5 +1,8 @@
 #include <eosio/asset.hpp>
 #include <eosio/eosio.hpp>
+#include <eosio/transaction.hpp>
+#include <eosiolib/crypto.h>
+
 
 using namespace std;
 using namespace eosio;
@@ -20,6 +23,13 @@ class [[eosio::contract]] foodscm : public eosio::contract {
         auto primary_key()const { return productId;}
     };
     
+    struct [[eosio::table]] transdetail {
+      uint64_t productId;
+      capi_checksum256 transactionID;
+
+      auto primary_key()const { return productId;}
+    };
+
     struct [[eosio::table]] userdata {
       name customer;
       string accType;
@@ -28,19 +38,32 @@ class [[eosio::contract]] foodscm : public eosio::contract {
       auto primary_key()const { return customer.value;}
     };
     
-    typedef eosio::multi_index<name("cropsdetail"), cropdetails> crop_data;
-    typedef eosio::multi_index<name("userdata"), userdata> user_data;  
-  
+    typedef eosio::multi_index<name("cdetail"), cropdetails> crop_data;
+    typedef eosio::multi_index<name("udata"), userdata> user_data;  
+    typedef eosio::multi_index<name("transdetail"), transdetail> trans_detail;  
+
     crop_data _cropdata;
     user_data _userdata;
-  
+    trans_detail _transdetail;
+
   public:
     using contract::contract;
 
     foodscm( name receiver, name code, datastream<const char*> ds ): contract(receiver, code, ds),
                        _cropdata(receiver, receiver.value),
-                       _userdata(receiver, receiver.value){}
+                       _userdata(receiver, receiver.value),
+                       _transdetail(receiver, receiver.value){}
     
+    capi_checksum256 get_trx_id() {
+        size_t size = transaction_size();
+        char buf[size];
+        capi_checksum256 h;
+        size_t read = read_transaction( buf, size );
+        check( size == read, "read_transaction failed");
+        sha256(buf, read, &h);
+        return h;
+    }
+
     [[eosio::action]]
     void userdata(name customer, string accType, uint64_t tokenBalance) {
       
@@ -66,25 +89,26 @@ class [[eosio::contract]] foodscm : public eosio::contract {
       }); 
     }
     
-    [[eosio::action]]
-    void buycrop(name buyer, uint64_t cropPid, asset quantity, string memo) 
+    
+  [[eosio::action]]
+    void buycrop(name buyer, uint64_t cropPid, asset price, string memo) 
     {
         auto itr = _cropdata.find(cropPid);
         name seller = itr->producer;
 
         struct transfer
-        {
+        { 
             name buyer;
             name seller;
-            asset quantity;
+            asset price;
             string memo;
         };
 
         eosio::action transfer_action = eosio::action(
-            permission_level(_self, name("active")),
+            permission_level(buyer, name("active")),
             name("eosio.token"), 
             name("transfer"),
-            transfer{buyer, seller, quantity, memo});
+            transfer{buyer, seller, price, memo});
             transfer_action.send();
         
         auto payer = has_auth( seller ) ? seller : buyer;
@@ -92,29 +116,10 @@ class [[eosio::contract]] foodscm : public eosio::contract {
           row.sold = true;
           row.buyer = buyer;
         });
-    }
-   /* void buycrop(name buyer, uint64_t cropPid) {
-      
-      auto itr = _cropdata.find(cropPid);
-      name seller = itr->producer;
-      uint64_t cropAmount = itr->cropAmount;
-      
-      //transfer tokens to cropPid.customer 
-      check( buyer != seller, "cannot transfer to self" );
-      require_auth( buyer );
-      check( is_account( seller ), "to account does not exist");
-      
-      require_recipient( buyer );
-      require_recipient( seller );
-          
-      auto payer = has_auth( seller ) ? seller : buyer;
-
-    //  sub_balance( buyer, cropAmount );
-    //  add_balance( seller, cropAmount, payer );
-      
         
-      }*/
-
+        _transdetail.emplace(payer, [&](auto& row){
+          row.productId = cropPid;
+          row.transactionID = get_trx_id();
+        });
+    }
 };
-
-
