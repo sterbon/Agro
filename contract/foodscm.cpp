@@ -32,6 +32,11 @@ class [[eosio::contract]] foodscm : public eosio::contract {
 
     struct [[eosio::table]] transdetail {
       uint64_t productId;
+      name farmer;
+      name buyer;
+      uint64_t price;
+      uint64_t quantity;
+      string cropName;
       checksum256 transactionID;
 
       auto primary_key()const { return productId;}
@@ -39,7 +44,7 @@ class [[eosio::contract]] foodscm : public eosio::contract {
     
     typedef eosio::multi_index<name("cdetail"), cropdetails> crop_data;
     typedef eosio::multi_index<name("udata"), userdata> user_data;  
-    typedef eosio::multi_index<name("transdetail"), transdetail> trans_detail;  
+    typedef eosio::multi_index<name("tdetail"), transdetail> trans_detail;  
 
     crop_data _cropdata;
     user_data _userdata;
@@ -91,6 +96,9 @@ class [[eosio::contract]] foodscm : public eosio::contract {
     {
         auto itr = _cropdata.find(cropPid);
         name seller = itr->producer;
+        string cropName = itr->cropName;
+        uint64_t quantity = itr->cropAmount; 
+        uint64_t cost = itr->price;
 
         struct transfer
         { 
@@ -115,6 +123,11 @@ class [[eosio::contract]] foodscm : public eosio::contract {
         
         _transdetail.emplace(payer, [&](auto& row){
           row.productId = cropPid;
+          row.farmer = seller;
+          row.buyer = buyer;
+          row.price = cost;
+          row.quantity = quantity;
+          row.cropName = cropName;
           row.transactionID = get_trx_id();
         });
     }
