@@ -184,3 +184,16 @@ export const getDetailsByCropId = (cropId) => {
         console.error(err);
     }
 }
+
+export const getTransactionDetails = () => {
+    try {
+        return userEosConnection.getTableRows({
+            "json": true,
+            "code": "sterbon23451",
+            "scope": "sterbon23451",
+            "table": "tdetail",
+        });
+    } catch(err) {
+        console.error(err);
+    }
+}
