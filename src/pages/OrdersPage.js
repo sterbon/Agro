@@ -1,11 +1,23 @@
 import { Segment, Header, Button } from "semantic-ui-react";
-// import 'semantic-ui-css/semantic.min.css'
 import React, { Component } from 'react';
 import SecondaryNav from '../components/SecondaryNav/SecondaryNav';
 import penny from '../static/images/penny.png';
+import { getTransactionDetails } from '../scatter/scatter_helper';
 import './OrdersPage.css';
 
 class OrderCard extends Component {
+    constructor(props) {
+        super(porps);
+        this.state = {
+            transactionList: [],
+        }
+        getTransactionDetails()
+        .then((result) => {
+            console.log("Rows: ", result.rows);
+        });
+
+    }
+
     render() {
         return (
             <div className="orderCard">
@@ -58,7 +70,6 @@ class OrdersPage extends Component {
                         My Orders
                     </Header>
                     <OrderCard/>
-                    <OrderCard/>  
                 </div>  
             </React.Fragment>
         )
