@@ -1,5 +1,6 @@
 import ScatterJS from 'scatterjs-core';
 import ScatterEOS from 'scatterjs-plugin-eosjs';
+import BigNumber from 'big-number'
 import Eos from 'eosjs';
 import {
     parseEOS,
@@ -187,11 +188,15 @@ export const getDetailsByCropId = (cropId) => {
 
 export const getTransactionDetails = () => {
     try {
+        // const table_key = new BigNumber(scatter.eos.format.encodeName("sterbon23451", false));
         return userEosConnection.getTableRows({
             "json": true,
             "code": "sterbon23451",
             "scope": "sterbon23451",
             "table": "tdetail",
+            // "lower_bound": table_key.toString(),
+            // "upper_bound": table_key.plus(1).toString(),
+
         });
     } catch(err) {
         console.error(err);

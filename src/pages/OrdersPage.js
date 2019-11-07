@@ -7,7 +7,7 @@ import './OrdersPage.css';
 
 class OrderCard extends Component {
     constructor(props) {
-        super(porps);
+        super(props);
         this.state = {
             transactionList: [],
         }
