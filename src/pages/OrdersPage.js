@@ -7,13 +7,13 @@ import './OrdersPage.css';
 
 class OrderCard extends Component {
     constructor(props) {
-        super(porps);
+        super(props);
         this.state = {
             transactionList: [],
         }
         getTransactionDetails()
         .then((result) => {
-            console.log("Rows: ", result.rows);
+            console.log("Rows y: ", result.rows);
         });
 
     }
