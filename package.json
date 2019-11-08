@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "big-number": "^2.0.0",
     "eosjs": "^16.0.9",
     "eosjs2": "^1.0.0",
     "ipfs-api": "^26.1.2",

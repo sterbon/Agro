@@ -80,6 +80,11 @@ class OrderTimelinePage extends Component {
                                     onChange={(e) => {
                                         this.setState({ cropId: e.target.value })
                                     }}
+                                    onKeyPress={(e) => {
+                                        if (e.key === "Enter") {
+                                            this.showCropTimeline();
+                                          }
+                                    }}
                                 />
                                 <button  
                                     className="btn-search"
