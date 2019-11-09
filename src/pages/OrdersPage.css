@@ -23,7 +23,14 @@
     color: #4A8D86;
     font-family: "Roboto";
     font-size: 12px;
+    width: 300px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     font-weight: 700;
+}
+#order-details h4:hover{
+    overflow: visible;
 }
 
 #btn-container{

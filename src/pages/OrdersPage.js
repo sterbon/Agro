@@ -6,50 +6,36 @@ import { getTransactionDetails } from '../scatter/scatter_helper';
 import './OrdersPage.css';
 
 class OrderCard extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            transactionList: [],
-        }
-        getTransactionDetails()
-        .then((result) => {
-            console.log("Rows y: ", result.rows);
-        });
-
-    }
-
     render() {
+        const { transactionID, cropName, productId, farmer, price, quantity } = this.props.transaction;
+        const trackerUrl = `${"https://jungle.bloks.io/transaction/"}${transactionID}`;
+        
         return (
             <div className="orderCard">
                 <Segment raised stacked>
                     <div id="orderCard-container">
                         <div id="order-details">
-                            <h4>Transaction ID: #1234</h4>
-                            <div id="btn-container"><Button href="https://eostracker.io/transactions/80145543/31ef8125ed68970bb46492a49bf0e8af25aea29a2112606b9406933fe7c77bd6" target="_blank" >See transaction at eostracker.com</Button></div>
+                            <h4>Transaction ID : { transactionID }</h4>
+                            <div id="btn-container">
+                                <Button href={trackerUrl} target="_blank" >See transaction at Bloks.io jungle</Button>
+                            </div>
                         </div>
 
-                        {/* <div id="order-date">
-                            {/* <h3>Order Date: 30/08/2019</h3> }
-                            <h3>Expected Delivery Date: 30/08/2019</h3>
-                            <h3>Delivery Status: Shipped</h3>
-                        </div> */}
-
                         <div className="orderDate-container">
-                            <h3 id="orderDate">Order Date: 30/08/2019</h3>
-                            <h3>Expected Delivery Date: 30/08/2019</h3>
-                            <h3 id="delivStatus">Delivery Status: Shipped</h3>
+                            <h3 id="orderDate">Transaction Date: 30/08/2019</h3>
+                            <h3>Crop: { cropName }</h3>
+                            <h3 id="delivStatus">Transaction Status: Completed</h3>
                         </div>
 
                         <div className="order-img-container">
                             <img src={penny} width="120px" height="120px" />
                             <div id="orderProduct-details" >
-                                <h4 id="pprice" >Qty:  1</h4>
-                                <h4>Rice Bag (100 Kg)</h4>
-                                <h4 id="pprice">Rs. 10000</h4>
+                                <h4 id="pprice" >Crop ID : { `${"0G36CR"}${productId}` }</h4>
+                                <h4 id="pprice" >Quantity : { quantity } kg</h4>
+                                <h4 id="pprice" >Price : ₹ { price }</h4>
                             </div>
                             <div id="order-seller">
-                                <h4>Seller ID: </h4>
-                                <h4>Seller Name:</h4>
+                                <h4>Seller : { farmer }</h4>
                             </div>
                         </div>
                     </div>
@@ -60,16 +46,49 @@ class OrderCard extends Component {
 }
 
 class OrdersPage extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            transactionList: [],
+        }
+
+        getTransactionDetails()
+        .then((result) => {
+            const transactions = result.rows;
+            const { transactionList } = this.state;
+
+            transactions.map((transaction) => {
+                if(transaction.farmer === "playerspider" || transaction.buyer === "playerspider")
+                {
+                    transactionList.push(transaction);
+                    this.setState({ transactionList });
+                }
+            });            
+
+            // console.log("Transactions for this account: ", transactionList);
+        });
+    }
 
     render() {
+        const { transactionList } = this.state;
+        let ListView = <h4>you do not have any transactions yet.</h4>;
+        if(transactionList.length) {
+            ListView = Object.values(transactionList).map((transaction) => {
+                return <OrderCard 
+                    key={transaction.transactionID}
+                    transaction={transaction} 
+                />
+            });
+        }
+
         return (
             <React.Fragment>
                 <SecondaryNav />
                 <div className="order-container">
                     <Header as='h2'>
-                        My Orders
+                        Your Transactions
                     </Header>
-                    <OrderCard/>
+                    { ListView }
                 </div>  
             </React.Fragment>
         )
