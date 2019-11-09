@@ -3,6 +3,7 @@ import './ProductDetail.css';
 import { Image, Button, Dropdown, Input } from 'semantic-ui-react'
 import addProduct from '../static/images/atta.jpeg';
 import SecondaryNav from '../components/SecondaryNav/SecondaryNav';
+import ProducerCard from '../components/ProducerCard/ProducerCard';
 
 class ProductDetail extends Component {
     render() {
@@ -51,21 +52,16 @@ class ProductDetail extends Component {
                         <div className="addToCart">
                             <Button className="cta" fluid>ADD TO CART</Button>
                         </div>
+                        <div className="selectProducer">
+                            <h4>Select Producer</h4>
+                            <ProducerCard />
+                        </div>
                         <div className="productQuantity">
                             <h4>Quantity</h4>
                             <Input
                                 label={{ basic: true, content: 'kg' }}
                                 labelPosition='right'
                                 placeholder='Enter weight...'
-                            />
-                        </div>
-                        <div className="selectProducer">
-                            <h4>Quantity</h4>
-                            <Dropdown
-                                placeholder='Select Producer'
-                                fluid
-                                selection
-                                options={friendOptions}
                             />
                         </div>
                         <h4 className="misc-header">About the Product</h4>
