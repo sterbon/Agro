@@ -63,14 +63,19 @@
     letter-spacing: 1px;
 }
 
-.productQuantity, .selectProducer{
+.productQuantity{
     display: flex;
     padding: 3rem 20rem 1rem 0;
     color: #2F4858;
 }
 
+.selectProducer{
+    margin-top: 3rem;
+}
+
 .productQuantity h4, .selectProducer h4{
     padding-top: .4rem;
+    color: #2F4858;
 }
 
 .productQuantity .ui.input, .selectProducer .ui.dropdown{
