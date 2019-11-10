@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import './CropCatalogPage.css';
 import FilterAccordian from '../components/FilterAccordian/FilterAccordian';
 import CropCatalogCard from '../components/CropCatalogCard/CropCatalogCard';
 import SecondaryNav from '../components/SecondaryNav/SecondaryNav';
-import {
-    buyCrop
-} from '../scatter/scatter_actions';
-
 import {
     getCropDetailsTable,
 } from '../scatter/scatter_helper';
@@ -21,7 +16,7 @@ class CropCatalogPage extends Component {
         
         getCropDetailsTable()
         .then((result) => {
-            // console.log("Rows: ", result.rows)
+            console.log("Rows: ", result.rows)
 
             Object.values(result.rows).forEach((crop) => {
                 if(!crop.sold) {
@@ -54,7 +49,7 @@ class CropCatalogPage extends Component {
     }
     
     render() {
-        // console.log("Render Catalog", this.state.cropCatalogList);
+        console.log("Render Catalog", this.state.cropCatalogList);
         
         let CropCatalogElement = null;
 
@@ -65,18 +60,16 @@ class CropCatalogPage extends Component {
                         key={cropName}
                         cropName={cropName}
                         details={this.state.cropCatalogList[cropName]} 
-                        buyCrop={(productId)=>{this.props.dispatch(buyCrop(productId))}}
                     />
                 )
             });    
         }
         else{
-            CropCatalogElement = <p>No Crops</p>;
+            CropCatalogElement = <p>No crops uploaded.</p>;
         }
         
         return (
             <React.Fragment>
-                {/* <button onClick={()=>{this.props.dispatch(buyCrop())}}>Buy Crop</button> */}
                 <SecondaryNav />    
                 <div className="cropCatalogContainer">
                     {/* <div className="cropCatalogFilter">
@@ -92,14 +85,4 @@ class CropCatalogPage extends Component {
     }
 }
 
-const mapStateToProps = ({ scatter }) => {
-    return {
-        scatter,
-    };
-};
-
-const mapDispatchToProps = (dispatch) => {
-    return { dispatch };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(CropCatalogPage);
+export default CropCatalogPage;

@@ -7,6 +7,8 @@
 }
 
 .productDetail-text{
+    margin: auto;
+    margin-top: 0.5rem;
     flex-basis: 50%;
     padding: 3rem 1rem;
 }
@@ -14,47 +16,26 @@
 .productDetail
 .ui.image{
     box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
-    padding: 5rem;
+    padding: 0.6rem;
     margin: auto;
+    height: 550px;
+    width: 85%;
+    object-fit: cover;
 }
 
 .productDetail-container{
     margin: auto;
+    margin-top: 0;
     width: 50%;
-    padding: 4rem 2rem;
-    margin-left: -5rem;
+    padding: 4rem 4rem 4rem 2rem;
     text-align: left;
-}
-
-.subcat{
-    font: 500 14px 'Roboto';
-    padding: 0;
-    margin: 0;
-    color: #356A74;
 }
 
 .productName{
     margin: 1rem 0;
-    padding: 0;
-    font: 400 37px 'Roboto';
+    padding: 0 0.5rem;
+    font: 400 26px 'Roboto';
     color: #2F4858;
-}
-
-.productDescrip{
-    margin: 1rem 0 1.5rem 0;
-    padding: 0;
-    line-height: 2rem;
-    text-align: justify;
-    font-family: 'Roboto';
-    color: #2F4858;
-    font-size: 13px;
-}
-
-.productPrice h4{
-    font: 500 19px 'Roboto';
-    margin: 0;
-    padding: 0;
-    color: #356A74;
 }
 
 .addToCart .ui.button{
@@ -63,18 +44,12 @@
     letter-spacing: 1px;
 }
 
-.productQuantity{
-    display: flex;
-    padding: 3rem 20rem 1rem 0;
-    color: #2F4858;
-}
-
 .selectProducer{
-    margin-top: 3rem;
+    margin-top: 2rem;
 }
 
-.productQuantity h4, .selectProducer h4{
-    padding-top: .4rem;
+.selectProducer h4{
+    padding: 0 0 0 0.5rem;
     color: #2F4858;
 }
 
@@ -88,7 +63,7 @@
 
 .misc-header{
     margin: 0;
-    padding: 0;
+    padding: 0 0.5rem;
     padding-top: 2.8rem;
     font: 500 17px 'Roboto';
     color: #2F4858;
@@ -97,7 +72,8 @@
 .productMisc{
     display: flex;
     justify-content: space-between;
-    padding: 2rem 35rem 1rem 0
+    padding: 2rem 25rem 1rem 0.5rem;
+    margin-bottom: 2rem;
 }
 
 .productMisc-label p{

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import './AddProductPage.css'
 import addProduct from '../static/images/addProduct.png';
 import {
@@ -19,9 +20,9 @@ class AddProductPage extends Component {
             connectingScatter: false,
             requestedTransaction: false,
             connectedNetworkName: null,
-            pname: null,
-            price: null,
-            camount: null,
+            pname: "",
+            price: "",
+            camount: "",
             loggedIn: false,
             userAccount: {
                 name: null,
@@ -67,7 +68,9 @@ class AddProductPage extends Component {
                     loggedIn && 
                     <>
                         <div className="addProduct-text">
-                            <h2>Agro</h2>
+                            <Link to="/">
+                                <h2>Agro</h2>
+                            </Link>
                             <p className="addProduct-para">Agro is the easiest and safest way to buy, sell crops online.
                                 Discover new ways to monetize and scale your business online with Agro.</p>
                             <div className="addProduct-img">

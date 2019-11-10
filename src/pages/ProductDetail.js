@@ -1,32 +1,81 @@
 import React, { Component } from 'react';
 import './ProductDetail.css';
-import { Image, Button, Dropdown, Input } from 'semantic-ui-react'
-import addProduct from '../static/images/atta.jpeg';
+import { connect } from 'react-redux';
+import { Image, Button, Input } from 'semantic-ui-react';
+import Grain from '../static/images/Grain.jpg'
 import SecondaryNav from '../components/SecondaryNav/SecondaryNav';
 import ProducerCard from '../components/ProducerCard/ProducerCard';
+import {
+    buyCrop
+} from '../scatter/scatter_actions';
 
 class ProductDetail extends Component {
+    state = {
+        selectedProducer: null,
+    }
+
+    selectProducer(selectedProducerDetail){
+        this.setState({ selectedProducer: selectedProducerDetail });
+    }
+
     render() {
         const { cropName, details } = this.props.location.state;
-        console.log("Details at product page: ", cropName, details);
+        // console.log("At product page: ", cropName, details);
+        const { selectedProducer } = this.state;
+        const { productId, cropAmount, price, producer } = details;
+        
+        let producersList = null;
+        if(productId.length) {
+            producersList = Object.keys(productId).map((key) => {
+                const detail = {
+                    productId: productId[key],
+                    cropAmount: cropAmount[key], 
+                    price: price[key], 
+                    producer: producer[key]
+                };
 
-        const friendOptions = [
-            {
-                key: 'Jenny Hess',
-                text: 'Jenny Hess',
-                value: 'Jenny Hess',
-            },
-            {
-                key: 'Elliot Fu',
-                text: 'Elliot Fu',
-                value: 'Elliot Fu',
-            },
-            {
-                key: 'Stevie Feliciano',
-                text: 'Stevie Feliciano',
-                value: 'Stevie Feliciano',
-            }
-        ]
+                return <ProducerCard 
+                        key={key}
+                        detail={detail}
+                        click={() => {
+                            this.selectProducer.bind(this)(detail);
+                        }}
+                    />;
+            });
+        }
+
+        let aboutSelectedProduct = null;
+        if(selectedProducer !== null) {
+            aboutSelectedProduct = (
+                <React.Fragment>
+                    <h4 className="misc-header">About Selected Product</h4>
+                    <div className="productMisc">
+                        <div className="productMisc-label">
+                            <p>Quantity :</p>
+                            <p>Price :</p>
+                            <p>Seller :</p>
+                        </div>
+
+                        <div className="productMisc-text">
+                            <p>{ selectedProducer.cropAmount }</p>
+                            <p>{ selectedProducer.price }</p>
+                            <p>{ selectedProducer.producer }</p>
+                        </div>
+                    </div>
+                    <div className="addToCart">
+                        <Button 
+                            className="cta" 
+                            fluid
+                            onClick={() => {
+                                this.props.dispatch(buyCrop(selectedProducer.productId))
+                            }}                        
+                        >
+                            BUY CROP
+                        </Button>
+                    </div>
+                </React.Fragment>
+            );
+        }
 
         return (
             <React.Fragment>
@@ -34,50 +83,20 @@ class ProductDetail extends Component {
                 <section className="productDetail">
                     <div className="productDetail-text">
                         <div className="addProduct-img">
-                            <Image src={addProduct} size='large' rounded />
+                            <Image src={Grain} size='large' rounded />
                         </div>
                     </div>
 
                     <div className="productDetail-container">
-                        <h3 className="subcat">Rice</h3>
-                        <h2 className="productName">Shakti Bhog Chakki Fresh Atta</h2>
-                        <div className="productPrice">
-                            <h4>Rs. 500</h4>
-                        </div>
-                        <h5 className="productDescrip">
-                            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
-                            The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
-                            Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.
-                </h5>
-                        <div className="addToCart">
+                        <h2 className="productName">{ cropName }</h2>
+                        {/* <div className="addToCart">
                             <Button className="cta" fluid>ADD TO CART</Button>
-                        </div>
+                        </div> */}
                         <div className="selectProducer">
                             <h4>Select Producer</h4>
-                            <ProducerCard />
+                            { producersList }
                         </div>
-                        <div className="productQuantity">
-                            <h4>Quantity</h4>
-                            <Input
-                                label={{ basic: true, content: 'kg' }}
-                                labelPosition='right'
-                                placeholder='Enter weight...'
-                            />
-                        </div>
-                        <h4 className="misc-header">About the Product</h4>
-                        <div className="productMisc">
-                            <div className="productMisc-label">
-                                <p>Quantity:</p>
-                                <p>Brand:</p>
-                                <p>Manufacturer:</p>
-                            </div>
-
-                            <div className="productMisc-text">
-                                <p>5 KG</p>
-                                <p>Shakti Bhog</p>
-                                <p>Shakti Bhog</p>
-                            </div>
-                        </div>
+                        { aboutSelectedProduct }
                     </div>
                 </section>
             </React.Fragment>
@@ -85,4 +104,12 @@ class ProductDetail extends Component {
     }
 }
 
-export default ProductDetail;
+const mapStateToProps = ({ scatter }) => {
+    return { scatter };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return { dispatch };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductDetail);

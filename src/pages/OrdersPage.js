@@ -40,7 +40,7 @@ class OrderCard extends Component {
                         <div className="order-img-container">
                             <img src={penny} width="120px" height="120px" />
                             <div id="orderProduct-details" >
-                                <h4 id="pprice" >Crop ID : { `${"0G36CR"}${productId}` }</h4>
+                                <h4 id="pprice" >Crop ID : { `${"G36C"}${productId}` }</h4>
                                 <h4 id="pprice" >Quantity : { quantity } kg</h4>
                                 <h4 id="pprice" >Price : ₹ { price }</h4>
                             </div>

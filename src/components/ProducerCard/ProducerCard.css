@@ -19,7 +19,11 @@
     margin: 0;
 }
 
+.producerCard h4.col {
+    color: black;
+}
 .producerCard h4{
+    text-align: center;
     color: #356A74;
 }
 
