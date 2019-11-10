@@ -1,5 +1,6 @@
 import { Segment, Header, Button } from "semantic-ui-react";
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import SecondaryNav from '../components/SecondaryNav/SecondaryNav';
 import penny from '../static/images/penny.png';
 import { getTransactionDetails } from '../scatter/scatter_helper';
@@ -7,9 +8,18 @@ import './OrdersPage.css';
 
 class OrderCard extends Component {
     render() {
-        const { transactionID, cropName, productId, farmer, price, quantity } = this.props.transaction;
+        const { account, transaction } = this.props;
+        const { transactionID, cropName, productId, farmer, buyer, price, quantity } = transaction;
         const trackerUrl = `${"https://jungle.bloks.io/transaction/"}${transactionID}`;
-        
+        console.log("trans: ", transaction);
+        let otherAccount = null;
+        if(account.name === farmer) {
+            otherAccount = `${"Buyer : "}${buyer}`;
+        } 
+        else if(account.name === buyer) {
+            otherAccount = `${"Seller : "}${farmer}`;
+        }
+
         return (
             <div className="orderCard">
                 <Segment raised stacked>
@@ -23,7 +33,7 @@ class OrderCard extends Component {
 
                         <div className="orderDate-container">
                             <h3 id="orderDate">Transaction Date: 30/08/2019</h3>
-                            <h3>Crop: { cropName }</h3>
+                            <h3>Crop : { cropName }</h3>
                             <h3 id="delivStatus">Transaction Status: Completed</h3>
                         </div>
 
@@ -35,7 +45,7 @@ class OrderCard extends Component {
                                 <h4 id="pprice" >Price : ₹ { price }</h4>
                             </div>
                             <div id="order-seller">
-                                <h4>Seller : { farmer }</h4>
+                                <h4>{ otherAccount }</h4>
                             </div>
                         </div>
                     </div>
@@ -51,32 +61,50 @@ class OrdersPage extends Component {
         this.state = {
             transactionList: [],
         }
+        this.getTransactionDetailFunc = this.getTransactionDetailFunc.bind(this);
 
-        getTransactionDetails()
-        .then((result) => {
-            const transactions = result.rows;
-            const { transactionList } = this.state;
+        this.getTransactionDetailFunc();
+    }
 
-            transactions.map((transaction) => {
-                if(transaction.farmer === "playerspider" || transaction.buyer === "playerspider")
-                {
-                    transactionList.push(transaction);
-                    this.setState({ transactionList });
-                }
-            });            
+    componentDidUpdate(prevProps, prevState) {
+        const { loggedIn } = this.props.scatter;
 
-            // console.log("Transactions for this account: ", transactionList);
-        });
+        if(prevProps.scatter.loggedIn !== loggedIn){
+            this.getTransactionDetailFunc();
+        }
+    }
+
+    getTransactionDetailFunc() {
+        const transactionList = [];
+        const { loggedIn, userAccount } = this.props.scatter;
+        if(loggedIn){
+            getTransactionDetails()
+            .then((result) => {
+                const transactions = result.rows;
+
+                transactions.map((transaction) => {
+                    if(transaction.farmer === userAccount.name || transaction.buyer === userAccount.name)
+                    {   
+                        transactionList.push(transaction);
+                    }
+                });  
+                this.setState({ transactionList });         
+            });
+        }
     }
 
     render() {
+        const { loggedIn, userAccount } = this.props.scatter;
         const { transactionList } = this.state;
-        let ListView = <h4>you do not have any transactions yet.</h4>;
+        console.log("page: ", transactionList);
+
+        let ListView = <p className="else-text">Loading...</p>;
         if(transactionList.length) {
             ListView = Object.values(transactionList).map((transaction) => {
                 return <OrderCard 
                     key={transaction.transactionID}
                     transaction={transaction} 
+                    account={userAccount}
                 />
             });
         }
@@ -88,11 +116,17 @@ class OrdersPage extends Component {
                     <Header as='h2'>
                         Your Transactions
                     </Header>
-                    { ListView }
+                    { loggedIn ? ListView : <p className="else-text">You are not logged in.</p> }
                 </div>  
             </React.Fragment>
         )
     }
 }
 
-export default OrdersPage;
+const mapStateToProps = ({ scatter }) => {
+    return {
+        scatter,
+    };
+};
+
+export default connect(mapStateToProps)(OrdersPage); 

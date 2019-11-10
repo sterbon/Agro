@@ -32,7 +32,7 @@ class Nav extends Component {
                         <React.Fragment>
                             <Link to="/orders">
                                 <li className="nav_links">
-                                    <p className="nav_text" >Orders</p>
+                                    <p className="nav_text" >Transactions</p>
                                 </li>
                             </Link>
                             <Link to="/add_crop">

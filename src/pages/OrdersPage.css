@@ -1,5 +1,11 @@
 .order-container{
     background: lightyellow;
+    height: 100%;
+}
+
+.order-container .else-text {
+    text-align: center;
+    font-size: 16px;
 }
 
 .orderCard {

@@ -33,7 +33,6 @@ class AddProductPage extends Component {
 
     };
 
-    // loginUser = () => this.props.dispatch(requestLogin());
     uploadDetails = (data) => this.props.dispatch(uploadCrop(data));
 
     static getDerivedStateFromProps(props) {
@@ -49,11 +48,8 @@ class AddProductPage extends Component {
         this.props.dispatch(sendTokens({ toAccount, amount, memo }))
     };
 
-    // logOutUser = () => this.props.dispatch(logout());
-
     uploadData(e) {
         e.preventDefault();
-        // const ipfs = new IPFS.create()
         const ipfs = new IPFS({ host: 'ipfs.infura.io', port: 5001, protocol: 'https' });
         const {pname, price, camount} = this.state;      
         const data = { pname, price, camount };

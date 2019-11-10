@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import './SecondaryNav.css'
+import './SecondaryNav.css';
+import {
+	withRouter
+} from 'react-router-dom';
 import {
     requestLogin,
     logout,
@@ -11,6 +14,7 @@ class SecondaryNav extends Component {
     loginUser = () => this.props.dispatch(requestLogin());
     logOutUser = () => {
         this.props.dispatch(logout());
+        this.props.history.push('/');
     };
 
     render() {
@@ -55,4 +59,4 @@ const mapDispatchToProps = (dispatch) => {
     return { dispatch };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SecondaryNav);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(SecondaryNav));
