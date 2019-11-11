@@ -142,7 +142,7 @@ export const buyCrop = (productId) => {
               "data": {
                 "buyer": userAccount.name,
                 "cropPid": productId.payload,
-                "price": "1 EOS",
+                "price": "1.0000 JUNGLE",
                 "memo": "Buy crop"
               },
               "authorization": [
@@ -175,7 +175,7 @@ export const getDetailsByCropId = (cropId) => {
         return userEosConnection.getTableRows({
             "json": true,
             "code": "sterbon23451",
-            "scope": "sterbon23451",
+            "scope": userAccount.name,
             "table": "cdetail",
             "limit": 1,
             "lower_bound": cropId,
@@ -190,7 +190,7 @@ export const getTransactionDetails = () => {
         return userEosConnection.getTableRows({
             "json": true,
             "code": "sterbon23451",
-            "scope": "sterbon23451",
+            "scope": userAccount.name,
             "table": "tdetail",
         });
     } catch(err) {
