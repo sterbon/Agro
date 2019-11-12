@@ -45,6 +45,7 @@ class OrderCard extends Component {
                                 <h4 id="pprice" >Price : ₹ { price }</h4>
                             </div>
                             <div id="order-seller">
+                                
                                 <h4>{ otherAccount }</h4>
                             </div>
                         </div>
