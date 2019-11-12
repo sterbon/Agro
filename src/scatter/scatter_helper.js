@@ -117,7 +117,10 @@ export const uploadCrop = (data) => {
                 "cropName": data.payload.pname,
                 "cropAmount": data.payload.camount,
                 "imageHash": "QmImageHash",
-                "price": data.payload.price 
+                "price": data.payload.price,
+                "dateOfHarvest": data.payload.harvest,
+                "dateOfSow": data.payload.sow,
+                "fertilizers": data.payload.fertilizer 
               },
               "authorization": [
                 {
@@ -132,6 +135,7 @@ export const uploadCrop = (data) => {
 
 export const buyCrop = (productId) => {
     console.log(productId)
+    notifySuccess('Uploading')
     userEosConnection.transaction({
         "blocksBehind": 3,
         "expireSeconds": 30,
@@ -162,8 +166,8 @@ export const getCropDetailsTable = () => {
         "json": true,
         "code": "sterbon23451",
         "scope": "sterbon23451",
-        "table": "cdetail",
-        "limit": 100,
+        "table": "crpdetail",
+        "limit": 20,
         });
     } catch(err) {
         console.error(err);
@@ -176,7 +180,7 @@ export const getDetailsByCropId = (cropId) => {
             "json": true,
             "code": "sterbon23451",
             "scope": "sterbon23451",
-            "table": "cdetail",
+            "table": "crpdetail",
             "limit": 1,
             "lower_bound": cropId,
         });
@@ -191,7 +195,7 @@ export const getTransactionDetails = () => {
             "json": true,
             "code": "sterbon23451",
             "scope": "sterbon23451",
-            "table": "tdetail",
+            "table": "trxdetail",
         });
     } catch(err) {
         console.error(err);

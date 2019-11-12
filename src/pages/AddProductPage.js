@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './AddProductPage.css';
-import SecondaryNav from '../components/SecondaryNav/SecondaryNav'; 
 import addProduct from '../static/images/addProduct.png';
+import SecondaryNav from '../components/SecondaryNav/SecondaryNav';
+
 import {
     fetchWallet,
     sendTokens,
@@ -24,6 +25,9 @@ class AddProductPage extends Component {
             pname: "",
             price: "",
             camount: "",
+            harvest: "",
+            sow:"",
+            fertilizer:"",
             loggedIn: false,
             userAccount: {
                 name: null,
@@ -35,6 +39,7 @@ class AddProductPage extends Component {
 
     };
 
+    
     uploadDetails = (data) => this.props.dispatch(uploadCrop(data));
 
     static getDerivedStateFromProps(props) {
@@ -52,9 +57,9 @@ class AddProductPage extends Component {
 
     uploadData(e) {
         e.preventDefault();
-        const ipfs = new IPFS({ host: 'ipfs.infura.io', port: 5001, protocol: 'https' });
-        const {pname, price, camount} = this.state;      
-        const data = { pname, price, camount };
+        const {pname, price, camount, harvest, sow, fertilizer} = this.state;      
+        const data = { pname, price, camount, harvest, sow, fertilizer };
+        console.log(data);
         this.uploadDetails(data);
     
         //Reset form
@@ -100,78 +105,111 @@ class AddProductPage extends Component {
                                             e.target.parentElement.style.display='none';
                                         }}
                                     >
-                                        X
                                     </span>
                                 </div>
-                                <h2>UPLOAD CROP</h2>
-                                <form className="addCrop-form">
-                                    <div className="crop-name">
-                                        <h4><label htmlFor="crop-name">Crop Name</label></h4>
-                                        <input 
-                                            id="pro"
-                                            type="text" 
-                                            name="crop-name"
-                                            placeholder="Crop name"
-                                            value={this.state.pname} 
-                                            onChange={(e) => {
-                                                this.setState({ pname : e.target.value }); 
-                                            }}
-                                            required
-                                        />
-                                    </div>
-                                    {/* <div className="crop-descrip">
-                                        <h4><label htmlFor="crop-descrip">Description</label></h4>
-                                        <textarea 
-                                            type="text" 
-                                            name="crop-descrip"
-                                            placeholder="Crop description"
-                                        />
-                                    </div> */}
-                                    <div className="crop-price">
-                                        <h4><label htmlFor="crop-price">Price</label></h4>
-                                        <input 
-                                            id="price"
-                                            type="number" 
-                                            name="crop-price"
-                                            placeholder="Crop price"
-                                            value={this.state.price} 
-                                            onChange={(e) => { 
-                                                this.setState({ price : e.target.value }); 
-                                            }}
-                                            required
-                                        />
-                                    </div>
-                                    <div className="crop-amount">
-                                        <h4><label htmlFor="crop-price">Amount in Kgs</label></h4>
-                                        <input 
-                                            id="amount"
-                                            type="number" 
-                                            name="crop-amount"
-                                            placeholder="Crop Amount"
-                                            value={this.state.camount} 
-                                            onChange={(e) => { 
-                                                this.setState({ camount : e.target.value }); 
-                                            }}
-                                            required
-                                        />
-                                    </div>
-                                    <div className="submitcrop">
-                                        <button className="cta" 
-                                            name="submit-button" 
-                                            value="Upload"
-                                            onClick={this.uploadData.bind(this)} 
-                                        >Upload</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </>
-                    }
-                </section>
-            </React.Fragment>
-        );
-    }
-}
+                                <div className="crop-name">
+                                    <h4><label htmlFor="crop-name">Name</label></h4>
+                                    <input 
+                                        id="pro"
+                                        type="text" 
+                                        name="crop-name"
+                                        placeholder="Crop name"
+                                        value={this.state.pname} 
+                                        onChange={(e) => {
+                                            this.setState({ pname : e.target.value }); 
 
+                                        }}
+                                        required
+                                    />
+                                </div>
+                                <div className="crop-price">
+                                    <h4><label htmlFor="crop-price">Price</label></h4>
+                                    <input 
+                                        id="price"
+                                        type="number" 
+                                        name="crop-price"
+                                        placeholder="Crop price"
+                                        value={this.state.price} 
+                                        onChange={(e) => { 
+                                            this.setState({ price : e.target.value }); 
+                                        }}
+                                        required
+                                    />
+                                </div>
+                                <div className="crop-name">
+                                    <h4><label htmlFor="crop-name">Date of Sow</label></h4>
+                                    <input 
+                                        id="amount"
+                                        type="date" 
+                                        name="crop-amount"
+                                        placeholder="Date of Harvest"
+                                        value={this.state.sow} 
+                                        onChange={(e) => { 
+                                            this.setState({ sow : String(e.target.value) }); 
+                                        }}
+                                        required
+                                    />
+                                </div>
+                                <div className="crop-name">
+                                    <h4><label htmlFor="crop-name">Date of Harvest</label></h4>
+                                    <input 
+                                        id="amount"
+                                        type="date" 
+                                        name="crop-amount"
+                                        placeholder="Date of Harvest"
+                                        value={this.state.harvest} 
+                                        onChange={(e) => { 
+                                            this.setState({ harvest : String(e.target.value) }); 
+                                        }}
+                                        required
+                                    />
+                                </div>
+                                <div className="crop-amount">
+                                    <h4><label htmlFor="crop-price">Amount in Kgs</label></h4>
+                                    <input 
+                                        id="amount"
+                                        type="number" 
+                                        name="crop-amount"
+                                        placeholder="Crop Amount"
+                                        value={this.state.camount} 
+                                        onChange={(e) => { 
+                                            this.setState({ camount : e.target.value }); 
+                                        }}
+                                        required
+                                    />
+                                </div>
+                                <div className="crop-name">
+                                    <h4><label htmlFor="crop-price">Fertilezer or Manure Used</label></h4>
+                                    <input 
+                                        id="amount"
+                                        type="text" 
+                                        name="crop-amount"
+                                        placeholder="Fertilezer or Manure Name"
+                                        value={this.state.fertilizer} 
+                                        onChange={(e) => { 
+                                            this.setState({ fertilizer : e.target.value }); 
+                                        }}
+                                        required
+                                    />
+                                </div>
+                                <div className="submitcrop">
+                                    <button className="cta" 
+                                        name="submit-button" 
+                                        value="Upload"
+                                        onClick={this.uploadData.bind(this)}>
+                                            Upload
+                                    </button>
+                                </div>
+                                </div>
+                                </>
+                            }
+                            </section>
+                            </React.Fragment>                 
+                   
+
+                   );
+                }
+            }
 const mapStateToProps = ({ scatter }) => {
     return {
         scatter,
@@ -183,3 +221,4 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddProductPage);                             
+        
