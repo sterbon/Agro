@@ -1,5 +1,4 @@
 .order-container{
-    background: lightyellow;
     height: 100%;
 }
 
@@ -11,16 +10,20 @@
 .orderCard {
     width: 100%;
     max-width: 900px;
-    margin: 0 auto 1rem auto;
-    padding: 2rem 0;
+    margin: 0 auto;
+    padding: 1rem 0;
 }
+/* .order-container .ui.segment{
+    background: #FFF9C4;
+    background: #E3F2FD;
+} */
 
 #orderCard-container{
     padding: 0 .5em;
 }
 
 #order-details{
-    padding: 1rem 1rem 0 1rem;
+    padding: 1rem 0.2rem 0 0.5rem;
     display: flex;
     justify-content: space-between;
 }
@@ -29,11 +32,13 @@
     color: #4A8D86;
     font-family: "Roboto";
     font-size: 12px;
+    margin: 0 !important;
     width: 300px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     font-weight: 700;
+    text-transform: uppercase;
 }
 #order-details h4:hover{
     overflow: visible;
@@ -56,33 +61,21 @@
 
 .ui.header {
     text-align: center;
-    padding: 4rem 2rem 2rem; 
+    padding: 3rem 1rem 1rem; 
     color: #2F4858;
     font-family: 'Roboto';
 }
 
-.orderDate-container, #order-amtPaid{
+.orderDate-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin-top: .5rem;
-    padding: 0 1rem;
+    margin: .5rem 0 0;
+    padding: 0 0.5rem;
 }
-
-.orderDate-container h3{
-    font-size: 14px;
-    color: #2F4858;
-    font-family: "Roboto";
-    font-weight: 500
-}
-
-#orderDate{
-    margin-top: 2rem;
-}
-
-#delivStatus{
-    margin-top: 1rem;
+.orderDate-container h4 {
+    margin: 1.5rem 0 0 0;
 }
 
 .order-img-container{
@@ -91,6 +84,7 @@
     justify-content: space-between;
     align-items: center;
     margin-top: 1.5rem;
+    padding: 0 0.5rem;
 }
 
 .order-img-container img{
@@ -99,14 +93,15 @@
 }
 
 #orderProduct-details{
-    margin-left: -12em;
     text-align: left;
+    margin-left: -12rem;
 }
 
-#orderProduct-details h4, #order-seller h4{
+#orderProduct-details h4 {
     color: #2F4858;
     font-family: "Roboto";
     font-weight: 500;
     font-size: 14px;
-    margin-bottom: .5em;
+    margin-top: 0;
+    margin-bottom: 1rem;
 }

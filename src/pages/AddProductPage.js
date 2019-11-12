@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import './AddProductPage.css'
+import './AddProductPage.css';
 import addProduct from '../static/images/addProduct.png';
 import SecondaryNav from '../components/SecondaryNav/SecondaryNav';
 
@@ -61,6 +61,17 @@ class AddProductPage extends Component {
         const data = { pname, price, camount, harvest, sow, fertilizer };
         console.log(data);
         this.uploadDetails(data);
+    
+        //Reset form
+        const messageContainer = document.getElementById("messageAlert");
+        const message = document.querySelector(".message");
+        messageContainer.style.display = "flex";
+        message.innerHTML = "Successfull! Crop uploaded to Agro.";
+        this.setState({
+            pname: "",
+            price: "",
+            camount: "",
+        });
     }
     
 
@@ -69,39 +80,29 @@ class AddProductPage extends Component {
 
         return (
             <React.Fragment>
-            <SecondaryNav />
-
-            <section className="addProduct">
-                {
-                    loggedIn && 
-                    <>
-                        <div className="addProduct-text">
-                            <Link to="/">
-                                <h2>Agro</h2>
-                            </Link>
-                            <p className="addProduct-para">Agro is the easiest and safest way to buy, sell crops online.
-                                Discover new ways to monetize and scale your business online with Agro.</p>
-                            <div className="addProduct-img">
-                                <img src={addProduct} />
-                            </div>
+                <SecondaryNav style={{ color: '#2F4858' }}/>
+                <section className="addProduct">
+                    <div className="addProduct-text">
+                        <p className="addProduct-para">Agro is the easiest and safest way to buy, sell crops online.
+                            Discover new ways to monetize and scale your business online with Agro.</p>
+                        <div className="addProduct-img">
+                            <img src={addProduct} />
                         </div>
-
-                        <div className="addCrop-container">
-                            <h2>ADD CROP</h2>
-                            <form className="addCrop-form">
-                                <div className="crop-name">
-                                    <h4><label htmlFor="crop-name">Crop Name</label></h4>
-                                    <input 
-                                        id="pro"
-                                        type="text" 
-                                        name="crop-name"
-                                        placeholder="Crop name"
-                                        value={this.state.pname} 
-                                        onChange={(e) => {
-                                            this.setState({ pname : e.target.value }); 
+                    </div>
+                    {
+                        loggedIn && 
+                        <>
+                            <div className="addCrop-container">
+                                <div id="messageAlert">
+                                    <div className="message"></div>
+                                    <span 
+                                        className="closeBtn"
+                                        onClick={(e) => {
+                                            e.target.parentElement.style.display='none';
                                         }}
-                                        required
-                                    />
+                                    >
+                                        X
+                                    </span>
                                 </div>
                                 <div className="crop-price">
                                     <h4><label htmlFor="crop-price">Price</label></h4>
@@ -181,16 +182,16 @@ class AddProductPage extends Component {
                                             Upload
                                     </button>
                                 </div>
-                            </form>
-                        </div>
-                    </>
-                }
-            </section>
-            </React.Fragment>
-        );
-    }
-}
+                                </div>
+                                </>
+                            }
+                            </section>
+                            </React.Fragment>                 
+                   
 
+                   );
+                }
+            }
 const mapStateToProps = ({ scatter }) => {
     return {
         scatter,
@@ -202,3 +203,4 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddProductPage);                             
+        

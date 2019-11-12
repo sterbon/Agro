@@ -3,11 +3,12 @@ import './ProducerCard.css'
 
 class ProducerCard extends Component {
     render() {
-        const { detail, click } = this.props;
+        const { detail, click, style } = this.props;
         const { productId, cropAmount, price, producer } = detail;
         
         return(
             <div 
+                style={style}
                 className="producerCard-container"
                 onClick={click}
             >

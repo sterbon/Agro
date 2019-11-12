@@ -11,18 +11,24 @@ class OrderCard extends Component {
         const { account, transaction } = this.props;
         const { transactionID, cropName, productId, farmer, buyer, price, quantity } = transaction;
         const trackerUrl = `${"https://jungle.bloks.io/transaction/"}${transactionID}`;
-        console.log("trans: ", transaction);
-        let otherAccount = null;
+        // console.log("trans: ", transaction);
+        let otherAccount = null, orderCardStyle = null;
         if(account.name === farmer) {
             otherAccount = `${"Buyer : "}${buyer}`;
+            orderCardStyle = {    
+                background: "#FFF9C4",
+            }
         } 
         else if(account.name === buyer) {
             otherAccount = `${"Seller : "}${farmer}`;
+            orderCardStyle = {    
+                background: "#E3F2FD",
+            }
         }
 
         return (
             <div className="orderCard">
-                <Segment raised stacked>
+                <Segment raised style={orderCardStyle}>
                     <div id="orderCard-container">
                         <div id="order-details">
                             <h4>Transaction ID : { transactionID }</h4>
@@ -32,9 +38,9 @@ class OrderCard extends Component {
                         </div>
 
                         <div className="orderDate-container">
-                            <h3 id="orderDate">Transaction Date: 30/08/2019</h3>
-                            <h3>Crop : { cropName }</h3>
-                            <h3 id="delivStatus">Transaction Status: Completed</h3>
+                            <h4>{ otherAccount }</h4>
+                            <h4>Crop : { cropName }</h4>
+                            <h4 id="delivStatus">Transaction Status : Completed</h4>
                         </div>
 
                         <div className="order-img-container">
@@ -42,11 +48,10 @@ class OrderCard extends Component {
                             <div id="orderProduct-details" >
                                 <h4 id="pprice" >Crop ID : { `${"G36C"}${productId}` }</h4>
                                 <h4 id="pprice" >Quantity : { quantity } kg</h4>
-                                <h4 id="pprice" >Price : ₹ { price }</h4>
+                                <h4 id="pprice" >Price : ₹ { price } per Kg</h4>
                             </div>
                             <div id="order-seller">
-                                
-                                <h4>{ otherAccount }</h4>
+                                <h4></h4>
                             </div>
                         </div>
                     </div>
@@ -97,7 +102,7 @@ class OrdersPage extends Component {
     render() {
         const { loggedIn, userAccount } = this.props.scatter;
         const { transactionList } = this.state;
-        console.log("page: ", transactionList);
+        // console.log("page: ", transactionList);
 
         let ListView = <p className="else-text">Loading...</p>;
         if(transactionList.length) {

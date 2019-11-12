@@ -30,24 +30,24 @@ class Nav extends Component {
                         </Link>
                         {loggedIn ?
                         <React.Fragment>
+                            <Link to="/add_crop">
+                                <li className="nav_links">
+                                    <p className="nav_text" >Upload Crops</p>
+                                </li>
+                            </Link>
                             <Link to="/orders">
                                 <li className="nav_links">
                                     <p className="nav_text" >Transactions</p>
                                 </li>
                             </Link>
-                            <Link to="/add_crop">
-                                <li className="nav_links">
-                                    <p className="nav_text" >Add Crops</p>
-                                </li>
-                            </Link>
-                            <Link to="/crop_tracking">
-                                <li className="nav_links">
-                                    <p className="nav_text" >Track</p>
-                                </li>
-                            </Link>
                         </React.Fragment> :
                         <React.Fragment></React.Fragment>
                         }
+                        <Link to="/crop_tracking">
+                            <li className="nav_links">
+                                <p className="nav_text" >Track</p>
+                            </li>
+                        </Link>
                         <Link to="/about">
                             <li className="nav_links">
                                 <p className="nav_text" >About</p>
