@@ -71,17 +71,18 @@
 
 .productMisc{
     display: flex;
-    justify-content: space-between;
-    padding: 2rem 25rem 1rem 0.5rem;
+    padding: 2rem 0.5rem 1rem 0.5rem;
     margin-bottom: 2rem;
 }
 
 .productMisc-label p{
+    width: 250px;
     font: 500 14px 'Roboto';
     color: #2F4858;
 }
 
 .productMisc-text p{
     font: 400 14px 'Roboto';
-    color: #356A74
+    color: #356A74;
+    letter-spacing: 0.8px;
 }

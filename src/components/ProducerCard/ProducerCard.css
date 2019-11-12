@@ -1,4 +1,5 @@
 .producerCard-container{
+    position: relative;
     padding: 2.5rem ;
     transition: all 0.25s ease-in-out;
     margin-top: 2rem;
@@ -17,6 +18,16 @@
     align-items: center;
     padding: 0;
     margin: 0;
+}
+.producerCard-container .cropStatus {
+    position: absolute;
+    background: #FF5722;
+    color: white;
+    padding: 0 0.5rem;
+    border-radius: 4px;
+    font-weight: 700;
+    top: 8px;
+    left: 10px;
 }
 
 .producerCard h4.col {

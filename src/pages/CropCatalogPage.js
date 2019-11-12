@@ -16,7 +16,7 @@ class CropCatalogPage extends Component {
         
         getCropDetailsTable()
         .then((result) => {
-            // console.log("Rows: ", result.rows)
+            // console.log("Rows: ", result.rows);
 
             Object.values(result.rows).forEach((crop) => {
                 // if(!crop.sold) {
@@ -27,6 +27,10 @@ class CropCatalogPage extends Component {
                         cropCatalogList[cropName].producer.push(crop.producer);
                         cropCatalogList[cropName].cropAmount.push(crop.cropAmount);
                         cropCatalogList[cropName].price.push(crop.price);
+                        cropCatalogList[cropName].dateOfHarvest.push(crop.dateOfHarvest);
+                        cropCatalogList[cropName].dateOfSow.push(crop.dateOfSow);
+                        cropCatalogList[cropName].fertilizers.push(crop.fertilizers);
+                        cropCatalogList[cropName].sold.push(crop.sold);
                         
                         this.setState({ cropCatalogList });
                     }
@@ -39,6 +43,10 @@ class CropCatalogPage extends Component {
                                     producer: [crop.producer],
                                     cropAmount: [crop.cropAmount],
                                     price: [crop.price],
+                                    dateOfHarvest: [crop.dateOfHarvest],
+                                    dateOfSow: [crop.dateOfSow],
+                                    fertilizers: [crop.fertilizers], 
+                                    sold: [crop.sold],                                   
                                 }
                             }
                         });

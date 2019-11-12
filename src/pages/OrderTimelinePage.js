@@ -7,28 +7,31 @@ import {
 
 class Timeline extends Component {
     render() {
-        const { producer, cropName, price, buyer, cropAmount, sold } = this.props.cropDetails;
+        const { producer, cropName, price, buyer, cropAmount, dateOfHarvest, dateOfSow, fertilizers, sold } = this.props.cropDetails;
         let status = "Available", purchasedElem = null;
         if(sold) {
             status = "Sold Out";
-            purchasedElem = <li className="event" data-date="13th-October-2019">
-                            <h3>Purchased</h3>
-                            <p>by { buyer }</p>    
+            purchasedElem = <li className="event" data-date="2019-11-12">
+                            <h3>Crop Purchased</h3>
+                            <p>by { buyer }</p> 
+                            <p>Total price : ₹ { price * cropAmount }</p>   
                         </li>;
         }
 
         return (
             <ul className="timeline">
-                <li className="event" data-date="1st-October-2019">
+                <li className="event" data-date={dateOfHarvest}>
                     <h3>Crop Produced</h3>
                     <p>{ cropName } ({ status })</p>
+                    <p>Sow Date : { dateOfSow }</p>
+                    <p>Harvest Date : { dateOfHarvest }</p>
+                </li>
+                <li className="event" data-date="2019-11-12">
+                    <h3>Crop Uploaded</h3>
                     <p>{ cropAmount } Kg</p>
                     <p>by { producer }</p>
-                    <p>Selling Price: {price}</p>
-                </li>
-                <li className="event" data-date="11th-October-2019">
-                    <h3>Crop Uploaded</h3>
-                    <p>Crop uploaded to Agro, decentralized supplychain.</p>    
+                    <p>Price : ₹ { price } per Kg</p>
+                    <p className="upload-desc">(Crop uploaded to Agro, decentralized supplychain.)</p>    
                 </li>
                 { purchasedElem }
             </ul>

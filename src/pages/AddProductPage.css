@@ -161,7 +161,13 @@ input[type="submit"]:hover {
 }
 
 input::placeholder, textarea::placeholder{
-    color: #2F4858;
+    color: #999;
+    letter-spacing: 0.8px;
+}
+input[type=date]:invalid::-webkit-datetime-edit {
+    color: #999;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 .submitcrop .cta{

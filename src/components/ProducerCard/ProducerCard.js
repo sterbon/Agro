@@ -4,14 +4,21 @@ import './ProducerCard.css'
 class ProducerCard extends Component {
     render() {
         const { detail, click, style } = this.props;
-        const { productId, cropAmount, price, producer } = detail;
-        
+        const { productId, cropAmount, price, producer, sold } = detail;
+        let status = "";
+        if(sold) {
+            status = "SOLD OUT";
+        }
+
         return(
             <div 
                 style={style}
                 className="producerCard-container"
                 onClick={click}
             >
+                <span className="cropStatus">
+                    { status }
+                </span>
                 <div className="producerCard">
                     <div className="producerName">
                         <h4 className="col">ID</h4>

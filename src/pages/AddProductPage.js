@@ -62,15 +62,15 @@ class AddProductPage extends Component {
         console.log(data);
         this.uploadDetails(data);
     
-        //Reset form
-        const messageContainer = document.getElementById("messageAlert");
-        const message = document.querySelector(".message");
-        const closeBtn = document.querySelector(".closeBtn");
-        messageContainer.style.display = "flex";
-        message.innerHTML = "Successfull! Crop uploaded to Agro.";
-        setTimeout(() => {
-            closeBtn.click();
-        }, 3000);
+        // Reset form
+        // const messageContainer = document.getElementById("messageAlert");
+        // const message = document.querySelector(".message");
+        // const closeBtn = document.querySelector(".closeBtn");
+        // messageContainer.style.display = "flex";
+        // message.innerHTML = "Successfull! Crop uploaded to Agro.";
+        // setTimeout(() => {
+        //     closeBtn.click();
+        // }, 5000);
         this.setState({
             pname: "",
             price: "",
@@ -97,7 +97,9 @@ class AddProductPage extends Component {
                         loggedIn && 
                         <>
                             <div className="addCrop-container">
-                                <div id="messageAlert">
+                            <h2>UPLOAD CROP</h2>
+
+                                {/* <div id="messageAlert">
                                     <div className="message"></div>
                                     <span 
                                         className="closeBtn"
@@ -105,8 +107,9 @@ class AddProductPage extends Component {
                                             e.target.parentElement.style.display='none';
                                         }}
                                     >
+                                        x
                                     </span>
-                                </div>
+                                </div> */}
                                 <div className="crop-name">
                                     <h4><label htmlFor="crop-name">Name</label></h4>
                                     <input 
@@ -117,7 +120,6 @@ class AddProductPage extends Component {
                                         value={this.state.pname} 
                                         onChange={(e) => {
                                             this.setState({ pname : e.target.value }); 
-
                                         }}
                                         required
                                     />
@@ -179,12 +181,12 @@ class AddProductPage extends Component {
                                     />
                                 </div>
                                 <div className="crop-name">
-                                    <h4><label htmlFor="crop-price">Fertilezer or Manure Used</label></h4>
+                                    <h4><label htmlFor="crop-price">Fertilizer or Manure Used</label></h4>
                                     <input 
                                         id="amount"
                                         type="text" 
                                         name="crop-amount"
-                                        placeholder="Fertilezer or Manure Name"
+                                        placeholder="Fertilizer or Manure Name"
                                         value={this.state.fertilizer} 
                                         onChange={(e) => { 
                                             this.setState({ fertilizer : e.target.value }); 
@@ -220,5 +222,4 @@ const mapDispatchToProps = (dispatch) => {
     return { dispatch };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddProductPage);                             
-        
+export default connect(mapStateToProps, mapDispatchToProps)(AddProductPage);

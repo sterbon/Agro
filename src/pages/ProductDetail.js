@@ -22,7 +22,7 @@ class ProductDetail extends Component {
         const { cropName, details } = this.props.location.state;
         // console.log("At product page: ", cropName, details);
         const { selectedProducer } = this.state;
-        const { productId, cropAmount, price, producer } = details;
+        const { productId, cropAmount, price, producer, dateOfHarvest, dateOfSow, fertilizers, sold } = details;
         
         let producersList = null;
         if(productId.length) {
@@ -39,7 +39,11 @@ class ProductDetail extends Component {
                     productId: productId[key],
                     cropAmount: cropAmount[key], 
                     price: price[key], 
-                    producer: producer[key]
+                    producer: producer[key],
+                    dateOfHarvest: dateOfHarvest[key],
+                    dateOfSow: dateOfSow[key],
+                    fertilizers: fertilizers[key],
+                    sold: sold[key],
                 };
 
                 return <ProducerCard 
@@ -63,12 +67,18 @@ class ProductDetail extends Component {
                             <p>Quantity :</p>
                             <p>Price :</p>
                             <p>Seller :</p>
+                            <p>Sow date :</p>
+                            <p>Harvest date :</p>
+                            <p>Fertilizers used :</p>
                         </div>
 
                         <div className="productMisc-text">
                             <p>{ selectedProducer.cropAmount } Kg</p>
                             <p>₹ { selectedProducer.price } per Kg</p>
                             <p>{ selectedProducer.producer }</p>
+                            <p>{ selectedProducer.dateOfSow }</p>
+                            <p>{ selectedProducer.dateOfHarvest }</p>
+                            <p>{ selectedProducer.fertilizers }</p>
                         </div>
                     </div>
                     <div className="addToCart">

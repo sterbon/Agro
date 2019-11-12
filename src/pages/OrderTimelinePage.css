@@ -101,7 +101,7 @@
   font-family: 'Roboto';
   font-weight: 500;
   font-size: 1.4em;
-  color: #FAE69E;
+  color: #FFF59D;
   margin: 0 0 1rem 0;
 }
 
@@ -110,7 +110,7 @@
 }
 
 .timeline .event {
-  border-bottom: 1px dashed #FAE69E;
+  border-bottom: 1px dashed #FFF59D;
   padding-bottom: 25px;
   margin-bottom: 50px;
   position: relative;
@@ -131,10 +131,11 @@
 
 .timeline .event:before {
   left: -200px;
-  color: #FAE69E;
+  color: #FFF59D;
   content: attr(data-date);
+  letter-spacing: 0.8px;
   text-align: right;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 0.9em;
   min-width: 120px;
 }
@@ -142,12 +143,16 @@
 .timeline .event:after {
   box-shadow: 0 0 0 4px #2F4858;
   left: -57.85px;
-  background: #FAE69E;
+  background: #FFF59D;
   border-radius: 50%;
   height: 11px;
   width: 11px;
   content: "";
   top: 5px;
+}
+
+.event .upload-desc {
+  font-size: 0.8em;
 }
 
 .error-timeline {
