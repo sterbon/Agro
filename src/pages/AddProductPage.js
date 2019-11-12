@@ -60,8 +60,12 @@ class AddProductPage extends Component {
         //Reset form
         const messageContainer = document.getElementById("messageAlert");
         const message = document.querySelector(".message");
+        const closeBtn = document.querySelector(".closeBtn");
         messageContainer.style.display = "flex";
         message.innerHTML = "Successfull! Crop uploaded to Agro.";
+        setTimeout(() => {
+            closeBtn.click();
+        }, 3000);
         this.setState({
             pname: "",
             price: "",

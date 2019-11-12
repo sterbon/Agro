@@ -163,7 +163,7 @@ export const getCropDetailsTable = () => {
         "code": "sterbon23451",
         "scope": "sterbon23451",
         "table": "cdetail",
-        "limit": 20,
+        "limit": 100,
         });
     } catch(err) {
         console.error(err);
