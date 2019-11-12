@@ -10,13 +10,13 @@
 .secondary-logo{
     cursor: pointer;
     font-size: 50px;
-    color: #75AE8D;
+    color: #2F4858;
     font-family: 'Great Vibes';
 }
 
 .secondary-nav_text:hover{
     background: #fae69e;
-    color: #75AE8D;
+    color: #2F4858;
     font-size: 16px;
     border-radius: 5px;
 }
@@ -30,7 +30,7 @@
     font-weight: 500;
     font-size: 16px;
     padding: .5rem 1rem;
-    color: #75AE8D;
+    color: #2F4858;
     text-decoration: none;
 }
 
@@ -46,15 +46,15 @@
 .secondary-cta{
     padding: 13px 45px;
     background: transparent;
-    border: 1.3px solid #75AE8D ;
+    border: 1.6px solid #2F4858 ;
     cursor: pointer;
-    color: #75AE8D;
+    color: #2F4858;
     border-radius: 50px;
     transition: all 0.3s ease 0s;
     outline: none;
 }
 
 .secondary-cta:hover{
-    box-shadow: 1px 1px 8px 1px #75AE8D;
-    color: #75AE8D;
+    box-shadow: 0px 1px 3px 0px #2F4858;
+    color: #2F4858;
 }
