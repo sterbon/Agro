@@ -101,8 +101,22 @@ class AddProductPage extends Component {
                                             e.target.parentElement.style.display='none';
                                         }}
                                     >
-                                        X
                                     </span>
+                                </div>
+                                <div className="crop-name">
+                                    <h4><label htmlFor="crop-name">Name</label></h4>
+                                    <input 
+                                        id="pro"
+                                        type="text" 
+                                        name="crop-name"
+                                        placeholder="Crop name"
+                                        value={this.state.pname} 
+                                        onChange={(e) => {
+                                            this.setState({ pname : e.target.value }); 
+
+                                        }}
+                                        required
+                                    />
                                 </div>
                                 <div className="crop-price">
                                     <h4><label htmlFor="crop-price">Price</label></h4>

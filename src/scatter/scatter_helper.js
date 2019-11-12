@@ -166,7 +166,7 @@ export const getCropDetailsTable = () => {
         "json": true,
         "code": "sterbon23451",
         "scope": "sterbon23451",
-        "table": "crdetail",
+        "table": "crpdetail",
         "limit": 20,
         });
     } catch(err) {
@@ -180,7 +180,7 @@ export const getDetailsByCropId = (cropId) => {
             "json": true,
             "code": "sterbon23451",
             "scope": "sterbon23451",
-            "table": "crdetail",
+            "table": "crpdetail",
             "limit": 1,
             "lower_bound": cropId,
         });
@@ -195,7 +195,7 @@ export const getTransactionDetails = () => {
             "json": true,
             "code": "sterbon23451",
             "scope": "sterbon23451",
-            "table": "tdetail",
+            "table": "trxdetail",
         });
     } catch(err) {
         console.error(err);
