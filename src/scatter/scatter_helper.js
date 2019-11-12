@@ -175,7 +175,7 @@ export const getDetailsByCropId = (cropId) => {
         return userEosConnection.getTableRows({
             "json": true,
             "code": "sterbon23451",
-            "scope": userAccount.name,
+            "scope": "sterbon23451",
             "table": "cdetail",
             "limit": 1,
             "lower_bound": cropId,
@@ -190,7 +190,7 @@ export const getTransactionDetails = () => {
         return userEosConnection.getTableRows({
             "json": true,
             "code": "sterbon23451",
-            "scope": userAccount.name,
+            "scope": "sterbon23451",
             "table": "tdetail",
         });
     } catch(err) {

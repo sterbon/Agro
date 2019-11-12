@@ -61,12 +61,28 @@ input[type="submit"]:hover {
     margin-top: 4rem;
 } */
 
+#messageAlert {
+    display: none;
+    padding-left: 1.2rem;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+    background: #9CCC65;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+#messageAlert .closeBtn {
+    margin-left: auto;
+    padding-right: 1rem;
+    cursor: pointer;
+}
 
 .addProduct{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
     overflow-y: hidden ;
 }
 
@@ -109,7 +125,7 @@ input[type="submit"]:hover {
 
 
 .addCrop-container{
-    margin: auto;
+    margin: 2rem auto;
     width: 50%;
     padding: 1rem;
 }

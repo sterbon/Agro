@@ -16,10 +16,10 @@ class CropCatalogPage extends Component {
         
         getCropDetailsTable()
         .then((result) => {
-            console.log("Rows: ", result.rows)
+            // console.log("Rows: ", result.rows)
 
             Object.values(result.rows).forEach((crop) => {
-                if(!crop.sold) {
+                // if(!crop.sold) {
                     const cropName = crop.cropName.trim();
                     const { cropCatalogList } = this.state;
                     if(cropName in cropCatalogList) {
@@ -43,13 +43,13 @@ class CropCatalogPage extends Component {
                             }
                         });
                     }
-                }
+                // }
             })
         });
     }
     
     render() {
-        console.log("Render Catalog", this.state.cropCatalogList);
+        // console.log("Render Catalog", this.state.cropCatalogList);
         
         let CropCatalogElement = null;
 
@@ -65,7 +65,7 @@ class CropCatalogPage extends Component {
             });    
         }
         else{
-            CropCatalogElement = <p>No crops uploaded.</p>;
+            CropCatalogElement = <p>Loading...</p>;
         }
         
         return (

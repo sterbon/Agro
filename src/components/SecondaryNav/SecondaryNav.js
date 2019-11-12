@@ -19,29 +19,51 @@ class SecondaryNav extends Component {
 
     render() {
         const { loggedIn } = this.props.scatter;
+        const { style } = this.props;
 
         return(
-            <header className="secondary-nav-container">
+            <header className="secondary-nav-container" >
                 <Link to="/">
-                    <h1 className="secondary-logo">Agro</h1>
+                    <h1  style={style} className="secondary-logo">Agro</h1>
                 </Link>
                 <nav>
-                    <ul className="secondary-nav_links-container">
-                        <Link to="/">
-                            <li className="secondary-nav_links"><p className="secondary-nav_text">Home</p></li>
-                        </Link>
+                    <ul className="secondary-nav_links-container" >
                         <Link to="/crop_catalog">
-                            <li className="secondary-nav_links"><p className="secondary-nav_text">Catalog</p></li>
+                            <li className="secondary-nav_links">
+                                <p className="secondary-nav_text" style={style}>Catalog</p>
+                            </li>
                         </Link>
+                        {loggedIn ?
+                            <React.Fragment>
+                                <Link to="/add_crop">
+                                    <li className="secondary-nav_links">
+                                        <p className="secondary-nav_text" style={style}>Upload Crop</p>
+                                    </li>
+                                </Link>
+                                <Link to="/orders">
+                                    <li className="secondary-nav_links">
+                                        <p className="secondary-nav_text" style={style}>Transactions</p>
+                                    </li>
+                                </Link>
+                            </React.Fragment> :
+                            <React.Fragment></React.Fragment>
+                        }
                         <Link to="/crop_tracking">
-                            <li className="secondary-nav_links"><p className="secondary-nav_text">Track</p></li>
+                            <li className="secondary-nav_links">
+                                <p className="secondary-nav_text" style={style}>Track</p>
+                            </li>
+                        </Link>
+                        <Link to="/about">
+                            <li className="secondary-nav_links">
+                                <p className="secondary-nav_text" style={style}>About</p>
+                            </li>
                         </Link>
                     </ul>
                 </nav>
                 
                 {loggedIn ?
-                    <button className="secondary-cta" onClick={this.logOutUser.bind(this)} value="LOG OUT" >Logout</button> : 
-                    <button className="secondary-cta" onClick={this.loginUser.bind(this)} value="LOG IN" >Login</button>
+                    <button className="secondary-cta" style={style} onClick={this.logOutUser.bind(this)} value="LOG OUT" >Logout</button> : 
+                    <button className="secondary-cta" style={style} onClick={this.loginUser.bind(this)} value="LOG IN" >Login</button>
                 }
                 
             </header>

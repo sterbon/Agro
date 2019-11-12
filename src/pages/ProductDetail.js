@@ -27,6 +27,14 @@ class ProductDetail extends Component {
         let producersList = null;
         if(productId.length) {
             producersList = Object.keys(productId).map((key) => {
+                let cardStyle = {};
+                if(selectedProducer && (productId[key] === selectedProducer.productId)) {
+                    cardStyle = { 
+                        background: "#DCE775", 
+                        boxShadow: "0 2px 8px 0 rgba(0,0,0,0.12)",
+                    };
+                }
+
                 const detail = {
                     productId: productId[key],
                     cropAmount: cropAmount[key], 
@@ -35,6 +43,7 @@ class ProductDetail extends Component {
                 };
 
                 return <ProducerCard 
+                        style={cardStyle}
                         key={key}
                         detail={detail}
                         click={() => {
@@ -57,8 +66,8 @@ class ProductDetail extends Component {
                         </div>
 
                         <div className="productMisc-text">
-                            <p>{ selectedProducer.cropAmount }</p>
-                            <p>{ selectedProducer.price }</p>
+                            <p>{ selectedProducer.cropAmount } Kg</p>
+                            <p>₹ { selectedProducer.price } per Kg</p>
                             <p>{ selectedProducer.producer }</p>
                         </div>
                     </div>
