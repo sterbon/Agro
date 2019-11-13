@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Card, Image } from 'semantic-ui-react';
 import './CropCatalogCard.css';
-import Grain from '../../static/images/Grain.jpg'
 
 class CropCatalogCard extends Component {
     render() {
@@ -10,7 +9,7 @@ class CropCatalogCard extends Component {
 
         return (
             <Card>
-                <Image src={Grain} wrapped ui={false}/>
+                <Image src={details.cropImage} wrapped ui={false}/>
                 <Card.Content>
                     <Card.Header>{ cropName }</Card.Header>
                 </Card.Content>

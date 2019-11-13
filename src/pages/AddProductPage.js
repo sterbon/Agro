@@ -75,6 +75,9 @@ class AddProductPage extends Component {
             pname: "",
             price: "",
             camount: "",
+            harvest: "",
+            sow:"",
+            fertilizer:"",
         });
     }
     
