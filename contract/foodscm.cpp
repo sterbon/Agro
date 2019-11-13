@@ -13,7 +13,9 @@ class [[eosio::contract]] foodscm : public eosio::contract {
         uint64_t productId;
         name producer;
         name buyer;
-        string imageHash;
+        string dateOfHarvest;
+        string dateOfSow;
+        string fertilizers;
         string cropName;
         uint64_t cropAmount;
         uint64_t price;
@@ -42,9 +44,9 @@ class [[eosio::contract]] foodscm : public eosio::contract {
       auto primary_key()const { return productId;}
     };
     
-    typedef eosio::multi_index<name("cdetail"), cropdetails> crop_data;
+    typedef eosio::multi_index<name("crpdetail"), cropdetails> crop_data;
     typedef eosio::multi_index<name("udata"), userdata> user_data;  
-    typedef eosio::multi_index<name("tdetail"), transdetail> trans_detail;  
+    typedef eosio::multi_index<name("trxdetail"), transdetail> trans_detail;  
 
     crop_data _cropdata;
     user_data _userdata;
@@ -77,14 +79,16 @@ class [[eosio::contract]] foodscm : public eosio::contract {
     }
                        
     [[eosio::action]]
-    void uploadcrop(name producer, string cropName, uint64_t cropAmount, string imageHash, uint64_t price) {
+    void uploadcrop(name producer, string cropName, uint64_t cropAmount, string imageHash, uint64_t price, string dateOfHarvest, string dateOfSow, string fertilizers) {
 
       _cropdata.emplace(_self, [&](auto& row) {
           row.productId = _cropdata.available_primary_key();
           row.producer = producer;
           row.cropName = cropName;
           row.cropAmount = cropAmount;
-          row.imageHash = imageHash;
+          row.dateOfHarvest = dateOfHarvest;
+          row.dateOfSow = dateOfSow;
+          row.fertilizers = fertilizers;
           row.price = price;
           row.sold = false;
           row.buyer = producer;
