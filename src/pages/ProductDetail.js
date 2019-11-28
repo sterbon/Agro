@@ -83,7 +83,7 @@ class ProductDetail extends Component {
                     </div>
                     <div className="addToCart">
                         <Button 
-                            className="cta" 
+                            className={`cta${selectedProducer.sold ? " disabled" : ""}`}
                             fluid
                             onClick={() => {
                                 this.props.dispatch(buyCrop(selectedProducer.productId))

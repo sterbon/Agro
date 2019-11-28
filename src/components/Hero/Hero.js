@@ -13,7 +13,7 @@ function Hero()
                 <h2>Supply Chain Platform</h2>
                 <p className="hero-para">Agro is the easiest and safest way to buy, sell crops online.
                    Discover new ways to monetize and scale your business online with Agro.</p>
-                <Link to="/add_crop"><button className="cta">Get Started</button></Link>
+                <Link to="/crop_catalog"><button className="cta">Get Started</button></Link>
             </div>
 
             <div className="hero-img">
