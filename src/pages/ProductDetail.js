@@ -22,7 +22,7 @@ class ProductDetail extends Component {
         const { cropName, details } = this.props.location.state;
         // console.log("At product page: ", cropName, details);
         const { selectedProducer } = this.state;
-        const { productId, cropAmount, price, producer, dateOfHarvest, dateOfSow, fertilizers, sold } = details;
+        const { cropImage, productId, cropAmount, price, producer, dateOfHarvest, dateOfSow, fertilizers, sold } = details;
         
         let producersList = null;
         if(productId.length) {
@@ -83,7 +83,7 @@ class ProductDetail extends Component {
                     </div>
                     <div className="addToCart">
                         <Button 
-                            className="cta" 
+                            className={`cta${selectedProducer.sold ? " disabled" : ""}`}
                             fluid
                             onClick={() => {
                                 this.props.dispatch(buyCrop(selectedProducer.productId))
@@ -102,7 +102,7 @@ class ProductDetail extends Component {
                 <section className="productDetail">
                     <div className="productDetail-text">
                         <div className="addProduct-img">
-                            <Image src={Grain} size='large' rounded />
+                            <Image src={cropImage} size='large' rounded />
                         </div>
                     </div>
 

@@ -103,36 +103,40 @@ class [[eosio::contract]] foodscm : public eosio::contract {
         string cropName = itr->cropName;
         uint64_t quantity = itr->cropAmount; 
         uint64_t cost = itr->price;
+        bool sold = itr->sold;
 
-        struct transfer
-        { 
-            name buyer;
-            name seller;
-            asset price;
-            string memo;
-        };
+      if(sold == true) 
+      {
+          struct transfer
+          { 
+              name buyer;
+              name seller;
+              asset price;
+              string memo;
+          };
 
-        eosio::action transfer_action = eosio::action(
-            permission_level(buyer, name("active")),
-            name("eosio.token"), 
-            name("transfer"),
-            transfer{buyer, seller, price, memo});
-            transfer_action.send();
-        
-        auto payer = has_auth( seller ) ? seller : buyer;
-        _cropdata.modify(itr, payer, [&](auto& row){
-          row.sold = true;
-          row.buyer = buyer;
-        });
-        
-        _transdetail.emplace(payer, [&](auto& row){
-          row.productId = cropPid;
-          row.farmer = seller;
-          row.buyer = buyer;
-          row.price = cost;
-          row.quantity = quantity;
-          row.cropName = cropName;
-          row.transactionID = get_trx_id();
-        });
-    }
+          eosio::action transfer_action = eosio::action(
+              permission_level(buyer, name("active")),
+              name("eosio.token"), 
+              name("transfer"),
+              transfer{buyer, seller, price, memo});
+              transfer_action.send();
+          
+          auto payer = has_auth( seller ) ? seller : buyer;
+          _cropdata.modify(itr, payer, [&](auto& row){
+            row.sold = true;
+            row.buyer = buyer;
+          });
+          
+          _transdetail.emplace(payer, [&](auto& row){
+            row.productId = cropPid;
+            row.farmer = seller;
+            row.buyer = buyer;
+            row.price = cost;
+            row.quantity = quantity;
+            row.cropName = cropName;
+            row.transactionID = get_trx_id();
+          });
+        }
+      }
 };
