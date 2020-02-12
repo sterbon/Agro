@@ -1,0 +1,194 @@
+/* .addCropComponent {
+    width: 96%;
+    max-width: 600px;
+    font-family: 'Roboto Slab';
+    margin: 1rem auto;
+}
+
+.addCropComponent h3 {
+    font-family: 'Roboto';
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.addCropComponent div {
+    margin: 1.5rem auto;
+}
+
+.addCropComponent label {
+    display: inline-block;
+    width: 25%;
+    padding-bottom: auto;
+}
+
+.addCropComponent input, .addCropComponent textarea {
+    display: inline-block;
+    width: 74.5%;
+    padding: 10px 8px;
+    margin-left: auto;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    font-family: 'Roboto';
+    outline: none;
+}
+
+div.crop-name, div.crop-descrip, div.crop-price {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+input[type="submit"] {
+    width: 120px;
+    outline: none;
+    cursor: pointer;
+    background: #48462C;
+    color: white;
+    border: 1px solid #908D75;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+}
+input[type="submit"]:hover {
+    background: none;
+    border: 2px solid #48462C;
+    color: #48462C;    
+}
+.addCropComponent .submitcrop-button {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 4rem;
+
+h4,h2{
+    color: #4f4f4f;
+    font-weight: 900;
+}
+} */
+
+#messageAlert {
+    display: none;
+    padding-left: 1.2rem;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+    background: #81C784;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+#messageAlert .closeBtn {
+    margin-left: auto;
+    padding-right: 1rem;
+    cursor: pointer;
+}
+
+.addProduct{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    overflow-y: hidden ;
+}
+
+.addProduct-text{
+    flex-basis: 30%;
+    padding: 3rem 1.5rem;
+    height: 100vh;
+    background: #fae69e;
+    position: relative;
+}
+
+.addProduct-text h2{
+    font-family: 'Great Vibes';
+    font-weight: 700;
+    font-size: 55px;
+    color: #2F4858;
+    margin: 3rem 2rem 2rem;
+    text-align: left;
+}
+
+.addProduct-para{
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 18px;
+    padding: 1rem 1.2rem;
+    color: #2F4858;
+    text-decoration: none;
+    text-align: justify;
+    line-height: 2rem
+}
+
+.addProduct-img img{
+    position: absolute;
+    width: 500px;
+    top: 65.9%;
+    bottom: 0;
+    right: 0;
+    left: -4%;
+}
+
+
+.addCrop-container{
+    margin: 2rem auto;
+    width: 60%;
+    padding: 2rem 4rem;
+    border-radius: 8px;
+    /* border: 1.5px solid #2F4858; */
+    box-shadow: 0 5px 20px rgba(47, 72, 88, .30), 0 5px 5px rgba(47, 72, 88, .22);
+}
+
+.addCrop-form{
+    padding: 2rem 4rem;
+    background: powderblue;
+    border-radius: 16px;
+    text-align: left;
+    box-shadow: 0 19px 38px rgba(47, 72, 88, .30), 0 15px 12px rgba(47, 72, 88, .22);
+}
+
+.crop-price, .crop-name, .crop-amount{
+    margin: 2rem 0;
+}
+
+.crop-price input, .crop-name input, .crop-amount input{
+    padding: .7rem 1rem;
+    width: 100%;
+    outline: none;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1.5px solid #2F4858;
+    /* border: 3px solid #e8f4ef; */
+    /* border: 3px solid #00c57b; */
+}
+
+.crop-descrip textarea{
+    padding: .7rem 1rem;
+    width: 90%;
+    outline: none;
+    font-size: 14px;
+    border-radius: 8px;
+    border: 1.5px solid #2F4858;
+}
+
+input::placeholder, textarea::placeholder{
+    color: #999;
+    /* color: #00c57b; */
+    letter-spacing: 0.8px;
+}
+input[type=date]:invalid::-webkit-datetime-edit {
+    color: #999;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.submitcrop .cta{
+    padding: 15px 45px;
+    background: #2F4858;
+    border: 1.3px solid #2F4858 ;
+    cursor: pointer;
+    color: #f4f4f4;
+    border-radius: 50px;
+    transition: all 0.3s ease 0s;
+    outline: none;
+
+}

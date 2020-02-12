@@ -1,0 +1,73 @@
+.EOSAccount-container{
+    margin: 2rem auto;
+    width: 60%;
+    padding: 2rem 4rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(47, 72, 88, .30), 0 5px 5px rgba(47, 72, 88, .22);
+    text-align: center;
+    height: 500px;
+    position: relative;
+}
+
+.EOSAccount{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    /* border: 1.5px solid #2F4858; */
+    width: 80%;
+}
+
+.EOSAccount-container .heading{
+    font-size: 30px;
+}
+
+.EOSAccount-container .sub-heading{
+    width: 100%;
+    font-size: 14px;
+    line-height: 1.6em;
+    padding: 0 3rem;
+    text-align: center;
+    margin: 2.5rem auto 2rem auto
+}
+
+.EOSAccountBtn{
+    margin-top: 1.7rem;
+    display: flex;
+    justify-content: center;
+}
+
+.EOSAccount-cta{
+    padding: 14px 40px;
+    font-size: 14px;
+    font-weight: 700;
+    background: transparent;
+    border: 1.3px solid #2F4858 ;
+    cursor: pointer;
+    color: #2F4858;
+    border-radius: 5px;
+    transition: all 0.3s ease 0s;
+    outline: none;
+
+}
+
+.EOSAccount-cta:hover{
+    box-shadow: 0 5px 8px rgba(47, 72, 88, .30), 0 3px 3px rgba(47, 72, 88, .22);
+}
+
+.createEOSAccount{
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.createEOSAccount .signUpLink{
+    margin: 0;
+    font-size: 14px;
+}
+
+.createEOSAccount .signUpLink a{
+    text-decoration: none;
+    cursor: pointer;
+}

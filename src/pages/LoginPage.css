@@ -1,0 +1,67 @@
+.heading{
+    font-size: 28px;
+}
+
+.sub-heading{
+    width: 85%;
+    line-height:1.6em;
+    padding-top: .3rem;
+}
+
+.userName{
+    display: flex;
+    padding-top: 1rem;
+    justify-content: space-between;
+}
+
+.userAccountName, .userPassword{
+    padding: 1rem 0;
+}
+
+.userAccountName input, .userPassword input{
+    padding: .7rem 1rem;
+    width: 95%;
+    outline: none;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1.5px solid #2F4858;
+}
+
+.loginBtn{
+    margin-top: 1.7rem;
+    display: flex;
+    justify-content: center;
+}
+
+.login-cta{
+    padding: 14px 40px;
+    font-size: 14px;
+    font-weight: 700;
+    background: transparent;
+    border: 1.3px solid #2F4858 ;
+    cursor: pointer;
+    color: #2F4858;
+    border-radius: 5px;
+    transition: all 0.3s ease 0s;
+    outline: none;
+
+}
+
+.login-cta:hover{
+    box-shadow: 0 5px 8px rgba(47, 72, 88, .30), 0 3px 3px rgba(47, 72, 88, .22);
+}
+
+.createEOSAccount{
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.createEOSAccount .signUpLink{
+    margin: 0;
+    font-size: 14px;
+}
+
+.createEOSAccount .signUpLink a{
+    text-decoration: none;
+    cursor: pointer;
+}

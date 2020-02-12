@@ -202,7 +202,7 @@ class AddProductPage extends Component {
                                             Upload
                                     </button>
                                 </div>
-                                </div>
+                            </div>
                                 </>
                             }
                             </section>
