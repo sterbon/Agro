@@ -97,16 +97,20 @@ class CropCatalogPage extends Component {
         
         return (
             <React.Fragment>
-                <SecondaryNav />    
-                <div className="cropCatalogContainer">
-                    {/* <div className="cropCatalogFilter">
-                        <h3>FILTER</h3>
-                        <FilterAccordian />
-                    </div> */}
-                    <div className="cropCatalogGrid">
-                        { CropCatalogElement }
+                <SecondaryNav />   
+                <div className="cropCatalog">
+                    <h2 className="cropCatalogHeader">Stock Catalog</h2> 
+                    <div className="cropCatalogContainer">
+                        {/* <div className="cropCatalogFilter">
+                            <h3>FILTER</h3>
+                            <FilterAccordian />
+                        </div> */}
+                        <div className="cropCatalogGrid">
+                            { CropCatalogElement }
+                        </div>
                     </div>
                 </div>
+                
             </React.Fragment>
         );
     }

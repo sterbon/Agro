@@ -30,7 +30,7 @@ class ProductDetail extends Component {
                 let cardStyle = {};
                 if(selectedProducer && (productId[key] === selectedProducer.productId)) {
                     cardStyle = { 
-                        background: "#DCE775", 
+                        background: "#BDC1C0", 
                         boxShadow: "0 2px 8px 0 rgba(0,0,0,0.12)",
                     };
                 }
@@ -89,7 +89,7 @@ class ProductDetail extends Component {
                                 this.props.dispatch(buyCrop(selectedProducer.productId))
                             }}                        
                         >
-                            BUY CROP
+                            Buy Crop
                         </Button>
                     </div>
                 </React.Fragment>

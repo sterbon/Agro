@@ -1,36 +1,38 @@
-.EOSAccount-container{
-    margin: 2rem auto;
-    width: 60%;
-    padding: 2rem 4rem;
-    border-radius: 8px;
-    box-shadow: 0 5px 20px rgba(47, 72, 88, .30), 0 5px 5px rgba(47, 72, 88, .22);
-    text-align: center;
-    height: 500px;
-    position: relative;
-}
-
-.EOSAccount{
-    margin: 0;
+.EOSAccountModal{
     position: absolute;
     top: 50%;
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    /* border: 1.5px solid #2F4858; */
-    width: 80%;
+    height: 85%;
+    background-color: #f6fdfa !important;
 }
 
-.EOSAccount-container .heading{
-    font-size: 30px;
+.EOSAccountContent .form-container{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    margin: auto;
+    padding: 1.5rem;
+    width: 95%;
+}   
+
+.EOSAccountContent .form-container .heading{
+    font-size: 37px;
+    font-family: 'Roboto' !important;
+    font-weight: 700 !important;
+    color: #052350 !important;
 }
 
-.EOSAccount-container .sub-heading{
-    width: 100%;
-    font-size: 14px;
+.EOSAccountContent .form-container .sub-heading{
+    font-size: 16px;
     line-height: 1.6em;
-    padding: 0 3rem;
+    padding: 1.3rem 1rem;
     text-align: center;
-    margin: 2.5rem auto 2rem auto
+    font-weight: 800;
+    color: #052350;
 }
 
 .EOSAccountBtn{
@@ -44,9 +46,9 @@
     font-size: 14px;
     font-weight: 700;
     background: transparent;
-    border: 1.3px solid #2F4858 ;
+    border: 1.3px solid #052350 !important;
     cursor: pointer;
-    color: #2F4858;
+    color: #052350 !important;
     border-radius: 5px;
     transition: all 0.3s ease 0s;
     outline: none;
@@ -54,20 +56,5 @@
 }
 
 .EOSAccount-cta:hover{
-    box-shadow: 0 5px 8px rgba(47, 72, 88, .30), 0 3px 3px rgba(47, 72, 88, .22);
-}
-
-.createEOSAccount{
-    text-align: center;
-    margin-top: 3rem;
-}
-
-.createEOSAccount .signUpLink{
-    margin: 0;
-    font-size: 14px;
-}
-
-.createEOSAccount .signUpLink a{
-    text-decoration: none;
-    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(47, 72, 88, .30), 0 3px 3px rgba(47, 72, 88, .22);
 }

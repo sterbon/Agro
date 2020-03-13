@@ -1,4 +1,143 @@
+:root{
+    /* --main-background-color: #f4f7f6; */
+    /* --button-background: #49c5b6;
+    --font-color: #202121;
+    --grey-color: #a6abab;
+ */
+    --main-background-color: #f6fdfa;
+    /* --main-background-color: #f8faf7; */
+    --button-background: #ee6e6c;
+    --font-color: #052350;
+    /* --font-color: #051e50; */
+    --dark-grey: #bdc1c0;
+  }
+
+.loginContainer{
+    border: 11px solid  coral;
+    margin-bottom: 5rem;
+    padding: 3rem 0;
+    text-align: center;
+}
+
+.ui.modal{
+    margin: 1rem 0 !important;
+    width: 45%;
+}
+
+.content{
+    border-radius: 0px !important;
+    padding: 3rem 1rem !important;
+    background: #f6fdfa !important
+}
+
+.login-container{
+    margin: auto;
+    padding: 0 1rem;
+}
+
 .heading{
+    font-size: 37px;
+    text-align: center;
+    font-family: 'Roboto';
+    font-weight: medium;
+    color: var(--font-color) !important;
+
+}
+
+.sub-heading{
+    width: fit-content;
+    line-height: 1.6em;
+    padding-top: .3rem;
+    text-align: center;
+    margin: auto;
+    font-family: 'Nunito';
+    font-weight: 800;
+    font-size: 15px;
+    color: var(--font-color) !important;
+}
+
+.form-container
+{
+    margin: 2rem auto 0 auto;
+    padding: 1rem 0 0 3rem;
+}
+
+.userAccountName, .userPassword{
+    padding: 1rem 0;
+    margin-bottom: .5rem ;
+}
+
+.userAccountName label, .userPassword label
+{
+    color: var(--font-color);
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 12.7px;
+}
+
+.userAccountName input, .userPassword input{
+    padding: 1rem;
+    width: 90%;
+    outline: none;
+    font-size: 14.7px;
+    border-radius: 5px;
+    border: 1px solid var(--dark-grey);
+    font-family: 'Nunito';
+    font-weight: 600;
+    color: var(--font-color);
+}
+
+.userAccountName input:focus, .userPassword input:focus{
+    border: 1px solid var(--font-color);
+}
+
+.loginBtn{
+    margin-top: 1.7rem;
+    display: flex;
+    justify-content: center;
+}
+
+.login-cta{
+    padding: 14px 40px;
+    font-size: 14px;
+    font-weight: 700;
+    background: transparent;
+    border: 1.3px solid var(--font-color) ;
+    cursor: pointer;
+    color: var(--font-color);
+    border-radius: 5px;
+    transition: all 0.3s ease 0s;
+    outline: none;
+
+}
+
+.login-cta:hover{
+    box-shadow: 0 2px 8px rgba(47, 72, 88, .30), 0 3px 3px rgba(47, 72, 88, .22);
+}
+
+.createEOSAccount{
+    text-align: center;
+    margin-top: 3rem;
+    color: var(--font-color);
+    cursor: pointer;
+}
+
+.createEOSAccount .signUpLink{
+    margin: auto;
+    font-size: 14px;
+    color: var(--button-background);
+    border-bottom: .2px solid var(--font-color);
+    width: fit-content; 
+    padding: 0 .5rem;
+
+}
+
+.createEOSAccount .signUpLink a{
+    text-decoration: none;
+}
+
+
+/* .heading{
     font-size: 28px;
 }
 
@@ -64,4 +203,4 @@
 .createEOSAccount .signUpLink a{
     text-decoration: none;
     cursor: pointer;
-}
+} */

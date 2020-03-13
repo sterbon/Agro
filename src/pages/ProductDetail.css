@@ -1,9 +1,9 @@
 .productDetail{
-
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    background: #f6fdfa
 }
 
 .productDetail-text{
@@ -15,33 +15,44 @@
 
 .productDetail
 .ui.image{
-    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
-    padding: 0.6rem;
+    box-shadow: 0 2px 8px rgba(5, 35, 80, .12), 0 3px 3px rgba(5, 35, 80, .16);
+    /* padding: 0.6rem; */
     margin: auto;
-    height: 550px;
-    width: 85%;
+    height: 500px;
+    width: 80%;
     object-fit: cover;
 }
 
 .productDetail-container{
     margin: auto;
-    margin-top: 0;
-    width: 50%;
-    padding: 4rem 4rem 4rem 2rem;
+    width: 48%;
+    padding: 2.7rem 4rem 4rem 0rem;
     text-align: left;
 }
 
 .productName{
     margin: 1rem 0;
     padding: 0 0.5rem;
-    font: 400 26px 'Roboto';
-    color: #2F4858;
+    font: 600 39px 'Roboto';
+    color: #052350;
 }
 
 .addToCart .ui.button{
     padding: .8rem;
-    font: 500 13px 'Roboto';
+    font: 500 15px 'Roboto';
     letter-spacing: 1px;
+    border-radius: 0px;
+    background-color: transparent;
+    border: 1.3px solid #ee6e6c;
+    color: #ee6e6c;
+    box-shadow: none;
+}
+
+.addToCart .ui.button:hover{
+    background-color: #ee6e6c !important;
+    border: 1.3px solid #052350;
+    color: white !important;
+    box-shadow: none !important;
 }
 
 .selectProducer{
@@ -50,7 +61,10 @@
 
 .selectProducer h4{
     padding: 0 0 0 0.5rem;
-    color: #2F4858;
+    color: #052350;
+    font-family: 'Nunito';
+    font-weight: 600;
+    font-size: 16px;
 }
 
 .productQuantity .ui.input, .selectProducer .ui.dropdown{
@@ -65,8 +79,8 @@
     margin: 0;
     padding: 0 0.5rem;
     padding-top: 2.8rem;
-    font: 500 17px 'Roboto';
-    color: #2F4858;
+    font: 600 17px 'Roboto';
+    color: #052350;
 }
 
 .productMisc{
@@ -78,11 +92,11 @@
 .productMisc-label p{
     width: 250px;
     font: 500 14px 'Roboto';
-    color: #2F4858;
+    color: #052350;
 }
 
 .productMisc-text p{
-    font: 400 14px 'Roboto';
-    color: #356A74;
+    font: 600 14px 'Nunito';
+    color: #052350;
     letter-spacing: 0.8px;
 }

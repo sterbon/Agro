@@ -28,31 +28,31 @@ class OrderCard extends Component {
 
         return (
             <div className="orderCard">
-                <Segment raised style={orderCardStyle}>
+                <Segment raised>
                     <div id="orderCard-container">
                         <div id="order-details">
                             <h4>Transaction ID : { transactionID }</h4>
-                            <div id="btn-container">
-                                <Button href={trackerUrl} target="_blank" >See transaction at Bloks.io jungle</Button>
-                            </div>
                         </div>
 
                         <div className="orderDate-container">
                             <h4>{ otherAccount }</h4>
-                            <h4>Crop : { cropName }</h4>
-                            <h4 id="delivStatus">Transaction Status : Completed</h4>
+                            <h4>Crop : <span>{ cropName }</span></h4>
+                            <h4 id="delivStatus">Transaction Status : <span>Completed</span></h4>
                         </div>
 
                         <div className="order-img-container">
                             <img src={penny} width="120px" height="120px" />
                             <div id="orderProduct-details" >
-                                <h4 id="pprice" >Crop ID : { `${"G36C"}${productId}` }</h4>
-                                <h4 id="pprice" >Quantity : { quantity } kg</h4>
-                                <h4 id="pprice" >Price : ₹ { price } per Kg</h4>
+                                <h4 id="pprice" >Crop ID : <span>{ `${"G36C"}${productId}` }</span></h4>
+                                <h4 id="pprice" >Quantity : <span>{ quantity } kg</span></h4>
+                                <h4 id="pprice" >Price : <span>₹ { price } per Kg</span></h4>
                             </div>
-                            <div id="order-seller">
+                            {/* <div id="order-seller">
                                 <h4></h4>
-                            </div>
+                            </div> */}
+                        </div>
+                        <div id="btn-container">
+                                <Button href={trackerUrl} target="_blank" >See transaction at Bloks.io jungle</Button>
                         </div>
                     </div>
                 </Segment>
@@ -122,7 +122,7 @@ class OrdersPage extends Component {
                     <Header as='h2'>
                         Your Transactions
                     </Header>
-                    { loggedIn ? ListView : <p className="else-text">You are not logged in.</p> }
+                    { loggedIn ? ListView : <p className="else-text">Sorry. Currently you are not logged in.</p> }
                 </div>  
             </React.Fragment>
         )
