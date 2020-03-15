@@ -30,7 +30,7 @@ scatter = ScatterJS.scatter;
 userEosConnection = scatter.eos(network, Eos, eosOptions);
 
 export const loginHistoryExists = () => !!localStorage.getItem("lastLoginAt");
-const setLoginHistory    = () => localStorage.setItem("lastLoginAt", new Date().getTime());
+const setLoginHistory = () => localStorage.setItem("lastLoginAt", new Date().getTime());
 
 export const connect = appName => (new Promise((resolve, reject)=> {
     ScatterJS.scatter.connect(appName).then(connected => {
@@ -146,7 +146,7 @@ export const buyCrop = (productId) => {
               "data": {
                 "buyer": userAccount.name,
                 "cropPid": productId.payload,
-                "price": "1.0000 JUNGLE",
+                "price": "12.0000 JUNGLE",
                 "memo": "Buy crop"
               },
               "authorization": [

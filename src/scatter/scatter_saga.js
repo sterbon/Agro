@@ -25,6 +25,10 @@ import {
 } from "./scatter_helper";
 
 import {
+    loginKeycat
+} from "./keycat_helper";
+
+import {
     notifyError,
     notifyInfo,
     notifySuccess
@@ -66,7 +70,7 @@ function* loginWithScatter(){
         yield put(connectedScatter());
 
         try{
-            const {name, publicKey, authority} = yield call(login);
+            const {name , authority, publicKey} = yield call(loginKeycat);
             yield put(logInSuccess({name, publicKey, keyType: authority}));
             notifySuccess(`Logged in as ${name}`, 1);
         }catch(e){
@@ -124,7 +128,7 @@ function* buyCrops(productId){
 
 export default function*  missionsSagas(){
     yield takeLatest(SCATTER_ACTIONS.CONNECT, connectWithScatter);
-    yield takeLatest(SCATTER_ACTIONS.ATTEMPT_AUTO_LOGIN, attemptAutoLoginWithScatter);
+    // yield takeLatest(SCATTER_ACTIONS.ATTEMPT_AUTO_LOGIN, attemptAutoLoginWithScatter);
     yield takeLatest(SCATTER_ACTIONS.LOGIN, loginWithScatter);
     yield takeLatest(SCATTER_ACTIONS.GET_WALLET, fetchUserWallet);
     yield takeLatest(SCATTER_ACTIONS.LOG_OUT, logOutUser);
