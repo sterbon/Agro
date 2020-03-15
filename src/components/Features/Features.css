@@ -4,15 +4,15 @@
 }
 
 .features h1{
-    color: #fae69e;
+    color: #052350;
     font-family: 'Roboto';
-    font-size: 45px;
+    font-size: 57px;
     letter-spacing: 2px;
-    font-weight: 700;
-    border-bottom: 2px solid #2F4858;
-    width: 11%;
+    font-weight: 500;
+    border-bottom: 2px solid #ee6e6c;
+    width: fit-content;
     margin: 5rem auto;
-    padding-bottom: 1rem;
+    padding: 0 1.2rem;
 }
 
 .features-grid-top,.features-grid-bottom {
@@ -28,13 +28,12 @@
 }
 
 .features-card{
-    background: #f4f4f4;
+    background: white;
     padding: 2rem;
     box-sizing: border-box;
-    border-radius: 28px;
+    border: 1px solid #f6fdfa;
     height: 370px;
-    width: 310px;
-    box-shadow: 0 19px 38px rgba(47, 72, 88, .30), 0 15px 12px rgba(47, 72, 88, .22);
+    width: 350px;
 }
 
 .features-card img{
@@ -43,17 +42,18 @@
 
 .features-card h3{
     margin-top: 1.5rem;
-    color: #75AE8D;
+    font-size: 19px;
+    color: #052350;
     font-family: 'Roboto';
     font-weight: 700;
 }
 
 .features-text{
-    font-family: 'Roboto';
+    font-family: 'Nunito';
     margin-top: 1.5rem;
     font-size: 14px;
-    font-weight: 500;
-    color: #2F4858;
+    font-weight: 600;
+    color: #052350;
     text-align: center;
     line-height: 1.5rem;
 }

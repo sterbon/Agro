@@ -1,10 +1,48 @@
 .order-container{
     height: 100%;
+    background-color: #f6fdfa;
+    position: relative;
 }
+
+.ui.header {
+    font-size: 41px !important;
+    font-family: 'Roboto';
+    color: #052350;
+    text-align: center;
+    font-weight: 500;
+    border-bottom: 1.7px solid #ee6e6c;
+    width: fit-content;
+    padding: 3rem 1rem 0 1rem; 
+    margin: auto;
+    letter-spacing: 2px;
+}
+
+.ui.segment{
+    border: 1.3px solid #f6fdfa ;
+    border-radius: 0px;
+    box-shadow: none !important;
+}
+
+.ui.segment:hover{
+    border: 1.3px solid #f6fdfa;
+    transition: ease-in-out .3s;
+    box-shadow: 0 1px 3px rgba(47, 72, 88, .30), 0 3px 3px rgba(47, 72, 88, .22) !important;
+
+} 
 
 .order-container .else-text {
     text-align: center;
-    font-size: 16px;
+    font-size: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    padding: 5rem 0;
+    font-family: 'Roboto';
+    color: #ee6e6c;
+    font-weight: 600;
+    width: fit-content;
 }
 
 .orderCard {
@@ -13,57 +51,41 @@
     margin: 0 auto;
     padding: 1rem 0;
 }
-/* .order-container .ui.segment{
-    background: #FFF9C4;
-    background: #E3F2FD;
-} */
 
 #orderCard-container{
     padding: 0 .5em;
 }
 
 #order-details{
-    padding: 1rem 0.2rem 0 0.5rem;
+    padding: 1rem 0.6rem 0 0;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
 }
 
 #order-details h4{
-    color: #4A8D86;
     font-family: "Roboto";
-    font-size: 12px;
-    margin: 0 !important;
-    width: 300px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    font-size: 13px;
     font-weight: 700;
     text-transform: uppercase;
-}
-#order-details h4:hover{
-    overflow: visible;
+    color: #ee6e6c;
 }
 
 #btn-container{
-    margin-top: -.5rem;
+    margin-top: .7rem;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
 }
 
 .ui.button{
-    background: #356A74;
+    background: #ee6e6c;
     color: white;
     font-size: 12px;
 }
 
 .ui.button:hover{
-    background: #2F4858;
+    background: #052350;
     color: white;
-}
-
-.ui.header {
-    text-align: center;
-    padding: 3rem 1rem 1rem; 
-    color: #2F4858;
-    font-family: 'Roboto';
 }
 
 .orderDate-container {
@@ -74,8 +96,17 @@
     margin: .5rem 0 0;
     padding: 0 0.5rem;
 }
+
 .orderDate-container h4 {
     margin: 1.5rem 0 0 0;
+    color: #052350;
+    font-family: 'Roboto';
+    font-weight: 500;
+}
+
+.orderDate-container span{
+    font-family: 'Nunito';
+    font-weight: 600;
 }
 
 .order-img-container{
@@ -85,6 +116,7 @@
     align-items: center;
     margin-top: 1.5rem;
     padding: 0 0.5rem;
+    /* border: 1px solid cadetblue */
 }
 
 .order-img-container img{
@@ -94,14 +126,22 @@
 
 #orderProduct-details{
     text-align: left;
-    margin-left: -12rem;
+    display: flex;
+    width: 600px;
+    justify-content: space-between;
+    align-items: center;
 }
 
 #orderProduct-details h4 {
-    color: #2F4858;
-    font-family: "Roboto";
+    color: #052350;
+    font-family: 'Roboto';
     font-weight: 500;
-    font-size: 14px;
+    font-size: 16px;
     margin-top: 0;
     margin-bottom: 1rem;
+}
+
+#orderProduct-details span{
+    font-family: 'Nunito';
+    font-weight: 600;
 }

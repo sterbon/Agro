@@ -3,22 +3,27 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    padding-top: 1rem;
-    background: #f4f4f4;
+    padding: 2rem 0 1.7rem 0;
+    background:  #f6fdfa;
 }
 
 .secondary-logo{
     cursor: pointer;
     font-size: 50px;
-    color: #2F4858;
+    color: #052350;
     font-family: 'Great Vibes';
 }
 
+.secondary-logo:hover{
+    color: #ee6e6c;
+}
+
 .secondary-nav_text:hover{
-    background: #fae69e;
-    color: #2F4858;
+    background: transparent;
+    color: #052350;
     font-size: 16px;
     border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(47, 72, 88, .30), 0 3px 3px rgba(47, 72, 88, .22);
 }
 
 .secondary-nav_links-container{
@@ -30,7 +35,7 @@
     font-weight: 500;
     font-size: 16px;
     padding: .5rem 1rem;
-    color: #2F4858;
+    color: #052350;
     text-decoration: none;
 }
 
@@ -44,17 +49,32 @@
 }
 
 .secondary-cta{
-    padding: 13px 45px;
+    /* padding: 14px 40px;
+    font-size: 15px;
+    font-weight: 700;
     background: transparent;
-    border: 1.6px solid #2F4858 ;
+    border: 1.3px solid #052350 ;
     cursor: pointer;
-    color: #2F4858;
-    border-radius: 50px;
+    color: #052350;
+    border-radius: 5px;
+    transition: all 0.3s ease 0s;
+    outline: none; */
+    padding: 14px 40px;
+    font-size: 16px;
+    font-weight: 700;
+    background: transparent;
+    border: 1.3px solid #ee6e6c ;
+    cursor: pointer;
+    color: #ee6e6c;
+    border-radius: 5px;
     transition: all 0.3s ease 0s;
     outline: none;
+    margin-left: 1rem;
 }
 
 .secondary-cta:hover{
-    box-shadow: 0px 1px 3px 0px #2F4858;
-    color: #2F4858;
+    /* box-shadow: 0 2px 8px rgba(47, 72, 88, .30), 0 3px 3px rgba(47, 72, 88, .22); */
+    color: #ee6e6c !important;
+    border: 1.3px solid transparent ;
+    box-shadow: 0 2px 8px rgba(47, 72, 88, .30), 0 3px 3px rgba(47, 72, 88, .22);
 }

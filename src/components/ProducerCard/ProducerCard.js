@@ -7,7 +7,7 @@ class ProducerCard extends Component {
         const { productId, cropAmount, price, producer, sold } = detail;
         let status = "";
         if(sold) {
-            status = "SOLD OUT";
+            status = "Stock's Out";
         }
 
         return(
@@ -16,6 +16,7 @@ class ProducerCard extends Component {
                 className="producerCard-container"
                 onClick={click}
             >
+                
                 <span className="cropStatus">
                     { status }
                 </span>

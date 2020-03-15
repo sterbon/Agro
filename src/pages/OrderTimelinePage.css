@@ -11,7 +11,8 @@
 }
 
 .search-container{
-  padding-top: 2rem
+  padding: 2rem 0;
+  margin: 2rem 0
 }
 
 .searchbox {
@@ -25,6 +26,8 @@
   margin: 0;
   display: flex;
   left: 35%;
+  border: 1px solid #bdc1c0;
+  font-family: 'Nunito';
 }
 
 .searchbox > .btn-menu {
@@ -49,19 +52,23 @@
 }
 
 #search::-webkit-input-placeholder { 
-  color: gray;
+  color: #bdc1c0;
+  font-family: 'Nunito';
 }
 #search::-moz-placeholder {
-  color: gray;
+  color: #bdc1c0;
 }
 
-.timeline-container h1 {
+.timeline-container h2 {
+  font-size: 41px;
   font-family: 'Roboto';
-  letter-spacing: 1.5px;
-  color: #2F4858;
-  font-weight: 700 ;
-  font-size: 2.8em;
-  padding-top: 3rem
+  color: #052350;
+  text-align: center;
+  font-weight: 500;
+  width: fit-content;
+  padding: 0 1.3rem;
+  margin: auto;
+  letter-spacing: 2px;
 }
 
 .timeline-container {
@@ -69,7 +76,7 @@
 }
 
 #content {
-  background: #75AE8D;
+  background: #f6fdfa;
   min-height: 100%;
   padding: 3rem 0;
   text-align: center;
@@ -78,12 +85,13 @@
 /* Timeline */
 .timeline {
   /* display: none; */
-  border-left: 4px solid #2F4858;
+  border-left: 4px solid #052350;
   border-bottom-right-radius: 4px;
   border-top-right-radius: 4px;
   background: rgba(255, 255, 255, 0.03);
-  color: #2F4858;
-  font-family: 'Roboto';
+  color: #052350;
+  font-family: 'Nunito';
+  font-weight: 600;
   margin: 3rem auto;
   position: relative;
   line-height: 1.4em;
@@ -91,7 +99,6 @@
   padding: 50px;
   list-style: none;
   text-align: left;
-  font-weight: 500;
   max-width: 30%;
 }
 
@@ -99,9 +106,10 @@
 .timeline h2,
 .timeline h3 {
   font-family: 'Roboto';
-  font-weight: 500;
-  font-size: 1.4em;
-  color: #FFF59D;
+  font-weight: 600;
+  /* font-size: 1.4em; */
+  font-size: 23px;
+  color: #052350;
   margin: 0 0 1rem 0;
 }
 
@@ -110,7 +118,7 @@
 }
 
 .timeline .event {
-  border-bottom: 1px dashed #FFF59D;
+  border-bottom: 1px dashed #052350;
   padding-bottom: 25px;
   margin-bottom: 50px;
   position: relative;
@@ -131,7 +139,7 @@
 
 .timeline .event:before {
   left: -200px;
-  color: #FFF59D;
+  color: #ee6e6c;
   content: attr(data-date);
   letter-spacing: 0.8px;
   text-align: right;
@@ -141,9 +149,9 @@
 }
 
 .timeline .event:after {
-  box-shadow: 0 0 0 4px #2F4858;
+  box-shadow: 0 0 0 4px #052350;
   left: -57.85px;
-  background: #FFF59D;
+  background: #ee6e6c;
   border-radius: 50%;
   height: 11px;
   width: 11px;
@@ -156,7 +164,7 @@
 }
 
 .error-timeline {
-  color: red;
+  color: #ee6e6c;
   font-size: 1.35rem;
   margin-top: 5rem;
 }

@@ -1,28 +1,66 @@
+.cardContainer .ui.card{
+    box-shadow: none;
+    border-radius: 0px !important;
+    width: 350px;
+    height: 450px;
+    margin-bottom: 5rem !important;
+    height: fit-content !important;
+}
+
 .cropCatalogGrid
 .header{
-    margin: .7rem 0 !important;
-    color: #2F4858 !important;
+    margin: .5rem 0.7rem 1.3rem !important;
+    color: #052350 !important;
     font-family: 'Roboto' !important;
+    text-align: left;
+    font-weight: 600 !important;
+    font-size: 21px !important;
+}
+
+.cropCatalogGrid 
+.ui.card>.image{
+    border-radius: 0px !important;
 }
 
 .cropCatalogGrid 
 .ui.card>.image img {
-    height: 240px;
+    height: 250px;
+}
+
+.cardContent{
+    display: flex;
+    justify-content: space-between;
+}
+
+.cardContent p{
+    padding: 0.7rem;
+    font-size: 13.3px !important;
+    font-family: 'Nunito' !important;
+    color: #052350 !important;
 }
 
 .cropCatalogGrid 
 .ui.card>.content {
-    padding: 0.5rem;
+    background: white !important;
+    padding: 1rem 1rem .7rem !important;
 } 
 
-.meta{
-    color: #356A74 !important;
-    font-family: 'Roboto' !important;
-    font-weight: 600;
-    margin-bottom: .8rem;
+.viewProductBtnContainer{
+   margin-top: 3rem;
 }
 
-.description{
-    font: 500 13.5px 'Roboto' !important;
-    color: #2F4858 !important;
+.viewProductBtn{
+    border: 1px solid #ee6e6c;
+    padding: .7rem;
+    color: #ee6e6c;
+    font-family: 'Roboto';
+    font-weight: 500;
+    text-align: center;
+}
+
+.viewProductBtn:hover{
+    background-color: #ee6e6c;
+    transition: ease-in-out 0.2s;
+    color: white !important;
+    border: 1px solid #052350;
 }

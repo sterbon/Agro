@@ -1,11 +1,21 @@
+.signUpModal{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background-color: #f6fdfa !important;
+}
+
+
 .heading{
     font-size: 28px;
 }
 
-.sub-heading{
-    width: 85%;
-    line-height:1.6em;
+.signUp .sub-heading{
+    line-height: 1.6em;
     padding-top: .3rem;
+    font-weight: 600;
 }
 
 .userName{
@@ -16,10 +26,17 @@
 
 .firstName, .lastName{
     width: 100%;
+    color: #052350;
+    margin-bottom: .8rem
 }
 
 .userEmail, .userMobile, .userAdhaar{
     padding: 1rem 0;
+    color: #052350;
+}
+
+.firstName label, .lastName label, .userEmail label, .userMobile label, .userAdhaar label{
+    font-family: 'Roboto';
 }
 
 .firstName input, .lastName input{
@@ -28,9 +45,8 @@
     outline: none;
     font-size: 14px;
     border-radius: 5px;
-    border: 1.5px solid #2F4858;
-    /* border: 3px solid #e8f4ef; */
-    /* border: 3px solid #00c57b; */
+    border: 1px solid #bdc1c0;
+    font-family: 'Nunito';
 }
 
 .userEmail input, .userMobile input, .userAdhaar input{
@@ -39,13 +55,17 @@
     outline: none;
     font-size: 14px;
     border-radius: 5px;
-    border: 1.5px solid #2F4858;
-    /* border: 3px solid #e8f4ef; */
-    /* border: 3px solid #00c57b; */
+    border: 1px solid #bdc1c0;
+    font-family: 'Nunito';
+}
+
+.firstName input:focus, .lastName input:focus, .userEmail input:focus, .userMobile input:focus, .userAdhaar input:focus
+{
+    border: 1px solid #052350;
 }
 
 .continue{
-    margin-top: 3rem;
+    margin-top: 2rem;
     display: flex;
     justify-content: flex-end;
 }
@@ -54,10 +74,11 @@
     padding: 14px 40px;
     font-size: 14px;
     font-weight: 700;
+    font-family: 'Roboto';
     background: transparent;
-    border: 1.3px solid #2F4858 ;
+    border: 1.3px solid #052350 ;
     cursor: pointer;
-    color: #2F4858;
+    color: #052350;
     border-radius: 5px;
     transition: all 0.3s ease 0s;
     outline: none;
@@ -66,6 +87,6 @@
 }
 
 .continue-cta:hover{
-    box-shadow: 0 5px 8px rgba(47, 72, 88, .30), 0 3px 3px rgba(47, 72, 88, .22);
+    box-shadow: 0 2px 8px rgba(47, 72, 88, .30), 0 3px 3px rgba(47, 72, 88, .22);
 }
 

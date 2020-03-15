@@ -1,3 +1,13 @@
+.landDetailsModal{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background-color: #f6fdfa !important;
+}
+
+
 .addressHead{
     font-family: 'Roboto';
     font-size: 18px;
@@ -31,22 +41,35 @@
     margin: 1rem 0 2.3rem 0;
 }
 
+.landRegNo label, .country label, .city label, .state label, .pin label{
+    font-family: 'Roboto';
+    color: #052350;
+}
+
 .country input, .state input, .city input, .pin input{
     padding: .7rem 1rem;
     width: 90%;
     outline: none;
     font-size: 14px;
     border-radius: 5px;
-    border: 1.5px solid #2F4858;
+    border: 1px solid #bdc1c0;
+    font-family: 'Nunito';
+    color: #052350;
 }
 
-.landRegNo input, .userMobile input, .userAdhaar input{
+.landRegNo input{
     padding: .7rem 1rem;
     width: 95%;
     outline: none;
     font-size: 14px;
     border-radius: 5px;
-    border: 1.5px solid #2F4858;
+    border: 1px solid #bdc1c0;
+    font-family: 'Nunito';
+    color: #052350;
+}
+
+.country input:focus, .state input:focus, .city input:focus, .pin input:focus, .landRegNo input:focus{
+    border: 1px solid #052350;
 }
 
 .ctaBtnGroup{
@@ -60,13 +83,14 @@
     font-size: 14px;
     font-weight: 700;
     background: transparent;
-    border: 1.3px solid #2F4858 ;
+    border: 1.3px solid #052350 ;
     cursor: pointer;
-    color: #2F4858;
+    color: #052350;
     border-radius: 5px;
     transition: all 0.3s ease 0s;
     outline: none;
     margin-right: 2rem;
+    font-family: 'Roboto';
 }
 
 .ctaBtnGroup .back-cta{
@@ -76,15 +100,15 @@
     background: transparent;
     border: 1.3px solid #fff ;
     cursor: pointer;
-    color: #2F4858;
+    color: #052350;
     border-radius: 5px;
     transition: all 0.3s ease 0s;
     outline: none;
     margin-right: 2rem;
-    /* box-shadow: 0 5px 8px rgba(47, 72, 88, .30), 0 3px 3px rgba(47, 72, 88, .22); */
+    font-family: 'Roboto';
 }
 
-.continue-cta:hover,.back-cta:hover{
+.back-cta:hover{
     box-shadow: 0 5px 8px rgba(47, 72, 88, .30), 0 3px 3px rgba(47, 72, 88, .22);
 }
 

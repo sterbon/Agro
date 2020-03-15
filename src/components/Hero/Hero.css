@@ -12,41 +12,44 @@
 
 .hero-text h2{
     font-family: 'Roboto';
-    font-weight: 700;
-    font-size: 55px;
-    color: #fae69e;
+    font-weight: 600;
+    font-size: 49px;
+    color: #052350;
     text-decoration: none;
     margin: 1.1rem;
     text-align: left;
+    /* border: 1px solid black; */
 }
 
 .hero-para{
-    font-family: 'Roboto';
-    font-weight: 500;
+    font-family: 'Nunito';
+    font-weight: 600;
     font-size: 18px;
-    padding: 1rem 1.2rem;
-    color: #2F4858;
+    padding: 1rem;
+    color: #052350;
     text-decoration: none;
     text-align: justify;
     line-height: 2rem
 }
 
 .hero-text .cta{
-    padding: 15px 45px;
-    background: #75AE8D;
-    border: 1.3px solid #f4f4f4 ;
+    padding: 14px 40px;
+    font-size: 16px;
+    font-weight: 700;
+    background: transparent;
+    border: 1.3px solid #ee6e6c ;
     cursor: pointer;
-    color: #f4f4f4;
-    border-radius: 50px;
+    color: #ee6e6c;
+    border-radius: 5px;
     transition: all 0.3s ease 0s;
     outline: none;
-    margin-right: 26.5rem;
+    margin-left: 1rem;
 }
 
-.cta:hover{
-    box-shadow: 1px 1px 8px 1px #fae69e;
-    background: #f4f4f4;
-    color: #75AE8D;
+.hero-text .cta:hover{
+    color: #ee6e6c !important;
+    border: 1.3px solid transparent ;
+    box-shadow: 0 2px 8px rgba(47, 72, 88, .30), 0 3px 3px rgba(47, 72, 88, .22);
 }
 
 .hero-img img {
