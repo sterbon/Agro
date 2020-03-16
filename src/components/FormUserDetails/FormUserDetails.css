@@ -1,15 +1,14 @@
-.signUpModal{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    background-color: #f6fdfa !important;
+.signUpContainer{
+    padding: 5rem;
+    background-color: #f6fdfa;
 }
 
+.form-container{
+    width: 60%;
+}
 
-.heading{
-    font-size: 28px;
+.signUp .heading{
+    font-size: 52px;
 }
 
 .signUp .sub-heading{

@@ -1,14 +1,13 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import { Button, Header, Icon, Modal } from 'semantic-ui-react'
-import SignUpPage from './SignUpPage';
 import './LoginPage.css'
 
 export class LoginPage extends Component {
     render() {
         return (
             <div className="loginContainer">
-                <h1>Login Setup</h1>
+                <h1 id="test">Login Setup</h1>
                 <Modal trigger={<Button>Show Modal</Button>} closeIcon>
                     <Modal.Content>
                         <div className="modalContent">
@@ -50,10 +49,9 @@ export class LoginPage extends Component {
                                             </button>
                                         </div>
 
-                                        <div className="createEOSAccount">
+                                        <div className="createEOSAccount" id="signUpClicked">
                                             <h5>Don't have an EOS account? Don't worry create one now!</h5>
-                                                <SignUpPage />
-                                                {/* <h5 className="signUpLink">Create EOS Account</h5> */}
+                                                <h5 className="signUpLink">Create EOS Account</h5>
                                         </div>
                                     </div>
                                     

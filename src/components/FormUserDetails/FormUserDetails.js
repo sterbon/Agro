@@ -20,17 +20,6 @@ export class FormUserDetails extends Component {
     render() {
         const { open } = this.state
         return (
-
-            <div>
-                <Modal open={open}
-                       onOpen={this.open}
-                       onClose={this.close}
-                       trigger={
-                          <h5 className="signUpLink">Create EOS Account</h5>
-                      }
-                       closeIcon className="signUpModal">
-                    <Modal.Content>
-                        <div className="modalContent">
                             <div className="signUpContainer">
                                 <div className="signUp">
                                     <h2 className="heading">Namaste!</h2>
@@ -96,23 +85,17 @@ export class FormUserDetails extends Component {
                                                 </div>
                                         
                                                 <div className="continue">
-                                                    <FormLandDetails />
-                                                    {/* <button className="continue-cta" 
+                                                    <button className="continue-cta" 
                                                         name="submit-button" 
                                                         value="Upload" 
                                                         onClick = {this.continue}>
                                                         Continue   
-                                                    </button> */}
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                    </Modal.Content>
-                </Modal>
-            </div>
-
 
 
         //     <div className="addCrop-container">

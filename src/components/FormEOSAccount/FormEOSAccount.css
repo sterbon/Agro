@@ -1,42 +1,60 @@
-.EOSAccountModal{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    height: 85%;
-    background-color: #f6fdfa !important;
+.EOSAccountContent{
+    padding: 5rem;
+    background-color: #f6fdfa;
 }
 
-.EOSAccountContent .form-container{
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    margin: auto;
-    padding: 1.5rem;
-    width: 95%;
-}   
-
-.EOSAccountContent .form-container .heading{
-    font-size: 37px;
-    font-family: 'Roboto' !important;
-    font-weight: 700 !important;
-    color: #052350 !important;
+.EOSAccountContent .heading{
+    font-size: 53px;
+    font-family: 'Roboto';
+    font-weight: 700;
+    color: #052350;
+    margin-left: 2rem;
 }
 
-.EOSAccountContent .form-container .sub-heading{
+.EOSAccountContent .sub-heading{
     font-size: 16px;
     line-height: 1.6em;
-    padding: 1.3rem 1rem;
+    padding-top: 1rem;
     text-align: center;
     font-weight: 800;
     color: #052350;
 }
 
+.EOSUserName{
+    padding: 2rem 0;
+}
+
+.EOSPassword{
+    padding-top: .7rem;
+}
+
+.EOSUserName label, .EOSPassword label{
+    font-family: 'Roboto';
+    color: #052350;
+}
+
+.EOSUserName span{
+    padding-left: 1rem;
+    color: #ee6e6c;
+}
+
+.EOSUserName input, .EOSPassword input{
+    padding: .7rem 1rem;
+    width: 95%;
+    outline: none;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #bdc1c0;
+    font-family: 'Nunito';
+}
+
+.EOSUserName input:focus, .EOSPassword input:focus
+{
+    border: 1px solid #052350;
+}
+
 .EOSAccountBtn{
-    margin-top: 1.7rem;
+    padding-top: 3rem;
     display: flex;
     justify-content: center;
 }
@@ -46,9 +64,9 @@
     font-size: 14px;
     font-weight: 700;
     background: transparent;
-    border: 1.3px solid #052350 !important;
+    border: 1.3px solid #052350;
     cursor: pointer;
-    color: #052350 !important;
+    color: #052350;
     border-radius: 5px;
     transition: all 0.3s ease 0s;
     outline: none;

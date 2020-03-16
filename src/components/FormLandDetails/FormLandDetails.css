@@ -1,27 +1,25 @@
-.landDetailsModal{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    background-color: #f6fdfa !important;
+.landRegContainer{
+    padding: 5rem;
+    background-color: #f6fdfa;
 }
-
 
 .addressHead{
     font-family: 'Roboto';
     font-size: 18px;
     font-weight: 600;
+    color: #052350;
+    padding-top: 1rem
 }
 
-.heading{
-    font-size: 28px;
+.landReg .heading{
+    font-size: 52px;
 }
 
-.sub-heading{
-    width: 85%;
+.landReg .sub-heading{
+    width: 55%;
     line-height: 1.6em;
-    padding-top: .3rem;
+    padding-top: .8rem;
+    font-weight: 600;
 }
 
 .landRegNo{

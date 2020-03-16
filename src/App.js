@@ -30,7 +30,8 @@ class App extends Component{
                     <Route path="/product" component={ ProductDetail } />
                     <Route path="/crop_tracking" component={ OrderTimelinePage } />
                 </Switch>
-                <LoginPage />
+                {/* <LoginPage /> */}
+                <SignUpPage />
             </React.Fragment>
         );
     }
