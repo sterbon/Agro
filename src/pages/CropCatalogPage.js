@@ -4,9 +4,8 @@ import FilterAccordian from '../components/FilterAccordian/FilterAccordian';
 import CropCatalogCard from '../components/CropCatalogCard/CropCatalogCard';
 import SecondaryNav from '../components/SecondaryNav/SecondaryNav';
 import Grain from '../static/images/Grain.jpg'
-import {
-    getCropDetailsTable,
-} from '../scatter/scatter_helper';
+import { getCropDetailsTable } from '../scatter/scatter_helper';
+
 import Unsplash, { toJson } from 'unsplash-js';
 
 const KEY = "e7d3d4ff6d6694a54dc10ca8ddb7e32b8033a64b2e8971cbc27ac49ab2395f5e";
@@ -20,7 +19,7 @@ class CropCatalogPage extends Component {
         
         getCropDetailsTable()
         .then((result) => {
-            // console.log("Rows: ", result.rows);
+            console.log("Rows: ", result);
 
             Object.values(result.rows).forEach((crop) => {
                 // if(!crop.sold) {

@@ -11,7 +11,6 @@ import {
     uploadCrop
 } from '../scatter/scatter_actions';
 
-const IPFS = require('ipfs-api');
 
 class AddProductPage extends Component {
     constructor(props) {

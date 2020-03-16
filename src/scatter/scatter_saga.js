@@ -24,9 +24,9 @@ import {
     buyCrop,
 } from "./scatter_helper";
 
-import {
-    loginKeycat
-} from "./keycat_helper";
+// import {
+//     loginKeycat
+// } from "./keycat_helper";
 
 import {
     notifyError,
@@ -64,24 +64,24 @@ function* attemptAutoLoginWithScatter(){
     }
 }
 
-function* loginWithScatter(){
-    try{
-        yield call(connect,APP_NAME);
-        yield put(connectedScatter());
+// function* loginWithScatter(){
+//     try{
+//         yield call(connect,APP_NAME);
+//         yield put(connectedScatter());
 
-        try{
-            const {name , authority, publicKey} = yield call(loginKeycat);
-            yield put(logInSuccess({name, publicKey, keyType: authority}));
-            notifySuccess(`Logged in as ${name}`, 1);
-        }catch(e){
-            yield put(loginError());
-            notifyError('Scatter rejected login request !', 3);
-        }
-    }catch(e){
-        yield put(connectionError());
-        notifyError('Please unlock Scatter !', 3);
-    }
-}
+//         try{
+//             const {name , authority, publicKey} = yield call(loginKeycat);
+//             yield put(logInSuccess({name, publicKey, keyType: authority}));
+//             notifySuccess(`Logged in as ${name}`, 1);
+//         }catch(e){
+//             yield put(loginError());
+//             notifyError('Scatter rejected login request !', 3);
+//         }
+//     }catch(e){
+//         yield put(connectionError());
+//         notifyError('Please unlock Scatter !', 3);
+//     }
+// }
 
 function* fetchUserWallet(){
     try{
@@ -129,7 +129,7 @@ function* buyCrops(productId){
 export default function*  missionsSagas(){
     yield takeLatest(SCATTER_ACTIONS.CONNECT, connectWithScatter);
     // yield takeLatest(SCATTER_ACTIONS.ATTEMPT_AUTO_LOGIN, attemptAutoLoginWithScatter);
-    yield takeLatest(SCATTER_ACTIONS.LOGIN, loginWithScatter);
+    // yield takeLatest(SCATTER_ACTIONS.LOGIN, loginWithScatter);
     yield takeLatest(SCATTER_ACTIONS.GET_WALLET, fetchUserWallet);
     yield takeLatest(SCATTER_ACTIONS.LOG_OUT, logOutUser);
     yield takeLatest(SCATTER_ACTIONS.SEND_TOKEN, transferTokens);
