@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "eosjs": "^16.0.9",
-    "eosjs2": "^1.0.0",
-    "ipfs-api": "^26.1.2",
+    "eosjs": "^20.0.3",
+    "ipfs-http-client": "^42.0.0",
+    "node-fetch": "^2.6.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-redux": "^7.1.1",

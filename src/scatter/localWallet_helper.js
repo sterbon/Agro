@@ -1,6 +1,8 @@
 import { Api, JsonRpc } from 'eosjs';
-import { JsSignatureProvider } from 'eosjs2/dist/eosjs2-jssig'
+import { JsSignatureProvider } from 'eosjs/dist/eosjs-jssig'
+const ipfsClient = require('ipfs-http-client')
 const fetch = require('node-fetch');
+
 
 const network = {
     blockchain: 'eos',
@@ -14,16 +16,42 @@ const network = {
     verbose: false,
     sign: true
 };
-const eos = Eos (network);
+// const eos = Eos(network);
+
+
+// Retrieving multi-index data
+export async function getCropDetailsTable() {
+    console.log("HERE")
+    try {
+        const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { fetch  });
+        const result = await rpc.get_table_rows({
+            "json": true,
+            "code": "sterbon23451",
+            "scope": "sterbon23451",
+            "table": "crpdetail",
+            "limit": 20,
+        });
+        // const result = await rpc.get_account('sterbon23451')
+        return(result)
+    } catch (err) {
+        console.error(err);
+    }
+}
 
 //IPFS for generating private and public keys
 // https://ipfs.io/ipfs/QmW4XxaEg8cWsYisfjnjqLFi1MbHMYjt7nbCh8ZHwgg9c2
+export async function generateKeys() {
+    const node = await ipfsClient.create()
+    const data = await node.cat('QmW4XxaEg8cWsYisfjnjqLFi1MbHMYjt7nbCh8ZHwgg9c2')
+    console.log(data.toString())
+}
 
 // Create new account on jungle Testnet
 export const signup = (name_of_new_account, owner_publicKey, active_publicKey) => {
+    const rpc = new JsonRpc('http://127.0.0.1:8888', { fetch });
 
-    return new Promise(async function (resolve, reject) {
-        eos.transaction(tr => {
+        return new Promise(async function (resolve, reject) {
+            rpc.transaction(tr => {
                 tr.newaccount({
                     creator: 'sterbon23451',
                     name: name_of_new_account,
@@ -43,13 +71,13 @@ export const signup = (name_of_new_account, owner_publicKey, active_publicKey) =
                     transfer: 0,
                 });
             })
-            .then(data => {
-                resolve(data.transaction_id);
-            })
-            .catch(error => {
-                reject(error);
-            });
-    });
+                .then(data => {
+                    resolve(data.transaction_id);
+                })
+                .catch(error => {
+                    reject(error);
+                });
+        });
 }
 
 // Storing pvt keys to local storage 
@@ -96,24 +124,5 @@ export async function uploadCrop(data) {
         ]
     })
     console.log("Result: ", result)
-        ();
     // })
-}
-
-// Retrieving multi-index data
-export const getCropDetailsTable = () => {
-    try {
-        const rpc = new JsonRpc('http://127.0.0.1:8888', { fetch });
-        const result = await rpc.get_table_rows({
-            "json": true,
-            "code": "sterbon23451",
-            "scope": "sterbon23451",
-            "table": "crpdetail",
-            "limit": 20,
-        });
-        console.log(result)
-
-    } catch (err) {
-        console.error(err);
-    }
 }

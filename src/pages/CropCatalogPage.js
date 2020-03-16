@@ -4,7 +4,7 @@ import FilterAccordian from '../components/FilterAccordian/FilterAccordian';
 import CropCatalogCard from '../components/CropCatalogCard/CropCatalogCard';
 import SecondaryNav from '../components/SecondaryNav/SecondaryNav';
 import Grain from '../static/images/Grain.jpg'
-import { getCropDetailsTable } from '../scatter/scatter_helper';
+import { getCropDetailsTable } from '../scatter/localWallet_helper';
 
 import Unsplash, { toJson } from 'unsplash-js';
 
