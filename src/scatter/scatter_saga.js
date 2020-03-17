@@ -1,4 +1,4 @@
-import {takeLatest, put, call} from 'redux-saga/effects';
+import { takeLatest, put, call } from 'redux-saga/effects';
 
 import {
     SCATTER_ACTIONS,
@@ -24,6 +24,10 @@ import {
     buyCrop,
 } from "./scatter_helper";
 
+import {
+    createNewAccount
+} from "./localWallet_helper";
+
 // import {
 //     loginKeycat
 // } from "./keycat_helper";
@@ -36,70 +40,61 @@ import {
 
 const APP_NAME = 'FoodSCM';
 
-function* connectWithScatter(){
-    try{
-        yield call(connect,APP_NAME);
+function* connectWithScatter() {
+    try {
+        yield call(connect, APP_NAME);
         yield put(connectedScatter());
-    }catch(e){
+    } catch (e) {
         yield put(connectionError());
     }
 }
 
-function* attemptAutoLoginWithScatter(){
-    try{
-        if(loginHistoryExists()){
-            yield call(connect,APP_NAME);
+function* attemptAutoLoginWithScatter() {
+    try {
+        if (loginHistoryExists()) {
+            yield call(connect, APP_NAME);
             yield put(connectedScatter());
-            try{
-                const {name, publicKey, authority} = yield call(login);
-                yield put(logInSuccess({name, publicKey, keyType: authority}));
+            try {
+                const { name, publicKey, authority } = yield call(login);
+                yield put(logInSuccess({ name, publicKey, keyType: authority }));
                 notifySuccess(`Logged in as ${name}`, 1);
-            }catch (e) {
+            } catch (e) {
                 console.error(e)
                 notifyError('Scatter rejected login request !', 3);
             }
         }
-    }catch(e){
+    } catch (e) {
         notifyInfo('Please unlock Scatter !', 3);
     }
 }
 
-// function* loginWithScatter(){
-//     try{
-//         yield call(connect,APP_NAME);
-//         yield put(connectedScatter());
+function* signup() {
+    try {
+        const { traxId } = yield call(createNewAccount);
+        console.log(traxId)
 
-//         try{
-//             const {name , authority, publicKey} = yield call(loginKeycat);
-//             yield put(logInSuccess({name, publicKey, keyType: authority}));
-//             notifySuccess(`Logged in as ${name}`, 1);
-//         }catch(e){
-//             yield put(loginError());
-//             notifyError('Scatter rejected login request !', 3);
-//         }
-//     }catch(e){
-//         yield put(connectionError());
-//         notifyError('Please unlock Scatter !', 3);
-//     }
-// }
+    } catch (e) {
+        console.log('error')
+    }
+}
 
-function* fetchUserWallet(){
-    try{
+function* fetchUserWallet() {
+    try {
         const wallet = yield call(getWallet);
         yield put(setWallet(wallet));
-    }catch(e){
-        yield put(errorGettingWallet({message: e.message}));
+    } catch (e) {
+        yield put(errorGettingWallet({ message: e.message }));
         // notifyError('Error fetching wallet !', 3);
     }
 }
 
-function* logOutUser(){
+function* logOutUser() {
     yield call(logout);
     yield put(loggedOut());
     notifyInfo('Logged out !', 3);
 }
 
-function* transferTokens(action){
+function* transferTokens(action) {
     try {
         yield call(sendTokens, action.payload);
         yield put(tokenTransferred());
@@ -110,26 +105,26 @@ function* transferTokens(action){
     }
 }
 
-function* uploadTrans(data){
-    try{
+function* uploadTrans(data) {
+    try {
         yield call(uploadCrop(data));
-    } catch(e) {
+    } catch (e) {
         notifyError(e.message, 5);
     }
 }
 
-function* buyCrops(productId){
-    try{
+function* buyCrops(productId) {
+    try {
         yield call(buyCrop(productId));
-    } catch(e) {
+    } catch (e) {
         notifyError(e.message, 1);
     }
 }
 
-export default function*  missionsSagas(){
+export default function* missionsSagas() {
     yield takeLatest(SCATTER_ACTIONS.CONNECT, connectWithScatter);
     // yield takeLatest(SCATTER_ACTIONS.ATTEMPT_AUTO_LOGIN, attemptAutoLoginWithScatter);
-    // yield takeLatest(SCATTER_ACTIONS.LOGIN, loginWithScatter);
+    yield takeLatest(SCATTER_ACTIONS.LOGIN, signup);
     yield takeLatest(SCATTER_ACTIONS.GET_WALLET, fetchUserWallet);
     yield takeLatest(SCATTER_ACTIONS.LOG_OUT, logOutUser);
     yield takeLatest(SCATTER_ACTIONS.SEND_TOKEN, transferTokens);

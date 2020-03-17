@@ -23,7 +23,7 @@ const network = {
 export async function getCropDetailsTable() {
     console.log("HERE")
     try {
-        const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { fetch  });
+        const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { fetch });
         const result = await rpc.get_table_rows({
             "json": true,
             "code": "sterbon23451",
@@ -32,7 +32,25 @@ export async function getCropDetailsTable() {
             "limit": 20,
         });
         // const result = await rpc.get_account('sterbon23451')
-        return(result)
+        return (result)
+    } catch (err) {
+        console.error(err);
+    }
+}
+
+export async function getAccount() {
+    console.log("HERE")
+    try {
+        const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { fetch });
+        const result = await rpc.get_table_rows({
+            "json": true,
+            "code": "sterbon23451",
+            "scope": "sterbon23451",
+            "table": "crpdetail",
+            "limit": 20,
+        });
+        // const result = await rpc.get_account('sterbon23451')
+        return (result)
     } catch (err) {
         console.error(err);
     }
@@ -47,38 +65,99 @@ export async function generateKeys() {
 }
 
 // Create new account on jungle Testnet
-export const signup = (name_of_new_account, owner_publicKey, active_publicKey) => {
-    const rpc = new JsonRpc('http://127.0.0.1:8888', { fetch });
+export const createNewAccount = async (account_name, owner_publicKey, active_publicKey) => {
+    account_name = 'hellokittu11';
+    owner_publicKey = 'EOS8Q7VLEvSFK6ggugu75kgMXRaW3VttaNhMEDaAuRkM2qtoRZ2fp';
+    active_publicKey = 'EOS8Q7VLEvSFK6ggugu75kgMXRaW3VttaNhMEDaAuRkM2qtoRZ2fp';
 
-        return new Promise(async function (resolve, reject) {
-            rpc.transaction(tr => {
-                tr.newaccount({
-                    creator: 'sterbon23451',
-                    name: name_of_new_account,
-                    owner: owner_publicKey,
-                    active: active_publicKey,
-                });
-                tr.buyrambytes({
-                    payer: 'sterbon23451',
-                    receiver: name_of_new_account,
-                    bytes: 3000,
-                });
-                tr.delegatebw({
-                    from: 'sterbon23451',
-                    receiver: name_of_new_account,
-                    stake_net_quantity: '0.0500 EOS',
-                    stake_cpu_quantity: '0.1500 EOS',
-                    transfer: 0,
-                });
-            })
-                .then(data => {
-                    resolve(data.transaction_id);
-                })
-                .catch(error => {
-                    reject(error);
-                });
-        });
-}
+    const signatureProvider = new JsSignatureProvider(['5JdPutdYAYWcjZFsYudKMuLUY8xtnvSBvFg8Cgnbdaxg5rC3h2v']);
+    const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { fetch });
+    const api = new Api({ rpc, signatureProvider, textDecoder: new TextDecoder(), textEncoder: new TextEncoder() });
+    try {
+        const result = await api.transact(
+            {
+                actions: [
+                    {
+                        account: 'eosio',
+                        name: 'newaccount',
+                        authorization: [
+                            {
+                                actor: 'sterbon23451',
+                                permission: 'active',
+                            },
+                        ],
+                        data: {
+                            creator: 'sterbon23451',
+                            name: account_name,
+                            owner: {
+                                threshold: 1,
+                                keys: [
+                                    {
+                                        key: owner_publicKey,
+                                        weight: 1,
+                                    },
+                                ],
+                                accounts: [],
+                                waits: [],
+                            },
+                            active: {
+                                threshold: 1,
+                                keys: [
+                                    {
+                                        key: active_publicKey,
+                                        weight: 1,
+                                    },
+                                ],
+                                accounts: [],
+                                waits: [],
+                            },
+                        },
+                    },
+                    {
+                        account: 'eosio',
+                        name: 'buyrambytes',
+                        authorization: [
+                            {
+                                actor: 'sterbon23451',
+                                permission: 'active',
+                            },
+                        ],
+                        data: {
+                            payer: 'sterbon23451',
+                            receiver: account_name,
+                            bytes: 8192,
+                        },
+                    },
+                    {
+                        account: 'eosio',
+                        name: 'delegatebw',
+                        authorization: [
+                            {
+                                actor: 'sterbon23451',
+                                permission: 'active',
+                            },
+                        ],
+                        data: {
+                            from: 'sterbon23451',
+                            receiver: account_name,
+                            stake_net_quantity: '1.0000 EOS',
+                            stake_cpu_quantity: '1.0000 EOS',
+                            transfer: false,
+                        },
+                    },
+                ],
+            },
+            {
+                blocksBehind: 3,
+                expireSeconds: 30,
+            }
+        );
+        console.log('transaction_id is : ', result.transaction_id);
+        return result.transaction_id;
+    } catch (err) {
+        console.log('error is : ___', err);
+    }
+};
 
 // Storing pvt keys to local storage 
 export const storeKeys = (pvtKey, uname) => {
@@ -90,11 +169,11 @@ export const storeKeys = (pvtKey, uname) => {
 
 // Signing transactions
 export async function uploadCrop(data) {
-    const userName = localStorage.getItem("uname")
 
+    const userName = localStorage.getItem("uname")
     const defaultPrivateKey = localStorage.getItem("privateKey")
     const signatureProvider = new JsSignatureProvider([defaultPrivateKey]);
-    const rpc = new JsonRpc('http://127.0.0.1:8888', { fetch });
+    const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { fetch });
     const api = new Api({ rpc, signatureProvider, textDecoder: new TextDecoder(), textEncoder: new TextEncoder() });
 
     const result = await api.transact({
@@ -124,5 +203,4 @@ export async function uploadCrop(data) {
         ]
     })
     console.log("Result: ", result)
-    // })
 }
