@@ -1,8 +1,9 @@
 import { Api, JsonRpc } from 'eosjs';
 import { JsSignatureProvider } from 'eosjs/dist/eosjs-jssig'
-const ipfsClient = require('ipfs-http-client')
-const fetch = require('node-fetch');
+import ecc from 'eosjs-ecc'
 
+const ipfsClient = require('ipfs')
+const nodeFetch = require('node-fetch');
 
 const network = {
     blockchain: 'eos',
@@ -21,9 +22,8 @@ const network = {
 
 // Retrieving multi-index data
 export async function getCropDetailsTable() {
-    console.log("HERE")
     try {
-        const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { fetch });
+        const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { nodeFetch });
         const result = await rpc.get_table_rows({
             "json": true,
             "code": "sterbon23451",
@@ -39,9 +39,8 @@ export async function getCropDetailsTable() {
 }
 
 export async function getAccount() {
-    console.log("HERE")
     try {
-        const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { fetch });
+        const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { nodeFetch });
         const result = await rpc.get_table_rows({
             "json": true,
             "code": "sterbon23451",
@@ -59,19 +58,22 @@ export async function getAccount() {
 //IPFS for generating private and public keys
 // https://ipfs.io/ipfs/QmW4XxaEg8cWsYisfjnjqLFi1MbHMYjt7nbCh8ZHwgg9c2
 export async function generateKeys() {
-    const node = await ipfsClient.create()
-    const data = await node.cat('QmW4XxaEg8cWsYisfjnjqLFi1MbHMYjt7nbCh8ZHwgg9c2')
-    console.log(data.toString())
+
+    ecc.randomKey().then(x => {
+        var private_key = x;
+        var public_key = ecc.privateToPublic(private_key);
+        console.log(private_key, public_key)
+    })
 }
 
 // Create new account on jungle Testnet
 export const createNewAccount = async (account_name, owner_publicKey, active_publicKey) => {
-    account_name = 'hellokittu11';
-    owner_publicKey = 'EOS8Q7VLEvSFK6ggugu75kgMXRaW3VttaNhMEDaAuRkM2qtoRZ2fp';
-    active_publicKey = 'EOS8Q7VLEvSFK6ggugu75kgMXRaW3VttaNhMEDaAuRkM2qtoRZ2fp';
+    account_name = 'hellokittu14';
+    owner_publicKey = 'EOS66RWJB8EGP2gNXEUJ4BoFA7n5DNeQdcBrbjpQTWywGYjFFgTXd';
+    active_publicKey = 'EOS66RWJB8EGP2gNXEUJ4BoFA7n5DNeQdcBrbjpQTWywGYjFFgTXd';
 
     const signatureProvider = new JsSignatureProvider(['5JdPutdYAYWcjZFsYudKMuLUY8xtnvSBvFg8Cgnbdaxg5rC3h2v']);
-    const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { fetch });
+    const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { nodeFetch });
     const api = new Api({ rpc, signatureProvider, textDecoder: new TextDecoder(), textEncoder: new TextEncoder() });
     try {
         const result = await api.transact(
@@ -173,7 +175,7 @@ export async function uploadCrop(data) {
     const userName = localStorage.getItem("uname")
     const defaultPrivateKey = localStorage.getItem("privateKey")
     const signatureProvider = new JsSignatureProvider([defaultPrivateKey]);
-    const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { fetch });
+    const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { nodeFetch });
     const api = new Api({ rpc, signatureProvider, textDecoder: new TextDecoder(), textEncoder: new TextEncoder() });
 
     const result = await api.transact({

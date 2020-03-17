@@ -4,7 +4,8 @@
   "private": true,
   "dependencies": {
     "eosjs": "^20.0.3",
-    "ipfs-http-client": "^42.0.0",
+    "eosjs-ecc": "^4.0.7",
+    "ipfs": "^0.41.2",
     "node-fetch": "^2.6.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",

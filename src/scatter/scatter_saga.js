@@ -25,7 +25,8 @@ import {
 } from "./scatter_helper";
 
 import {
-    createNewAccount
+    createNewAccount,
+    generateKeys
 } from "./localWallet_helper";
 
 // import {
@@ -70,8 +71,8 @@ function* attemptAutoLoginWithScatter() {
 
 function* signup() {
     try {
-        const { traxId } = yield call(createNewAccount);
-        console.log(traxId)
+        const traxId = yield call(createNewAccount);
+        console.log("trx: ", traxId)
 
     } catch (e) {
         console.log('error')
