@@ -14,8 +14,8 @@ export class FormEOSAccount extends Component {
         const { open } = this.state
         return (
             <div className="EOSAccountContent">
-                <h2 className="heading">Almost there. Just one more step.</h2>
-                <p className="sub-heading">Create your own EOS username and password. Click the button to generate 
+                <h2 className="heading">Create your EOS account with just one step.</h2>
+                <p className="sub-heading">Create your own EOS username. Click the button to generate 
                                            and store keys of your account</p>  
                 <div className="form-container">
                     <div className="form-fields">
@@ -34,7 +34,7 @@ export class FormEOSAccount extends Component {
                             />
                         </div>
 
-                        <div className="EOSPassword">
+                        {/* <div className="EOSPassword">
                             <h4><label htmlFor="crop-price">EOS Password</label></h4>
                                 <input 
                                     id="price"
@@ -42,7 +42,7 @@ export class FormEOSAccount extends Component {
                                     name="crop-price"
                                     required
                                 />
-                        </div>
+                        </div> */}
               
                         <div className="EOSAccountBtn">
                             <button className="EOSAccount-cta" 

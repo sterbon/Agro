@@ -1,10 +1,11 @@
 .EOSAccountContent{
-    padding: 5rem;
+    padding: 10rem 5rem 5rem;
     background-color: #f6fdfa;
+    height: 100vh;
 }
 
 .EOSAccountContent .heading{
-    font-size: 53px;
+    font-size: 55px;
     font-family: 'Roboto';
     font-weight: 700;
     color: #052350;
@@ -14,7 +15,7 @@
 .EOSAccountContent .sub-heading{
     font-size: 16px;
     line-height: 1.6em;
-    padding-top: 1rem;
+    padding-top: .5rem;
     text-align: center;
     font-weight: 800;
     color: #052350;
