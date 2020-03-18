@@ -26,7 +26,9 @@ import {
 
 import {
     createNewAccount,
-    generateKeys
+    generateKeys,
+    getAccount,
+    getCropDetailsTable
 } from "./localWallet_helper";
 
 // import {
@@ -71,11 +73,21 @@ function* attemptAutoLoginWithScatter() {
 
 function* signup() {
     try {
-        const traxId = yield call(createNewAccount);
+        const traxId = yield call(getAccount);
         console.log("trx: ", traxId)
 
     } catch (e) {
-        console.log('error')
+        console.log('error!')
+    }
+}
+
+function* checkAccount(accountName) {
+    try {
+        const accountName = yield call(getAccount);
+        console.log("Account name: ", accountName)
+
+    } catch (e) {
+        console.log('error!')
     }
 }
 
@@ -126,6 +138,7 @@ export default function* missionsSagas() {
     yield takeLatest(SCATTER_ACTIONS.CONNECT, connectWithScatter);
     // yield takeLatest(SCATTER_ACTIONS.ATTEMPT_AUTO_LOGIN, attemptAutoLoginWithScatter);
     yield takeLatest(SCATTER_ACTIONS.LOGIN, signup);
+    yield takeLatest(SCATTER_ACTIONS.LOGIN, checkAccount);
     yield takeLatest(SCATTER_ACTIONS.GET_WALLET, fetchUserWallet);
     yield takeLatest(SCATTER_ACTIONS.LOG_OUT, logOutUser);
     yield takeLatest(SCATTER_ACTIONS.SEND_TOKEN, transferTokens);

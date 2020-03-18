@@ -1,4 +1,4 @@
-import { Api, JsonRpc } from 'eosjs';
+import { Api, JsonRpc, RpcError } from 'eosjs';
 import { JsSignatureProvider } from 'eosjs/dist/eosjs-jssig'
 import ecc from 'eosjs-ecc'
 
@@ -41,18 +41,15 @@ export async function getCropDetailsTable() {
 export async function getAccount() {
     try {
         const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { nodeFetch });
-        const result = await rpc.get_table_rows({
-            "json": true,
-            "code": "sterbon23451",
-            "scope": "sterbon23451",
-            "table": "crpdetail",
-            "limit": 20,
-        });
-        // const result = await rpc.get_account('sterbon23451')
-        return (result)
-    } catch (err) {
-        console.error(err);
-    }
+        // const result = await rpc.get_account('hellokittu15');
+        const result = await rpc.get_account('sterbon23451')
+        return (result.account_name)
+        
+    } catch (e) {
+        console.log(e);
+        if (e instanceof RpcError)
+          console.log(JSON.stringify(e.json, null, 2).details[0].message);
+      }
 }
 
 //IPFS for generating private and public keys
