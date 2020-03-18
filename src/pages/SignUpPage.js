@@ -31,7 +31,7 @@ export class SignUpPage extends Component {
         
         switch(step){
             case 1: return(
-                <FormUserDetails nextStep = {this.nextStep}     />
+                <FormEOSAccount nextStep = {this.nextStep} />
             )
 
             case 2: return(
@@ -39,7 +39,7 @@ export class SignUpPage extends Component {
             )
 
             case 3: return(
-                <FormEOSAccount nextStep = {this.nextStep} prevStep = {this.prevStep}    />
+                <FormUserDetails nextStep = {this.nextStep}  prevStep = {this.prevStep}    />
             )
         }
     }

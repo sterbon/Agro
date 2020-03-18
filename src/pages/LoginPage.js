@@ -7,8 +7,7 @@ export class LoginPage extends Component {
     render() {
         return (
             <div className="loginContainer">
-                <h1 id="test">Login Setup</h1>
-                <Modal trigger={<Button>Show Modal</Button>} closeIcon>
+                <Modal trigger={<button className="cta" >Login</button>} closeIcon>
                     <Modal.Content>
                         <div className="modalContent">
                             <div className="login-container">
@@ -19,7 +18,9 @@ export class LoginPage extends Component {
                                     <div className="form-container">
                                         <div className="form-fields">
                                             <div className="userAccountName">
-                                                    <h4><label htmlFor="crop-price">EOS Account Name</label></h4>
+                                                    <h4><label htmlFor="crop-price">EOS Account Name</label>
+                                                    <span><small><i>Account not found. Create new account.</i></small></span>
+                                                    </h4>
                                                     <input 
                                                         id="price"
                                                         type="text" 
@@ -29,7 +30,7 @@ export class LoginPage extends Component {
                                                     />
                                             </div>
 
-                                            <div className="userPassword">
+                                            {/* <div className="userPassword">
                                                     <h4><label htmlFor="crop-name">Password</label></h4>
                                                     <input 
                                                         id="amount"
@@ -37,7 +38,7 @@ export class LoginPage extends Component {
                                                         name="crop-amount"
                                                         required
                                                     />
-                                            </div>
+                                            </div> */}
                                         </div>
                                         
                                         <div className="loginBtn">
@@ -51,7 +52,7 @@ export class LoginPage extends Component {
 
                                         <div className="createEOSAccount" id="signUpClicked">
                                             <h5>Don't have an EOS account? Don't worry create one now!</h5>
-                                                <h5 className="signUpLink">Create EOS Account</h5>
+                                            <Link to="/sign_up"><h5 className="signUpLink">Create EOS Account</h5></Link>                                               
                                         </div>
                                     </div>
                                     

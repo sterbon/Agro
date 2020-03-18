@@ -23,6 +23,7 @@ class App extends Component{
                 <Switch>
                     <Route exact path="/" component={ HomePage } />
                     <Route exact path="/sign_up" component={ SignUpPage } />
+                    <Route exact path="/login" component={ LoginPage } />
                     <Route path="/add_crop" component={ AddProductPage } />
                     <Route path="/crop_catalog" component={ CropCatalogPage } />
                     <Route path="/orders" component={ OrdersPage } />
@@ -30,8 +31,6 @@ class App extends Component{
                     <Route path="/product" component={ ProductDetail } />
                     <Route path="/crop_tracking" component={ OrderTimelinePage } />
                 </Switch>
-                {/* <LoginPage /> */}
-                <SignUpPage />
             </React.Fragment>
         );
     }

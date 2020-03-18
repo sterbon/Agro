@@ -6,6 +6,7 @@ import {
     requestLogin,
     logout,
 } from '../../scatter/scatter_actions';
+import LoginPage from '../../pages/LoginPage'
 
 class Nav extends Component {
     loginUser = () => this.props.dispatch(requestLogin());
@@ -55,11 +56,15 @@ class Nav extends Component {
                         </Link>
                     </ul>
                 </nav>
-                {loggedIn ?
+                {/* {loggedIn ?
                     <button className="cta" onClick={this.logOutUser.bind(this)} value="LOG OUT" >Logout</button> : 
                     <button className="cta" onClick={this.loginUser.bind(this)} value="LOG IN" >Login</button>
-                }
-                
+                } */}
+
+                <div className="loginCtaContainer">
+                    {/* <button className="cta" value="LOG IN" >Login</button> */}
+                    <LoginPage />
+                </div>
             </header>
         )
     }
