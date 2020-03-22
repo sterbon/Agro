@@ -15,7 +15,7 @@ export class ImportAccount extends Component {
                         <div className="ImportAccountName">
                             <h4><label htmlFor="crop-price">EOS Username</label>
                                 <span>
-                                    <small><i>(Not more than 12 characters)</i></small>
+                                    <small><i>(Exactly 12 characters)</i></small>
                                 </span>
                             </h4>
                             <input 

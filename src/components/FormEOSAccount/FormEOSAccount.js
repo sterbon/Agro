@@ -22,7 +22,7 @@ export class FormEOSAccount extends Component {
                         <div className="EOSUserName">
                             <h4><label htmlFor="crop-price">EOS Username</label>
                                 <span>
-                                    <small><i>(Not more than 12 characters)</i></small>
+                                    <small><i>(Exactly 12 characters)</i></small>
                                 </span>
                             </h4>
                             <input 
