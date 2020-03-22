@@ -168,7 +168,7 @@ export const storeKeys = (pvtKey, uname) => {
     localStorage.setItem("username", uname)
     console.log(localStorage.getItem("privateKey"))
 }
-
+ 
 // Signing transactions
 export async function uploadCrop(data) {
 

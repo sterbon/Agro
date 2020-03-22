@@ -54,6 +54,12 @@ class Nav extends Component {
                                 <p className="nav_text" >About</p>
                             </li>
                         </Link>
+
+                        <Link to="/import_account">
+                            <li className="nav_links">
+                                <p className="nav_text" >Import Account</p>
+                            </li>
+                        </Link>
                     </ul>
                 </nav>
                 {/* {loggedIn ?

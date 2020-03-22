@@ -1,0 +1,83 @@
+.ImportAccountContent{
+    padding: 8rem 5rem 5rem;
+    background-color: #f6fdfa;
+    height: 100vh;
+}
+
+.ImportAccountContent .heading{
+    font-size: 55px;
+    font-family: 'Roboto';
+    font-weight: 700;
+    color: #052350;
+    margin-left: 2rem;
+}
+
+.ImportAccountContent .sub-heading{
+    font-size: 16px;
+    line-height: 1.6em;
+    padding-top: .5rem;
+    text-align: center;
+    font-weight: 800;
+    color: #052350;
+}
+
+.ImportAccountName{
+    padding: 2rem 0;
+}
+
+.ImportAccountPassword{
+    padding-top: .7rem;
+}
+
+.ImportAccountKey{
+    padding-top: 2.3rem;
+}
+
+.ImportAccountName label, .ImportAccountPassword label, .ImportAccountKey label{
+    font-family: 'Roboto';
+    color: #052350;
+}
+
+.ImportAccountName span{
+    padding-left: 1rem;
+    color: #ee6e6c;
+}
+
+.ImportAccountName input, .ImportAccountPassword input, .ImportAccountKey input{
+    padding: .9rem 1rem;
+    width: 95%;
+    outline: none;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #bdc1c0;
+    font-family: 'Nunito';
+}
+
+.ImportAccountName input:focus, .ImportAccountPassword input:focus, .ImportAccountKey input:focus
+{
+    border: 1px solid #052350;
+}
+
+.ImportAccountBtn{
+    padding-top: 3rem;
+    display: flex;
+    justify-content: center;
+}
+
+.ImportCta{
+    padding: 14px 40px;
+    font-size: 14px;
+    font-weight: 700;
+    background: transparent;
+    border: 1.3px solid #052350;
+    cursor: pointer;
+    color: #052350;
+    border-radius: 5px;
+    transition: all 0.3s ease 0s;
+    outline: none;
+
+}
+
+.ImportCta:hover{
+    box-shadow: 0 2px 8px rgba(47, 72, 88, .30), 0 3px 3px rgba(47, 72, 88, .22);
+}

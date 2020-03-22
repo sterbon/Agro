@@ -11,6 +11,7 @@ import ProductDetail from './pages/ProductDetail';
 import OrderTimelinePage from './pages/OrderTimelinePage';
 import SignUpPage from './pages/SignUpPage';
 import LoginPage from './pages/LoginPage';
+import ImportAccount from './pages/ImportAccount'
 
 class App extends Component{
     componentDidMount() {
@@ -30,6 +31,7 @@ class App extends Component{
                     <Route path="/about" component={ AboutPage } />
                     <Route path="/product" component={ ProductDetail } />
                     <Route path="/crop_tracking" component={ OrderTimelinePage } />
+                    <Route path="/import_account" component={ ImportAccount } />
                 </Switch>
             </React.Fragment>
         );
