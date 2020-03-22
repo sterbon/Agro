@@ -38,9 +38,9 @@ export class ImportAccount extends Component {
                                 />
                             </div>
 
-                            <div className="ImportAccountPassword">
-                                <h4><label htmlFor="crop-price">EOS Password</label></h4>
-                                <input
+                        <div className="ImportAccountPassword">
+                            <h4><label htmlFor="crop-price">EOS Password</label></h4>
+                                <input 
                                     id="price"
                                     type="password"
                                     name="crop-price"
