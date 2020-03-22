@@ -3,7 +3,7 @@ import SecondaryNav from '../components/SecondaryNav/SecondaryNav';
 import './OrderTimelinePage.css';
 import {
     getDetailsByCropId,
-} from '../scatter/scatter_helper';
+} from '../scatter/localWallet_helper';
 
 class Timeline extends Component {
     render() {

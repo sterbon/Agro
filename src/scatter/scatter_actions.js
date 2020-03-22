@@ -8,6 +8,7 @@ export const SCATTER_ACTIONS = {
     LOGIN      : 'SCATTER/LOGIN',
     LOGGED_IN  : 'SCATTER/LOGGED_IN',
     LOGIN_ERROR: 'SCATTER/ERRORS/LOGIN_ERROR',
+    CHECK_ACCOUNT: 'SCATTER/CHECK_ACCOUNT',
 
     LOG_OUT        : 'SCATTER/LOGOUT',
     LOGGED_OUT     : 'SCATTER/LOGGED_OUT',
@@ -47,6 +48,8 @@ export const setWallet         = payload => ({type: SCATTER_ACTIONS.SET_WALLET, 
 
 export const sendTokens        = payload => ({type: SCATTER_ACTIONS.SEND_TOKEN, payload});
 export const tokenTransferred   = () => ({type: SCATTER_ACTIONS.SEND_TOKEN_SUCCESS});
+
+export const checkAccount      = payload => ({type: SCATTER_ACTIONS.CHECK_ACCOUNT, payload});
 
 export const uploadCrop        = payload => ({type: SCATTER_ACTIONS.UPLOAD_CROP, payload});
 // export const getCropDetailsTable = (payload) => ({type: SCATTER_ACTIONS.GET_CROPS, payload});
