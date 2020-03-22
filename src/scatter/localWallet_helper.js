@@ -2,6 +2,11 @@ import { Api, JsonRpc, RpcError } from 'eosjs';
 import { JsSignatureProvider } from 'eosjs/dist/eosjs-jssig'
 import ecc from 'eosjs-ecc'
 import createHash from 'create-hash';
+import {
+    parseEOS,
+    toEOSString,
+    notifySuccess
+} from '../utils';
 
 const sha512 = data => createHash('sha512').update(data).digest('hex');
 
@@ -19,6 +24,10 @@ const network = {
     verbose: false,
     sign: true
 };
+
+// Necessary??
+// export const loginHistoryExists = () => !!localStorage.getItem("lastLoginAt");
+// const setLoginHistory = () => localStorage.setItem("lastLoginAt", new Date().getTime());
 
 // Retrieving multi-index data
 export async function getCropDetailsTable() {
@@ -216,10 +225,30 @@ export const storeKeys = (pvtKey, uname, password) => {
 export const login = (password) => {
     let passHash = localStorage.getItem("password")
     let pvtHash = localStorage.getItem("privateKey")
-    if (sha512(password) == passHash) {
+    if (sha512(password) === passHash) {
         return ecc.Aes.decrypt(passHash, pvtHash)
     }
 }
+
+export const logout = (account_name) => {
+    if (getAccount(account_name)) {
+        logout();
+    }
+}
+
+// export const sendTokens = ({toAccount, amount, memo}) => {
+//     const transactionOptions = { authorization:[`${userAccount.name}@${userAccount.authority}`] };
+//     return userEosConnection.transfer(
+//         userAccount.name,
+//         toAccount,
+//         toEOSString(amount),
+//         memo,
+//         transactionOptions
+//     ).then(trx => {
+//         return trx.transaction_id;
+//     });
+// };
+
 
 // Signing transactions
 export async function uploadCrop(data) {
@@ -255,6 +284,39 @@ export async function uploadCrop(data) {
                 ]
             }
         ]
-    })
-    console.log("Result: ", result)
+    }).then(notifySuccess('Uploading'));
+    console.log("Uploading Result: ", result)
+}
+
+export async function buyCrop(productId) {
+    console.log(productId)
+    const userName = localStorage.getItem("uname")
+    const defaultPrivateKey = localStorage.getItem("privateKey")
+    const signatureProvider = new JsSignatureProvider([defaultPrivateKey]);
+    const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { nodeFetch });
+    const api = new Api({ rpc, signatureProvider, textDecoder: new TextDecoder(), textEncoder: new TextEncoder() });
+
+    const result = await api.transact({
+        "blocksBehind": 3,
+        "expireSeconds": 30,
+        "actions": [
+            {
+                "account": "sterbon23451",
+                "name": "buycrop",
+                "data": {
+                    "buyer": userName,
+                    "cropPid": productId.payload, //is this correct?
+                    "price": "12.0000 JUNGLE",
+                    "memo": "Buy crop"
+                },
+                "authorization": [
+                    {
+                        "actor": userName,
+                        "permission": "active"
+                    }
+                ]
+            }
+        ]
+    }).then(notifySuccess('Buying'));
+    console.log("Buying Result: ", result)
 }

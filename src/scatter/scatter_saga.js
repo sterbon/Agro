@@ -101,6 +101,16 @@ function* fetchUserWallet() {
     }
 }
 
+// function* getCrops() {
+//     try{
+//         const cropDetailsTable = yield call(getCropDetailsTable);
+
+//     }catch (e) {
+
+//     }
+// }
+
+
 function* logOutUser() {
     yield call(logout);
     yield put(loggedOut());
