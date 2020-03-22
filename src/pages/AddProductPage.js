@@ -8,7 +8,7 @@ import SecondaryNav from '../components/SecondaryNav/SecondaryNav';
 import {
     fetchWallet,
     sendTokens,
-    uploadCrop
+    uploadCrop,
 } from '../scatter/scatter_actions';
 
 
@@ -39,7 +39,7 @@ class AddProductPage extends Component {
     };
 
     
-    uploadDetails = (data) => this.props.dispatch(uploadCrop(data));
+    uploadDetails = (password, data) => this.props.dispatch(uploadCrop(password, data));
 
     static getDerivedStateFromProps(props) {
         const
@@ -82,7 +82,7 @@ class AddProductPage extends Component {
     
 
     render() {
-        const { loggedIn } = this.props.scatter;
+        // const { loggedIn } = this.props.scatter;
 
         return (
             <React.Fragment>
@@ -96,7 +96,7 @@ class AddProductPage extends Component {
                         </div>
                     </div>
                     {
-                        loggedIn && 
+                        // loggedIn && 
                         <>
                             <div className="addCrop-container">
                             <h2>UPLOAD CROP</h2>

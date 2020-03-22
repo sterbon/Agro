@@ -251,10 +251,11 @@ export const logout = (account_name) => {
 
 
 // Signing transactions
-export async function uploadCrop(data) {
-
+export async function uploadCrop(password, data) {
+    const defaultPrivateKey = login(password)
+    console.log("Default Private Key:", defaultPrivateKey)
     const userName = localStorage.getItem("uname")
-    const defaultPrivateKey = localStorage.getItem("privateKey")
+    // const defaultPrivateKey = localStorage.getItem("privateKey")
     const signatureProvider = new JsSignatureProvider([defaultPrivateKey]);
     const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { nodeFetch });
     const api = new Api({ rpc, signatureProvider, textDecoder: new TextDecoder(), textEncoder: new TextEncoder() });

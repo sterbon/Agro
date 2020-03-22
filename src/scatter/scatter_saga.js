@@ -128,9 +128,9 @@ function* transferTokens(action) {
     }
 }
 
-function* uploadTrans(data) {
+function* uploadTrans(password, data) {
     try {
-        yield call(uploadCrop(data));
+        yield call(uploadCrop(password, data));
     } catch (e) {
         notifyError(e.message, 5);
     }
@@ -143,7 +143,7 @@ function* buyCrops(productId) {
         notifyError(e.message, 1);
     }
 }
-
+                
 export default function* missionsSagas() {
     yield takeLatest(SCATTER_ACTIONS.CONNECT, connectWithScatter);
     // yield takeLatest(SCATTER_ACTIONS.ATTEMPT_AUTO_LOGIN, attemptAutoLoginWithScatter);
