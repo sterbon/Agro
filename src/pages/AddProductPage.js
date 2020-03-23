@@ -45,18 +45,14 @@ class AddProductPage extends Component {
         e.preventDefault();
         const {pname, price, camount, harvest, sow, fertilizer} = this.state;      
         const data = { pname, price, camount, harvest, sow, fertilizer };
+        
         console.log(data);
-        this.uploadDetails(data);
-    
-        // Reset form
-        // const messageContainer = document.getElementById("messageAlert");
-        // const message = document.querySelector(".message");
-        // const closeBtn = document.querySelector(".closeBtn");
-        // messageContainer.style.display = "flex";
-        // message.innerHTML = "Successfull! Crop uploaded to Agro.";
-        // setTimeout(() => {
-        //     closeBtn.click();
-        // }, 5000);
+        
+        uploadCrop(data)
+        .then((result) =>  {
+            console.log("GGs: ", result);
+        });
+
         this.setState({
             pname: "",
             price: "",

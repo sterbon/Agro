@@ -50,7 +50,7 @@ export async function getCropDetailsTable() {
     }
 }
 
-export async function getDetailsByCropId (cropId){
+export async function getDetailsByCropId(cropId) {
     try {
         const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { nodeFetch });
 
@@ -69,7 +69,7 @@ export async function getDetailsByCropId (cropId){
     }
 }
 
-export async function getTransactionDetails () {
+export async function getTransactionDetails() {
     try {
         const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { nodeFetch });
         const result = await rpc.get_table_rows({
@@ -232,7 +232,7 @@ export const login = (password) => {
     let passHash = localStorage.getItem("password")
     let pvtHash = localStorage.getItem("privateKey")
     if (sha512(password) === passHash) {
-        var bytes  = CryptoJS.AES.decrypt(pvtHash, password);
+        var bytes = CryptoJS.AES.decrypt(pvtHash, password);
         var originalText = bytes.toString(CryptoJS.enc.Utf8);
 
         console.log('Logged in!')
@@ -267,39 +267,43 @@ export const logout = (account_name) => {
 export async function uploadCrop(data) {
     // const defaultPrivateKey = login(password)
     console.log("Default Private Key:", currKey)
-    const userName = localStorage.getItem("uname")
+    const userName = localStorage.getItem("username")
+    console.log(userName)
     // const defaultPrivateKey = localStorage.getItem("privateKey")
     const signatureProvider = new JsSignatureProvider([currKey]);
     const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { nodeFetch });
     const api = new Api({ rpc, signatureProvider, textDecoder: new TextDecoder(), textEncoder: new TextEncoder() });
 
     const result = await api.transact({
-        "blocksBehind": 3,
-        "expireSeconds": 30,
+
         "actions": [
             {
                 "account": "sterbon23451",
                 "name": "uploadcrop",
-                "data": {
-                    "producer": userName,
-                    "cropName": data.payload.pname,
-                    "cropAmount": data.payload.camount,
-                    "imageHash": "QmImageHash",
-                    "price": data.payload.price,
-                    "dateOfHarvest": data.payload.harvest,
-                    "dateOfSow": data.payload.sow,
-                    "fertilizers": data.payload.fertilizer
-                },
                 "authorization": [
                     {
                         "actor": userName,
                         "permission": "active"
                     }
-                ]
-            }
-        ]
-    }).then(notifySuccess('Uploading'));
+                ],
+                "data": {
+                    "producer": userName,
+                    "cropName": data.pname,
+                    "cropAmount": data.camount,
+                    "imageHash": "QmImageHash",
+                    "price": data.price,
+                    "dateOfHarvest": data.harvest,
+                    "dateOfSow": data.sow,
+                    "fertilizers": data.fertilizer
+                },
+            }]
+    },
+        {
+            "blocksBehind": 3,
+            "expireSeconds": 30,
+        }).then(notifySuccess('Uploading'));
     console.log("Uploading Result: ", result)
+    return result
 }
 
 export async function buyCrop(productId) {
