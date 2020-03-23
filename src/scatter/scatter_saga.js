@@ -128,9 +128,9 @@ function* transferTokens(action) {
     }
 }
 
-function* uploadTrans(password, data) {
+function* uploadTrans(data) {
     try {
-        yield call(uploadCrop(password, data));
+        yield call(uploadCrop(data));
     } catch (e) {
         notifyError(e.message, 5);
     }

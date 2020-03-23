@@ -6,10 +6,10 @@ import addProduct from '../static/images/addProduct.png';
 import SecondaryNav from '../components/SecondaryNav/SecondaryNav';
 
 import {
-    fetchWallet,
+    // fetchWallet,
     sendTokens,
     uploadCrop,
-} from '../scatter/scatter_actions';
+} from '../scatter/localWallet_helper';
 
 
 class AddProductPage extends Component {
@@ -39,20 +39,20 @@ class AddProductPage extends Component {
     };
 
     
-    uploadDetails = (password, data) => this.props.dispatch(uploadCrop(password, data));
+    uploadDetails = (data) => this.props.dispatch(uploadCrop(data));
 
-    static getDerivedStateFromProps(props) {
-        const
-            hasWalletOrError = props.scatter.userWallet || props.scatter.walletError,
-            shouldFetchWallet = props.scatter.loggedIn && !(hasWalletOrError || props.scatter.fetchingWallet);
+    // static getDerivedStateFromProps(props) {
+    //     const
+    //         hasWalletOrError = props.scatter.userWallet || props.scatter.walletError,
+    //         shouldFetchWallet = props.scatter.loggedIn && !(hasWalletOrError || props.scatter.fetchingWallet);
 
-        shouldFetchWallet && props.dispatch(fetchWallet());
-        return null;
-    }
+    //     shouldFetchWallet && props.dispatch(fetchWallet());
+    //     return null;
+    // }
 
-    sendTokens = ({ toAccount, amount, memo }) => {
-        this.props.dispatch(sendTokens({ toAccount, amount, memo }))
-    };
+    // sendTokens = ({ toAccount, amount, memo }) => {
+    //     this.props.dispatch(sendTokens({ toAccount, amount, memo }))
+    // };
 
     uploadData(e) {
         e.preventDefault();

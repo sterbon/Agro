@@ -251,7 +251,7 @@ export const logout = (account_name) => {
 
 
 // Signing transactions
-export async function uploadCrop(password, data) {
+export async function uploadCrop(data) {
     const defaultPrivateKey = login(password)
     console.log("Default Private Key:", defaultPrivateKey)
     const userName = localStorage.getItem("uname")
