@@ -39,7 +39,7 @@ class AddProductPage extends Component {
     };
 
     
-    uploadDetails = (data) => this.props.dispatch(uploadCrop(data));
+    // uploadDetails = (data) => this.props.dispatch(uploadCrop(data));
 
     uploadData(e) {
         e.preventDefault();
@@ -47,7 +47,7 @@ class AddProductPage extends Component {
         const data = { pname, price, camount, harvest, sow, fertilizer };
         
         console.log(data);
-        
+
         uploadCrop(data)
         .then((result) =>  {
             console.log("GGs: ", result);

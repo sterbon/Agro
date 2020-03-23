@@ -308,32 +308,37 @@ export async function uploadCrop(data) {
 
 export async function buyCrop(productId) {
     console.log(productId)
-    const userName = localStorage.getItem("uname")
+    const userName = localStorage.getItem("username")
     const signatureProvider = new JsSignatureProvider([currKey]);
     const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { nodeFetch });
     const api = new Api({ rpc, signatureProvider, textDecoder: new TextDecoder(), textEncoder: new TextEncoder() });
 
     const result = await api.transact({
-        "blocksBehind": 3,
-        "expireSeconds": 30,
+        
         "actions": [
             {
                 "account": "sterbon23451",
                 "name": "buycrop",
-                "data": {
-                    "buyer": userName,
-                    "cropPid": productId.payload, //is this correct?
-                    "price": "12.0000 JUNGLE",
-                    "memo": "Buy crop"
-                },
                 "authorization": [
                     {
                         "actor": userName,
                         "permission": "active"
                     }
-                ]
+                ],
+                "data": {
+                    "buyer": userName,
+                    "cropPid": productId, //is this correct?
+                    "price": "12.0000 JUNGLE",
+                    "memo": "Buy crop"
+                },
+                
             }
         ]
+    },
+    {
+        "blocksBehind": 3,
+        "expireSeconds": 30,
     })
     console.log("Buying Result: ", result)
+    return result
 }
