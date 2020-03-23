@@ -75,13 +75,6 @@ class AddProductPage extends Component {
             <React.Fragment>
                 <SecondaryNav style={{ color: '#2F4858' }}/>
                 <section className="addProduct">
-                    <div className="addProduct-text">
-                        <p className="addProduct-para">Agro is the easiest and safest way to buy, sell crops online.
-                            Discover new ways to monetize and scale your business online with Agro.</p>
-                        <div className="addProduct-img">
-                            <img src={addProduct} />
-                        </div>
-                    </div>
                     {
                         // loggedIn && 
                         <>
