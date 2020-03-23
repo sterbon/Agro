@@ -7,11 +7,14 @@ import {
     toEOSString,
     notifySuccess
 } from '../utils';
+var CryptoJS = require("crypto-js");
 
 const sha512 = data => createHash('sha512').update(data).digest('hex');
 
 const nodeFetch = require('node-fetch');
 
+var currKey = "";
+// 5JdPutdYAYWcjZFsYudKMuLUY8xtnvSBvFg8Cgnbdaxg5rC3h2v
 const network = {
     blockchain: 'eos',
     chainId: 'e70aaab8997e1dfce58fbfac80cbbb8fecec7b99cf982a9444273cbc64c41473',
@@ -213,21 +216,31 @@ export const createNewAccount = async (account_name, owner_publicKey, active_pub
 
 // Storing pvt keys to local storage 
 export const storeKeys = (pvtKey, uname, password) => {
+    localStorage.clear()
+
+    var currPvt = CryptoJS.AES.encrypt(pvtKey, password).toString();
 
     localStorage.setItem("password", sha512(password))
-    localStorage.setItem("privateKey", ecc.Aes.encrypt(password, pvtKey))
+    localStorage.setItem("privateKey", currPvt)
     localStorage.setItem("username", uname)
     // ecc.Aes.encrypt(password, pvtKey)
-
-    console.log("key stored as : ", ecc.Aes.encrypt(password, pvtKey))
+    var decrypt = CryptoJS.AES.decrypt(currPvt, password).toString(CryptoJS.enc.Utf8)
+    console.log("key stored as : ", decrypt)
 }
 
 export const login = (password) => {
     let passHash = localStorage.getItem("password")
     let pvtHash = localStorage.getItem("privateKey")
     if (sha512(password) === passHash) {
-        return ecc.Aes.decrypt(passHash, pvtHash)
+        var bytes  = CryptoJS.AES.decrypt(pvtHash, password);
+        var originalText = bytes.toString(CryptoJS.enc.Utf8);
+
+        console.log('Logged in!')
+        console.log(originalText)
+        currKey = originalText
     }
+    else
+        console.error("Bad Password")
 }
 
 export const logout = (account_name) => {
@@ -251,12 +264,12 @@ export const logout = (account_name) => {
 
 
 // Signing transactions
-export async function uploadCrop(password, data) {
-    const defaultPrivateKey = login(password)
-    console.log("Default Private Key:", defaultPrivateKey)
+export async function uploadCrop(data) {
+    // const defaultPrivateKey = login(password)
+    console.log("Default Private Key:", currKey)
     const userName = localStorage.getItem("uname")
     // const defaultPrivateKey = localStorage.getItem("privateKey")
-    const signatureProvider = new JsSignatureProvider([defaultPrivateKey]);
+    const signatureProvider = new JsSignatureProvider([currKey]);
     const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { nodeFetch });
     const api = new Api({ rpc, signatureProvider, textDecoder: new TextDecoder(), textEncoder: new TextEncoder() });
 
@@ -292,8 +305,7 @@ export async function uploadCrop(password, data) {
 export async function buyCrop(productId) {
     console.log(productId)
     const userName = localStorage.getItem("uname")
-    const defaultPrivateKey = localStorage.getItem("privateKey")
-    const signatureProvider = new JsSignatureProvider([defaultPrivateKey]);
+    const signatureProvider = new JsSignatureProvider([currKey]);
     const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { nodeFetch });
     const api = new Api({ rpc, signatureProvider, textDecoder: new TextDecoder(), textEncoder: new TextEncoder() });
 
@@ -318,6 +330,6 @@ export async function buyCrop(productId) {
                 ]
             }
         ]
-    }).then(notifySuccess('Buying'));
+    })
     console.log("Buying Result: ", result)
 }

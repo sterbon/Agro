@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "crypto-js": "^4.0.0",
     "eosjs": "^20.0.3",
     "eosjs-ecc": "^4.0.7",
     "node-fetch": "^2.6.0",

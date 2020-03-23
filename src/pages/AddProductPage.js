@@ -8,9 +8,9 @@ import SecondaryNav from '../components/SecondaryNav/SecondaryNav';
 import {
     fetchWallet,
     sendTokens,
-    uploadCrop,
 } from '../scatter/scatter_actions';
 
+import { uploadCrop } from '../scatter/localWallet_helper';
 
 class AddProductPage extends Component {
     constructor(props) {
@@ -39,20 +39,7 @@ class AddProductPage extends Component {
     };
 
     
-    uploadDetails = (password, data) => this.props.dispatch(uploadCrop(password, data));
-
-    static getDerivedStateFromProps(props) {
-        const
-            hasWalletOrError = props.scatter.userWallet || props.scatter.walletError,
-            shouldFetchWallet = props.scatter.loggedIn && !(hasWalletOrError || props.scatter.fetchingWallet);
-
-        shouldFetchWallet && props.dispatch(fetchWallet());
-        return null;
-    }
-
-    sendTokens = ({ toAccount, amount, memo }) => {
-        this.props.dispatch(sendTokens({ toAccount, amount, memo }))
-    };
+    uploadDetails = (data) => this.props.dispatch(uploadCrop(data));
 
     uploadData(e) {
         e.preventDefault();
