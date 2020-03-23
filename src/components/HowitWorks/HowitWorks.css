@@ -101,35 +101,94 @@
   @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
     /* Styles */
 
-    .hero{
-        padding: 57px 27px;
+    .how-container{
+      margin-top: 7rem;
+  }
+  
+  .how-container h1{
+      font-size: 45px;
+  }
+  
+  .how{
+      padding: 40px 50px;
+      width: 85%;
+      margin-bottom: 8rem;
+  }
+  
+  .how1{
+      padding: 60px 50px;
+      width: 85%;
+      margin-bottom: 8rem;
+  }
+  
+  .how-text{
+      margin-right: 3rem;
+  }
+  
+  .how-text h2{
+      font-size: 38px;
+  }
+  
+  .how-para{
+      font-size: 16px;
+      padding: 1rem;
+  }
+
+    .how-img img {
+        width: 250px;
     }
 
-    .hero-text h2{
-        font-size: 34.5px;
-        margin-bottom: .8rem;
+    .how-img-buy img{
+        width: 295px; 
     }
 
-    .hero-para{
-        font-size: 17.5px;
-    }
-
-    .hero-img img {
-        width: 490px;
-    }
   }
   
   /* iPads (portrait) ----------- */
   @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
     /* Styles */
 
+    .how-container{
+      margin-top: 7rem;
+  }
+  
+  .how-container h1{
+      font-size: 40px;
+  }
+  
+  .how{
+      padding: 30px 50px;
+      width: 90%;
+      margin-bottom: 8rem;
+  }
+  
+  .how1{
+      padding: 50px;
+      width: 90%;
+      margin-bottom: 8rem;
+  }
+  
+  .how-text{
+      margin-right: 3rem;
+      /* border: 1px solid black; */
+  }
+  
+  .how-text h2{
+      font-size: 35px;
+  }
+  
+  .how-para{
+      font-size: 15px;
+      padding: .5rem 1rem;
+      line-height: 1.9rem
+  }
+
     .how-img img {
-        width: 210px;
-        border: 1px solid cadetblue;
+        width: 235px;
     }
 
     .how-img-buy img{
-        width: 350px;
+        width: 255px; 
     }
   }
   
