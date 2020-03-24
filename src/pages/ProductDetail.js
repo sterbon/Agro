@@ -7,7 +7,7 @@ import SecondaryNav from '../components/SecondaryNav/SecondaryNav';
 import ProducerCard from '../components/ProducerCard/ProducerCard';
 import {
     buyCrop
-} from '../scatter/scatter_actions';
+} from '../scatter/localWallet_helper';
 
 class ProductDetail extends Component {
     state = {
@@ -16,6 +16,16 @@ class ProductDetail extends Component {
 
     selectProducer(selectedProducerDetail){
         this.setState({ selectedProducer: selectedProducerDetail });
+    }
+
+    buyData(e) {
+        e.preventDefault();
+        console.log("Prod: ",this.state.selectedProducer.productId)
+        buyCrop(this.state.selectedProducer.productId)
+        .then((result) =>
+            {
+                console.log(result)
+            });
     }
 
     render() {
@@ -85,11 +95,8 @@ class ProductDetail extends Component {
                         <Button 
                             className={`cta${selectedProducer.sold ? " disabled" : ""}`}
                             fluid
-                            onClick={() => {
-                                this.props.dispatch(buyCrop(selectedProducer.productId))
-                            }}                        
-                        >
-                            Buy Crop
+                            onClick={this.buyData.bind(this)}>
+                                Buy Crop
                         </Button>
                     </div>
                 </React.Fragment>

@@ -6,9 +6,9 @@ export class ImportAccount extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            username: null,
-            password: null,
-            pvtKey: null
+            username: "",
+            password: "",
+            pvtKey: ""
         };
     }
         render() {
@@ -70,7 +70,11 @@ export class ImportAccount extends Component {
                                 <button className="ImportCta"
                                     name="submit-button"
                                     value="Upload"
-                                    onClick={storeKeys(this.state.pvtKey, this.state.username, this.state.password)} >
+                                    onClick={ () => 
+                                        // console.log("hello")
+                                        storeKeys(this.state.pvtKey, this.state.username, this.state.password)
+                                        } >
+
                                     Import Account
                             </button>
                             </div>

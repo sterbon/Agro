@@ -8,9 +8,9 @@ import SecondaryNav from '../components/SecondaryNav/SecondaryNav';
 import {
     // fetchWallet,
     sendTokens,
-    uploadCrop,
-} from '../scatter/localWallet_helper';
+} from '../scatter/scatter_actions';
 
+import { uploadCrop } from '../scatter/localWallet_helper';
 
 class AddProductPage extends Component {
     constructor(props) {
@@ -39,37 +39,20 @@ class AddProductPage extends Component {
     };
 
     
-    uploadDetails = (data) => this.props.dispatch(uploadCrop(data));
-
-    // static getDerivedStateFromProps(props) {
-    //     const
-    //         hasWalletOrError = props.scatter.userWallet || props.scatter.walletError,
-    //         shouldFetchWallet = props.scatter.loggedIn && !(hasWalletOrError || props.scatter.fetchingWallet);
-
-    //     shouldFetchWallet && props.dispatch(fetchWallet());
-    //     return null;
-    // }
-
-    // sendTokens = ({ toAccount, amount, memo }) => {
-    //     this.props.dispatch(sendTokens({ toAccount, amount, memo }))
-    // };
+    // uploadDetails = (data) => this.props.dispatch(uploadCrop(data));
 
     uploadData(e) {
         e.preventDefault();
         const {pname, price, camount, harvest, sow, fertilizer} = this.state;      
         const data = { pname, price, camount, harvest, sow, fertilizer };
+        
         console.log(data);
-        this.uploadDetails(data);
-    
-        // Reset form
-        // const messageContainer = document.getElementById("messageAlert");
-        // const message = document.querySelector(".message");
-        // const closeBtn = document.querySelector(".closeBtn");
-        // messageContainer.style.display = "flex";
-        // message.innerHTML = "Successfull! Crop uploaded to Agro.";
-        // setTimeout(() => {
-        //     closeBtn.click();
-        // }, 5000);
+
+        uploadCrop(data)
+        .then((result) =>  {
+            console.log("GGs: ", result);
+        });
+
         this.setState({
             pname: "",
             price: "",
@@ -88,13 +71,6 @@ class AddProductPage extends Component {
             <React.Fragment>
                 <SecondaryNav style={{ color: '#2F4858' }}/>
                 <section className="addProduct">
-                    <div className="addProduct-text">
-                        <p className="addProduct-para">Agro is the easiest and safest way to buy, sell crops online.
-                            Discover new ways to monetize and scale your business online with Agro.</p>
-                        <div className="addProduct-img">
-                            <img src={addProduct} />
-                        </div>
-                    </div>
                     {
                         // loggedIn && 
                         <>

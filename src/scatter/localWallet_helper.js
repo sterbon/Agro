@@ -7,11 +7,14 @@ import {
     toEOSString,
     notifySuccess
 } from '../utils';
+var CryptoJS = require("crypto-js");
 
 const sha512 = data => createHash('sha512').update(data).digest('hex');
 
 const nodeFetch = require('node-fetch');
 
+var currKey = "";
+// 5JdPutdYAYWcjZFsYudKMuLUY8xtnvSBvFg8Cgnbdaxg5rC3h2v
 const network = {
     blockchain: 'eos',
     chainId: 'e70aaab8997e1dfce58fbfac80cbbb8fecec7b99cf982a9444273cbc64c41473',
@@ -47,7 +50,7 @@ export async function getCropDetailsTable() {
     }
 }
 
-export async function getDetailsByCropId (cropId){
+export async function getDetailsByCropId(cropId) {
     try {
         const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { nodeFetch });
 
@@ -66,7 +69,7 @@ export async function getDetailsByCropId (cropId){
     }
 }
 
-export async function getTransactionDetails () {
+export async function getTransactionDetails() {
     try {
         const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { nodeFetch });
         const result = await rpc.get_table_rows({
@@ -213,21 +216,31 @@ export const createNewAccount = async (account_name, owner_publicKey, active_pub
 
 // Storing pvt keys to local storage 
 export const storeKeys = (pvtKey, uname, password) => {
+    localStorage.clear()
+
+    var currPvt = CryptoJS.AES.encrypt(pvtKey, password).toString();
 
     localStorage.setItem("password", sha512(password))
-    localStorage.setItem("privateKey", ecc.Aes.encrypt(password, pvtKey))
+    localStorage.setItem("privateKey", currPvt)
     localStorage.setItem("username", uname)
     // ecc.Aes.encrypt(password, pvtKey)
-
-    console.log("key stored as : ", ecc.Aes.encrypt(password, pvtKey))
+    var decrypt = CryptoJS.AES.decrypt(currPvt, password).toString(CryptoJS.enc.Utf8)
+    console.log("key stored as : ", decrypt)
 }
 
 export const login = (password) => {
     let passHash = localStorage.getItem("password")
     let pvtHash = localStorage.getItem("privateKey")
     if (sha512(password) === passHash) {
-        return ecc.Aes.decrypt(passHash, pvtHash)
+        var bytes = CryptoJS.AES.decrypt(pvtHash, password);
+        var originalText = bytes.toString(CryptoJS.enc.Utf8);
+
+        console.log('Logged in!')
+        console.log(originalText)
+        currKey = originalText
     }
+    else
+        console.error("Bad Password")
 }
 
 export const logout = (account_name) => {
@@ -252,72 +265,80 @@ export const logout = (account_name) => {
 
 // Signing transactions
 export async function uploadCrop(data) {
-    const defaultPrivateKey = login(password)
-    console.log("Default Private Key:", defaultPrivateKey)
-    const userName = localStorage.getItem("uname")
+    // const defaultPrivateKey = login(password)
+    console.log("Default Private Key:", currKey)
+    const userName = localStorage.getItem("username")
+    console.log(userName)
     // const defaultPrivateKey = localStorage.getItem("privateKey")
-    const signatureProvider = new JsSignatureProvider([defaultPrivateKey]);
+    const signatureProvider = new JsSignatureProvider([currKey]);
     const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { nodeFetch });
     const api = new Api({ rpc, signatureProvider, textDecoder: new TextDecoder(), textEncoder: new TextEncoder() });
 
     const result = await api.transact({
-        "blocksBehind": 3,
-        "expireSeconds": 30,
+
         "actions": [
             {
                 "account": "sterbon23451",
                 "name": "uploadcrop",
-                "data": {
-                    "producer": userName,
-                    "cropName": data.payload.pname,
-                    "cropAmount": data.payload.camount,
-                    "imageHash": "QmImageHash",
-                    "price": data.payload.price,
-                    "dateOfHarvest": data.payload.harvest,
-                    "dateOfSow": data.payload.sow,
-                    "fertilizers": data.payload.fertilizer
-                },
                 "authorization": [
                     {
                         "actor": userName,
                         "permission": "active"
                     }
-                ]
-            }
-        ]
-    }).then(notifySuccess('Uploading'));
+                ],
+                "data": {
+                    "producer": userName,
+                    "cropName": data.pname,
+                    "cropAmount": data.camount,
+                    "imageHash": "QmImageHash",
+                    "price": data.price,
+                    "dateOfHarvest": data.harvest,
+                    "dateOfSow": data.sow,
+                    "fertilizers": data.fertilizer
+                },
+            }]
+    },
+        {
+            "blocksBehind": 3,
+            "expireSeconds": 30,
+        }).then(notifySuccess('Uploading'));
     console.log("Uploading Result: ", result)
+    return result
 }
 
 export async function buyCrop(productId) {
     console.log(productId)
-    const userName = localStorage.getItem("uname")
-    const defaultPrivateKey = localStorage.getItem("privateKey")
-    const signatureProvider = new JsSignatureProvider([defaultPrivateKey]);
+    const userName = localStorage.getItem("username")
+    const signatureProvider = new JsSignatureProvider([currKey]);
     const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { nodeFetch });
     const api = new Api({ rpc, signatureProvider, textDecoder: new TextDecoder(), textEncoder: new TextEncoder() });
 
     const result = await api.transact({
-        "blocksBehind": 3,
-        "expireSeconds": 30,
+        
         "actions": [
             {
                 "account": "sterbon23451",
                 "name": "buycrop",
-                "data": {
-                    "buyer": userName,
-                    "cropPid": productId.payload, //is this correct?
-                    "price": "12.0000 JUNGLE",
-                    "memo": "Buy crop"
-                },
                 "authorization": [
                     {
                         "actor": userName,
                         "permission": "active"
                     }
-                ]
+                ],
+                "data": {
+                    "buyer": userName,
+                    "cropPid": productId, //is this correct?
+                    "price": "12.0000 JUNGLE",
+                    "memo": "Buy crop"
+                },
+                
             }
         ]
-    }).then(notifySuccess('Buying'));
+    },
+    {
+        "blocksBehind": 3,
+        "expireSeconds": 30,
+    })
     console.log("Buying Result: ", result)
+    return result
 }
