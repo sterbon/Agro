@@ -99,11 +99,24 @@ export class FormEOSAccount extends Component {
                                     name="submit-button" 
                                     value="Upload"
                                     // onClick = {() => {createNewAccount(this.state.username, this.state.password, this.state.public_key, this.state.private_key)}}
-                                    onClick = {() => {this.generateKeys()}}
-                                    >
+                                    onClick = {() => {this.generateKeys()}}>
                                     Generate your Keys!
                             </button>
+                            
                         </div>
+
+                        <div className="EOSAccountBtn">
+                            <button className="EOSAccount-cta" 
+                                    name="submit-button" 
+                                    value="Upload"
+                                    onClick = {() => {createNewAccount(this.state.username, this.state.password, this.state.public_key, this.state.private_key)}}
+                                    // onClick = {() => {this.generateKeys()}}
+                                    >
+                                    Create Account
+                            </button>
+                            
+                        </div>
+
                     </div>
                 </div>
             </div>
