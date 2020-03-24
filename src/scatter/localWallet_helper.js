@@ -327,7 +327,7 @@ export async function buyCrop(productId) {
                 "data": {
                     "buyer": userName,
                     "cropPid": productId, //is this correct?
-                    "price": "12.0000 JUNGLE",
+                    "price": "1.0000 JUNGLE",
                     "memo": "Buy crop"
                 },
                 
