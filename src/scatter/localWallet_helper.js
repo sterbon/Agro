@@ -101,21 +101,20 @@ export async function getAccount(account_name) {
 }
 
 //Generating private and public keys
-export const generateKeys = () => {
-    ecc.randomKey().then(x => {
-        var private_key = x;
-        var public_key = ecc.privateToPublic(private_key);
-        console.log(private_key, public_key)
-        return (private_key, public_key)
-    })
-}
+// export const generateKeys = () => {
+//     ecc.randomKey().then(x => {
+//         var private_key = x;
+//         var public_key = ecc.privateToPublic(private_key);
+//         console.log(private_key, public_key)
+//         return (private_key, public_key)
+//     })
+// }
 
 // Create new account on jungle Testnet
-export const createNewAccount = async (account_name, owner_publicKey, active_publicKey) => {
-    const { private_key, public_key } = generateKeys()
+export const createNewAccount = async (account_name, password, public_key, private_key) => {
 
-    owner_publicKey = public_key
-    active_publicKey = public_key
+    var owner_publicKey = public_key
+    var active_publicKey = public_key
 
     const signatureProvider = new JsSignatureProvider(['5JdPutdYAYWcjZFsYudKMuLUY8xtnvSBvFg8Cgnbdaxg5rC3h2v']);
     const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { nodeFetch });
@@ -202,7 +201,7 @@ export const createNewAccount = async (account_name, owner_publicKey, active_pub
                 }
             );
             console.log('transaction_id is : ', result.transaction_id);
-            // storeKeys(private_key, account_name, password)
+            storeKeys(private_key, account_name, password)
             return result.transaction_id;
         } catch (err) {
             console.log('error is : ___', err);
