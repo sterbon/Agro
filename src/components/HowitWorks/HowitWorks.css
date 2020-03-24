@@ -80,16 +80,37 @@
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
     /* Styles */
+    .how-img img {
+      display: none;
+  }
+  
+  .how-img-buy img{
+      display: none;
+  }
   }
   
   /* Smartphones (landscape) ----------- */
   @media only screen and (min-width: 321px) {
     /* Styles */
+    /* .how-img img {
+      display: none;
+  }
+  
+  .how-img-buy img{
+      display: none;
+  } */
   }
   
   /* Smartphones (portrait) ----------- */
   @media only screen and (max-width: 320px) {
     /* Styles */
+    .how-img img {
+      display: none;
+  }
+  
+  .how-img-buy img{
+      display: none;
+  }
   }
   
   /* iPads (portrait and landscape) ----------- */
@@ -210,6 +231,48 @@
   /* iPhone 5 (portrait) ----------- */
   @media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2) {
     /* Styles */
+    .how-container{
+      margin-top: 7rem;
+  }
+  
+  .how-container h1{
+      font-size: 40px;
+  }
+  
+  .how{
+      padding: 30px 50px;
+      width: 90%;
+      margin-bottom: 8rem;
+  }
+  
+  .how1{
+      padding: 50px;
+      width: 90%;
+      margin-bottom: 8rem;
+  }
+  
+  .how-text{
+      margin-right: 3rem;
+      /* border: 1px solid black; */
+  }
+  
+  .how-text h2{
+      font-size: 25px;
+  }
+  
+  .how-para{
+      font-size: 15px;
+      padding: .5rem 1rem;
+      line-height: 1.9rem
+  }
+
+    .how-img img {
+        display: none;
+    }
+
+    .how-img-buy img{
+        display: none;
+    }
   }
   
   /* iPhone 6 (landscape) ----------- */

@@ -41,7 +41,7 @@ class Nav extends Component {
                                     <p className="nav_text" >Transactions</p>
                                 </li>
                             </Link>
-                        </React.Fragment> :
+                        </React.Fragment>
                         <React.Fragment></React.Fragment>
                         {/* } */}
                         <Link to="/crop_tracking">

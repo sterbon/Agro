@@ -60,11 +60,73 @@
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
     /* Styles */
+
+  .hero{
+      display: block;
+      padding: 1rem 0;
+      margin: 1rem 0;
+      border: 1px solid violet;
+  }
+  
+  .hero-text{
+      padding: 0 .7rem;
+  }
+  
+  .hero-text h2{
+      font-family: 'Roboto';
+      font-weight: 600;
+      width: 100%;
+      font-size: 29px;
+      color: #052350;
+      text-decoration: none;
+      margin: 1rem 0;
+      text-align: center;
+      padding: 0;
+  }
+  
+  .hero-para{
+      font-family: 'Nunito';
+      font-weight: 600;
+      font-size: 18px;
+      padding: 1rem;
+      color: #052350;
+      text-decoration: none;
+      text-align: justify;
+      line-height: 2rem
+  }
+  
+  .hero-text .cta{
+      padding: 14px 40px;
+      font-size: 16px;
+      font-weight: 700;
+      background: transparent;
+      border: 1.3px solid #ee6e6c ;
+      cursor: pointer;
+      color: #ee6e6c;
+      border-radius: 5px;
+      transition: all 0.3s ease 0s;
+      outline: none;
+      margin-left: 1rem;
+  }
+  
+  .hero-text .cta:hover{
+      color: #ee6e6c !important;
+      border: 1.3px solid transparent ;
+      box-shadow: 0 2px 8px rgba(47, 72, 88, .30), 0 3px 3px rgba(47, 72, 88, .22);
+  }
+  
+  .hero-img img {
+      display: none;
+  }
+
   }
   
   /* Smartphones (landscape) ----------- */
   @media only screen and (min-width: 321px) {
     /* Styles */
+    /* .hero-img img {
+      display: none;
+  } */
   }
   
   /* Smartphones (portrait) ----------- */

@@ -33,6 +33,8 @@ export class LoginPage extends Component {
                                                     id="price"
                                                     type="text"
                                                     name="crop-price"
+                                                    minLength="12"
+                                                    maxLength="12"
                                                     placeholder="sterbon2314"
                                                     value={this.state.username}
                                                     onChange={(e) => {

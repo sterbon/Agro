@@ -34,6 +34,8 @@ export class ImportAccount extends Component {
                                     type="text"
                                     name="username"
                                     placeholder="sterbon2413"
+                                    minLength="12"
+                                    maxLength="12"
                                     required
                                 />
                             </div>
