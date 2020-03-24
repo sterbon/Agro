@@ -75,6 +75,19 @@
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
     /* Styles */
+    .cta{
+      padding: 14px 10px;
+      font-size: 16px;
+      font-weight: 700;
+      background: transparent;
+      border: 1.3px solid #ee6e6c ;
+      cursor: pointer;
+      color: #ee6e6c;
+      border-radius: 5px;
+      transition: all 0.3s ease 0s;
+      outline: none;
+      margin-left: 1rem;
+  }
   }
   
   /* Smartphones (landscape) ----------- */
@@ -87,16 +100,11 @@
     /* Styles */
   }
   
-  /* iPads (portrait and landscape) ----------- */
-  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
-    /* Styles */
-  }
-  
   /* iPads (landscape) ----------- */
   @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
     /* Styles */
     .nav-container{
-      padding: 3rem 1.7rem;
+      padding: 3rem;
   }
 
   .logo{
@@ -105,6 +113,7 @@
 
   .nav_links, .nav_text{
       font-size: 15px;
+      padding: 0 .5rem;
   }
 
   .cta{
@@ -126,12 +135,8 @@
     }
 
     .nav_links, .nav_text{
-        font-family: 'Roboto';
-        font-weight: 500;
         font-size: 14px;
-        padding: .5rem .8rem;
-        color: #052350;
-        text-decoration: none;
+        padding: 0 .2rem;
     }
 
     .cta{
@@ -159,6 +164,9 @@
   /* iPhone 5 (portrait) ----------- */
   @media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2) {
     /* Styles */
+    .nav-container{
+      display: none;
+  }
   }
   
   /* iPhone 6 (landscape) ----------- */
