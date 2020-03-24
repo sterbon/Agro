@@ -4,6 +4,7 @@
     justify-content: space-around;
     align-items: center;
     padding-top:3rem;
+    background-color: #f6fdfa;
 }
 
 .logo{
@@ -41,6 +42,11 @@
 .nav_links{
     display: inline-block;
     padding: 0 20px;
+}
+
+.nav_links:visited{
+  background-color: #052350;
+  color: white;
 }
 
 .nav_text, .logo{

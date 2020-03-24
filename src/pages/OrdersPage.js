@@ -1,7 +1,7 @@
 import { Segment, Header, Button } from "semantic-ui-react";
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import SecondaryNav from '../components/SecondaryNav/SecondaryNav';
+import SecondaryNav from '../components/Nav/Nav';
 import penny from '../static/images/penny.png';
 import { getTransactionDetails } from '../scatter/scatter_helper';
 import './OrdersPage.css';
