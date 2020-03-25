@@ -80,13 +80,98 @@
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
     /* Styles */
+
+    .how-container{
+      margin-top: 7rem;
+  }
+  
+  .how-container h1{
+
+      font-size: 46px;
+  }
+  
+  .how{
+      display: block;
+      padding: 0px;
+      background: #fff;
+      border-radius: 0px;
+      margin: 3rem 1rem;
+      width: fit-content;
+      box-shadow: none;
+      padding: 1rem;
+      position: relative;
+  }
+
+  .how-small{
+    margin-top: 44rem !important;
+    position: relative;
+  }
+  
+  .how1{
+    display: block;
+    padding: 0px;
+    background: #fff;
+    border-radius: 0px;
+    margin: 3rem 1rem;
+    width: fit-content;
+    box-shadow: none;
+    padding: 1rem;
+    position: relative;
+  }
+  
+  .how-text{
+    margin: auto
+  }
+
+  .how-text-small h2{
+    margin-top: 15rem !important;
+  }
+
+  .how-text-small p{
+    padding-top: 0.8rem
+  }
+  
+  .how-text h2{
+      font-size: 33px;
+      margin: 13rem 0rem 1.1rem;
+      text-align: center;
+  }
+  
+  .how-para{
+      font-size: 17px;
+      padding: 1.1rem 1.2rem;
+      line-height: 2.3rem;
+  }
+
     .how-img img {
-      display: none;
+      display: block;
+      width: 170px;
+      height: 155px;
+      margin: auto;
+      position: absolute;
+      top: 3%;
+      left: 30%;
+  }
+
+  .how-img-small img:last-child{
+    width: 190px;
+    height: 140 px;
+    margin: auto;
+    position: absolute;
+    top: 7%;
+    left: 26%;
   }
   
   .how-img-buy img{
-      display: none;
+    display: block;
+    width: 230px;
+    height: 180px;
+    margin: auto;
+    position: absolute;
+    top: 3%;
+    left: 20%;
   }
+
   }
   
   /* Smartphones (landscape) ----------- */
@@ -213,16 +298,6 @@
     }
   }
   
-  /* iPhone 4 (landscape) ----------- */
-  @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
-    /* Styles */
-  }
-  
-  /* iPhone 4 (portrait) ----------- */
-  @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
-    /* Styles */
-  }
-  
   /* iPhone 5 (landscape) ----------- */
   @media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2) {
     /* Styles */
@@ -236,43 +311,91 @@
   }
   
   .how-container h1{
-      font-size: 40px;
+
+      font-size: 39px;
   }
   
   .how{
-      padding: 30px 50px;
-      width: 90%;
-      margin-bottom: 8rem;
+      display: block;
+      padding: 0px;
+      background: #fff;
+      border-radius: 0px;
+      margin: 3rem 1rem;
+      width: fit-content;
+      box-shadow: none;
+      padding: 1rem;
+      position: relative;
+  }
+
+  .how-small{
+    margin-top: 44rem !important;
+    position: relative;
   }
   
   .how1{
-      padding: 50px;
-      width: 90%;
-      margin-bottom: 8rem;
+    display: block;
+    padding: 0px;
+    background: #fff;
+    border-radius: 0px;
+    margin: 3rem 1rem;
+    width: fit-content;
+    box-shadow: none;
+    padding: .5rem;
+    position: relative;
   }
   
   .how-text{
-      margin-right: 3rem;
-      /* border: 1px solid black; */
+    margin: auto
+  }
+
+  .how-text-small h2{
+    margin-top: 15rem !important;
+  }
+
+  .how-text-small p{
+    padding-top: 0.8rem
   }
   
   .how-text h2{
-      font-size: 25px;
+      font-size: 33px;
+      margin: 13rem 0rem 1.1rem;
+      text-align: center;
   }
   
   .how-para{
       font-size: 15px;
-      padding: .5rem 1rem;
-      line-height: 1.9rem
+      padding: 1.1rem .7rem;
+      line-height: 2.1rem;
   }
 
     .how-img img {
-        display: none;
-    }
+      display: block;
+      width: 170px;
+      height: 155px;
+      margin: auto;
+      position: absolute;
+      top: 3%;
+      left: 30%;
+  }
 
-    .how-img-buy img{
-        display: none;
-    }
+  .how-img-small img:last-child{
+    width: 190px;
+    height: 140 px;
+    margin: auto;
+    position: absolute;
+    top: 7%;
+    left: 26%;
+  }
+  
+  .how-img-buy img{
+    display: block;
+    width: 230px;
+    height: 180px;
+    margin: auto;
+    position: absolute;
+    top: 3%;
+    left: 20%;
+  }
   }
   
   /* iPhone 6 (landscape) ----------- */

@@ -20,18 +20,18 @@ function HowitWorks()
             </div>
         </section>
 
-        <section className="how1">
-            <div className="how-text">
+        <section className="how1 how1-small">
+            <div className="how-text how-text-small">
                 <h2>Explore</h2>
                 <p className="how-para">Agro is the easiest and safest way to buy, sell crops online.
                    Discover new ways to monetize and scale your business online with Agro.</p>
             </div>
-            <div className="how-img">
+            <div className="how-img how-img-small">
                 <img src={explore} />
             </div>
         </section>
 
-        <section className="how">
+        <section className="how how-small">
             <div className="how-text">
                 <h2>Buy</h2>
                 <p className="how-para">Agro is the easiest and safest way to buy, sell crops online.

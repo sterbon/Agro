@@ -12,7 +12,7 @@ class Nav extends Component {
     loginUser = () => this.props.dispatch(requestLogin());
     logOutUser = () => {
         this.props.dispatch(logout());
-    };
+};
 
     render() {
         const { loggedIn } = this.props.scatter;
