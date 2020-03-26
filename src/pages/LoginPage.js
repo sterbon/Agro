@@ -63,7 +63,7 @@ export class LoginPage extends Component {
                                             <button className="login-cta"
                                                 name="submit-button"
                                                 value="Upload"
-                                                onClick={() => login(this.state.passw)}>
+                                                onClick={() => login(this.state.username, this.state.passw)}>
                                                 Log In
                                             </button>
                                         </div>

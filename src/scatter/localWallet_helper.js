@@ -216,33 +216,38 @@ export const createNewAccount = async (account_name, password, public_key, priva
 };
 
 // Storing pvt keys to local storage 
-export const storeKeys = (pvtKey, uname, password) => {
-    localStorage.clear()
+export const storeKeys = (pvtKey, uName, password) => {
+    
+    // localStorage.clear()
     var currPvt = CryptoJS.AES.encrypt(pvtKey, password).toString();
 
-    // localStorage.setItem("password", sha512(password))
+
     
     var passwordKey512Bits = CryptoJS.PBKDF2(password, salt, {
         keySize: 512 / 32
       });
-      console.log("PBKDF2",passwordKey512Bits.toString(CryptoJS.enc.Hex));
-    localStorage.setItem("password", passwordKey512Bits)
-    localStorage.setItem("privateKey", currPvt)
-    localStorage.setItem("username", uname)
-    // ecc.Aes.encrypt(password, pvtKey)
-    var decrypt = CryptoJS.AES.decrypt(currPvt, password).toString(CryptoJS.enc.Utf8)
-    console.log("key stored as : ", decrypt)
+    console.log("PBKDF2",passwordKey512Bits.toString(CryptoJS.enc.Hex));
+    var cred = [passwordKey512Bits.toString(CryptoJS.enc.Hex), currPvt];
+
+    localStorage.setItem(uName, JSON.stringify(cred))
+    console.log(localStorage)
+
 }
-// e706e1427bbf5bd113cf7fe41b7d42fd3c6b4ca0653f228aae1f9c4db60dae17e3951c316b18197b06fe0feb04bb4f1b3aec28995a61ad0a767952503a7f7476
-// e706e1427bbf5bd113cf7fe41b7d42fd3c6b4ca0653f228aae1f9c4db60dae17e3951c316b18197b06fe0feb04bb4f1b3aec28995a61ad0a767952503a7f7476
-export const login = (password) => {
-    let passHash = localStorage.getItem("password")
-    let pvtHash = localStorage.getItem("privateKey")
+
+export const login = (username, password) => {
+    var storedCred = JSON.parse(localStorage.getItem(username));
+    console.log("stored cred=", storedCred);
+
+    let passHash = storedCred[0];
+
+    let pvtHash = storedCred[1];
     var authPasswordKey = CryptoJS.PBKDF2(password, salt, {
         keySize: 512 / 32
       });
+      
       console.log("passHash = ", passHash);
       console.log("authPWKEY = ", authPasswordKey.toString(CryptoJS.enc.Hex));
+
     if (authPasswordKey.toString(CryptoJS.enc.Hex) === passHash) {
         var bytes = CryptoJS.AES.decrypt(pvtHash, password);
         var originalText = bytes.toString(CryptoJS.enc.Utf8);
