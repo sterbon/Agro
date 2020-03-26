@@ -3,7 +3,7 @@ import './ProductDetail.css';
 import { connect } from 'react-redux';
 import { Image, Button, Input } from 'semantic-ui-react';
 import Grain from '../static/images/Grain.jpg'
-import SecondaryNav from '../components/SecondaryNav/SecondaryNav';
+import SecondaryNav from '../components/Nav/Nav';
 import ProducerCard from '../components/ProducerCard/ProducerCard';
 import {
     buyCrop

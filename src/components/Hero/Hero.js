@@ -12,7 +12,9 @@ function Hero()
                 <h2>Agro is the Effortless Blockchain Supply Chain Platform</h2>
                 <p className="hero-para">Agro is the easiest and safest way to buy, sell crops online.
                    Discover new ways to monetize and scale your business online with Agro.</p>
-                <Link to="/crop_catalog"><button className="cta">Explore Catalog</button></Link>
+                <div className="cta-container">
+                    <Link to="/crop_catalog"><button className="cta">Explore Catalog</button></Link>
+                </div>
             </div>
 
             <div className="hero-img">

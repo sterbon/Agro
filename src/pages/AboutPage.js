@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SecondaryNav from '../components/SecondaryNav/SecondaryNav';
+import SecondaryNav from '../components/Nav/Nav';
 import './AboutPage.css';
 
 class AboutPage extends Component {

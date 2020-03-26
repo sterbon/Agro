@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './CropCatalogPage.css';
 import FilterAccordian from '../components/FilterAccordian/FilterAccordian';
 import CropCatalogCard from '../components/CropCatalogCard/CropCatalogCard';
-import SecondaryNav from '../components/SecondaryNav/SecondaryNav';
+import SecondaryNav from '../components/Nav/Nav';
 import Grain from '../static/images/Grain.jpg'
 import { getCropDetailsTable } from '../scatter/localWallet_helper';
 

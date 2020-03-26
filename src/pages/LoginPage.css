@@ -1,16 +1,16 @@
-:root{
+:root {
     /* --main-background-color: #f4f7f6; */
     /* --button-background: #49c5b6;
     --font-color: #202121;
     --grey-color: #a6abab;
- */
-    --main-background-color: #f6fdfa;
     /* --main-background-color: #f8faf7; */
+    /* --font-color: #051e50; */
+
+    --main-background-color: #f6fdfa;
     --button-background: #ee6e6c;
     --font-color: #052350;
-    /* --font-color: #051e50; */
     --dark-grey: #bdc1c0;
-  }
+}
 
 /* .loginContainer{
     margin-bottom: 5rem;
@@ -18,23 +18,23 @@
     text-align: center;
 } */
 
-.ui.modal{
+.ui.modal {
     margin: 1rem 0 !important;
     width: 42%;
 }
 
-.content{
+.content {
     border-radius: 0px !important;
     padding: 4rem 1rem !important;
     background: #f6fdfa !important
 }
 
-.login-container{
+.login-container {
     margin: auto;
     padding: 0 1rem;
 }
 
-.heading{
+.heading {
     font-size: 38px;
     text-align: center;
     font-family: 'Roboto';
@@ -43,7 +43,7 @@
 
 }
 
-.sub-heading{
+.sub-heading {
     width: fit-content;
     line-height: 1.6em;
     padding-top: .3rem;
@@ -55,33 +55,34 @@
     color: var(--font-color) !important;
 }
 
-.form-container
-{
+.form-container {
     margin: 2rem auto 0 auto;
-    padding: 1rem 0 ;
+    padding: 1rem 0;
     /* border: 1px solid black; */
 }
 
-.userAccountName, .userPassword{
+.userAccountName,
+.userPassword {
     padding: 1rem 0;
-    margin-bottom: .5rem ;
+    margin-bottom: .5rem;
 }
 
-.userAccountName span{
+.userAccountName span {
     color: #ee6e6c;
     font-size: 13px;
     padding-left: .8rem;
 }
 
-.userAccountName label, .userPassword label
-{
+.userAccountName label,
+.userPassword label {
     color: var(--font-color);
     font-family: 'Roboto';
     font-weight: 500;
     font-size: 12.7px;
 }
 
-.userAccountName input, .userPassword input{
+.userAccountName input,
+.userPassword input {
     padding: 1rem;
     width: 100%;
     outline: none;
@@ -93,22 +94,23 @@
     color: var(--font-color);
 }
 
-.userAccountName input:focus, .userPassword input:focus{
+.userAccountName input:focus,
+.userPassword input:focus {
     border: 1px solid var(--font-color);
 }
 
-.loginBtn{
+.loginBtn {
     margin-top: 1.7rem;
     display: flex;
     justify-content: center;
 }
 
-.login-cta{
+.login-cta {
     padding: 14px 40px;
     font-size: 14px;
     font-weight: 700;
     background: transparent;
-    border: 1.3px solid var(--font-color) ;
+    border: 1.3px solid var(--font-color);
     cursor: pointer;
     color: var(--font-color);
     border-radius: 5px;
@@ -117,100 +119,181 @@
 
 }
 
-.login-cta:hover{
+.login-cta:hover {
     box-shadow: 0 2px 8px rgba(47, 72, 88, .30), 0 3px 3px rgba(47, 72, 88, .22);
 }
 
-.createEOSAccount{
+.createEOSAccount {
     text-align: center;
     margin-top: 3rem;
     color: var(--font-color);
     cursor: pointer;
 }
 
-.createEOSAccount h5{
+.createEOSAccount h5 {
     font-size: 13.8px;
 }
 
-.createEOSAccount .signUpLink{
+.createEOSAccount .signUpLink {
     margin: auto;
     font-size: 14px;
     color: var(--button-background);
     border-bottom: .2px solid var(--font-color);
-    width: fit-content; 
+    width: fit-content;
     padding: 0 .5rem;
 
 }
 
-.createEOSAccount .signUpLink a{
+.createEOSAccount .signUpLink a {
     text-decoration: none;
 }
 
 
-/* .heading{
-    font-size: 28px;
+/* Media Queries */
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    /* Styles */
+
+    .ui.modal {
+        width: 100%;
+    }
+
+    .login-container {
+        padding: 0 0.5rem;
+    }
+
+    .heading{
+        font-size: 27px;
+        margin-top: 3rem !important;
+        width: 100%;
+    }
+    
+    .sub-heading {
+        font-size: 14px;
+    }
+    
+    .form-container {
+        width: 92% !important;
+        margin-top: .5rem;
+        margin-left: 1rem !important;
+    }
+    
+    .userAccountName span {
+        font-size: 13.5px;
+        padding-left: .8rem;
+    }
+    
+    .userAccountName label,
+    .userPassword label {
+        font-size: 13.9px;
+    }
+    
+    .userAccountName input,
+    .userPassword input {
+        font-size: 15px;
+    }
+
+    .loginBtn {
+        margin-top: 1.2rem;
+    }
+    
+    .createEOSAccount {
+        margin-top: 2.7rem;
+    }
+    
+    .createEOSAccount h5 {
+        font-size: 14px;
+    }
+    
+    .createEOSAccount .signUpLink {
+        font-size: 14px;    
+    }
+  }
+
+/* iPhone 5 (landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2) {
+    /* Styles */
 }
 
-.sub-heading{
-    width: 85%;
-    line-height:1.6em;
-    padding-top: .3rem;
+/* iPhone 5 (portrait) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2) {
+    /* Styles */
+    .ui.modal {
+        width: 100%;
+    }
+
+    .login-container {
+        padding: 0 0.5rem;
+    }
+
+    .heading{
+        font-size: 25px;
+        margin-top: 2.5rem !important;
+    }
+    
+    .sub-heading {
+        font-size: 13.5px;
+    }
+
+    .createEOSAccount h5 {
+        font-size: 13.5px;
+    }
+    
+    .createEOSAccount .signUpLink {
+        font-size: 13.5px;    
+    }
 }
 
-.userName{
-    display: flex;
-    padding-top: 1rem;
-    justify-content: space-between;
+/* iPads (landscape) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+    /* Styles */
+    .ui.modal {
+        width: 72%;
+    }
 }
 
-.userAccountName, .userPassword{
-    padding: 1rem 0;
+/* iPads (portrait) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+    /* Styles */
+    .ui.modal {
+        width: 82%;
+    }
+    
+    .sub-heading {
+        font-size: 16px;
+    }
+    
+    .form-container {
+        width: 100%;
+    }
+    
+    .userAccountName span {
+        font-size: 14px;
+        padding-left: .8rem;
+    }
+    
+    .userAccountName label,
+    .userPassword label {
+        font-size: 14px;
+    }
+    
+    .userAccountName input,
+    .userPassword input {
+        font-size: 15px;
+    }
+    
+    .createEOSAccount {
+        text-align: center;
+        margin-top: 3rem;
+        color: var(--font-color);
+        cursor: pointer;
+    }
+    
+    .createEOSAccount h5 {
+        font-size: 15px;
+    }
+    
+    .createEOSAccount .signUpLink {
+        font-size: 15px;    
+    }
 }
-
-.userAccountName input, .userPassword input{
-    padding: .7rem 1rem;
-    width: 95%;
-    outline: none;
-    font-size: 14px;
-    border-radius: 5px;
-    border: 1.5px solid #2F4858;
-}
-
-.loginBtn{
-    margin-top: 1.7rem;
-    display: flex;
-    justify-content: center;
-}
-
-.login-cta{
-    padding: 14px 40px;
-    font-size: 14px;
-    font-weight: 700;
-    background: transparent;
-    border: 1.3px solid #2F4858 ;
-    cursor: pointer;
-    color: #2F4858;
-    border-radius: 5px;
-    transition: all 0.3s ease 0s;
-    outline: none;
-
-}
-
-.login-cta:hover{
-    box-shadow: 0 5px 8px rgba(47, 72, 88, .30), 0 3px 3px rgba(47, 72, 88, .22);
-}
-
-.createEOSAccount{
-    text-align: center;
-    margin-top: 3rem;
-}
-
-.createEOSAccount .signUpLink{
-    margin: 0;
-    font-size: 14px;
-}
-
-.createEOSAccount .signUpLink a{
-    text-decoration: none;
-    cursor: pointer;
-} */

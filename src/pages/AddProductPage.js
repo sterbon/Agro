@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './AddProductPage.css';
 import addProduct from '../static/images/addProduct.png';
-import SecondaryNav from '../components/SecondaryNav/SecondaryNav';
+import SecondaryNav from '../components/Nav/Nav';
 
 import {
     // fetchWallet,
