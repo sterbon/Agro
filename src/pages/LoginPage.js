@@ -27,7 +27,7 @@ export class LoginPage extends Component {
                                         <div className="form-fields">
                                             <div className="userAccountName">
                                                 <h4><label htmlFor="crop-price">EOS Account Name</label>
-                                                    <span><small><i>Account not found. Create new account.</i></small></span>
+                                                    <span><small><i>Account not found</i></small></span>
                                                 </h4>
                                                 <input
                                                     id="price"
@@ -69,7 +69,7 @@ export class LoginPage extends Component {
                                         </div>
 
                                         <div className="createEOSAccount" id="signUpClicked">
-                                            <h5>Don't have an EOS account? Don't worry create one now!</h5>
+                                            <h5>Don't have an EOS account? Create one now!</h5>
                                             <Link to="/sign_up"><h5 className="signUpLink">Create EOS Account</h5></Link>
                                         </div>
                                     </div>
