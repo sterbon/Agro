@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import SecondaryNav from '../components/Nav/Nav';
 import penny from '../static/images/penny.png';
-import { getTransactionDetails } from '../scatter/scatter_helper';
+import { getTransactionDetails } from '../scatter/localWallet_helper';
 import './OrdersPage.css';
 
 class OrderCard extends Component {
