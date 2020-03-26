@@ -1,5 +1,5 @@
 .ImportAccountContent{
-    padding: 8rem 5rem 5rem;
+    padding: 5rem;
     background-color: #f6fdfa;
     height: 100vh;
 }
@@ -75,9 +75,228 @@
     border-radius: 5px;
     transition: all 0.3s ease 0s;
     outline: none;
-
 }
 
 .ImportCta:hover{
     box-shadow: 0 2px 8px rgba(47, 72, 88, .30), 0 3px 3px rgba(47, 72, 88, .22);
+}
+
+/*Media Queries*/
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+
+    /* Styles */
+    .ImportAccountContent {
+        padding: 1rem;
+    }
+
+    .ImportAccountContent .heading {
+        font-size: 31px;
+        margin-left: 0rem;
+    }
+
+    .ImportAccountContent .sub-heading {
+        font-size: 14.6px;
+        padding: .5rem .7rem 0 .7rem;
+    }
+
+    .ImportAccountContent .form-container {
+        margin: 0;
+        margin-left: 1.6rem !important;
+        width: 92%;
+    }
+
+    .ImportAccountName label,
+    .ImportAccountPassword label {
+        font-size: 15px;
+    }
+
+    .ImportAccountName span {
+        font-size: 15px;
+    }
+
+    .ImportAccountName input,
+    .ImportAccountPassword input {
+        font-size: 15px;
+        color: #052350;
+        font-weight: 600;
+    }
+
+    .ImportCta {
+        font-size: 15px;
+    }
+
+}
+
+/* iPhone 5 (landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2) {
+    /* Styles */
+}
+
+/* iPhone 5 (portrait) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2) {
+
+    /* Styles */
+    .ImportAccountContent {
+        padding: 1rem;
+        height: 140vh;
+    }
+
+    .ImportAccountContent .heading {
+        font-size: 24px;
+        margin-left: 0rem;
+    }
+
+    .ImportAccountContent .sub-heading {
+        font-size: 12px;
+        padding: .5rem 0 0 0;
+    }
+
+    .ImportAccountContent .form-container {
+        margin: 0;
+        margin-left: 3.3rem;
+        width: 92%;
+    }
+
+    .ImportAccountName label,
+    .ImportAccountPassword label {
+        font-size: 14px;
+    }
+
+    .ImportAccountName span {
+        font-size: 14px;
+    }
+
+    .ImportAccountName input,
+    .ImportAccountPassword input {
+        font-size: 14px;
+        color: #052350;
+        font-weight: 600;
+    }
+
+    .ImportCta {
+        font-size: 13px;
+    }
+
+}
+
+/* iPhone 6 (landscape) ----------- */
+@media only screen and (min-device-width: 375px) and (max-device-height: 667px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2) {
+    /* Styles */
+}
+
+/* iPhone 6 (portrait) ----------- */
+@media only screen and (min-device-width: 375px) and (max-device-height: 667px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2) {
+    /* Styles */
+}
+
+/* iPhone 6+ (landscape) ----------- */
+@media only screen and (min-device-width: 414px) and (max-device-height: 736px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2) {
+    /* Styles */
+}
+
+/* iPhone 6+ (portrait) ----------- */
+@media only screen and (min-device-width: 414px) and (max-device-height: 736px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2) {
+    /* Styles */
+}
+
+/* Samsung Galaxy S3 (landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2) {
+    /* Styles */
+}
+
+/* Samsung Galaxy S3 (portrait) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2) {
+    /* Styles */
+}
+
+/* iPads (landscape) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+
+    /* Styles */
+    .ImportAccountContent {
+        padding: 7rem 1.5rem;
+    }
+
+    .ImportAccountContent .heading {
+        font-size: 44px;
+        margin-left: 0rem;
+    }
+
+    .ImportAccountContent .sub-heading {
+        font-size: 17px;
+        padding: .5rem .7rem 0 .7rem;
+    }
+
+    .ImportAccountContent .form-container {
+        margin: 0;
+        margin-left: 3.3rem;
+        width: 92%;
+    }
+
+    .ImportAccountName label,
+    .ImportAccountPassword label {
+        font-size: 16px;
+    }
+
+    .ImportAccountName span {
+        font-size: 16px;
+    }
+
+    .ImportAccountName input,
+    .ImportAccountPassword input {
+        font-size: 16px;
+        color: #052350;
+        font-weight: 600;
+    }
+
+    .ImportCta {
+        font-size: 15px;
+    }
+}
+
+/* iPads (portrait) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+    /* Styles */
+
+    .ImportAccountContent {
+        padding: 7rem 1.5rem;
+    }
+
+    .ImportAccountContent .heading {
+        font-size: 44px;
+        margin-left: 0rem;
+    }
+
+    .ImportAccountContent .sub-heading {
+        font-size: 17px;
+        padding: .5rem .7rem 0 .7rem;
+    }
+
+    .ImportAccountContent .form-container {
+        margin: 0;
+        margin-left: 3.3rem;
+        width: 92%;
+    }
+
+    .ImportAccountName label,
+    .ImportAccountPassword label {
+        font-size: 16px;
+    }
+
+    .ImportAccountName span {
+        font-size: 16px;
+    }
+
+    .ImportAccountName input,
+    .ImportAccountPassword input {
+        font-size: 16px;
+        color: #052350;
+        font-weight: 600;
+    }
+
+    .EOSAccount-cta {
+        font-size: 15px;
+    }
 }
