@@ -63,20 +63,21 @@
 
   .hero{
       display: block;
-      padding: 1rem 0;
+      padding: 1rem 0.7rem;
       margin: 1rem 0;
-      border: 1px solid violet;
+      /* border: 1px solid violet; */
   }
   
   .hero-text{
-      padding: 0 .7rem;
+      padding: 0 .9rem;
   }
   
   .hero-text h2{
+    /* border: 1px solid black; */
       font-family: 'Roboto';
       font-weight: 600;
       width: 100%;
-      font-size: 29px;
+      font-size: 38px;
       color: #052350;
       text-decoration: none;
       margin: 1rem 0;
@@ -87,7 +88,7 @@
   .hero-para{
       font-family: 'Nunito';
       font-weight: 600;
-      font-size: 18px;
+      font-size: 17.5px;
       padding: 1rem;
       color: #052350;
       text-decoration: none;
@@ -106,7 +107,10 @@
       border-radius: 5px;
       transition: all 0.3s ease 0s;
       outline: none;
-      margin-left: 1rem;
+  }
+
+  .cta-container{
+    text-align: center;
   }
   
   .hero-text .cta:hover{
@@ -204,6 +208,13 @@
   /* iPhone 5 (portrait) ----------- */
   @media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2) {
     /* Styles */
+    .hero-text h2{
+        font-size: 33px;
+    }
+    
+    .hero-para{
+        font-size: 16.5px;
+    }
   }
   
   /* iPhone 6 (landscape) ----------- */
