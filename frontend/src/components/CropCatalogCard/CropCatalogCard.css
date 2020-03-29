@@ -1,0 +1,75 @@
+.cardContainer .ui.card{
+    box-shadow: none;
+    border-radius: 0px !important;
+    width: 350px;
+    height: 450px;
+    margin-bottom: 5rem !important;
+    height: fit-content !important;
+}
+
+.cropCatalogGrid
+.header{
+    margin: .5rem 0.7rem 1.3rem !important;
+    color: #052350 !important;
+    font-family: 'Roboto' !important;
+    text-align: left;
+    font-weight: 600 !important;
+    font-size: 21px !important;
+}
+
+.cropCatalogGrid 
+.ui.card>.image{
+    border-radius: 0px !important;
+}
+
+.cropCatalogGrid 
+.ui.card>.image img {
+    height: 250px;
+}
+
+.cardContent{
+    display: flex;
+    justify-content: space-between;
+}
+
+.cardContent p{
+    padding: 0.7rem;
+    font-size: 13.3px !important;
+    font-family: 'Nunito' !important;
+    color: #052350 !important;
+}
+
+.cropCatalogGrid 
+.ui.card>.content {
+    background: white !important;
+    padding: 1rem 1rem .7rem !important;
+} 
+
+.viewProductBtnContainer{
+   margin-top: 3rem;
+}
+
+.viewProductBtn{
+    border: 1px solid #ee6e6c;
+    padding: .7rem;
+    color: #ee6e6c;
+    font-family: 'Roboto';
+    font-weight: 500;
+    text-align: center;
+}
+
+.viewProductBtn:hover{
+    background-color: #ee6e6c;
+    transition: ease-in-out 0.2s;
+    color: white !important;
+    border: 1px solid #052350;
+}
+
+/* Media Queries */
+
+/* iPhone 5 (portrait) ----------- */
+/* @media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2) {
+
+    /* Styles 
+
+} */

@@ -1,0 +1,34 @@
+.cropCatalog{
+    background: #f6fdfa;
+    padding: 2rem 0;
+}
+
+.cropCatalogHeader{
+    font-size: 41px;
+    font-family: 'Roboto';
+    color: #052350;
+    text-align: center;
+    font-weight: 500;
+    border-bottom: 1.7px solid #ee6e6c;
+    width: fit-content;
+    padding: 0 1.3rem;
+    margin: auto;
+    letter-spacing: 2px;
+}
+
+
+.cropCatalogContainer {
+    display: flex;
+    justify-content: space-around;
+    padding: 3rem 0;
+
+}
+
+.cropCatalogContainer 
+.cropCatalogGrid {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding-top: 3rem
+}
