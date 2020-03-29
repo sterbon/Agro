@@ -2,15 +2,16 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
-    background: #f6fdfa
+    background: #f6fdfa;
+    height: 100vh;
 }
 
 .productDetail-text{
-    margin: auto;
-    margin-top: 0.5rem;
+    margin: 0 auto;
+    margin-top: 2rem;
     flex-basis: 50%;
-    padding: 3rem 1rem;
+    padding: 3rem 0rem;
+    /* border: 1px solid chartreuse; */
 }
 
 .productDetail
@@ -24,14 +25,15 @@
 }
 
 .productDetail-container{
-    margin: auto;
+    margin: 5rem auto;
     width: 48%;
-    padding: 2.7rem 4rem 4rem 0rem;
+    padding: 0rem 4rem 4rem 0rem;
     text-align: left;
+    /* border: 1px solid cadetblue; */
 }
 
 .productName{
-    margin: 1rem 0;
+    /* margin: 1rem 0; */
     padding: 0 0.5rem;
     font: 600 39px 'Roboto';
     color: #052350;
@@ -99,4 +101,187 @@
     font: 600 14px 'Nunito';
     color: #052350;
     letter-spacing: 0.8px;
+}
+
+
+/* Media Queries */
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    /* Styles */
+    .productDetail{
+        display: block;
+    }
+
+    .productDetail-text{
+        margin-top: 2rem;
+        flex-basis: 100%;
+        padding: 2rem 1rem;
+        /* border: 1px solid black; */
+    }
+    
+    .productDetail
+    .ui.image{
+        margin-left: 1rem;
+        height: 400px;
+        width: 100%;
+    }
+    
+    .productDetail-container{
+        margin: 4rem 0;
+        margin-right: 0rem;
+        padding: 0 .7rem;
+        /* border: 1px solid black; */
+        width: 100%;
+        text-align: center;
+
+    }
+    
+    .productName{
+        font: 600 40px 'Roboto';
+        text-align: center;
+        letter-spacing: 3px;
+    }
+    
+    .addToCart .ui.button{
+        font: 600 16px 'Roboto';
+    }
+    
+    .misc-header{
+        padding: 0 0rem;
+        padding-top: 2.8rem;
+        text-align: center;
+    }
+    
+    .productMisc{
+        padding: 2rem 0rem 1rem 2.3rem;
+        text-align: left;
+        /* margin: auto; */
+        /* border: 1px solid violet; */
+    }
+    
+    .productMisc-label p{
+        width: 200px;
+        font: 500 15px 'Roboto';
+    }
+
+  }
+
+/* iPhone 5 (landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2) {
+    /* Styles */
+}
+
+/* iPhone 5 (portrait) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2) {
+    /* Styles */
+    .productDetail{
+        display: block;
+    }
+
+    .productDetail-text{
+        margin-top: 2rem;
+        flex-basis: 100%;
+        padding: 2rem 0.3rem;
+        /* border: 1px solid black; */
+    }
+    
+    .productDetail
+    .ui.image{
+        margin-left: 0.9rem;
+        height: 330px;
+        width: 100%;
+    }
+    
+    .productDetail-container{
+        margin: 1.5rem 0;
+        margin-right: 0rem;
+        padding: 0 0.3rem;
+        border: 1px solid black;
+        width: 100%;
+        text-align: center;
+
+    }
+    
+    .productName{
+        font: 600 40px 'Roboto';
+        text-align: center;
+        letter-spacing: 3px;
+    }
+    
+    .addToCart .ui.button{
+        font: 600 16px 'Roboto';
+    }
+    
+    .misc-header{
+        padding: 0 0rem;
+        padding-top: 2.8rem;
+        text-align: center;
+    }
+    
+    .productMisc{
+        padding: 2rem 0rem 1rem 1rem;
+        text-align: left;
+        /* margin: auto; */
+        /* border: 1px solid violet; */
+    }
+    
+    .productMisc-label p{
+        width: 190px;
+        font: 500 15px 'Roboto';
+    }
+
+
+}
+
+/* iPads (landscape) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+    /* Styles */
+
+}
+
+/* iPads (portrait) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+    /* Styles */    
+    .productDetail-text{
+        margin-top: 2rem;
+        flex-basis: 48%;
+        padding: 2rem 0;
+    }
+    
+    .productDetail
+    .ui.image{
+        margin-left: 1rem;
+        height: 400px;
+        width: 95%;
+    }
+    
+    .productDetail-container{
+        margin: 4rem 0;
+        margin-right: 1rem;
+        padding: 0 0;
+
+    }
+    
+    .productName{
+        font: 600 36px 'Roboto';
+    }
+    
+    .addToCart .ui.button{
+        font: 600 16px 'Roboto';
+    }
+    
+    .misc-header{
+        padding: 0 0rem;
+        padding-top: 2.8rem;
+    }
+    
+    .productMisc{
+        padding: 2rem 0rem 1rem 0rem;
+    }
+    
+    .productMisc-label p{
+        width: 220px;
+        font: 500 15px 'Roboto';
+    }
+    
 }
