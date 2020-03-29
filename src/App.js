@@ -15,7 +15,7 @@ import ImportAccount from './pages/ImportAccount'
 
 class App extends Component{
     componentDidMount() {
-        this.props.dispatch(attemptAutoLogin());
+        // this.props.dispatch(attemptAutoLogin());
     }
 
     render(){

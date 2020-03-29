@@ -13,15 +13,15 @@ class OrderCard extends Component {
         const trackerUrl = `${"https://jungle.bloks.io/transaction/"}${transactionID}`;
         // console.log("trans: ", transaction);
         let otherAccount = null, orderCardStyle = null;
-        if(account.name === farmer) {
+        if (account.name === farmer) {
             otherAccount = `${"Buyer : "}${buyer}`;
-            orderCardStyle = {    
+            orderCardStyle = {
                 background: "#FFF9C4",
             }
-        } 
-        else if(account.name === buyer) {
+        }
+        else if (account.name === buyer) {
             otherAccount = `${"Seller : "}${farmer}`;
-            orderCardStyle = {    
+            orderCardStyle = {
                 background: "#E3F2FD",
             }
         }
@@ -31,28 +31,28 @@ class OrderCard extends Component {
                 <Segment raised>
                     <div id="orderCard-container">
                         <div id="order-details">
-                            <h4>Transaction ID : { transactionID }</h4>
+                            <h4>Transaction ID : {transactionID}</h4>
                         </div>
 
                         <div className="orderDate-container">
-                            <h4>{ otherAccount }</h4>
-                            <h4>Crop : <span>{ cropName }</span></h4>
+                            <h4>{otherAccount}</h4>
+                            <h4>Crop : <span>{cropName}</span></h4>
                             <h4 id="delivStatus">Transaction Status : <span>Completed</span></h4>
                         </div>
 
                         <div className="order-img-container">
                             <img src={penny} width="120px" height="120px" />
                             <div id="orderProduct-details" >
-                                <h4 id="pprice" >Crop ID : <span>{ `${"G36C"}${productId}` }</span></h4>
-                                <h4 id="pprice" >Quantity : <span>{ quantity } kg</span></h4>
-                                <h4 id="pprice" >Price : <span>₹ { price } per Kg</span></h4>
+                                <h4 id="pprice" >Crop ID : <span>{`${"G36C"}${productId}`}</span></h4>
+                                <h4 id="pprice" >Quantity : <span>{quantity} kg</span></h4>
+                                <h4 id="pprice" >Price : <span>₹ {price} per Kg</span></h4>
                             </div>
                             {/* <div id="order-seller">
                                 <h4></h4>
                             </div> */}
                         </div>
                         <div id="btn-container">
-                                <Button href={trackerUrl} target="_blank" >See transaction at Bloks.io jungle</Button>
+                            <Button href={trackerUrl} target="_blank" >See transaction at Bloks.io jungle</Button>
                         </div>
                     </div>
                 </Segment>
@@ -66,6 +66,8 @@ class OrdersPage extends Component {
         super(props);
         this.state = {
             transactionList: [],
+            loggedIn: false,
+            currentUser: null
         }
         this.getTransactionDetailFunc = this.getTransactionDetailFunc.bind(this);
 
@@ -73,44 +75,53 @@ class OrdersPage extends Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        const { loggedIn } = this.props.scatter;
-
-        if(prevProps.scatter.loggedIn !== loggedIn){
+        // const { loggedIn } = this.props.scatter;
+        if (localStorage.getItem("current_user") !== null || localStorage.getItem("current_user") !== undefined) {
+            var username = localStorage.getItem("current_user");
+            this.setState({
+                loggedIn: true,
+                currentUser: username
+            })
+        }
+        username = localStorage.getItem("current_user");
+        if (this.state.loggedIn === true) {
             this.getTransactionDetailFunc();
         }
     }
 
     getTransactionDetailFunc() {
         const transactionList = [];
-        const { loggedIn, userAccount } = this.props.scatter;
-        if(loggedIn){
+        const { loggedIn, currentUser } = this.state;
+        
+        if (loggedIn) {
             getTransactionDetails()
-            .then((result) => {
-                const transactions = result.rows;
+                .then((result) => {
+                    const transactions = result.rows;
 
-                transactions.map((transaction) => {
-                    if(transaction.farmer === userAccount.name || transaction.buyer === userAccount.name)
-                    {   
-                        transactionList.push(transaction);
-                    }
-                });  
-                this.setState({ transactionList });         
-            });
+                    transactions.map((transaction) => {
+                        if (transaction.farmer === currentUser || transaction.buyer === currentUser) {
+                            transactionList.push(transaction);
+                        }
+                        
+                    });
+                    this.setState({ transactionList });
+                });
         }
     }
 
     render() {
-        const { loggedIn, userAccount } = this.props.scatter;
+        const { loggedIn, currentUser } = this.state;
         const { transactionList } = this.state;
         // console.log("page: ", transactionList);
-
+        console.log("translist:", transactionList);
+        console.log("loggedIn", loggedIn);
         let ListView = <p className="else-text">Loading...</p>;
-        if(transactionList.length) {
+        if (transactionList.length) {
             ListView = Object.values(transactionList).map((transaction) => {
-                return <OrderCard 
+                return <OrderCard
                     key={transaction.transactionID}
-                    transaction={transaction} 
-                    account={userAccount}
+                    transaction={transaction}
+                    account={currentUser}
                 />
             });
         }
@@ -122,17 +133,12 @@ class OrdersPage extends Component {
                     <Header as='h2'>
                         Your Transactions
                     </Header>
-                    { loggedIn ? ListView : <p className="else-text">Sorry. Currently you are not logged in.</p> }
-                </div>  
+                    {loggedIn ? ListView : <p className="else-text">Sorry. Currently you are not logged in.</p>}
+                </div>
             </React.Fragment>
         )
     }
 }
 
-const mapStateToProps = ({ scatter }) => {
-    return {
-        scatter,
-    };
-};
 
-export default connect(mapStateToProps)(OrdersPage); 
+export default (OrdersPage); 

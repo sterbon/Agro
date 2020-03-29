@@ -6,6 +6,7 @@ import './CropCatalogCard.css';
 class CropCatalogCard extends Component {
     render() {
         const { cropName, details } = this.props;
+        // console.log("Details : ", details);
 
         return (
             <div className="cardContainer">
@@ -14,7 +15,7 @@ class CropCatalogCard extends Component {
                     <Card.Content>
                         <Card.Header>{ cropName }</Card.Header>
                         <div className="cardContent">
-                            <p>Sellers: 3</p>
+                            <p>Sellers : {details.producer.length}</p>
                             <p >Updated: 11 March 2020</p>
                         </div>
                         <div className="viewProductBtnContainer">
