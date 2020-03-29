@@ -1,5 +1,3 @@
-
-
 .addProduct{
     background: #f6fdfa;
 }
@@ -27,10 +25,10 @@
     letter-spacing: 2px;
 }
 
-.addCrop-form{
+/* .addCrop-form{
     padding: 2rem 4rem;
-    /* box-shadow: 0 19px 38px rgba(47, 72, 88, .30), 0 15px 12px rgba(47, 72, 88, .22); */
-}
+    /* box-shadow: 0 19px 38px rgba(47, 72, 88, .30), 0 15px 12px rgba(47, 72, 88, .22); 
+} */
 
 .crop-price, .crop-name, .crop-amount{
     margin: 2rem 0;
@@ -87,4 +85,97 @@ input[type=date]:invalid::-webkit-datetime-edit {
     transition: all 0.3s ease 0s !important;
     outline: none !important;
     margin: 0;
+}
+
+/* Media Queries */
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    /* Styles */
+    .addCrop-container{
+        width: 98% !important;
+        padding: 2rem 1.7rem;
+    }
+
+    .crop-price, .crop-name, .crop-amount{
+        margin: 2rem auto !important;
+        /* border: 1px solid black; */
+
+    }
+
+    .crop-price input, .crop-name input, .crop-amount input{
+        padding: .7rem 1rem;
+        width: 100%;
+        outline: none;
+        font-size: 14px;
+        border-radius: 5px;
+        border: 1.5px solid #bdc1c0 !important;
+        color: #052350 !important;
+        font-family: 'Nunito' !important;
+    }
+
+    .submitcrop{
+        text-align: center;
+    }
+
+  }
+
+/* iPhone 5 (landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2) {
+    /* Styles */
+}
+
+/* iPhone 5 (portrait) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2) {
+    /* Styles */
+    .addCrop-container{
+        width: 98% !important;
+        padding: 2rem 1.7rem;
+    }
+
+    .addProduct h2{
+        font-size: 30px;
+    }
+
+    .crop-price, .crop-name, .crop-amount{
+        margin: 2rem auto !important;
+        /* border: 1px solid black; */
+
+    }
+
+    .crop-price label, .crop-name label, .crop-amount label{
+        font-family: 'Roboto' !important;
+        color: #052350 !important;
+        font-size: 14px;
+    }
+
+    .crop-price input, .crop-name input, .crop-amount input{
+        padding: .7rem 1rem;
+        width: 100%;
+        outline: none;
+        font-size: 13px !important;
+        border-radius: 5px;
+        border: 1.5px solid #bdc1c0 !important;
+        color: #052350 !important;
+        font-family: 'Nunito' !important;
+    }
+
+    .submitcrop{
+        text-align: center;
+    }
+
+}
+
+/* iPads (landscape) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+    /* Styles */
+
+}
+
+/* iPads (portrait) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+    /* Styles */        
+    .addCrop-container{
+        width: 93% !important;
+    }
+
 }

@@ -3,7 +3,7 @@
     flex-direction: row;
     justify-content: space-between;
     background: #f6fdfa;
-    height: 100vh;
+    height: fit-content;
 }
 
 .productDetail-text{
@@ -110,6 +110,7 @@
     /* Styles */
     .productDetail{
         display: block;
+        height: fit-content;
     }
 
     .productDetail-text{
@@ -176,6 +177,7 @@
     /* Styles */
     .productDetail{
         display: block;
+        height: fit-content;
     }
 
     .productDetail-text{
