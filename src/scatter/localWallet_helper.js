@@ -37,11 +37,11 @@ const network = {
 // Retrieving multi-index data
 export async function getCropDetailsTable() {
     try {
-        const rpc = new JsonRpc(process.env.REACT_APP_EOS_HTTP_ENDPOINT, { nodeFetch });
+        const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { nodeFetch });
         const result = await rpc.get_table_rows({
             "json": true,
-            "code": "cardgameacc",
-            "scope": "cardgameacc",
+            "code": "sterbon23451",
+            "scope": "sterbon23451",
             "table": "crpdetail",
             "limit": 20,
         });
@@ -54,12 +54,12 @@ export async function getCropDetailsTable() {
 
 export async function getDetailsByCropId(cropId) {
     try {
-        const rpc = new JsonRpc(process.env.REACT_APP_EOS_HTTP_ENDPOINT, { nodeFetch });
+        const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { nodeFetch });
 
         const result = await rpc.get_table_rows({
             "json": true,
-            "code": "cardgameacc",
-            "scope": "cardgameacc",
+            "code": "sterbon23451",
+            "scope": "sterbon23451",
             "table": "crpdetail",
             "limit": 1,
             "lower_bound": cropId,
@@ -73,11 +73,11 @@ export async function getDetailsByCropId(cropId) {
 
 export async function getTransactionDetails() {
     try {
-        const rpc = new JsonRpc(process.env.REACT_APP_EOS_HTTP_ENDPOINT, { nodeFetch });
+        const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { nodeFetch });
         const result = await rpc.get_table_rows({
             "json": true,
-            "code": "cardgameacc",
-            "scope": "cardgameacc",
+            "code": "sterbon23451",
+            "scope": "sterbon23451",
             "table": "trxdetail",
         });
         return result
@@ -88,7 +88,7 @@ export async function getTransactionDetails() {
 
 export async function getAccount(account_name) {
     try {
-        const rpc = new JsonRpc(process.env.REACT_APP_EOS_HTTP_ENDPOINT, { nodeFetch });
+        const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { nodeFetch });
         // const result = await rpc.get_account('hellokittu15');
         const result = await rpc.get_account(account_name)
         if (result.account_name)
@@ -115,12 +115,11 @@ export async function getAccount(account_name) {
 // Create new account on jungle Testnet
 export const createNewAccount = async (account_name, password, public_key, private_key) => {
 
-    localStorage.clear();
     var owner_publicKey = public_key
     var active_publicKey = public_key
 
-    const signatureProvider = new JsSignatureProvider(['5JpWT4ehouB2FF9aCfdfnZ5AwbQbTtHBAwebRXt94FmjyhXwL4K']);
-    const rpc = new JsonRpc(process.env.REACT_APP_EOS_HTTP_ENDPOINT, { nodeFetch });
+    const signatureProvider = new JsSignatureProvider(['5JdPutdYAYWcjZFsYudKMuLUY8xtnvSBvFg8Cgnbdaxg5rC3h2v']);
+    const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { nodeFetch });
     const api = new Api({ rpc, signatureProvider, textDecoder: new TextDecoder(), textEncoder: new TextEncoder() });
 
     if (getAccount(account_name)) {
@@ -133,12 +132,12 @@ export const createNewAccount = async (account_name, password, public_key, priva
                             name: 'newaccount',
                             authorization: [
                                 {
-                                    actor: 'cardgameacc',
+                                    actor: 'sterbon23451',
                                     permission: 'active',
                                 },
                             ],
                             data: {
-                                creator: 'cardgameacc',
+                                creator: 'sterbon23451',
                                 name: account_name,
                                 owner: {
                                     threshold: 1,
@@ -169,12 +168,12 @@ export const createNewAccount = async (account_name, password, public_key, priva
                             name: 'buyrambytes',
                             authorization: [
                                 {
-                                    actor: 'cardgameacc',
+                                    actor: 'sterbon23451',
                                     permission: 'active',
                                 },
                             ],
                             data: {
-                                payer: 'cardgameacc',
+                                payer: 'sterbon23451',
                                 receiver: account_name,
                                 bytes: 8192,
                             },
@@ -184,12 +183,12 @@ export const createNewAccount = async (account_name, password, public_key, priva
                             name: 'delegatebw',
                             authorization: [
                                 {
-                                    actor: 'cardgameacc',
+                                    actor: 'sterbon23451',
                                     permission: 'active',
                                 },
                             ],
                             data: {
-                                from: 'cardgameacc',
+                                from: 'sterbon23451',
                                 receiver: account_name,
                                 stake_net_quantity: '1.0000 EOS',
                                 stake_cpu_quantity: '1.0000 EOS',
@@ -218,14 +217,16 @@ export const createNewAccount = async (account_name, password, public_key, priva
 
 // Storing pvt keys to local storage 
 export const storeKeys = (pvtKey, uName, password) => {
-
+    
     // localStorage.clear()
     var currPvt = CryptoJS.AES.encrypt(pvtKey, password).toString();
 
+
+    
     var passwordKey512Bits = CryptoJS.PBKDF2(password, salt, {
         keySize: 512 / 32
-    });
-    console.log("PBKDF2", passwordKey512Bits.toString(CryptoJS.enc.Hex));
+      });
+    console.log("PBKDF2",passwordKey512Bits.toString(CryptoJS.enc.Hex));
     var cred = [passwordKey512Bits.toString(CryptoJS.enc.Hex), currPvt];
 
     localStorage.setItem(uName, JSON.stringify(cred))
@@ -242,10 +243,10 @@ export const login = (username, password) => {
     let pvtHash = storedCred[1];
     var authPasswordKey = CryptoJS.PBKDF2(password, salt, {
         keySize: 512 / 32
-    });
-
-    console.log("passHash = ", passHash);
-    console.log("authPWKEY = ", authPasswordKey.toString(CryptoJS.enc.Hex));
+      });
+      
+      console.log("passHash = ", passHash);
+      console.log("authPWKEY = ", authPasswordKey.toString(CryptoJS.enc.Hex));
 
     if (authPasswordKey.toString(CryptoJS.enc.Hex) === passHash) {
         var bytes = CryptoJS.AES.decrypt(pvtHash, password);
@@ -253,7 +254,6 @@ export const login = (username, password) => {
 
         console.log('Logged in!')
         console.log(originalText)
-        console.log(Object.entries(localStorage)[0][0])
         currKey = originalText
     }
     else
@@ -284,18 +284,18 @@ export const logout = (account_name) => {
 export async function uploadCrop(data) {
     // const defaultPrivateKey = login(password)
     console.log("Default Private Key:", currKey)
-    const userName = Object.entries(localStorage)[0][0]
+    const userName = localStorage.getItem("username")
     console.log(userName)
     // const defaultPrivateKey = localStorage.getItem("privateKey")
     const signatureProvider = new JsSignatureProvider([currKey]);
-    const rpc = new JsonRpc(process.env.REACT_APP_EOS_HTTP_ENDPOINT, { nodeFetch });
+    const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { nodeFetch });
     const api = new Api({ rpc, signatureProvider, textDecoder: new TextDecoder(), textEncoder: new TextEncoder() });
 
     const result = await api.transact({
 
         "actions": [
             {
-                "account": "cardgameacc",
+                "account": "sterbon23451",
                 "name": "uploadcrop",
                 "authorization": [
                     {
@@ -327,14 +327,14 @@ export async function buyCrop(productId) {
     console.log(productId)
     const userName = localStorage.getItem("username")
     const signatureProvider = new JsSignatureProvider([currKey]);
-    const rpc = new JsonRpc(process.env.REACT_APP_EOS_HTTP_ENDPOINT, { nodeFetch });
+    const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { nodeFetch });
     const api = new Api({ rpc, signatureProvider, textDecoder: new TextDecoder(), textEncoder: new TextEncoder() });
 
     const result = await api.transact({
-
+        
         "actions": [
             {
-                "account": "cardgameacc",
+                "account": "sterbon23451",
                 "name": "buycrop",
                 "authorization": [
                     {
@@ -348,14 +348,14 @@ export async function buyCrop(productId) {
                     "price": "1.0000 JUNGLE",
                     "memo": "Buy crop"
                 },
-
+                
             }
         ]
     },
-        {
-            "blocksBehind": 3,
-            "expireSeconds": 30,
-        })
+    {
+        "blocksBehind": 3,
+        "expireSeconds": 30,
+    })
     console.log("Buying Result: ", result)
     return result
 }
