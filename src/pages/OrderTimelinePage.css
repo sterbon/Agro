@@ -168,3 +168,192 @@
   font-size: 1.35rem;
   margin-top: 5rem;
 }
+
+/* Media Queries */
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  /* Styles */
+  .searchbox {
+    height: 50px;
+    width: 350px;
+    color: #052350;
+    left: 7.5%;
+    font-size: 15px;
+  }
+  
+  .timeline-container h2 {
+    font-size: 34px;
+  }
+  
+  /* Timeline */
+  .timeline {
+    margin: 3rem 0rem 3rem auto !important;
+    max-width: 60% !important;
+  }
+
+}
+
+/* iPhone 5 (landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2) {
+  /* Styles */
+}
+
+/* iPhone 5 (portrait) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2) {
+  /* Styles */
+  .searchbox {
+    height: 45px;
+    width: 300px;
+    color: #052350;
+    left: 3.3%;
+    font-size: 15px;
+  }
+  
+  .timeline-container h2 {
+    font-size: 25px;
+  }
+  
+  /* Timeline */
+  .timeline {
+    margin: 3rem 0.4rem 3rem auto;
+    max-width: 65%;
+    padding-right: .1em;
+    padding-left: 1.4rem;
+    /* border: 1px solid black; */
+  }
+
+  .timeline h1,
+.timeline h2,
+.timeline h3 {
+  font-family: 'Roboto';
+  font-weight: 600;
+  /* font-size: 1.4em; */
+  font-size: 19px;
+  color: #052350;
+  margin: 0 0 1rem 0;
+  /* border: 1px solid violet; */
+}
+
+.timeline p {
+  margin-bottom: 0.5rem;
+  font-size: 14px;
+}
+
+.timeline .event:before {
+  left: -170px;
+  color: #ee6e6c;
+  content: attr(data-date);
+  letter-spacing: 0.8px;
+  text-align: right;
+  font-weight: 500;
+  font-size: 0.9em;
+  min-width: 120px;
+}
+
+.timeline .event:after {
+  box-shadow: 0 0 0 4px #052350;
+  left: -27.85px;
+  background: #ee6e6c;
+  border-radius: 50%;
+  height: 11px;
+  width: 11px;
+  content: "";
+  top: 5px;
+}
+
+}
+
+  /* iPhone 6 (portrait) ----------- */
+  @media only screen and (min-device-width: 375px) and (max-device-height: 667px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2) {
+    /* Styles */
+
+    .searchbox {
+      height: 45px;
+      width: 350px;
+      color: #052350;
+      left: 3.3%;
+      font-size: 15px;
+    }
+    
+    .timeline-container h2 {
+      font-size: 30px;
+    }
+    
+    /* Timeline */
+    .timeline {
+      margin: 3rem 0.4rem 3rem 9.5rem !important;
+      max-width: 65%;
+      padding-right: .1em;
+      padding-left: 1.4em;
+      /* border: 1px solid black; */
+    }
+  
+    .timeline h1,
+  .timeline h2,
+  .timeline h3 {
+    font-family: 'Roboto';
+    font-weight: 600;
+    /* font-size: 1.4em; */
+    font-size: 19px;
+    color: #052350;
+    margin: 0 0 1rem 0;
+    /* border: 1px solid violet; */
+  }
+  
+  .timeline p {
+    margin-bottom: 0.5rem;
+    font-size: 14px;
+  }
+  
+  .timeline .event:before {
+    left: -170px;
+    color: #ee6e6c;
+    content: attr(data-date);
+    letter-spacing: 0.8px;
+    text-align: right;
+    font-weight: 500;
+    font-size: 0.9em;
+    min-width: 120px;
+  }
+  
+  .timeline .event:after {
+    box-shadow: 0 0 0 4px #052350;
+    left: -27.85px;
+    background: #ee6e6c;
+    border-radius: 50%;
+    height: 11px;
+    width: 11px;
+    content: "";
+    top: 5px;
+  }
+
+  }
+
+/* iPads (landscape) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  /* Styles */
+
+}
+
+/* iPads (portrait) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+  /* Styles */  
+  .searchbox {
+    height: 50px;
+    width: 400px;
+    color: #052350;
+    left: 24%;
+    font-size: 15px;
+  }
+  
+  .timeline-container h2 {
+    font-size: 39px;
+  }
+  
+  /* Timeline */
+  .timeline {
+    margin: 3rem 5.8rem 3rem auto;
+    max-width: 65%;
+  }
+  
+}

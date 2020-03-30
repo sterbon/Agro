@@ -1,8 +1,112 @@
+.about-container
+{
+    background-color: #f6fdfa;
+    height: 85vh;
+}
+
 h3.about-title {
-    margin: 0rem 5rem 1rem 5rem;
-    padding-top: 3rem;
+    font-size: 41px;
+    font-family: 'Roboto';
+    color: #052350;
+    text-align: center;
+    font-weight: 500;
+    border-bottom: 1.7px solid #ee6e6c;
+    width: fit-content;
+    padding: 3rem 1.3rem 0 1.3rem;
+    margin: auto;
+    margin-bottom: 3rem;
+    letter-spacing: 2px;
 }
 .about-content {
     text-align: justify;
     margin: 0 5rem;
+    font-family: 'Nunito' !important;
+    font-size: 17px;
+    color: #052350 !important;
+    font-weight: 600;
+    line-height: 2rem;
+}
+
+/* Media Queries */
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    /* Styles */
+
+    .about-container
+{
+    height: 100vh;
+}
+
+    h3.about-title {
+        font-size: 45px;
+        font-family: 'Roboto';
+        color: #052350;
+        text-align: center;
+        font-weight: 500;
+        border-bottom: 1.7px solid #ee6e6c;
+        width: fit-content;
+        padding: 3rem 1.3rem 0 1.3rem;
+        margin: auto;
+        margin-bottom: 3rem;
+        letter-spacing: 2px;
+    }
+    .about-content {
+        text-align: justify;
+        margin: 0 1.5rem;
+        font-family: 'Nunito' !important;
+        font-size: 16px;
+        color: #052350 !important;
+        font-weight: 600;
+        line-height: 2rem;
+    }
+  }
+
+/* iPhone 5 (landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2) {
+    /* Styles */
+}
+
+/* iPhone 5 (portrait) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2) {
+    /* Styles */
+
+}
+
+/* iPads (landscape) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+    /* Styles */
+}
+
+/* iPads (portrait) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+    /* Styles */
+
+    .about-container
+    {
+        height: 100vh;
+    }
+    
+        h3.about-title {
+            font-size: 42px;
+            font-family: 'Roboto';
+            color: #052350;
+            text-align: center;
+            font-weight: 500;
+            border-bottom: 1.7px solid #ee6e6c;
+            width: fit-content;
+            padding: 2rem 1.3rem 0 1.3rem;
+            margin: auto;
+            margin-bottom: 3rem;
+            letter-spacing: 2px;
+        }
+        .about-content {
+            text-align: justify;
+            margin: 0 2.5rem;
+            font-family: 'Nunito' !important;
+            font-size: 17px;
+            color: #052350 !important;
+            font-weight: 600;
+            line-height: 2rem;
+        }
+   
 }
