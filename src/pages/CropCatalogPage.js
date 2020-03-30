@@ -34,8 +34,9 @@ class CropCatalogPage extends Component {
                     .then(result => {
                         const { cropCatalogList } = this.state; 
                         let cropImage = Grain;
-                        if(result.results[0].urls.raw) {
-                            cropImage = result.results[0].urls.raw;
+                        if(result.results[0].urls.regular) {
+                            // cropImage = result.results[0].urls.raw;
+                            cropImage = result.results[0].urls.regular;
                         }
                         
                         if(cropName in cropCatalogList) {
