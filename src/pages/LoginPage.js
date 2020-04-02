@@ -1,14 +1,19 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import { Button, Header, Icon, Modal } from 'semantic-ui-react'
-import './LoginPage.css'
+import './LoginPage.css';
+import { withRouter } from 'react-router-dom';
 import { login, logout } from '../scatter/localWallet_helper'
 
 export class LoginPage extends Component {
     constructor(props) {
         super(props);
+        var loggedIn = false;
+        if(localStorage.getItem("current_user") != "null" && localStorage.getItem("current_user") !== undefined) {
+            loggedIn = true;
+        }
         this.state = {
-            loggedIn: false,
+            loggedIn,
             username: "",
             passw: "",
         };
@@ -22,6 +27,7 @@ export class LoginPage extends Component {
                         onClick={() => {
                             logout();
                             this.setState({ loggedIn: false });
+                            this.props.history.push('/');
                         }}>
                             Logout
                 </button> :
@@ -98,4 +104,4 @@ export class LoginPage extends Component {
     }
 }
 
-export default LoginPage
+export default withRouter(LoginPage);
