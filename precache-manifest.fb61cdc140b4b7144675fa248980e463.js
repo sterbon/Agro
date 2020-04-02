@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "fa47769d38aed59f0d6f287b074e0d7b",
+    "revision": "5c78b6aaad8e577b4711d612e191a7fd",
     "url": "/Agro/index.html"
   },
   {
-    "revision": "74fad0c43a587300b207",
-    "url": "/Agro/static/css/main.0e7dcf87.chunk.css"
+    "revision": "5b514c8578a297f2e801",
+    "url": "/Agro/static/css/main.9b81de0c.chunk.css"
   },
   {
-    "revision": "b8f8047a01418508c9ba",
-    "url": "/Agro/static/js/2.7b30f474.chunk.js"
+    "revision": "f999fefe293631bfae4f",
+    "url": "/Agro/static/js/2.e0e2a13c.chunk.js"
   },
   {
     "revision": "a9cbcca921a8d4317e9dc7f2bd781fdb",
-    "url": "/Agro/static/js/2.7b30f474.chunk.js.LICENSE.txt"
+    "url": "/Agro/static/js/2.e0e2a13c.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "74fad0c43a587300b207",
-    "url": "/Agro/static/js/main.78c1fe87.chunk.js"
+    "revision": "5b514c8578a297f2e801",
+    "url": "/Agro/static/js/main.c45749a8.chunk.js"
   },
   {
     "revision": "f3289fa90457c0b89285",
