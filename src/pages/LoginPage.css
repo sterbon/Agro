@@ -18,7 +18,7 @@
     text-align: center;
 } */
 
-.ui.modal {
+.loginContainer .ui.modal {
     margin: 1rem 0 !important;
     width: 42%;
 }

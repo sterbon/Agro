@@ -1,0 +1,142 @@
+.receiptContainer .ui.modal{
+    margin: 0;
+    padding: 0;
+    width: 100% !important;
+}
+
+.receiptHeader
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0rem 2.5rem;
+}
+
+.receiptHeading{
+    color: black;
+}
+
+.receiptHeading h2{
+    font-family: 'Courier Prime';
+    letter-spacing: 2px;
+}
+
+.receiptSubHeading{
+    margin-top: 1.7rem;
+}
+
+.receiptSubHeading h4{
+    margin: 0;
+    font-family: 'Courier Prime';
+}
+
+.receiptSub{
+    letter-spacing: 2px;
+}
+
+.receiptLogo h1{
+    font-size: 63px;
+    font-family: 'Great Vibes';
+    margin-top: -1rem !important;
+    margin: 0;
+    padding: 0;
+}
+
+.receiptForm-container{
+    padding: 2rem 0rem;
+}
+
+.receiptTable, .priceTable{
+    border-collapse: collapse;
+    width: 100%;
+}
+  
+.receiptTable th, .receiptTable td{
+    border: none;
+    text-align: center;
+    padding: 1rem 0;
+    font-family: 'Courier Prime';
+}
+
+.receiptPriceContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 2.5rem;
+}
+
+.receiptPriceRight{
+    padding-right: 1rem;
+}
+
+.priceTable th{
+    border: none;
+    text-align: center;
+    padding: 1rem 4.5rem;
+    font-family: 'Courier Prime';
+}
+
+.priceTable td{
+    border: none;
+    text-align: center;
+    padding: 1rem 0;
+    font-family: 'Courier Prime';
+}
+
+.partyDetails{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2.5rem;
+}
+
+.sellerDetails h4, .buyerDetails h4{
+    font-family: 'Courier Prime';
+    padding-bottom: .3rem;
+}
+
+.sellerDetails p, .buyerDetails p{
+    font-family: 'Courier Prime';
+    font-size: 13px;
+    padding: 0.5rem 0;
+    margin: 0;
+}
+
+.printReceipt{
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.print-cta{
+    border: none;
+    border-bottom: 1px dotted black;
+    background-color: transparent;
+    font-family: 'Courier Prime';
+    font-weight: bold;
+    text-decoration: none;
+    outline: none;
+}
+
+.print-cta:hover{
+    cursor: pointer;
+}
+
+.separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-family: 'Courier Prime';
+    padding: 3rem 2rem 0 2rem;
+    font-weight: bold;
+}
+.separator::before, .separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #000;
+}
+.separator::before {
+    margin-right: 1em;
+}
+.separator::after {
+    margin-left: 1em;
+}
