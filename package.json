@@ -1,11 +1,13 @@
 {
   "name": "foodgrain-scm",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
+  "homepage": "https://sterbon.github.io/Agro",
   "dependencies": {
     "crypto-js": "^4.0.0",
     "eosjs": "^20.0.3",
     "eosjs-ecc": "^4.0.7",
+    "gh-pages": "^2.2.0",
     "node-fetch": "^2.6.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
@@ -25,7 +27,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
