@@ -40,12 +40,12 @@ export async function getCropDetailsTable() {
         const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { nodeFetch });
         const result = await rpc.get_table_rows({
             "json": true,
-            "code": "sterbon23451",
-            "scope": "sterbon23451",
+            "code": "sterbon23411",
+            "scope": "sterbon23411",
             "table": "agrotable",
             "limit": 100,
         });
-        // const result = await rpc.get_account('sterbon23451')
+        // const result = await rpc.get_account('sterbon23411')
         return (result)
     } catch (err) {
         console.error(err);
@@ -58,8 +58,8 @@ export async function getDetailsByCropId(cropId) {
 
         const result = await rpc.get_table_rows({
             "json": true,
-            "code": "sterbon23451",
-            "scope": "sterbon23451",
+            "code": "sterbon23411",
+            "scope": "sterbon23411",
             "table": "agrotable",
             "limit": 1,
             "lower_bound": cropId,
@@ -76,8 +76,8 @@ export async function getTransactionDetails() {
         const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { nodeFetch });
         const result = await rpc.get_table_rows({
             "json": true,
-            "code": "sterbon23451",
-            "scope": "sterbon23451",
+            "code": "sterbon23411",
+            "scope": "sterbon23411",
             "table": "trxdetail",
         });
         return result
@@ -133,12 +133,12 @@ export const createNewAccount = async (account_name, password, public_key, priva
                             name: 'newaccount',
                             authorization: [
                                 {
-                                    actor: 'sterbon23451',
+                                    actor: 'sterbon23411',
                                     permission: 'active',
                                 },
                             ],
                             data: {
-                                creator: 'sterbon23451',
+                                creator: 'sterbon23411',
                                 name: account_name,
                                 owner: {
                                     threshold: 1,
@@ -169,12 +169,12 @@ export const createNewAccount = async (account_name, password, public_key, priva
                             name: 'buyrambytes',
                             authorization: [
                                 {
-                                    actor: 'sterbon23451',
+                                    actor: 'sterbon23411',
                                     permission: 'active',
                                 },
                             ],
                             data: {
-                                payer: 'sterbon23451',
+                                payer: 'sterbon23411',
                                 receiver: account_name,
                                 bytes: 8192,
                             },
@@ -184,12 +184,12 @@ export const createNewAccount = async (account_name, password, public_key, priva
                             name: 'delegatebw',
                             authorization: [
                                 {
-                                    actor: 'sterbon23451',
+                                    actor: 'sterbon23411',
                                     permission: 'active',
                                 },
                             ],
                             data: {
-                                from: 'sterbon23451',
+                                from: 'sterbon23411',
                                 receiver: account_name,
                                 stake_net_quantity: '1.0000 EOS',
                                 stake_cpu_quantity: '1.0000 EOS',
@@ -306,7 +306,7 @@ export async function uploadCrop(data) {
 
         "actions": [
             {
-                "account": "sterbon23451",
+                "account": "sterbon23411",
                 "name": "uploadcrop",
                 "authorization": [
                     {
@@ -345,7 +345,7 @@ export async function buyCrop(productId) {
         
         "actions": [
             {
-                "account": "sterbon23451",
+                "account": "sterbon23411",
                 "name": "buycrop",
                 "authorization": [
                     {
@@ -355,7 +355,7 @@ export async function buyCrop(productId) {
                 ],
                 "data": {
                     "buyer": userName,
-                    "cropPid": productId, //is this correct?
+                    "cropPid": productId, 
                     "price": "1.0000 JUNGLE",
                     "memo": "Buy crop"
                 },
