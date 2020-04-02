@@ -107,7 +107,7 @@ class OrdersPage extends Component {
         const { transactionList } = this.state;
         console.log("translist:", transactionList);
         console.log("loggedIn", loggedIn);
-        let ListView = <p className="else-text">Loading...</p>;
+        let ListView = <p className="else-text">No Orders Placed Yet.</p> ;
         if (transactionList.length) {
             ListView = Object.values(transactionList).map((transaction) => {
                 return <OrderCard

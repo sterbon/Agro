@@ -9,15 +9,25 @@ import {
 import LoginPage from '../../pages/LoginPage'
 
 class Nav extends Component {
-    loginUser = () => this.props.dispatch(requestLogin());
-    logOutUser = () => {
-        this.props.dispatch(logout());
-};
+    constructor(props) {
+        super(props);
+        var loggedIn = false;
+        var currentUser = null;
+        if (localStorage.getItem("current_user") != "null" && localStorage.getItem("current_user") !== undefined) {
+            loggedIn = true;
+            currentUser = localStorage.getItem("current_user");
+        }
+
+        this.state = {
+            loggedIn,
+            currentUser,
+        }
+    }
 
     render() {
-        const { loggedIn } = this.props.scatter;
+        const { loggedIn } = this.state;
 
-        return(
+        return (
             <header className="nav-container">
                 <Link to="/">
                     <h1 className="logo">Agro</h1>
@@ -29,7 +39,7 @@ class Nav extends Component {
                                 <p className="nav_text" >Catalog</p>
                             </li>
                         </Link>
-                        {/* {loggedIn ? */}
+                        {loggedIn ?
                         <React.Fragment>
                             <Link to="/add_crop">
                                 <li className="nav_links">
@@ -41,9 +51,9 @@ class Nav extends Component {
                                     <p className="nav_text" >Transactions</p>
                                 </li>
                             </Link>
-                        </React.Fragment>
+                        </React.Fragment> :
                         <React.Fragment></React.Fragment>
-                        {/* } */}
+                        }
                         <Link to="/crop_tracking">
                             <li className="nav_links">
                                 <p className="nav_text" >Track</p>
@@ -76,14 +86,4 @@ class Nav extends Component {
     }
 }
 
-const mapStateToProps = ({ scatter }) => {
-    return {
-        scatter,
-    };
-};
-
-const mapDispatchToProps = (dispatch) => {
-    return { dispatch };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Nav);
+export default Nav;

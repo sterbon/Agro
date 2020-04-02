@@ -158,29 +158,19 @@ class AddProductPage extends Component {
                                     <Dropdown
                                         id="amount"
                                         type="text"
-                                        name="crop-amount"
+                                        name="crop-fertilizer"
+                                        // className="crop-name"
                                         placeholder="Fertilizer or Manure Name"
                                         value={this.state.fertilizer}
                                         onChange={(e) => {
                                             this.setState({ fertilizer: e.target.value });
                                         }}
                                         required
-                                        // fluid
+                                        fluid
                                         search
                                         selection
                                         options={Fertilizers}
                                     />
-                                    {/* <input
-                                        id="amount"
-                                        type="text" 
-                                        name="crop-amount"
-                                        placeholder="Fertilizer or Manure Name"
-                                        value={this.state.fertilizer} 
-                                        onChange={(e) => { 
-                                            this.setState({ fertilizer : e.target.value }); 
-                                        }}
-                                        required
-                                    /> */}
                                 </div>
                                 <div className="submitcrop">
                                     <button className="cta" 
