@@ -42,7 +42,7 @@ export async function getCropDetailsTable() {
             "json": true,
             "code": "sterbon23451",
             "scope": "sterbon23451",
-            "table": "crptable",
+            "table": "agrotable",
             "limit": 100,
         });
         // const result = await rpc.get_account('sterbon23451')
@@ -60,7 +60,7 @@ export async function getDetailsByCropId(cropId) {
             "json": true,
             "code": "sterbon23451",
             "scope": "sterbon23451",
-            "table": "crptable",
+            "table": "agrotable",
             "limit": 1,
             "lower_bound": cropId,
         });

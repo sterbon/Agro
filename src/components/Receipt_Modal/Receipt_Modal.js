@@ -8,7 +8,7 @@ class ReceiptModal extends Component {
     render() {
         return (
             <div className="receiptContainer">
-                    <Modal trigger={<button className="cta" >Login </button>} closeIcon>
+                    <Modal trigger={<button className="cta">Print Receipt</button>} closeIcon>
                         <Modal.Content>
                             <div>
                                 <div className="receipt-container">
@@ -94,9 +94,18 @@ class ReceiptModal extends Component {
 
                                             <div className="printReceipt">
                                                 <button className="print-cta"
-                                                    onClick={function() {
+                                                    onClick={() =>  
+                                                    {
+                                                        // var content = document.getElementById("divcontents");
+                                                        // var pri = document.getElementById("ifmcontentstoprint").contentWindow;
+                                                        // pri.document.open();
+                                                        // pri.document.write(content.innerHTML);
+                                                        // pri.document.close();
+                                                        // pri.focus();
+                                                        // pri.print();
                                                         window.print();
-                                                      }}
+                                                        }
+                                                      }
                                                     name="submit-button"
                                                     value="Upload">
                                                     Print Receipt

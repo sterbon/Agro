@@ -1,4 +1,4 @@
-export const fertilizers = [
+export const Fertilizers = [
 	"Agric Lime",
 	"Ammonium Hydroxide",
 	"Ammonium nitrate",

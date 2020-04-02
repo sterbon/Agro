@@ -3,7 +3,7 @@ import './ProductDetail.css';
 import { connect } from 'react-redux';
 import { Image, Button, Input } from 'semantic-ui-react';
 import Grain from '../static/images/Grain.jpg'
-
+import ReceiptModal from '../components/Receipt_Modal/Receipt_Modal'
 import ProducerCard from '../components/ProducerCard/ProducerCard';
 import {
     buyCrop
@@ -12,6 +12,7 @@ import {
 class ProductDetail extends Component {
     state = {
         selectedProducer: null,
+        productBought: false,
     }
 
     selectProducer(selectedProducerDetail){
@@ -25,6 +26,7 @@ class ProductDetail extends Component {
         .then((result) =>
             {
                 console.log(result)
+                this.setState({ productBought: true });
             });
     }
 
@@ -95,9 +97,10 @@ class ProductDetail extends Component {
                         <Button 
                             className={`cta${selectedProducer.sold ? " disabled" : ""}`}
                             fluid
-                            onClick={this.buyData.bind(this)}>
-                                Buy Crop
+                            onClick={this.buyData.bind(this)
+                            }> Buy Crop
                         </Button>
+                        {this.productBought === true ? <ReceiptModal /> : ""}
                     </div>
                 </React.Fragment>
             );
