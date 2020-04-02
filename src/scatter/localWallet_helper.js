@@ -42,8 +42,8 @@ export async function getCropDetailsTable() {
             "json": true,
             "code": "sterbon23451",
             "scope": "sterbon23451",
-            "table": "crpdetail",
-            "limit": 20,
+            "table": "crptable",
+            "limit": 100,
         });
         // const result = await rpc.get_account('sterbon23451')
         return (result)
@@ -60,7 +60,7 @@ export async function getDetailsByCropId(cropId) {
             "json": true,
             "code": "sterbon23451",
             "scope": "sterbon23451",
-            "table": "crpdetail",
+            "table": "crptable",
             "limit": 1,
             "lower_bound": cropId,
         });
@@ -89,11 +89,12 @@ export async function getTransactionDetails() {
 export async function getAccount(account_name) {
     try {
         const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { nodeFetch });
-        // const result = await rpc.get_account('hellokittu15');
         const result = await rpc.get_account(account_name)
         if (result.account_name)
             return true
-
+        // if (result.account_name && isValidPrivate(pvtKey) === true)
+        //     return true
+            
     } catch (e) {
         console.log(e);
         if (e instanceof RpcError)

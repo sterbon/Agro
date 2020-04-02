@@ -102,7 +102,7 @@ class AddProductPage extends Component {
                                     />
                                 </div>
                                 <div className="crop-price">
-                                    <h4><label htmlFor="crop-price">Price</label></h4>
+                                    <h4><label htmlFor="crop-price">Price (Per Kg)</label></h4>
                                     <input 
                                         id="price"
                                         type="number" 

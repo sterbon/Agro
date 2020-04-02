@@ -20,9 +20,11 @@ class App extends Component{
     }
 
     render(){
+        // var d = new Date();
+        // console.log(d.toDateString())
         return (
             <React.Fragment>
-                <Nav />
+                <Nav /> 
                 <Switch>
                     <Route exact path="/" component={ HomePage } />
                     <Route exact path="/sign_up" component={ SignUpPage } />

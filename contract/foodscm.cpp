@@ -15,17 +15,22 @@ class [[eosio::contract]] foodscm : public eosio::contract {
         name buyer;
         string dateOfHarvest;
         string dateOfSow;
+        //string dateOfListing
         string fertilizers;
         string cropName;
         uint64_t cropAmount;
         uint64_t price;
         bool sold;
-        
+        // 6. uint32 Discount for bulk orders ( Min order amount + Dis % ) minOrderAmt_Dis, Dis
+        // 7. string Place Of Harvest 
         auto primary_key()const { return productId;}
     };
     
     struct [[eosio::table]] userdata {
       name customer;
+      // string Email Address
+      // string Place (of existence)
+      // uint32 Total Orders Listed/Fulfilled
       string accType;
       uint64_t tokenBalance;
 
@@ -34,13 +39,14 @@ class [[eosio::contract]] foodscm : public eosio::contract {
 
     struct [[eosio::table]] transdetail {
       uint64_t productId;
+      //string date of buying
       name farmer;
       name buyer;
       uint64_t price;
       uint64_t quantity;
       string cropName;
       checksum256 transactionID;
-
+  
       auto primary_key()const { return productId;}
     };
     

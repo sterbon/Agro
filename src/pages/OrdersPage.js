@@ -74,8 +74,22 @@ class OrdersPage extends Component {
         this.getTransactionDetailFunc();
     }
 
-    componentDidUpdate(prevProps, prevState) {
-        // const { loggedIn } = this.props.scatter;
+    // componentDidUpdate(prevProps, prevState) {
+    //     // const { loggedIn } = this.props.scatter;
+    //     if (localStorage.getItem("current_user") !== null || localStorage.getItem("current_user") !== undefined) {
+    //         var username = localStorage.getItem("current_user");
+    //         this.setState({
+    //             loggedIn: true,
+    //             currentUser: username
+    //         })
+    //     }
+    //     // username = localStorage.getItem("current_user");
+    //     if (this.state.loggedIn == true) {
+    //         this.getTransactionDetailFunc();
+    //     }
+    // }
+
+    getTransactionDetailFunc() {
         if (localStorage.getItem("current_user") !== null || localStorage.getItem("current_user") !== undefined) {
             var username = localStorage.getItem("current_user");
             this.setState({
@@ -83,16 +97,9 @@ class OrdersPage extends Component {
                 currentUser: username
             })
         }
-        username = localStorage.getItem("current_user");
-        if (this.state.loggedIn === true) {
-            this.getTransactionDetailFunc();
-        }
-    }
-
-    getTransactionDetailFunc() {
         const transactionList = [];
         const { loggedIn, currentUser } = this.state;
-        
+
         if (loggedIn) {
             getTransactionDetails()
                 .then((result) => {
@@ -102,7 +109,7 @@ class OrdersPage extends Component {
                         if (transaction.farmer === currentUser || transaction.buyer === currentUser) {
                             transactionList.push(transaction);
                         }
-                        
+
                     });
                     this.setState({ transactionList });
                 });
@@ -132,7 +139,9 @@ class OrdersPage extends Component {
                     <Header as='h2'>
                         Your Transactions
                     </Header>
-                    {loggedIn ? ListView : <p className="else-text">Sorry. Currently you are not logged in.</p>}
+                    {
+                        loggedIn ? ListView : <p className="else-text">Sorry. Currently you are not logged in.</p>
+                    }
                 </div>
             </React.Fragment>
         )
