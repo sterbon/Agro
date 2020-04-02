@@ -35,7 +35,7 @@ class ReceiptModal extends Component {
                                                 <table className="receiptTable">
                                                     <tr>
                                                         <th>Crop Name</th>
-                                                        <th>Price per KG</th>
+                                                        <th>Price</th>
                                                         <th>Quantity</th>
                                                         <th>Total Price</th>
                                                     </tr>
