@@ -12,6 +12,7 @@ import OrderTimelinePage from './pages/OrderTimelinePage';
 import SignUpPage from './pages/SignUpPage';
 import LoginPage from './pages/LoginPage';
 import ImportAccount from './pages/ImportAccount'
+import Nav from './components/Nav/Nav';
 
 class App extends Component{
     componentDidMount() {
@@ -21,6 +22,7 @@ class App extends Component{
     render(){
         return (
             <React.Fragment>
+                <Nav />
                 <Switch>
                     <Route exact path="/" component={ HomePage } />
                     <Route exact path="/sign_up" component={ SignUpPage } />

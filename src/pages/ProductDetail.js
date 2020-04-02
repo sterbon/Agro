@@ -3,7 +3,7 @@ import './ProductDetail.css';
 import { connect } from 'react-redux';
 import { Image, Button, Input } from 'semantic-ui-react';
 import Grain from '../static/images/Grain.jpg'
-import SecondaryNav from '../components/Nav/Nav';
+
 import ProducerCard from '../components/ProducerCard/ProducerCard';
 import {
     buyCrop
@@ -105,7 +105,6 @@ class ProductDetail extends Component {
 
         return (
             <React.Fragment>
-                <SecondaryNav />
                 <section className="productDetail">
                     <div className="productDetail-text">
                         <div className="addProduct-img">

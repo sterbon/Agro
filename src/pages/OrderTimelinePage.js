@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SecondaryNav from '../components/Nav/Nav';
+
 import './OrderTimelinePage.css';
 import {
     getDetailsByCropId,
@@ -66,7 +66,7 @@ class OrderTimelinePage extends Component {
         
         return(        
             <React.Fragment>
-                <SecondaryNav />
+
                 <div className="timeline-container">
                     <div id="content">
                         <h2>Know Your Foodgrain Supply Chain</h2>

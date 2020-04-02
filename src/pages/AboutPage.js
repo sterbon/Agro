@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import SecondaryNav from '../components/Nav/Nav';
+
 import './AboutPage.css';
 
 class AboutPage extends Component {
     render() {
         return (
             <React.Fragment>
-                <SecondaryNav />
                 <div className="about-container">
                     <h3 className="about-title">About Agro</h3>
                     <div className="about-content">

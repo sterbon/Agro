@@ -1,7 +1,7 @@
 import { Segment, Header, Button } from "semantic-ui-react";
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import SecondaryNav from '../components/Nav/Nav';
+
 import penny from '../static/images/penny.png';
 import { getTransactionDetails } from '../scatter/localWallet_helper';
 import './OrdersPage.css';
@@ -128,7 +128,6 @@ class OrdersPage extends Component {
 
         return (
             <React.Fragment>
-                <SecondaryNav />
                 <div className="order-container">
                     <Header as='h2'>
                         Your Transactions

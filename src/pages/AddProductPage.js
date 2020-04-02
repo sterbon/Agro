@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './AddProductPage.css';
 import addProduct from '../static/images/addProduct.png';
-import SecondaryNav from '../components/Nav/Nav';
 
 import {
     // fetchWallet,
@@ -69,7 +68,7 @@ class AddProductPage extends Component {
 
         return (
             <React.Fragment>
-                <SecondaryNav style={{ color: '#2F4858' }}/>
+               
                 <section className="addProduct">
                     {
                         // loggedIn && 

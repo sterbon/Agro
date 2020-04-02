@@ -270,7 +270,10 @@ export const login = (username, password) => {
 export const logout = () => {
     if (localStorage.getItem("current_user") != null || localStorage.getItem("current_user") !== undefined) {
         localStorage.setItem("current_user", null);
+        currKey = "";
     }
+    console.log("Logged Out Successfully",localStorage.getItem("current_user"));
+    console.log("Logged Out Successfully",currKey);
 }
 
 // export const sendTokens = ({toAccount, amount, memo}) => {
