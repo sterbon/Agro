@@ -64,43 +64,29 @@ class OrderCard extends Component {
 class OrdersPage extends Component {
     constructor(props) {
         super(props);
+        var loggedIn = false;
+        var currentUser = null;
+        if(localStorage.getItem("current_user") != "null" && localStorage.getItem("current_user") !== undefined) {
+            loggedIn = true;
+            currentUser = localStorage.getItem("current_user");
+        }
+
         this.state = {
             transactionList: [],
-            loggedIn: false,
-            currentUser: null
+            loggedIn,
+            currentUser,
         }
         this.getTransactionDetailFunc = this.getTransactionDetailFunc.bind(this);
 
         this.getTransactionDetailFunc();
     }
 
-    // componentDidUpdate(prevProps, prevState) {
-    //     // const { loggedIn } = this.props.scatter;
-    //     if (localStorage.getItem("current_user") !== null || localStorage.getItem("current_user") !== undefined) {
-    //         var username = localStorage.getItem("current_user");
-    //         this.setState({
-    //             loggedIn: true,
-    //             currentUser: username
-    //         })
-    //     }
-    //     // username = localStorage.getItem("current_user");
-    //     if (this.state.loggedIn == true) {
-    //         this.getTransactionDetailFunc();
-    //     }
-    // }
-
     getTransactionDetailFunc() {
-        if (localStorage.getItem("current_user") !== null || localStorage.getItem("current_user") !== undefined) {
-            var username = localStorage.getItem("current_user");
-            this.setState({
-                loggedIn: true,
-                currentUser: username
-            })
-        }
         const transactionList = [];
         const { loggedIn, currentUser } = this.state;
-
+        console.log("loggedIn in Func: ", loggedIn);
         if (loggedIn) {
+            console.log("here gTD");
             getTransactionDetails()
                 .then((result) => {
                     const transactions = result.rows;
@@ -119,10 +105,9 @@ class OrdersPage extends Component {
     render() {
         const { loggedIn, currentUser } = this.state;
         const { transactionList } = this.state;
-        // console.log("page: ", transactionList);
         console.log("translist:", transactionList);
         console.log("loggedIn", loggedIn);
-        let ListView = <p className="else-text">Loading...</p>;
+        let ListView = <p className="else-text">No Orders Placed Yet.</p> ;
         if (transactionList.length) {
             ListView = Object.values(transactionList).map((transaction) => {
                 return <OrderCard

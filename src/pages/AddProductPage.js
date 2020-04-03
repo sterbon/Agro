@@ -3,12 +3,8 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './AddProductPage.css';
 import addProduct from '../static/images/addProduct.png';
-
-import {
-    // fetchWallet,
-    sendTokens,
-} from '../scatter/scatter_actions';
-
+import { Fertilizers } from '../fertilizers.js';
+import { Dropdown } from 'semantic-ui-react';
 import { uploadCrop } from '../scatter/localWallet_helper';
 
 class AddProductPage extends Component {
@@ -159,16 +155,21 @@ class AddProductPage extends Component {
                                 </div>
                                 <div className="crop-name">
                                     <h4><label htmlFor="crop-price">Fertilizer or Manure Used</label></h4>
-                                    <input 
+                                    <Dropdown
                                         id="amount"
-                                        type="text" 
-                                        name="crop-amount"
+                                        type="text"
+                                        name="crop-fertilizer"
+                                        // className="crop-name"
                                         placeholder="Fertilizer or Manure Name"
-                                        value={this.state.fertilizer} 
-                                        onChange={(e) => { 
-                                            this.setState({ fertilizer : e.target.value }); 
+                                        value={this.state.fertilizer}
+                                        onChange={(e) => {
+                                            this.setState({ fertilizer: e.target.value });
                                         }}
                                         required
+                                        fluid
+                                        search
+                                        selection
+                                        options={Fertilizers}
                                     />
                                 </div>
                                 <div className="submitcrop">

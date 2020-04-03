@@ -15,22 +15,19 @@ class [[eosio::contract]] foodscm : public eosio::contract {
         name buyer;
         string dateOfHarvest;
         string dateOfSow;
-        //string dateOfListing
         string fertilizers;
         string cropName;
         uint64_t cropAmount;
         uint64_t price;
         bool sold;
-        // 6. uint32 Discount for bulk orders ( Min order amount + Dis % ) minOrderAmt_Dis, Dis
-        // 7. string Place Of Harvest 
+        string uploadDate;
+        string soldDate;
+
         auto primary_key()const { return productId;}
     };
     
     struct [[eosio::table]] userdata {
       name customer;
-      // string Email Address
-      // string Place (of existence)
-      // uint32 Total Orders Listed/Fulfilled
       string accType;
       uint64_t tokenBalance;
 
@@ -39,18 +36,17 @@ class [[eosio::contract]] foodscm : public eosio::contract {
 
     struct [[eosio::table]] transdetail {
       uint64_t productId;
-      //string date of buying
       name farmer;
       name buyer;
       uint64_t price;
       uint64_t quantity;
       string cropName;
       checksum256 transactionID;
-  
+
       auto primary_key()const { return productId;}
     };
     
-    typedef eosio::multi_index<name("crpdetail"), cropdetails> crop_data;
+    typedef eosio::multi_index<name("agrotable"), cropdetails> crop_data;
     typedef eosio::multi_index<name("udata"), userdata> user_data;  
     typedef eosio::multi_index<name("trxdetail"), transdetail> trans_detail;  
 
@@ -70,7 +66,7 @@ class [[eosio::contract]] foodscm : public eosio::contract {
         size_t size = transaction_size();
         char buf[size];
         size_t read = read_transaction( buf, size );
-        check( size == read, "read_transaction failed");
+        check( size == read, "read_transaction Error");
         return sha256(buf, read); 
     }
     
@@ -85,7 +81,8 @@ class [[eosio::contract]] foodscm : public eosio::contract {
     }
                        
     [[eosio::action]]
-    void uploadcrop(name producer, string cropName, uint64_t cropAmount, string imageHash, uint64_t price, string dateOfHarvest, string dateOfSow, string fertilizers) {
+    void uploadcrop(name producer, string cropName, uint64_t cropAmount, string imageHash, 
+                    uint64_t price, string dateOfHarvest, string dateOfSow, string fertilizers) {
 
       _cropdata.emplace(_self, [&](auto& row) {
           row.productId = _cropdata.available_primary_key();
@@ -111,8 +108,9 @@ class [[eosio::contract]] foodscm : public eosio::contract {
         uint64_t cost = itr->price;
         bool sold = itr->sold;
 
-      if(sold == true) 
-      {
+      //if(sold == true) 
+      //{
+      /*
           struct transfer
           { 
               name buyer;
@@ -127,7 +125,7 @@ class [[eosio::contract]] foodscm : public eosio::contract {
               name("transfer"),
               transfer{buyer, seller, price, memo});
               transfer_action.send();
-          
+          */
           auto payer = has_auth( seller ) ? seller : buyer;
           _cropdata.modify(itr, payer, [&](auto& row){
             row.sold = true;
@@ -144,5 +142,5 @@ class [[eosio::contract]] foodscm : public eosio::contract {
             row.transactionID = get_trx_id();
           });
         }
-      }
+      //}
 };

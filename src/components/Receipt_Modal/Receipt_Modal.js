@@ -7,9 +7,13 @@ class ReceiptModal extends Component {
     render() {
         return (
             <div className="receiptContainer">
+<<<<<<< HEAD
                     <Modal trigger={<Button>
                                 Buy Crop
                         </Button>} closeIcon>
+=======
+                    <Modal trigger={<button className="cta">Print Receipt</button>} closeIcon>
+>>>>>>> 64dfbe5039c6a992d75718cb091a062f1bc9d8dc
                         <Modal.Content>
                             <div>
                                 <div className="receipt-container">
@@ -92,9 +96,18 @@ class ReceiptModal extends Component {
 
                                             <div className="printReceipt">
                                                 <button className="print-cta"
-                                                    onClick={function() {
+                                                    onClick={() =>  
+                                                    {
+                                                        // var content = document.getElementById("divcontents");
+                                                        // var pri = document.getElementById("ifmcontentstoprint").contentWindow;
+                                                        // pri.document.open();
+                                                        // pri.document.write(content.innerHTML);
+                                                        // pri.document.close();
+                                                        // pri.focus();
+                                                        // pri.print();
                                                         window.print();
-                                                      }}
+                                                        }
+                                                      }
                                                     name="submit-button"
                                                     value="Upload">
                                                     Print Receipt
