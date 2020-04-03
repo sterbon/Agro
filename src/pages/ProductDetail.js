@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import './ProductDetail.css';
 import { connect } from 'react-redux';
 import { Image, Button, Input } from 'semantic-ui-react';
-import Grain from '../static/images/Grain.jpg'
+import Grain from '../static/images/Grain.jpg';
+import Receipt from '../components/Receipt_Modal/Receipt_Modal'
 
 import ProducerCard from '../components/ProducerCard/ProducerCard';
 import {

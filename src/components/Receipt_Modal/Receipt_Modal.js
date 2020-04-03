@@ -2,13 +2,14 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import { Button, Header, Icon, Modal } from 'semantic-ui-react'
 import './Receipt_Modal.css'
-// import { login, logout } from '../scatter/localWallet_helper'
 
 class ReceiptModal extends Component {
     render() {
         return (
             <div className="receiptContainer">
-                    <Modal trigger={<button className="cta" >Login </button>} closeIcon>
+                    <Modal trigger={<Button>
+                                Buy Crop
+                        </Button>} closeIcon>
                         <Modal.Content>
                             <div>
                                 <div className="receipt-container">
@@ -40,9 +41,6 @@ class ReceiptModal extends Component {
                                                         <th>Total Price</th>
                                                     </tr>
                                                     <tr>
-                                                        {/* <td colSpan="3" rowSpan="3">
-                                                            HEllo owrld
-                                                        </td> */}
                                                         <td>Cauliflower</td> 
                                                         <td>Rs. 15 per KG</td>   
                                                         <td>200 KG</td>
