@@ -1,3 +1,6 @@
+.toolbar__toggle-button {
+  display: none;
+}
 .nav-container{
     display: flex;
     flex-direction: row;
@@ -82,9 +85,9 @@
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
     /* Styles */
     .cta{
-      padding: 14px 10px;
+      padding: 8px 12px;
       font-size: 16px;
-      font-weight: 700;
+      font-weight: 500;
       background: transparent;
       border: 1.3px solid #ee6e6c ;
       cursor: pointer;
@@ -93,7 +96,41 @@
       transition: all 0.3s ease 0s;
       outline: none;
       margin-left: 1rem;
-  }
+    }
+    .nav-container {
+      justify-content: space-between;
+      padding: 0.8rem 1rem;
+    }
+    .nav_links-container {
+      display: none;
+    }
+    .toolbar__toggle-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .toggle-button {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      height: 24px;
+      width: 24px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0 0.25rem;
+      box-sizing: border-box;
+    }
+  
+    .toggle-button:focus {
+      outline: none;
+    }
+  
+    .toggle-button__line {
+      width: 24px;
+      height: 2px;
+      background: #263238;
+    }
   }
   
   /* Smartphones (landscape) ----------- */
@@ -119,7 +156,7 @@
 
   .nav_links, .nav_text{
       font-size: 15px;
-      padding: 0 .5rem;
+      padding: 0 0.5rem;
   }
 
   .cta{
@@ -142,7 +179,7 @@
 
     .nav_links, .nav_text{
         font-size: 14px;
-        padding: 0 .2rem;
+        padding: 0 0.2rem;
     }
 
     .cta{
@@ -170,7 +207,7 @@
   /* iPhone 5 (portrait) ----------- */
   @media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2) {
     /* Styles */
-    .nav-container{
+    .nav_links-container{
       display: none;
   }
   }

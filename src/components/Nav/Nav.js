@@ -3,7 +3,17 @@ import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
 import { login, logout } from '../../scatter/localWallet_helper'
 import './Nav.css';
-import LoginPage from '../../pages/LoginPage'
+import BackDrop from '../BackDrop/BackDrop';
+import SideDrawer from '../SideDrawer/SideDrawer';
+import LoginPage from '../../pages/LoginPage';
+
+const DrawerToggleButton = props => (
+	<button className="toggle-button" onClick={props.click}>
+		<div className="toggle-button__line" />
+		<div className="toggle-button__line" />
+		<div className="toggle-button__line" />
+	</button>
+)
 
 class Nav extends Component {
     constructor(props) {
@@ -15,6 +25,7 @@ class Nav extends Component {
 
         this.state = {
             loggedIn,
+            SideDrawerOpen: false,
         }
     }
     
@@ -28,68 +39,92 @@ class Nav extends Component {
         this.props.history.push('/');    
     }
 
+    drawerToggleClickHandler = () => {
+		this.setState((prevState) => {
+			return { SideDrawerOpen: !prevState.SideDrawerOpen };
+		});
+	};
+	backdropClickHandler = () => {
+		this.setState({ SideDrawerOpen: false });
+	};
+
     render() {
-        const { loggedIn } = this.state;
+        const { loggedIn, SideDrawerOpen } = this.state;
+        let backdrop;
+		if (SideDrawerOpen) {
+			backdrop = <BackDrop click={this.backdropClickHandler.bind(this)} />;
+		}
 
         return (
-            <header className="nav-container">
-                <Link to="/">
-                    <h1 className="logo">Agro</h1>
-                </Link>
-                <nav>
-                    <ul className="nav_links-container">
-                        <Link to="/crop_catalog">
-                            <li className="nav_links">
-                                <p className="nav_text" >Catalog</p>
-                            </li>
-                        </Link>
-                        {loggedIn ?
-                        <React.Fragment>
-                            <Link to="/add_crop">
+            <React.Fragment>
+                <SideDrawer 
+                    loggedIn={loggedIn} 
+                    show={this.state.SideDrawerOpen} 
+                    click={this.backdropClickHandler.bind(this)}
+                />
+				{backdrop}
+                <header className="nav-container">
+                    <div className="toolbar__toggle-button">
+                        <DrawerToggleButton click={this.drawerToggleClickHandler.bind(this)} />
+                    </div>
+                    <Link to="/">
+                        <h1 className="logo">Agro</h1>
+                    </Link>
+                    <nav>
+                        <ul className="nav_links-container">
+                            <Link to="/crop_catalog">
                                 <li className="nav_links">
-                                    <p className="nav_text" >Upload Crops</p>
+                                    <p className="nav_text" >Catalog</p>
                                 </li>
                             </Link>
-                            <Link to="/orders">
+                            {loggedIn ?
+                            <React.Fragment>
+                                <Link to="/add_crop">
+                                    <li className="nav_links">
+                                        <p className="nav_text" >Upload Crops</p>
+                                    </li>
+                                </Link>
+                                <Link to="/orders">
+                                    <li className="nav_links">
+                                        <p className="nav_text" >Transactions</p>
+                                    </li>
+                                </Link>
+                            </React.Fragment> :
+                            <React.Fragment></React.Fragment>
+                            }
+                            <Link to="/crop_tracking">
                                 <li className="nav_links">
-                                    <p className="nav_text" >Transactions</p>
+                                    <p className="nav_text" >Track</p>
                                 </li>
                             </Link>
-                        </React.Fragment> :
-                        <React.Fragment></React.Fragment>
-                        }
-                        <Link to="/crop_tracking">
-                            <li className="nav_links">
-                                <p className="nav_text" >Track</p>
-                            </li>
-                        </Link>
-                        <Link to="/about">
-                            <li className="nav_links">
-                                <p className="nav_text" >About</p>
-                            </li>
-                        </Link>
+                            <Link to="/about">
+                                <li className="nav_links">
+                                    <p className="nav_text" >About</p>
+                                </li>
+                            </Link>
 
-                        <Link to="/import_account">
-                            <li className="nav_links">
-                                <p className="nav_text" >Import Account</p>
-                            </li>
-                        </Link>
-                    </ul>
-                </nav>
-                {/* {loggedIn ?
-                    <button className="cta" onClick={this.logOutUser.bind(this)} value="LOG OUT" >Logout</button> : 
-                    <button className="cta" onClick={this.loginUser.bind(this)} value="LOG IN" >Login</button>
-                } */}
+                            <Link to="/import_account">
+                                <li className="nav_links">
+                                    <p className="nav_text" >Import Account</p>
+                                </li>
+                            </Link>
+                        </ul>
+                    </nav>
+                    {/* {loggedIn ?
+                        <button className="cta" onClick={this.logOutUser.bind(this)} value="LOG OUT" >Logout</button> : 
+                        <button className="cta" onClick={this.loginUser.bind(this)} value="LOG IN" >Login</button>
+                    } */}
 
-                <div className="loginCtaContainer">
-                    {/* <button className="cta" value="LOG IN" >Login</button> */}
-                    <LoginPage 
-                        loggedIn={this.state.loggedIn} 
-                        loginClick={this.loginClick.bind(this)} 
-                        logoutClick={this.logoutClick.bind(this)} 
-                    />
-                </div>
-            </header>
+                    <div className="loginCtaContainer">
+                        {/* <button className="cta" value="LOG IN" >Login</button> */}
+                        <LoginPage 
+                            loggedIn={loggedIn} 
+                            loginClick={this.loginClick.bind(this)} 
+                            logoutClick={this.logoutClick.bind(this)} 
+                        />
+                    </div>
+                </header>
+            </React.Fragment>
         )
     }
 }
