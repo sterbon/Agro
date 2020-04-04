@@ -1,27 +1,31 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
+import { login, logout } from '../../scatter/localWallet_helper'
 import './Nav.css';
-import {
-    requestLogin,
-    logout,
-} from '../../scatter/scatter_actions';
 import LoginPage from '../../pages/LoginPage'
 
 class Nav extends Component {
     constructor(props) {
         super(props);
         var loggedIn = false;
-        var currentUser = null;
         if (localStorage.getItem("current_user") != "null" && localStorage.getItem("current_user") !== undefined) {
             loggedIn = true;
-            currentUser = localStorage.getItem("current_user");
         }
 
         this.state = {
             loggedIn,
-            currentUser,
         }
+    }
+    
+    loginClick(username, passw) {
+        login(username, passw);
+        this.setState({ loggedIn: true });
+    }
+    logoutClick() {
+        logout();
+        this.setState({ loggedIn: false });
+        this.props.history.push('/');    
     }
 
     render() {
@@ -79,11 +83,15 @@ class Nav extends Component {
 
                 <div className="loginCtaContainer">
                     {/* <button className="cta" value="LOG IN" >Login</button> */}
-                    <LoginPage />
+                    <LoginPage 
+                        loggedIn={this.state.loggedIn} 
+                        loginClick={this.loginClick.bind(this)} 
+                        logoutClick={this.logoutClick.bind(this)} 
+                    />
                 </div>
             </header>
         )
     }
 }
 
-export default Nav;
+export default withRouter(Nav);

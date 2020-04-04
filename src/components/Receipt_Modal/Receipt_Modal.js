@@ -7,13 +7,7 @@ class ReceiptModal extends Component {
     render() {
         return (
             <div className="receiptContainer">
-<<<<<<< HEAD
-                    <Modal trigger={<Button>
-                                Buy Crop
-                        </Button>} closeIcon>
-=======
                     <Modal trigger={<button className="cta">Print Receipt</button>} closeIcon>
->>>>>>> 64dfbe5039c6a992d75718cb091a062f1bc9d8dc
                         <Modal.Content>
                             <div>
                                 <div className="receipt-container">
@@ -122,7 +116,7 @@ class ReceiptModal extends Component {
                             </div>
                         </Modal.Content>
                     </Modal>
-                }
+                
             </div>
         )
     }
