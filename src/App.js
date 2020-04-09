@@ -38,7 +38,7 @@ class App extends Component{
                     <Route path="/crop_tracking" component={ OrderTimelinePage } />
                     <Route path="/import_account" component={ ImportAccount } />
                 </Switch>
-                <Receipt />
+                {/* <Receipt /> */}
             </React.Fragment>
         );
     }

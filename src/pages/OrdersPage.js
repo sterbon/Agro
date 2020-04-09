@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import penny from '../static/images/penny.png';
 import { getTransactionDetails } from '../scatter/localWallet_helper';
 import './OrdersPage.css';
+import ReceiptModal from '../components/Receipt_Modal/Receipt_Modal'
 
 class OrderCard extends Component {
     render() {
@@ -52,7 +53,8 @@ class OrderCard extends Component {
                             </div> */}
                         </div>
                         <div id="btn-container">
-                            <Button href={trackerUrl} target="_blank" >See transaction at Bloks.io jungle</Button>
+                            {/* <Button href={trackerUrl} target="_blank" >See transaction at Bloks.io jungle</Button> */}
+                            <Button><ReceiptModal /></Button>
                         </div>
                     </div>
                 </Segment>
