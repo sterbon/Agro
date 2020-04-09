@@ -66,9 +66,9 @@ class OrdersPage extends Component {
         super(props);
         var loggedIn = false;
         var currentUser = null;
-        if(localStorage.getItem("current_user") != "null" && localStorage.getItem("current_user") !== undefined) {
+        if(sessionStorage.getItem("current_user") != "null" && sessionStorage.getItem("current_user") !== undefined) {
             loggedIn = true;
-            currentUser = localStorage.getItem("current_user");
+            currentUser = sessionStorage.getItem("current_user");
         }
 
         this.state = {

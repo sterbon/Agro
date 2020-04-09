@@ -16,13 +16,12 @@ import Nav from './components/Nav/Nav';
 import Receipt from './components/Receipt_Modal/Receipt_Modal';
 
 class App extends Component{
-    componentDidMount() {
-        // this.props.dispatch(attemptAutoLogin());
-    }
-
     render(){
         // var d = new Date();
         // console.log(d.toDateString())
+        // window.onunload = () => {
+        //     localStorage.setItem("current_user", null);
+        //  }
         return (
             <React.Fragment>
                 <Nav /> 
