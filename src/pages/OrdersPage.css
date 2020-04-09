@@ -1,5 +1,5 @@
 .order-container{
-    height: 100%;
+    height: fit-content;
     background-color: #f6fdfa;
     position: relative;
 }
@@ -59,7 +59,13 @@
 #order-details{
     padding: 1rem 0.6rem 0 0;
     display: flex;
-    justify-content: flex-end;
+    border: 1px solid black 
+}
+
+.receipt{
+    border: 1px solid black !important;
+    padding-right: -10rem !important;
+    margin-right: -10rem !important;
 }
 
 #order-details h4{
