@@ -116,7 +116,7 @@ class ReceiptModal extends Component {
                             </div>
                         </Modal.Content>
                     </Modal>
-                }
+                
             </div>
         )
     }

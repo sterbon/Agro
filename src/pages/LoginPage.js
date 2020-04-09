@@ -2,18 +2,11 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import { Button, Header, Icon, Modal } from 'semantic-ui-react'
 import './LoginPage.css';
-import { withRouter } from 'react-router-dom';
-import { login, logout } from '../scatter/localWallet_helper'
 
 export class LoginPage extends Component {
     constructor(props) {
         super(props);
-        var loggedIn = false;
-        if(localStorage.getItem("current_user") != "null" && localStorage.getItem("current_user") !== undefined) {
-            loggedIn = true;
-        }
         this.state = {
-            loggedIn,
             username: "",
             passw: "",
         };
@@ -21,14 +14,11 @@ export class LoginPage extends Component {
     render() {
         return (
             <div className="loginContainer">
-                {this.state.loggedIn ?
+                {this.props.loggedIn ?
                     <button
                         className="cta"
-                        onClick={() => {
-                            logout();
-                            this.setState({ loggedIn: false });
-                            this.props.history.push('/');
-                        }}>
+                        onClick={this.props.logoutClick}
+                    >
                             Logout
                 </button> :
                     <Modal trigger={<button className="cta" >Login </button>} closeIcon>
@@ -79,10 +69,10 @@ export class LoginPage extends Component {
                                                 <button className="login-cta"
                                                     name="submit-button"
                                                     value="Upload"
-                                                    onClick={() => {
-                                                        login(this.state.username, this.state.passw);
-                                                        this.setState({ loggedIn: true });
-                                                    }}>
+                                                    onClick={() =>
+                                                        this.props.loginClick(this.state.username, this.state.passw)
+                                                    }
+                                                >
                                                     Log In
                                             </button>
                                             </div>
@@ -104,4 +94,4 @@ export class LoginPage extends Component {
     }
 }
 
-export default withRouter(LoginPage);
+export default LoginPage;
