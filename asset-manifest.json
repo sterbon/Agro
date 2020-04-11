@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/Agro/static/css/main.775589f3.chunk.css",
-    "main.js": "/Agro/static/js/main.5689d650.chunk.js",
-    "main.js.map": "/Agro/static/js/main.5689d650.chunk.js.map",
+    "main.js": "/Agro/static/js/main.ba4d5cad.chunk.js",
+    "main.js.map": "/Agro/static/js/main.ba4d5cad.chunk.js.map",
     "runtime-main.js": "/Agro/static/js/runtime-main.b0aadaee.js",
     "runtime-main.js.map": "/Agro/static/js/runtime-main.b0aadaee.js.map",
     "static/js/2.e740e034.chunk.js": "/Agro/static/js/2.e740e034.chunk.js",
     "static/js/2.e740e034.chunk.js.map": "/Agro/static/js/2.e740e034.chunk.js.map",
     "index.html": "/Agro/index.html",
-    "precache-manifest.da9795ab6e65b34d4348e5e94126319d.js": "/Agro/precache-manifest.da9795ab6e65b34d4348e5e94126319d.js",
+    "precache-manifest.785db1969dba72a689b466a4b9af4b84.js": "/Agro/precache-manifest.785db1969dba72a689b466a4b9af4b84.js",
     "service-worker.js": "/Agro/service-worker.js",
     "static/css/main.775589f3.chunk.css.map": "/Agro/static/css/main.775589f3.chunk.css.map",
     "static/js/2.e740e034.chunk.js.LICENSE.txt": "/Agro/static/js/2.e740e034.chunk.js.LICENSE.txt",
@@ -24,6 +24,6 @@
     "static/js/runtime-main.b0aadaee.js",
     "static/js/2.e740e034.chunk.js",
     "static/css/main.775589f3.chunk.css",
-    "static/js/main.5689d650.chunk.js"
+    "static/js/main.ba4d5cad.chunk.js"
   ]
 }

@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "1a95b36cfbe0a8028a18053806c11b72",
+    "revision": "465651962d03070180cbef2c75ba54fa",
     "url": "/Agro/index.html"
   },
   {
-    "revision": "ec12ec5b2277bf5bb79c",
+    "revision": "7c387efa3b0cd75ea1e7",
     "url": "/Agro/static/css/main.775589f3.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Agro/static/js/2.e740e034.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "ec12ec5b2277bf5bb79c",
-    "url": "/Agro/static/js/main.5689d650.chunk.js"
+    "revision": "7c387efa3b0cd75ea1e7",
+    "url": "/Agro/static/js/main.ba4d5cad.chunk.js"
   },
   {
     "revision": "f3289fa90457c0b89285",
