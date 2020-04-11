@@ -4,13 +4,10 @@ import { connect } from 'react-redux';
 import penny from '../static/images/penny.png';
 import { getTransactionDetails } from '../scatter/localWallet_helper';
 import './OrdersPage.css';
-<<<<<<< HEAD
-import ReceiptModal from '../components/Receipt_Modal/Receipt_Modal'
-=======
 import Unsplash, { toJson } from 'unsplash-js';
+import ReceiptModal from "../components/Receipt_Modal/Receipt_Modal"
 
 const KEY = "e7d3d4ff6d6694a54dc10ca8ddb7e32b8033a64b2e8971cbc27ac49ab2395f5e";
->>>>>>> 67b899fa1f56519929d094599f162cea23e5a3fc
 
 class OrderCard extends Component {
     constructor(props) {
@@ -59,7 +56,7 @@ class OrderCard extends Component {
                     <div id="orderCard-container" >
                         <div id="order-details">
                             <h4>Transaction ID : {transactionID}</h4>
-                            {/* <Button href={trackerUrl} target="_blank" className="receipt" >See transaction at Bloks.io jungle</Button> */}
+                            <Button href={trackerUrl} target="_blank">See transaction at Bloks.io jungle</Button>
                         </div>
 
                         <div className="orderDate-container">

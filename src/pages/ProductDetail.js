@@ -103,32 +103,53 @@ class ProductDetail extends Component {
                             onClick={this.buyData.bind(this)
                             }> Buy Crop
                         </Button> */}
-                        <Modal trigger={
-                            <Button
-                                className={`cta${selectedProducer.sold ? " disabled" : ""}`}
-                                fluid
-                            > Buy Crop
-                        </Button>
-                        } basic centered size='small'>
-                            <Header content='Approve Transaction' />
-                            <Modal.Content>
-                                <p>Seller: {selectedProducer.producer}</p>
-                                <p>Crop : {cropName}</p>
-                                <p>Quantity : {selectedProducer.cropAmount} Kg </p>
-                                <p>Total Cost : ₹ {selectedProducer.price * selectedProducer.cropAmount} </p>
-                            </Modal.Content>
-                            <Modal.Actions>
-                                {/* <Button basic color='red' 
-                                        inverted
-                                        onClick={}>
-                                    <Icon name='remove' /> Decline
-                                </Button> */}
-                                <Button color='green'
-                                        onClick={this.buyData.bind(this)}>
-                                    <Icon name='checkmark' /> Approve
-                                </Button>
-                            </Modal.Actions>
-                        </Modal>
+<Modal trigger={<Button
+                    className={`cta${selectedProducer.sold ? " disabled" : ""}`}
+                    fluid
+                > Buy Crop
+                </Button>} closeIcon>
+                        <Modal.Content>
+                            <div className="modalContent">
+                                <div className="login-container">
+                                    <div className="login">
+                                        <h2 className="heading">Approve Transaction</h2>
+                                        <p className="sub-heading"> Once you are happy with it, click Approve.</p>
+
+                                        <div className="form-container">
+                                            <div className="form-fields">
+                                                <div className="transactionsDetails">
+                                                    <div className="details-left">
+                                                    <h4>Crop : </h4>
+                                                    <h4>Quantity : </h4>
+                                                    <h4>Total Cost : </h4>
+                                                    <h4>Seller: </h4>
+                                                    </div>
+                                                    <div className="details-right">
+                                                        <h4>{cropName}</h4> 
+                                                        <h4>{selectedProducer.cropAmount} Kg</h4> 
+                                                        <h4>₹ {selectedProducer.price * selectedProducer.cropAmount}</h4> 
+                                                        <h4>{selectedProducer.producer}</h4> 
+                                                    </div>
+                                                    
+                                                    
+                                                </div>
+                                            </div>
+
+                                            <div className="approve">
+                                                <button className="login-cta"
+                                                    name="submit-button"
+                                                    value="Upload"
+                                                    onClick={this.buyData.bind(this)}
+                                                >
+                                                    Approve Transaction
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </Modal.Content>
+                    </Modal>
                         {this.productBought === true ? <ReceiptModal /> : ""}
                     </div>
                 </React.Fragment>
@@ -170,3 +191,7 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductDetail);
+
+
+
+
