@@ -1,10 +1,13 @@
 import { Segment, Header, Button } from "semantic-ui-react";
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+
+import Unsplash, { toJson } from 'unsplash-js';
 
 import penny from '../static/images/penny.png';
 import { getTransactionDetails } from '../scatter/localWallet_helper';
 import './OrdersPage.css';
+
+const KEY = "e7d3d4ff6d6694a54dc10ca8ddb7e32b8033a64b2e8971cbc27ac49ab2395f5e";
 
 class OrderCard extends Component {
     render() {
@@ -67,7 +70,7 @@ class OrdersPage extends Component {
         super(props);
         var loggedIn = false;
         var currentUser = null;
-        if(sessionStorage.getItem("current_user") != "null" && sessionStorage.getItem("current_user") !== undefined) {
+        if (sessionStorage.getItem("current_user") != "null" && sessionStorage.getItem("current_user") !== undefined) {
             loggedIn = true;
             currentUser = sessionStorage.getItem("current_user");
         }
@@ -92,12 +95,33 @@ class OrdersPage extends Component {
                 .then((result) => {
                     const transactions = result.rows;
 
-                    transactions.map((transaction) => {
-                        if (transaction.farmer === currentUser || transaction.buyer === currentUser) {
-                            transactionList.push(transaction);
-                        }
+                    // Object.values(result.rows).forEach((cropName) => {
+                    //     // if(!crop.sold) {
+                    //     //const cropName = crop.cropName.trim();
+                    //     const unsplash = new Unsplash({
+                    //         accessKey: KEY
+                    //     });
+                    //     const query = `${cropName}`;
 
-                    });
+                    //     unsplash.search.photos(query, 1, 2, { orientation: "landscape" })
+                    //         .then(toJson)
+                    //         .then(result => {
+                    //             // const { cropCatalogList } = this.state;
+                    //             // let cropImage = Grain;
+                    //             if (result.results[1].urls.regular) {
+                    //                 // cropImage = result.results[0].urls.raw;
+                    //                 // cropImage = result.results[1].urls.regular;
+                    //             }
+                    //         }
+                    //         )
+                    // }),
+
+                        transactions.map((transaction) => {
+                            if (transaction.farmer === currentUser || transaction.buyer === currentUser) {
+                                transactionList.push(transaction);
+                            }
+
+                        });
                     this.setState({ transactionList });
                 });
         }
@@ -108,7 +132,7 @@ class OrdersPage extends Component {
         const { transactionList } = this.state;
         console.log("translist:", transactionList);
         console.log("loggedIn", loggedIn);
-        let ListView = <p className="else-text">No Orders Placed Yet.</p> ;
+        let ListView = <p className="else-text">No Orders Placed Yet.</p>;
         if (transactionList.length) {
             ListView = Object.values(transactionList).map((transaction) => {
                 return <OrderCard

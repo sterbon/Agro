@@ -27,16 +27,16 @@ class CropCatalogPage extends Component {
                     const unsplash = new Unsplash({ 
                         accessKey: KEY 
                     });
-                    const query = `${cropName} crop`;
+                    const query = `${cropName}`;
                     
-                    unsplash.search.photos(query, 1, 1, { orientation: "landscape" })
+                    unsplash.search.photos(query, 1, 2, { orientation: "landscape" })
                     .then(toJson)
                     .then(result => {
                         const { cropCatalogList } = this.state; 
                         let cropImage = Grain;
-                        if(result.results[0].urls.regular) {
+                        if(result.results[1].urls.regular) {
                             // cropImage = result.results[0].urls.raw;
-                            cropImage = result.results[0].urls.regular;
+                            cropImage = result.results[1].urls.regular;
                         }
                         
                         if(cropName in cropCatalogList) {
