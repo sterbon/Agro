@@ -31,7 +31,10 @@ class Nav extends Component {
     
     loginClick(username, passw) {
         login(username, passw);
-        this.setState({ loggedIn: true });
+        // console.log("Name: ", typeof sessionStorage.getItem("current_user"));
+        if (sessionStorage.getItem("current_user") !== "null" && sessionStorage.getItem("current_user") !== null && sessionStorage.getItem("current_user") !== undefined) {
+            this.setState({ loggedIn: true });
+        }
     }
     logoutClick() {
         logout();
