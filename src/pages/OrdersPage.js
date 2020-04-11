@@ -14,13 +14,13 @@ class OrderCard extends Component {
         const trackerUrl = `${"https://jungle.bloks.io/transaction/"}${transactionID}`;
         // console.log("trans: ", transaction);
         let otherAccount = null, orderCardStyle = null;
-        if (account.name === farmer) {
+        if (account === farmer) {
             otherAccount = `${"Buyer : "}${buyer}`;
             orderCardStyle = {
                 background: "#FFF9C4",
             }
         }
-        else if (account.name === buyer) {
+        else if (account === buyer) {
             otherAccount = `${"Seller : "}${farmer}`;
             orderCardStyle = {
                 background: "#E3F2FD",
@@ -29,10 +29,11 @@ class OrderCard extends Component {
 
         return (
             <div className="orderCard">
-                <Segment raised>
-                    <div id="orderCard-container">
+                <Segment raised style={orderCardStyle}>
+                    <div id="orderCard-container" >
                         <div id="order-details">
                             <h4>Transaction ID : {transactionID}</h4>
+                            {/* <Button href={trackerUrl} target="_blank" className="receipt" >See transaction at Bloks.io jungle</Button> */}
                         </div>
 
                         <div className="orderDate-container">
@@ -68,9 +69,9 @@ class OrdersPage extends Component {
         super(props);
         var loggedIn = false;
         var currentUser = null;
-        if(localStorage.getItem("current_user") != "null" && localStorage.getItem("current_user") !== undefined) {
+        if(sessionStorage.getItem("current_user") != "null" && sessionStorage.getItem("current_user") !== undefined) {
             loggedIn = true;
-            currentUser = localStorage.getItem("current_user");
+            currentUser = sessionStorage.getItem("current_user");
         }
 
         this.state = {

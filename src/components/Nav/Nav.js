@@ -19,7 +19,7 @@ class Nav extends Component {
     constructor(props) {
         super(props);
         var loggedIn = false;
-        if (localStorage.getItem("current_user") != "null" && localStorage.getItem("current_user") !== undefined) {
+        if (sessionStorage.getItem("current_user") != "null" && sessionStorage.getItem("current_user") != null && sessionStorage.getItem("current_user") !== undefined) {
             loggedIn = true;
         }
 
@@ -54,7 +54,8 @@ class Nav extends Component {
 		if (SideDrawerOpen) {
 			backdrop = <BackDrop click={this.backdropClickHandler.bind(this)} />;
 		}
-
+        console.log("localstorage:",localStorage)
+        console.log("sessionstorage:",sessionStorage)
         return (
             <React.Fragment>
                 <SideDrawer 

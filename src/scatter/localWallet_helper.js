@@ -17,6 +17,8 @@ const nodeFetch = require('node-fetch');
 
 var currKey = "";
 // 5JdPutdYAYWcjZFsYudKMuLUY8xtnvSBvFg8Cgnbdaxg5rC3h2v
+
+// 5JgcnGa4aRHJMkxkrFPj9BYeJn8xGi41NgtyzTsQBdahL6KkEoX
 const network = {
     blockchain: 'eos',
     chainId: 'e70aaab8997e1dfce58fbfac80cbbb8fecec7b99cf982a9444273cbc64c41473',
@@ -260,8 +262,9 @@ export const login = (username, password) => {
         console.log('Logged in!')
         console.log(originalText+"1213")
         currKey = originalText
-        localStorage.setItem("current_user", username);
-        console.log(localStorage.getItem("current_user"))
+        // localStorage.setItem("current_user", username);
+        sessionStorage.setItem("current_user", username);
+        console.log(sessionStorage.getItem("current_user"))
     }
     else
         console.error("Bad Password")
@@ -269,11 +272,11 @@ export const login = (username, password) => {
 
 //LOGOUT!!
 export const logout = () => {
-    if (localStorage.getItem("current_user") != null || localStorage.getItem("current_user") !== undefined) {
-        localStorage.setItem("current_user", null);
+    if (sessionStorage.getItem("current_user") != null || sessionStorage.getItem("current_user") !== undefined) {
+        sessionStorage.setItem("current_user", null);
         currKey = "";
     }
-    console.log("Logged Out Successfully",localStorage.getItem("current_user"));
+    console.log("Logged Out Successfully",sessionStorage.getItem("current_user"));
     console.log("Logged Out Successfully",currKey);
 }
 
@@ -295,7 +298,7 @@ export const logout = () => {
 export async function uploadCrop(data) {
     // const defaultPrivateKey = login(password)
     console.log("Default Private Key:", currKey)
-    const userName = localStorage.getItem("current_user")
+    const userName = sessionStorage.getItem("current_user")
     console.log(userName)
     // const defaultPrivateKey = localStorage.getItem("privateKey")
     const signatureProvider = new JsSignatureProvider([currKey]);
@@ -336,7 +339,7 @@ export async function uploadCrop(data) {
 
 export async function buyCrop(productId) {
     console.log(productId)
-    const userName = localStorage.getItem("current_user")
+    const userName = sessionStorage.getItem("current_user")
     const signatureProvider = new JsSignatureProvider([currKey]);
     const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { nodeFetch });
     const api = new Api({ rpc, signatureProvider, textDecoder: new TextDecoder(), textEncoder: new TextEncoder() });

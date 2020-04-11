@@ -33,7 +33,7 @@ class AddProductPage extends Component {
 
     };
 
-    
+    // handleChange(event, index, value) {this.setState({ fertilizer: value });}
     // uploadDetails = (data) => this.props.dispatch(uploadCrop(data));
 
     uploadData(e) {
@@ -57,6 +57,7 @@ class AddProductPage extends Component {
             fertilizer:"",
         });
     }
+    
     
 
     render() {
@@ -159,12 +160,12 @@ class AddProductPage extends Component {
                                         id="amount"
                                         type="text"
                                         name="crop-fertilizer"
-                                        // className="crop-name"
                                         placeholder="Fertilizer or Manure Name"
                                         value={this.state.fertilizer}
                                         onChange={(e) => {
-                                            this.setState({ fertilizer: e.target.value });
+                                            this.setState({ fertilizer: e.target.textContent });
                                         }}
+                                        // onChange={this.handleChange}
                                         required
                                         fluid
                                         search
