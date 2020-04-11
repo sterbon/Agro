@@ -7,7 +7,7 @@ class ReceiptModal extends Component {
     render() {
         return (
             <div className="receiptContainer">
-                    <Modal trigger={<button className="cta">Print Receipt</button>} closeIcon>
+                    <Modal trigger={<p>Print Receipt</p>} closeIcon>
                         <Modal.Content>
                             <div>
                                 <div className="receipt-container">

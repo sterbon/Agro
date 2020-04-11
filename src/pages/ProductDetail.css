@@ -6,6 +6,7 @@
     height: fit-content;
 }
 
+
 .productDetail-text{
     margin: 0 auto;
     margin-top: 2rem;
@@ -103,6 +104,30 @@
     letter-spacing: 0.8px;
 }
 
+.transactionsDetails{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.details-left h4
+{
+    text-align: right;
+    font-family: 'Roboto' !important;
+    color: #052350;
+}
+
+.details-right h4{
+    text-align: left;
+    padding-left: 3rem;
+    font-family: 'Nunito' !important;
+    color: #052350;
+}
+
+.approve{
+    text-align: center;
+    margin-top: 2.5rem
+}
 
 /* Media Queries */
 /* Smartphones (portrait and landscape) ----------- */

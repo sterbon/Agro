@@ -14,9 +14,8 @@ export class ImportAccount extends Component {
         render() {
             return (
                 <div className="ImportAccountContent">
-                    <h2 className="heading">Create your EOS account with just one step.</h2>
-                    <p className="sub-heading">Create your own EOS username. Click the button to generate
-                                           and store keys of your account</p>
+                    <h2 className="heading">Import your EOS Account.</h2>
+                    <p className="sub-heading">Importing account is easy. Just enter your previous account's username, password and pvt key.</p>
                     <div className="form-container">
                         <div className="form-fields">
                             <div className="ImportAccountName">

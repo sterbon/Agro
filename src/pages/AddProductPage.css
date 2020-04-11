@@ -30,16 +30,16 @@
     /* box-shadow: 0 19px 38px rgba(47, 72, 88, .30), 0 15px 12px rgba(47, 72, 88, .22); 
 } */
 
-.crop-price, .crop-name, .crop-amount{
+.cropContainer , .crop-name, .crop-amount{
     margin: 2rem 0;
 }
 
-.crop-price label, .crop-name label, .crop-amount label{
+.cropContainer label, .crop-name label, .crop-amount label{
     font-family: 'Roboto' !important;
     color: #052350 !important;
 }
 
-.crop-price input, .crop-name input, .crop-amount input{
+.cropContainer input, .crop-amount input{
     padding: .7rem 1rem;
     width: 90%;
     outline: none;
@@ -50,8 +50,13 @@
     font-family: 'Nunito' !important;
 }
 
-.crop-price input:focus, .crop-name input:focus, .crop-amount input:focus{
+.cropContainer input:focus, .crop-name input:focus, .crop-amount input:focus{
     border: 1.5px solid #052350 !important;
+}
+
+.cropContainer .ui.dropdown{
+    border: 1.5px solid #bdc1c0 !important;
+    width: 90% !important;
 }
 
 .crop-descrip textarea{
@@ -96,13 +101,15 @@ input[type=date]:invalid::-webkit-datetime-edit {
         padding: 2rem 1.7rem;
     }
 
-    .crop-price, .crop-name, .crop-amount{
+
+.cropContainer     , .crop-name, .crop-amount{
         margin: 2rem auto !important;
         /* border: 1px solid black; */
 
     }
 
-    .crop-price input, .crop-name input, .crop-amount input{
+
+.cropContainer     input, .crop-name input, .crop-amount input{
         padding: .7rem 1rem;
         width: 100%;
         outline: none;
@@ -136,19 +143,22 @@ input[type=date]:invalid::-webkit-datetime-edit {
         font-size: 30px;
     }
 
-    .crop-price, .crop-name, .crop-amount{
+
+.cropContainer     , .crop-name, .crop-amount{
         margin: 2rem auto !important;
         /* border: 1px solid black; */
 
     }
 
-    .crop-price label, .crop-name label, .crop-amount label{
+
+.cropContainer     label, .crop-name label, .crop-amount label{
         font-family: 'Roboto' !important;
         color: #052350 !important;
         font-size: 14px;
     }
 
-    .crop-price input, .crop-name input, .crop-amount input{
+
+.cropContainer     input, .crop-name input, .crop-amount input{
         padding: .7rem 1rem;
         width: 100%;
         outline: none;

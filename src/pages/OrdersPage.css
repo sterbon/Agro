@@ -59,13 +59,7 @@
 #order-details{
     padding: 1rem 0.6rem 0 0;
     display: flex;
-    border: 1px solid black 
-}
-
-.receipt{
-    border: 1px solid black !important;
-    padding-right: -10rem !important;
-    margin-right: -10rem !important;
+    justify-content: space-between;
 }
 
 #order-details h4{
@@ -77,7 +71,12 @@
     text-overflow:ellipsis;
     white-space: nowrap;
     color: #ee6e6c;
+    width: 50%;
+    white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
+
 
 #btn-container{
     margin-top: .7rem;

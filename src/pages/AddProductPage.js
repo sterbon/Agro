@@ -84,7 +84,7 @@ class AddProductPage extends Component {
                                         x
                                     </span>
                                 </div> */}
-                                <div className="crop-name">
+                                <div className="cropContainer">
                                     <h4><label htmlFor="crop-name">Name</label></h4>
                                     <input 
                                         id="pro"
@@ -98,7 +98,7 @@ class AddProductPage extends Component {
                                         required
                                     />
                                 </div>
-                                <div className="crop-price">
+                                <div className="cropContainer">
                                     <h4><label htmlFor="crop-price">Price (Per Kg)</label></h4>
                                     <input 
                                         id="price"
@@ -112,7 +112,7 @@ class AddProductPage extends Component {
                                         required
                                     />
                                 </div>
-                                <div className="crop-name">
+                                <div className="cropContainer">
                                     <h4><label htmlFor="crop-name">Date of Sow</label></h4>
                                     <input 
                                         id="amount"
@@ -126,7 +126,7 @@ class AddProductPage extends Component {
                                         required
                                     />
                                 </div>
-                                <div className="crop-name">
+                                <div className="cropContainer">
                                     <h4><label htmlFor="crop-name">Date of Harvest</label></h4>
                                     <input 
                                         id="amount"
@@ -140,7 +140,7 @@ class AddProductPage extends Component {
                                         required
                                     />
                                 </div>
-                                <div className="crop-amount">
+                                <div className="cropContainer">
                                     <h4><label htmlFor="crop-price">Amount in Kgs</label></h4>
                                     <input 
                                         id="amount"
@@ -154,7 +154,7 @@ class AddProductPage extends Component {
                                         required
                                     />
                                 </div>
-                                <div className="crop-name">
+                                <div className="cropContainer">
                                     <h4><label htmlFor="crop-price">Fertilizer or Manure Used</label></h4>
                                     <Dropdown
                                         id="amount"

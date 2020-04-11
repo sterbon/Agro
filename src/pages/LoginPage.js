@@ -11,7 +11,17 @@ export class LoginPage extends Component {
             passw: "",
         };
     }
+
+    state = { open: false }
+
+    closeConfigShow = (closeOnDimmerClick) => () => {
+      this.setState({closeOnDimmerClick, open: true })
+    }
+  
+    close = () => this.setState({ open: false })
+
     render() {
+        const { open, closeOnDimmerClick } = this.state
         return (
             <div className="loginContainer">
                 {this.props.loggedIn ?
@@ -21,7 +31,10 @@ export class LoginPage extends Component {
                     >
                             Logout
                 </button> :
-                    <Modal trigger={<button className="cta" >Login </button>} closeIcon>
+                    <Modal trigger={<button className="cta" onClick={this.closeConfigShow(true, false)}>Login </button>}
+                            open={open}
+                            closeOnDimmerClick={closeOnDimmerClick}
+                            onClose={this.close} closeIcon>
                         <Modal.Content>
                             <div className="modalContent">
                                 <div className="login-container">
@@ -72,14 +85,15 @@ export class LoginPage extends Component {
                                                     onClick={() =>
                                                         this.props.loginClick(this.state.username, this.state.passw)
                                                     }
+                                                    // onClick={this.close}
                                                 >
                                                     Log In
                                             </button>
                                             </div>
 
-                                            <div className="createEOSAccount" id="signUpClicked">
-                                                <h5>Don't have an EOS account? Create one now!</h5>
-                                                <Link to="/sign_up"><h5 className="signUpLink">Create EOS Account</h5></Link>
+                                            <div className="createEOSAccount" id="signUpClicked" onClick={this.close}>
+                                                <h5 onClick={this.close}>Don't have an EOS account? Create one now!</h5>
+                                                <Link to="/sign_up"><h5 className="signUpLink" onClick={this.close}>Create EOS Account</h5></Link>
                                             </div>
                                         </div>
 
