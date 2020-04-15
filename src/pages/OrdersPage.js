@@ -9,8 +9,6 @@ import ReceiptModal from "../components/Receipt_Modal/Receipt_Modal"
 
 const KEY = "e7d3d4ff6d6694a54dc10ca8ddb7e32b8033a64b2e8971cbc27ac49ab2395f5e";
 
-const KEY = "e7d3d4ff6d6694a54dc10ca8ddb7e32b8033a64b2e8971cbc27ac49ab2395f5e";
-
 class OrderCard extends Component {
     constructor(props) {
         super(props);
