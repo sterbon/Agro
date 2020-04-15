@@ -20,7 +20,7 @@ class OrderCard extends Component {
         const unsplash = new Unsplash({ 
             accessKey: KEY 
         });
-        const query = `${cropName}`;
+        const query = `${cropName} crop`;
         unsplash.search.photos(query, 1, 1, { orientation: "landscape" })
         .then(toJson)
         .then(result => {
@@ -78,7 +78,12 @@ class OrderCard extends Component {
                         </div>
                         <div id="btn-container">
                             {/* <Button href={trackerUrl} target="_blank" >See transaction at Bloks.io jungle</Button> */}
-                            <Button><ReceiptModal /></Button>
+                            <Button>
+                                <ReceiptModal  
+                                    account = {account}
+                                    transaction = {transaction}
+                                />
+                            </Button>
                         </div>
                     </div>
                 </Segment>

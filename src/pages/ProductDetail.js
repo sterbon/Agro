@@ -122,13 +122,13 @@ class ProductDetail extends Component {
                                                     <h4>Crop : </h4>
                                                     <h4>Quantity : </h4>
                                                     <h4>Total Cost : </h4>
-                                                    <h4>Seller: </h4>
+                                                    {/* <h4>Seller: </h4> */}
                                                     </div>
                                                     <div className="details-right">
                                                         <h4>{cropName}</h4> 
-                                                        <h4>{selectedProducer.cropAmount} Kg</h4> 
+                                                        <h4>{selectedProducer.cropAmount} Kg @ ₹ {selectedProducer.price}</h4> 
                                                         <h4>₹ {selectedProducer.price * selectedProducer.cropAmount}</h4> 
-                                                        <h4>{selectedProducer.producer}</h4> 
+                                                        {/* <h4>{selectedProducer.producer}</h4>  */}
                                                     </div>
                                                     
                                                     

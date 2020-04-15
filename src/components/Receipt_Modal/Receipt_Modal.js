@@ -5,6 +5,8 @@ import './Receipt_Modal.css'
 
 class ReceiptModal extends Component {
     render() {
+        const { account, transaction } = this.props;
+        const { transactionID, cropName, productId, farmer, buyer, price, quantity } = transaction;
         return (
             <div className="receiptContainer">
                     <Modal trigger={<p>Print Receipt</p>} closeIcon>
@@ -19,7 +21,7 @@ class ReceiptModal extends Component {
                                                 </div>
                                                 <div className="receiptSubHeading">
                                                     <h4 className="receiptSub">TRANSRACTION NUMBER</h4>
-                                                    <h4>982093</h4>
+                                                    <h4>{ transactionID }</h4>
                                                 </div>
                                             </div>
                                             <div className="receiptHeader-right">
@@ -39,10 +41,10 @@ class ReceiptModal extends Component {
                                                         <th>Total Price</th>
                                                     </tr>
                                                     <tr>
-                                                        <td>Cauliflower</td> 
-                                                        <td>Rs. 15 per KG</td>   
-                                                        <td>200 KG</td>
-                                                        <td>Rs. 2500</td>    
+                                                        <td>{ cropName }</td> 
+                                                        <td>{ price }</td>   
+                                                        <td>{ quantity }</td>
+                                                        <td>{ price * quantity }</td>    
                                                     </tr>
                                                 </table>
                                             </div>
@@ -53,14 +55,14 @@ class ReceiptModal extends Component {
                                                 </div>
                                                 <div className="receiptPriceRight">
                                                     <table className="priceTable">
-                                                        <tr>
+                                                        {/* <tr>
                                                             <th>SUB TOTAL:</th>
                                                             <td>Rs. 2500</td>
                                                         </tr>
                                                         <tr>
                                                             <th>DISCOUNT:</th>
                                                             <td>Rs. 500</td>
-                                                        </tr>
+                                                        </tr> */}
                                                         <tr>
                                                             <th>GRAND TOTAL:</th>
                                                             <td>Rs. 2000</td>
@@ -73,17 +75,17 @@ class ReceiptModal extends Component {
                                                 <div className="partyDetailsLeft">
                                                     <div className="sellerDetails">
                                                         <h4>SELLER DETAILS</h4>
-                                                        <p>Seller Name</p>
-                                                        <p>Seller Something</p>
-                                                        <p>Seller Something</p>
+                                                        <p>{ farmer }</p>
+                                                        {/* <p>Seller Something</p>
+                                                        <p>Seller Something</p> */}
                                                     </div>
                                                 </div>
                                                 <div className="partyDetailsRight">
                                                     <div className="buyerDetails">
                                                         <h4>BUYER DETAILS</h4>
-                                                        <p>Buyer Name</p>
-                                                        <p>Buyer Something</p>
-                                                        <p>Buyer Something</p>
+                                                        <p>{ buyer }</p>
+                                                        {/* <p>Buyer Something</p>
+                                                        <p>Buyer Something</p> */}
                                                     </div>
                                                 </div>
                                             </div>

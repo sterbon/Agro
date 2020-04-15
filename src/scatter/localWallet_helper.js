@@ -135,12 +135,12 @@ export const createNewAccount = async (account_name, password, public_key, priva
                             name: 'newaccount',
                             authorization: [
                                 {
-                                    actor: 'sterbon23411',
+                                    actor: 'sterbon23451',
                                     permission: 'active',
                                 },
                             ],
                             data: {
-                                creator: 'sterbon23411',
+                                creator: 'sterbon23451',
                                 name: account_name,
                                 owner: {
                                     threshold: 1,
@@ -171,12 +171,12 @@ export const createNewAccount = async (account_name, password, public_key, priva
                             name: 'buyrambytes',
                             authorization: [
                                 {
-                                    actor: 'sterbon23411',
+                                    actor: 'sterbon23451',
                                     permission: 'active',
                                 },
                             ],
                             data: {
-                                payer: 'sterbon23411',
+                                payer: 'sterbon23451',
                                 receiver: account_name,
                                 bytes: 8192,
                             },
@@ -186,12 +186,12 @@ export const createNewAccount = async (account_name, password, public_key, priva
                             name: 'delegatebw',
                             authorization: [
                                 {
-                                    actor: 'sterbon23411',
+                                    actor: 'sterbon23451',
                                     permission: 'active',
                                 },
                             ],
                             data: {
-                                from: 'sterbon23411',
+                                from: 'sterbon23451',
                                 receiver: account_name,
                                 stake_net_quantity: '1.0000 EOS',
                                 stake_cpu_quantity: '1.0000 EOS',
