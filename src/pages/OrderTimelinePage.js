@@ -97,8 +97,11 @@ class OrderTimelinePage extends Component {
                                     <img src="https://img.icons8.com/cotton/24/000000/search--v2.png" />
                                 </button>
                             </div>
+                            <div className="option">
+                                OR
+                            </div>
                             <button
-                                className="btn-search"
+                                className="btn-search qrCode"
                                 onClick={ () =>
                                     QRScanner.initiate({
                                     onResult: (result) => { this.setState({cropId : result}) },
