@@ -66,7 +66,7 @@ export async function getLatestCrop() {
             "limit": 100,
         });
         // const result = await rpc.get_account('sterbon23411')
-        return (result.rows.length+'');
+        return ((result.rows.length - 1)+'');
     } catch (err) {
         console.error(err);
     }
