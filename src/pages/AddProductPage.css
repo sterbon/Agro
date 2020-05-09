@@ -92,6 +92,14 @@ input[type=date]:invalid::-webkit-datetime-edit {
     margin: 0;
 }
 
+.qr-modal canvas {
+    height: 140px !important;
+    width: 140px !important;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
 /* Media Queries */
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {

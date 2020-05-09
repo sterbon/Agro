@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import './AddProductPage.css';
 import addProduct from '../static/images/addProduct.png';
 import { Fertilizers } from '../fertilizers.js';
-import { Dropdown } from 'semantic-ui-react';
+import { Dropdown, Modal, Button } from 'semantic-ui-react';
 import { uploadCrop, getLatestCrop} from '../scatter/localWallet_helper';
 var QRCode = require('qrcode.react');
 
@@ -12,6 +12,7 @@ class AddProductPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            openModal: false,
             latestCropId: 'this',
             scatterConnected: false,
             requestedAuth: false,
@@ -42,14 +43,14 @@ class AddProductPage extends Component {
         const {pname, price, camount, harvest, sow, fertilizer} = this.state;      
         const data = { pname, price, camount, harvest, sow, fertilizer };
         console.log(data);
-        // uploadCrop(data)
-        // .then((result) =>  {
-        //     console.log("GGs: ", result);
-        // })
-        getLatestCrop()
-        .then((res) => {
-            this.setState({ latestCropId : res });
-        });
+        uploadCrop(data)
+        .then((result) =>  {
+            console.log("GGs: ", result);
+            getLatestCrop()
+            .then((res) => {
+                this.setState({ latestCropId: res, openModal: true });
+            });
+        })
 
         this.setState({
             pname: "",
@@ -60,10 +61,38 @@ class AddProductPage extends Component {
             fertilizer:"",
         });
     }
+
+    closeModal = () => this.setState({ openModal: false });
     
     render() {
         // const { loggedIn } = this.props.scatter;
-        console.log(this.state.latestCropId)
+        console.log(this.state.latestCropId);
+
+        const qrModal = (
+            <Modal 
+                open={this.state.openModal}
+                size={'mini'}
+                close={this.closeModal}
+                className="qr-modal"
+            >
+                <Modal.Header>Print QR Code</Modal.Header>
+                <Modal.Content>
+                    <QRCode value={this.state.latestCropId} />
+                </Modal.Content>
+                <Modal.Actions>
+                    <Button onClick={this.closeModal} negative>
+                        Cancel
+                    </Button>
+                    <Button
+                        onClick={this.closeModal} 
+                        positive
+                    >
+                        Print
+                    </Button>
+                </Modal.Actions>
+            </Modal>
+        )
+
         return (
             // <script type="text/javascript" src="qrcode.js"></script>
 
@@ -190,9 +219,10 @@ class AddProductPage extends Component {
                                 </>
                             }
                             </section>
-                            <QRCode value={this.state.latestCropId} />
 
-                            </React.Fragment>                 
+                            { qrModal }
+
+                        </React.Fragment>                 
                    
 
                    );
