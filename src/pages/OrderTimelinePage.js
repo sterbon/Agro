@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import QRScanner from 'qr-code-scanner';
 import './OrderTimelinePage.css';
 import {
     getDetailsByCropId,
@@ -24,6 +24,7 @@ class Timeline extends Component {
                     <h3>Crop Produced</h3>
                     <p>{ cropName } ({ status })</p>
                     <p>Sow Date : { dateOfSow }</p>
+                    <p>Fertilizers used: {fertilizers}</p>
                     <p>Harvest Date : { dateOfHarvest }</p>
                 </li>
                 <li className="event" data-date="2019-11-12">
@@ -96,6 +97,16 @@ class OrderTimelinePage extends Component {
                                     <img src="https://img.icons8.com/cotton/24/000000/search--v2.png" />
                                 </button>
                             </div>
+                            <button
+                                className="btn-search"
+                                onClick={ () =>
+                                    QRScanner.initiate({
+                                    onResult: (result) => { this.setState({cropId : result}) },
+                                    timeout: 10000,
+                                })}
+                            >
+                                <img src="https://img.icons8.com/wired/64/000000/qr-code.png"/>
+                            </button>
                         </div>
 
                         { timeline }

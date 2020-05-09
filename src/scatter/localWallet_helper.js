@@ -48,7 +48,25 @@ export async function getCropDetailsTable() {
             "limit": 100,
         });
         // const result = await rpc.get_account('sterbon23411')
-        return (result)
+        console.log(result.rows.length);
+        return (result);
+    } catch (err) {
+        console.error(err);
+    }
+}
+
+export async function getLatestCrop() {
+    try {
+        const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { nodeFetch });
+        const result = await rpc.get_table_rows({
+            "json": true,
+            "code": "sterbon23411",
+            "scope": "sterbon23411",
+            "table": "agrotable",
+            "limit": 100,
+        });
+        // const result = await rpc.get_account('sterbon23411')
+        return (result.rows.length+'');
     } catch (err) {
         console.error(err);
     }

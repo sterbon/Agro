@@ -5,12 +5,14 @@ import './AddProductPage.css';
 import addProduct from '../static/images/addProduct.png';
 import { Fertilizers } from '../fertilizers.js';
 import { Dropdown } from 'semantic-ui-react';
-import { uploadCrop } from '../scatter/localWallet_helper';
+import { uploadCrop, getLatestCrop} from '../scatter/localWallet_helper';
+var QRCode = require('qrcode.react');
 
 class AddProductPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            latestCropId: 'this',
             scatterConnected: false,
             requestedAuth: false,
             connectingScatter: false,
@@ -30,22 +32,23 @@ class AddProductPage extends Component {
             },
             userWallet: {}
         };
-
+        
     };
 
     // handleChange(event, index, value) {this.setState({ fertilizer: value });}
     // uploadDetails = (data) => this.props.dispatch(uploadCrop(data));
-
     uploadData(e) {
         e.preventDefault();
         const {pname, price, camount, harvest, sow, fertilizer} = this.state;      
         const data = { pname, price, camount, harvest, sow, fertilizer };
-        
         console.log(data);
-
-        uploadCrop(data)
-        .then((result) =>  {
-            console.log("GGs: ", result);
+        // uploadCrop(data)
+        // .then((result) =>  {
+        //     console.log("GGs: ", result);
+        // })
+        getLatestCrop()
+        .then((res) => {
+            this.setState({ latestCropId : res });
         });
 
         this.setState({
@@ -58,18 +61,19 @@ class AddProductPage extends Component {
         });
     }
     
-    
-
     render() {
         // const { loggedIn } = this.props.scatter;
-
+        console.log(this.state.latestCropId)
         return (
+            // <script type="text/javascript" src="qrcode.js"></script>
+
             <React.Fragment>
                
                 <section className="addProduct">
                     {
                         // loggedIn && 
                         <>
+
                             <div className="addCrop-container">
                             <h2>UPLOAD CROP</h2>
 
@@ -181,10 +185,13 @@ class AddProductPage extends Component {
                                             Upload
                                     </button>
                                 </div>
+                                
                             </div>
                                 </>
                             }
                             </section>
+                            <QRCode value={this.state.latestCropId} />
+
                             </React.Fragment>                 
                    
 
