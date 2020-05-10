@@ -7,7 +7,7 @@ import {
 
 class Timeline extends Component {
     render() {
-        const { producer, cropName, price, buyer, cropAmount, dateOfHarvest, dateOfSow, fertilizers, sold } = this.props.cropDetails;
+        const { producer, cropName, price, buyer, cropAmount, dateOfHarvest, dateOfSow, fertilizers, sold, uploadDate } = this.props.cropDetails;
         let status = "Available", purchasedElem = null;
         if(sold) {
             status = "Sold Out";
@@ -27,7 +27,7 @@ class Timeline extends Component {
                     <p>Fertilizers used: {fertilizers}</p>
                     <p>Harvest Date : { dateOfHarvest }</p>
                 </li>
-                <li className="event" data-date="2019-11-12">
+                <li className="event" data-date={uploadDate}>
                     <h3>Crop Uploaded</h3>
                     <p>{ cropAmount } Kg</p>
                     <p>by { producer }</p>

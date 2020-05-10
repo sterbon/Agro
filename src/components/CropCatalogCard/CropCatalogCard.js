@@ -16,7 +16,7 @@ class CropCatalogCard extends Component {
                         <Card.Header>{ cropName }</Card.Header>
                         <div className="cardContent">
                             <p>Sellers : {details.producer.length}</p>
-                            <p>Updated: 11 March 2020</p>
+                            {/* <p>Updated: {details.uploadDate}</p> */}
                         </div>
                         <div className="viewProductBtnContainer">
                             <Link to={{ pathname: '/product', state: { cropName, details } }}>    
