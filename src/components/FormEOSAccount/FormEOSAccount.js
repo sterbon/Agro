@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Header, Icon, Modal } from 'semantic-ui-react';
+import { Button, Header, Icon, Modal, Popup } from 'semantic-ui-react';
 import ecc from 'eosjs-ecc'
 import './FormEOSAccount.css'
 import { createNewAccount, getAccount } from '../../scatter/localWallet_helper';
