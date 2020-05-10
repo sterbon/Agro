@@ -10,8 +10,6 @@
     "gh-pages": "^2.2.0",
     "node-fetch": "^2.6.0",
     "qr-code-scanner": "^1.0.7",
-    "qrcode": "^1.4.4",
-    "qrcode-generator": "^1.4.4",
     "qrcode.react": "^1.0.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",

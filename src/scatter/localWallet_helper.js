@@ -42,12 +42,12 @@ export async function getCropDetailsTable() {
         const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { nodeFetch });
         const result = await rpc.get_table_rows({
             "json": true,
-            "code": "sterbon23411",
-            "scope": "sterbon23411",
-            "table": "agrotable",
+            "code": "sterbon23451",
+            "scope": "sterbon23451",
+            "table": "agrotable1",
             "limit": 100,
         });
-        // const result = await rpc.get_account('sterbon23411')
+        // const result = await rpc.get_account('sterbon23451')
         console.log(result.rows.length);
         return (result);
     } catch (err) {
@@ -60,12 +60,12 @@ export async function getLatestCrop() {
         const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { nodeFetch });
         const result = await rpc.get_table_rows({
             "json": true,
-            "code": "sterbon23411",
-            "scope": "sterbon23411",
-            "table": "agrotable",
+            "code": "sterbon23451",
+            "scope": "sterbon23451",
+            "table": "agrotable1",
             "limit": 100,
         });
-        // const result = await rpc.get_account('sterbon23411')
+        // const result = await rpc.get_account('sterbon23451')
         return ((result.rows.length - 1)+'');
     } catch (err) {
         console.error(err);
@@ -78,9 +78,9 @@ export async function getDetailsByCropId(cropId) {
 
         const result = await rpc.get_table_rows({
             "json": true,
-            "code": "sterbon23411",
-            "scope": "sterbon23411",
-            "table": "agrotable",
+            "code": "sterbon23451",
+            "scope": "sterbon23451",
+            "table": "agrotable1",
             "limit": 1,
             "lower_bound": cropId,
         });
@@ -96,8 +96,8 @@ export async function getTransactionDetails() {
         const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { nodeFetch });
         const result = await rpc.get_table_rows({
             "json": true,
-            "code": "sterbon23411",
-            "scope": "sterbon23411",
+            "code": "sterbon23451",
+            "scope": "sterbon23451",
             "table": "trxdetail",
         });
         return result
@@ -327,7 +327,7 @@ export async function uploadCrop(data) {
 
         "actions": [
             {
-                "account": "sterbon23411",
+                "account": "sterbon23451",
                 "name": "uploadcrop",
                 "authorization": [
                     {
@@ -343,7 +343,8 @@ export async function uploadCrop(data) {
                     "price": data.price,
                     "dateOfHarvest": data.harvest,
                     "dateOfSow": data.sow,
-                    "fertilizers": data.fertilizer
+                    "fertilizers": data.fertilizer,
+                    "uploadDate": data.uploadDate,
                 },
             }]
     },
@@ -363,7 +364,7 @@ export async function buyCrop(productId) {
     const result = await api.transact({
         "actions": [
             {
-                "account": "sterbon23411",
+                "account": "sterbon23451",
                 "name": "buycrop",
                 "authorization": [
                     {

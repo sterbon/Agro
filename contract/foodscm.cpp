@@ -3,6 +3,7 @@
 #include <eosio/transaction.hpp>
 #include <eosio/crypto.hpp>
 
+
 using namespace std;
 using namespace eosio;
 
@@ -42,11 +43,13 @@ class [[eosio::contract]] foodscm : public eosio::contract {
       uint64_t quantity;
       string cropName;
       checksum256 transactionID;
+      //string track_arr[];
+      // vector<string> tracking_details;
 
       auto primary_key()const { return productId;}
     };
     
-    typedef eosio::multi_index<name("agrotable"), cropdetails> crop_data;
+    typedef eosio::multi_index<name("agrotable1"), cropdetails> crop_data;
     typedef eosio::multi_index<name("udata"), userdata> user_data;  
     typedef eosio::multi_index<name("trxdetail"), transdetail> trans_detail;  
 
@@ -82,7 +85,7 @@ class [[eosio::contract]] foodscm : public eosio::contract {
                        
     [[eosio::action]]
     void uploadcrop(name producer, string cropName, uint64_t cropAmount, string imageHash, 
-                    uint64_t price, string dateOfHarvest, string dateOfSow, string fertilizers) {
+                    uint64_t price, string dateOfHarvest, string dateOfSow, string fertilizers, string uploadDate) {
 
       _cropdata.emplace(_self, [&](auto& row) {
           row.productId = _cropdata.available_primary_key();
@@ -95,6 +98,8 @@ class [[eosio::contract]] foodscm : public eosio::contract {
           row.price = price;
           row.sold = false;
           row.buyer = producer;
+          row.uploadDate = uploadDate;
+          
       }); 
     }
     
