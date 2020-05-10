@@ -5,11 +5,11 @@
     #qrcode-canvas, #qrcode-canvas * {
       visibility: visible;
     }
-    #qrcode-canvas {
+    /* #qrcode-canvas {
       position: absolute;
       left: 0;
       top: 0;
-    }
+    } */
 }
 .addProduct{
     background: #f6fdfa;
@@ -111,6 +111,11 @@ input[type=date]:invalid::-webkit-datetime-edit {
     position: relative;
     left: 50%;
     transform: translate(-50%, 0);
+}
+.success-message {
+    color: green;
+    text-align: center;
+    /* padding-left: 1.5rem; */
 }
 
 /* Media Queries */

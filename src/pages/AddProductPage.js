@@ -51,9 +51,9 @@ class AddProductPage extends Component {
             .then((result) => {
                 console.log("GGs: ", result);
                 getLatestCrop()
-                    .then((res) => {
-                        this.setState({ latestCropId: res, openModal: true });
-                    });
+                .then((res) => {
+                    this.setState({ latestCropId: res, openModal: true });
+                });
             })
 
         this.setState({
@@ -87,15 +87,24 @@ class AddProductPage extends Component {
                 id="qr-modal"
             >
                 <Modal.Header>Print QR Code</Modal.Header>
+                <h4 className="success-message">Crop uploaded successfully</h4>
                 <Modal.Content>
                     <QRCode value={this.state.latestCropId} id="qrcode-canvas" />
                 </Modal.Content>
                 <Modal.Actions>
-                    <Button onClick={() => {this.closeModal(); this.redirect_to_homepage();} } negative>
+                    <Button onClick={() => {
+                            this.closeModal(); 
+                            this.redirect_to_homepage();
+                        }} 
+                        negative
+                    >
                         Cancel
                     </Button>
                     <Button
-                        onClick={() => {window.print();this.redirect_to_homepage();}}
+                        onClick={() => {
+                            window.print();
+                            this.redirect_to_homepage();
+                        }}
                         positive
                     >
                         Print
