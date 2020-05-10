@@ -3,6 +3,7 @@
 #include <eosio/transaction.hpp>
 #include <eosio/crypto.hpp>
 
+
 using namespace std;
 using namespace eosio;
 
@@ -42,6 +43,8 @@ class [[eosio::contract]] foodscm : public eosio::contract {
       uint64_t quantity;
       string cropName;
       checksum256 transactionID;
+      string track_arr[];
+
 
       auto primary_key()const { return productId;}
     };
