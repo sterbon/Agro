@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './CropCatalogPage.css';
 import FilterAccordian from '../components/FilterAccordian/FilterAccordian';
 import CropCatalogCard from '../components/CropCatalogCard/CropCatalogCard';
-
+import Spinner from '../components/Spinner';
 import Grain from '../static/images/Grain.jpg'
 import { getCropDetailsTable } from '../scatter/localWallet_helper';
 
@@ -34,9 +34,12 @@ class CropCatalogPage extends Component {
                     .then(result => {
                         const { cropCatalogList } = this.state; 
                         let cropImage = Grain;
-                        if(result.results[1].urls.regular) {
+                        if(result.results[1].urls) {
                             // cropImage = result.results[0].urls.raw;
-                            cropImage = result.results[1].urls.regular;
+                            cropImage = result.results[0].urls.regular;
+                        }
+                        else{
+                            cropImage = null;
                         }
                         
                         if(cropName in cropCatalogList) {
@@ -92,7 +95,8 @@ class CropCatalogPage extends Component {
             });    
         }
         else{
-            CropCatalogElement = <p>Loading...</p>;
+            // CropCatalogElement = <p>Loading...</p>;
+            CropCatalogElement = <Spinner/>
         }
         
         return (

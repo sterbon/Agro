@@ -1,3 +1,16 @@
+@media print {
+    body * {
+      visibility: hidden;
+    }
+    #qrcode-canvas, #qrcode-canvas * {
+      visibility: visible;
+    }
+    #qrcode-canvas {
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+}
 .addProduct{
     background: #f6fdfa;
 }

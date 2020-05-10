@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {Link, withRouter} from 'react-router-dom'
 import { Button, Header, Icon, Modal } from 'semantic-ui-react';
 import './ImportAccount.css'
 import {storeKeys} from '../scatter/localWallet_helper'
@@ -10,6 +11,9 @@ export class ImportAccount extends Component {
             password: "",
             pvtKey: ""
         };
+    }
+    redirect_to_homepage(){
+        this.props.history.push('/');    
     }
         render() {
             return (
@@ -71,10 +75,11 @@ export class ImportAccount extends Component {
                                 <button className="ImportCta"
                                     name="submit-button"
                                     value="Upload"
-                                    onClick={ () => 
-                                        // console.log("hello")
-                                        storeKeys(this.state.pvtKey, this.state.username, this.state.password)
-                                        } >
+                                    onClick={ () => {
+                                        storeKeys(this.state.pvtKey, this.state.username, this.state.password);
+                                        window.alert("Account Imported Successfully!");
+                                        this.redirect_to_homepage();
+                                        } }>
 
                                     Import Account
                             </button>
@@ -86,5 +91,5 @@ export class ImportAccount extends Component {
         }
     }
 
-export default ImportAccount;
+export default withRouter(ImportAccount);
 

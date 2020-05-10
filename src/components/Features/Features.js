@@ -23,13 +23,13 @@ function Features()
                     <div className="features-card">
                         <img src={risk} width="80px" height="80px"/>
                         <h3>EOS, risk-free</h3>
-                        <p className="features-text">Automatically convert bitcoin to your local currency at the time of transaction and avoid all price volatility.</p>
+                        <p className="features-text">Automatically convert EOS to your local currency at the time of transaction and avoid all price volatility.</p>
                     </div>
 
                     <div className="features-card">
                         <img src={safety} width="80px" height="80px"/>
                         <h3>Safety first</h3>
-                        <p className="features-text">Know your funds are safe and sound with our cryptographically secure platform and 24hr customer support.</p>
+                        <p className="features-text">Know your funds are safe and sound with our cryptographically secure platform.</p>
                     </div>
                 </div>
 
@@ -43,13 +43,13 @@ function Features()
                     <div className="features-card">
                         <img src={open} width="80px" height="80px"/>
                         <h3>Open to the world</h3>
-                        <p className="features-text">No bank account required. Internet access is all you need to start accepting bitcoin anywhere.</p>
+                        <p className="features-text">No bank account required. Internet access is all you need to start accepting EOS anywhere.</p>
                     </div>
 
                     <div className="features-card">
                         <img src={upgrade} width="80px" height="80px"/>
                         <h3>Upgrade to Lightning</h3>
-                        <p className="features-text">Take advantage of bitcoin’s newest payment protocol and experience instant settlements and low fees.</p>
+                        <p className="features-text">Take advantage of EOS’s newest payment protocol and experience extremely high scalability and low fees.</p>
                     </div>
                 </div>
             </div>
