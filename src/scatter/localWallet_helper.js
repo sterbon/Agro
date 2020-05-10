@@ -1,6 +1,6 @@
 import { Api, JsonRpc, RpcError } from 'eosjs';
 import { JsSignatureProvider } from 'eosjs/dist/eosjs-jssig'
-import {isValidPrivate} from 'eosjs-ecc';
+import { isValidPrivate } from 'eosjs-ecc';
 import createHash from 'create-hash';
 import {
     parseEOS,
@@ -48,7 +48,25 @@ export async function getCropDetailsTable() {
             "limit": 100,
         });
         // const result = await rpc.get_account('sterbon23411')
-        return (result)
+        console.log(result.rows.length);
+        return (result);
+    } catch (err) {
+        console.error(err);
+    }
+}
+
+export async function getLatestCrop() {
+    try {
+        const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { nodeFetch });
+        const result = await rpc.get_table_rows({
+            "json": true,
+            "code": "sterbon23411",
+            "scope": "sterbon23411",
+            "table": "agrotable",
+            "limit": 100,
+        });
+        // const result = await rpc.get_account('sterbon23411')
+        return ((result.rows.length - 1)+'');
     } catch (err) {
         console.error(err);
     }
@@ -96,7 +114,7 @@ export async function getAccount(account_name) {
             return true
         // if (result.account_name && isValidPrivate(pvtKey) === true)
         //     return true
-            
+
     } catch (e) {
         console.log(e);
         if (e instanceof RpcError)
@@ -220,49 +238,44 @@ export const createNewAccount = async (account_name, password, public_key, priva
 
 // Storing pvt keys to local storage 
 export const storeKeys = (pvtKey, username, password) => {
-    
-    // localStorage.clear()
-    if(isValidPrivate(pvtKey) === true){
-    var currPvt = CryptoJS.AES.encrypt(pvtKey, password).toString();
-    
-    var passwordKey512Bits = CryptoJS.PBKDF2(password, salt, {
-        keySize: 512 / 32
-    });
-    console.log("PBKDF2",passwordKey512Bits.toString(CryptoJS.enc.Hex));
-    var cred = [passwordKey512Bits.toString(CryptoJS.enc.Hex), currPvt];
 
-    localStorage.setItem(username, JSON.stringify(cred))
-    console.log(localStorage)
+    if (isValidPrivate(pvtKey) === true) {
+        var currPvt = CryptoJS.AES.encrypt(pvtKey, password).toString();
+        var passwordKey512Bits = CryptoJS.PBKDF2(password, salt, {
+            keySize: 512 / 32
+        });
+        console.log("PBKDF2", passwordKey512Bits.toString(CryptoJS.enc.Hex));
+        var cred = [passwordKey512Bits.toString(CryptoJS.enc.Hex), currPvt];
+        localStorage.setItem(username, JSON.stringify(cred))
+        console.log(localStorage)
     }
-    else{
+    else {
         console.error("WRONG PVT KEY FORMAT")
     }
 }
 
 
+
 //Logging in to the site
 export const login = (username, password) => {
+    console.log("salt", salt);
+    //Retrieving the credentials from localstorage
     var storedCred = JSON.parse(localStorage.getItem(username));
-    console.log("stored cred=", storedCred);
-
     let passHash = storedCred[0];
-
     let pvtHash = storedCred[1];
     var authPasswordKey = CryptoJS.PBKDF2(password, salt, {
-        keySize: 512 / 32
-      });
-      
-      console.log("passHash = ", passHash);
-      console.log("authPWKEY = ", authPasswordKey.toString(CryptoJS.enc.Hex));
+        keySize: 512 / 32,
+        // iterations: 10000
+    });
 
+    console.log("passHash = ", passHash);
+    console.log("authPWKEY = ", authPasswordKey.toString(CryptoJS.enc.Hex));
+
+    // Checking validity of the decrypted text with the original
     if (authPasswordKey.toString(CryptoJS.enc.Hex) === passHash) {
         var bytes = CryptoJS.AES.decrypt(pvtHash, password);
         var originalText = bytes.toString(CryptoJS.enc.Utf8);
-
-        console.log('Logged in!')
-        console.log(originalText+"1213")
-        currKey = originalText
-        // localStorage.setItem("current_user", username);
+        currKey = originalText;
         sessionStorage.setItem("current_user", username);
         console.log(sessionStorage.getItem("current_user"))
     }
@@ -270,14 +283,19 @@ export const login = (username, password) => {
         console.error("Bad Password")
 }
 
+
+
+
+
+
 //LOGOUT!!
 export const logout = () => {
     if (sessionStorage.getItem("current_user") != null || sessionStorage.getItem("current_user") !== undefined) {
         sessionStorage.setItem("current_user", null);
         currKey = "";
     }
-    console.log("Logged Out Successfully",sessionStorage.getItem("current_user"));
-    console.log("Logged Out Successfully",currKey);
+    console.log("Logged Out Successfully", sessionStorage.getItem("current_user"));
+    console.log("Logged Out Successfully", currKey);
 }
 
 // export const sendTokens = ({toAccount, amount, memo}) => {
@@ -338,14 +356,11 @@ export async function uploadCrop(data) {
 }
 
 export async function buyCrop(productId) {
-    console.log(productId)
     const userName = sessionStorage.getItem("current_user")
     const signatureProvider = new JsSignatureProvider([currKey]);
     const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { nodeFetch });
     const api = new Api({ rpc, signatureProvider, textDecoder: new TextDecoder(), textEncoder: new TextEncoder() });
-
     const result = await api.transact({
-        
         "actions": [
             {
                 "account": "sterbon23411",
@@ -358,18 +373,16 @@ export async function buyCrop(productId) {
                 ],
                 "data": {
                     "buyer": userName,
-                    "cropPid": productId, 
+                    "cropPid": productId,
                     "price": "1.0000 JUNGLE",
                     "memo": "Buy crop"
                 },
-                
-            }
-        ]
+            }]
     },
-    {
-        "blocksBehind": 3,
-        "expireSeconds": 30,
-    })
+        {
+            "blocksBehind": 3,
+            "expireSeconds": 30,
+        })
     console.log("Buying Result: ", result)
     return result
 }

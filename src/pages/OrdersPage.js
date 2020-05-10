@@ -6,6 +6,7 @@ import { getTransactionDetails } from '../scatter/localWallet_helper';
 import './OrdersPage.css';
 import Unsplash, { toJson } from 'unsplash-js';
 import ReceiptModal from "../components/Receipt_Modal/Receipt_Modal"
+import Spinner from '../components/Spinner'
 
 const KEY = "e7d3d4ff6d6694a54dc10ca8ddb7e32b8033a64b2e8971cbc27ac49ab2395f5e";
 
@@ -122,12 +123,33 @@ class OrdersPage extends Component {
                 .then((result) => {
                     const transactions = result.rows;
 
-                    transactions.map((transaction) => {
-                        if (transaction.farmer === currentUser || transaction.buyer === currentUser) {
-                            transactionList.push(transaction);
-                        }
+                    // Object.values(result.rows).forEach((cropName) => {
+                    //     // if(!crop.sold) {
+                    //     //const cropName = crop.cropName.trim();
+                    //     const unsplash = new Unsplash({
+                    //         accessKey: KEY
+                    //     });
+                    //     const query = `${cropName}`;
 
-                    });
+                    //     unsplash.search.photos(query, 1, 2, { orientation: "landscape" })
+                    //         .then(toJson)
+                    //         .then(result => {
+                    //             // const { cropCatalogList } = this.state;
+                    //             // let cropImage = Grain;
+                    //             if (result.results[1].urls.regular) {
+                    //                 // cropImage = result.results[0].urls.raw;
+                    //                 // cropImage = result.results[1].urls.regular;
+                    //             }
+                    //         }
+                    //         )
+                    // }),
+
+                        transactions.map((transaction) => {
+                            if (transaction.farmer === currentUser || transaction.buyer === currentUser) {
+                                transactionList.push(transaction);
+                            }
+
+                        });
                     this.setState({ transactionList });
                 });
         }
@@ -138,7 +160,7 @@ class OrdersPage extends Component {
         const { transactionList } = this.state;
         console.log("translist:", transactionList);
         // console.log("loggedIn", loggedIn);
-        let ListView = <p className="else-text">No Orders Placed Yet.</p> ;
+        let ListView = <p className="else-text"></p> ;
         if (transactionList.length) {
             ListView = Object.values(transactionList).map((transaction) => {
                 return <OrderCard
@@ -148,15 +170,19 @@ class OrdersPage extends Component {
                 />
             });
         }
+        else{
+            return <p className="else-text">No Orders Placed Yet.</p>
+        }
 
         return (
             <React.Fragment>
-                <div className="order-container">
-                    <Header as='h2'>
-                        Your Transactions
-                    </Header>
+                 <div className="order-container"> 
                     {
-                        loggedIn ? ListView : <p className="else-text">Sorry. Currently you are not logged in.</p>
+                        loggedIn ? <div><Header as='h2'>
+                        Your Transactions
+                        </Header> {ListView}</div> 
+                        : 
+                        <p className="else-text">Sorry. Currently you are not logged in.</p>
                     }
                 </div>
             </React.Fragment>

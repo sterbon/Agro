@@ -1,3 +1,16 @@
+@media print {
+    body * {
+      visibility: hidden;
+    }
+    #qrcode-canvas, #qrcode-canvas * {
+      visibility: visible;
+    }
+    #qrcode-canvas {
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+}
 .addProduct{
     background: #f6fdfa;
 }
@@ -90,6 +103,14 @@ input[type=date]:invalid::-webkit-datetime-edit {
     transition: all 0.3s ease 0s !important;
     outline: none !important;
     margin: 0;
+}
+
+.qr-modal canvas {
+    height: 140px !important;
+    width: 140px !important;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
 }
 
 /* Media Queries */

@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { Button, Header, Icon, Modal } from 'semantic-ui-react';
+import { Button, Header, Icon, Modal, Popup } from 'semantic-ui-react';
 import ecc from 'eosjs-ecc'
 import './FormEOSAccount.css'
+import {Link, withRouter} from 'react-router-dom'
 import { createNewAccount, getAccount } from '../../scatter/localWallet_helper';
 
 export class FormEOSAccount extends Component {
@@ -20,8 +21,6 @@ export class FormEOSAccount extends Component {
         });
     }
 
-    
-
     render() {
         const { open } = this.state
         return (
@@ -37,7 +36,7 @@ export class FormEOSAccount extends Component {
                                     <small><i>(Exactly 12 characters)</i></small>
                                 </span>
                             </h4>
-                            <input 
+                            <input
                                 id="price"
                                 type="text" 
                                 name="crop-price"
@@ -109,8 +108,11 @@ export class FormEOSAccount extends Component {
                             <button className="EOSAccount-cta" 
                                     name="submit-button" 
                                     value="Upload"
-                                    onClick = {() => {createNewAccount(this.state.username, this.state.password, this.state.public_key, this.state.private_key)}}
-                                    // onClick = {() => {this.generateKeys()}}
+                                    onClick = {() => {createNewAccount(this.state.username, this.state.password, this.state.public_key, this.state.private_key)
+                                        const r = window.confirm("Account Created Successfully!")
+                                    }
+                                }
+                                    
                                     >
                                     Create Account
                             </button>
@@ -124,5 +126,5 @@ export class FormEOSAccount extends Component {
     }
 }
 
-export default FormEOSAccount
+export default withRouter(FormEOSAccount);
 

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './CropCatalogPage.css';
 import FilterAccordian from '../components/FilterAccordian/FilterAccordian';
 import CropCatalogCard from '../components/CropCatalogCard/CropCatalogCard';
-
+import Spinner from '../components/Spinner';
 import Grain from '../static/images/Grain.jpg'
 import { getCropDetailsTable } from '../scatter/localWallet_helper';
 
@@ -27,16 +27,19 @@ class CropCatalogPage extends Component {
                     const unsplash = new Unsplash({ 
                         accessKey: KEY 
                     });
-                    const query = `${cropName} crop`;
+                    const query = `${cropName}`;
                     
-                    unsplash.search.photos(query, 1, 1, { orientation: "landscape" })
+                    unsplash.search.photos(query, 1, 2, { orientation: "landscape" })
                     .then(toJson)
                     .then(result => {
                         const { cropCatalogList } = this.state; 
                         let cropImage = Grain;
-                        if(result.results[0].urls.regular) {
+                        if(result.results[1].urls) {
                             // cropImage = result.results[0].urls.raw;
                             cropImage = result.results[0].urls.regular;
+                        }
+                        else{
+                            cropImage = null;
                         }
                         
                         if(cropName in cropCatalogList) {
@@ -92,7 +95,8 @@ class CropCatalogPage extends Component {
             });    
         }
         else{
-            CropCatalogElement = <p>Loading...</p>;
+            // CropCatalogElement = <p>Loading...</p>;
+            CropCatalogElement = <Spinner/>
         }
         
         return (

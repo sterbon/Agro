@@ -64,9 +64,12 @@
 
 #order-details h4{
     font-family: "Roboto";
+    width: 50px;
     font-size: 13px;
     font-weight: 700;
     text-transform: uppercase;
+    text-overflow:ellipsis;
+    white-space: nowrap;
     color: #ee6e6c;
     width: 50%;
     white-space: nowrap;

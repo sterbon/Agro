@@ -59,6 +59,26 @@
   color: #bdc1c0;
 }
 
+.option{
+  padding: 3.5rem 0 2.5rem 0;
+  font-size: 33px;
+  font-family: 'Roboto';
+  color: #052350;
+  text-align: center;
+  font-weight: 500;
+  margin: auto;
+  letter-spacing: 2px;
+}
+
+.qrCode
+{
+  padding: 9px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+
 .timeline-container h2 {
   font-size: 41px;
   font-family: 'Roboto';

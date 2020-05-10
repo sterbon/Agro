@@ -23,13 +23,12 @@ class ProductDetail extends Component {
     buyData(e) {
         e.preventDefault();
         console.log("Prod: ", this.state.selectedProducer.productId)
-        // this.TransactionModal()
-        // buyCrop(this.state.selectedProducer.productId)
-        // .then((result) =>
-        //     {
-        //         console.log(result)
-        //         this.setState({ productBought: true });
-        //     });
+        buyCrop(this.state.selectedProducer.productId)
+        .then((result) =>
+            {
+                console.log(result)
+                this.setState({ productBought: true });
+            });
     }
 
 

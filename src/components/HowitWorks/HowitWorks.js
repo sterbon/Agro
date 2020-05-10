@@ -12,8 +12,8 @@ function HowitWorks()
             <section className="how">
             <div className="how-text">
                 <h2>Upload</h2>
-                <p className="how-para">Agro is the easiest and safest way to buy, sell crops online.
-                   Discover new ways to monetize and scale your business online with Agro.</p>
+                <p className="how-para">Agro is the easiest and safest way to to sell crops online.
+                    Discover new ways to monetize and scale your business online with Agro.</p>
             </div>
             <div className="how-img">
                 <img src={upload} />
@@ -23,8 +23,8 @@ function HowitWorks()
         <section className="how1 how1-small">
             <div className="how-text how-text-small">
                 <h2>Explore</h2>
-                <p className="how-para">Agro is the easiest and safest way to buy, sell crops online.
-                   Discover new ways to monetize and scale your business online with Agro.</p>
+                <p className="how-para">Agro is best way to buy crops online.
+                    Discover different types of food grains from farmers and vendors from all around India.</p>
             </div>
             <div className="how-img how-img-small">
                 <img src={explore} />
@@ -33,9 +33,9 @@ function HowitWorks()
 
         <section className="how how-small">
             <div className="how-text">
-                <h2>Buy</h2>
-                <p className="how-para">Agro is the easiest and safest way to buy, sell crops online.
-                   Discover new ways to monetize and scale your business online with Agro.</p>
+                <h2>Track</h2>
+                <p className="how-para">Agro is the safest way to buy, sell crops online.
+                   Track your crops at every step of the supply chain using our robust tracking functionality.</p>
             </div>
             <div className="how-img-buy">
                 <img src={buy} />
