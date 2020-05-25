@@ -390,6 +390,33 @@ export async function buyCrop(productId) {
 }
 
 
-export async function updateTrackingDetails(){
-/////////////////////
+export async function updateTrackingDetails(cropPid, location){
+    const userName = sessionStorage.getItem("current_user")
+    const signatureProvider = new JsSignatureProvider([currKey]);
+    const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { nodeFetch });
+    const api = new Api({ rpc, signatureProvider, textDecoder: new TextDecoder(), textEncoder: new TextEncoder() });
+    const result = await api.transact({
+        "actions": [
+            {
+                "account": "guptaanmol12",
+                "name": "buycrop",
+                "authorization": [
+                    {
+                        "actor": userName,
+                        "permission": "active"
+                    }
+                ],
+                "data": {
+                    "buyer": userName,
+                    "cropPid": cropPid,
+                    "location": location,
+                },
+            }]
+    },
+        {
+            "blocksBehind": 3,
+            "expireSeconds": 30,
+        })
+    console.log("Location update Result: ", result)
+    return result
 }

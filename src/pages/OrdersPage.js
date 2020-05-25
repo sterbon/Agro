@@ -86,7 +86,7 @@ class OrderCard extends Component {
                                 />
                             </Button>
                             {/* <Button>
-                                //Button for updating location   
+                                updateTrackingDetails(cropPid, location)
                             </Button> */}
                         </div>
                     </div>
