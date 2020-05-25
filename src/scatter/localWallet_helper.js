@@ -42,12 +42,12 @@ export async function getCropDetailsTable() {
         const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { nodeFetch });
         const result = await rpc.get_table_rows({
             "json": true,
-            "code": "sterbon23451",
-            "scope": "sterbon23451",
-            "table": "agrotable1",
+            "code": "guptaanmol12",
+            "scope": "guptaanmol12",
+            "table": "agrotable3",
             "limit": 100,
         });
-        // const result = await rpc.get_account('sterbon23451')
+        // const result = await rpc.get_account('guptaanmol12')
         console.log(result.rows.length);
         return (result);
     } catch (err) {
@@ -60,12 +60,12 @@ export async function getLatestCrop() {
         const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { nodeFetch });
         const result = await rpc.get_table_rows({
             "json": true,
-            "code": "sterbon23451",
-            "scope": "sterbon23451",
-            "table": "agrotable1",
+            "code": "guptaanmol12",
+            "scope": "guptaanmol12",
+            "table": "agrotable3",
             "limit": 100,
         });
-        // const result = await rpc.get_account('sterbon23451')
+        // const result = await rpc.get_account('guptaanmol12')
         return ((result.rows.length - 1)+'');
     } catch (err) {
         console.error(err);
@@ -78,9 +78,9 @@ export async function getDetailsByCropId(cropId) {
 
         const result = await rpc.get_table_rows({
             "json": true,
-            "code": "sterbon23451",
-            "scope": "sterbon23451",
-            "table": "agrotable1",
+            "code": "guptaanmol12",
+            "scope": "guptaanmol12",
+            "table": "agrotable3",
             "limit": 1,
             "lower_bound": cropId,
         });
@@ -96,8 +96,8 @@ export async function getTransactionDetails() {
         const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { nodeFetch });
         const result = await rpc.get_table_rows({
             "json": true,
-            "code": "sterbon23451",
-            "scope": "sterbon23451",
+            "code": "guptaanmol12",
+            "scope": "guptaanmol12",
             "table": "trxdetail",
         });
         return result
@@ -153,12 +153,12 @@ export const createNewAccount = async (account_name, password, public_key, priva
                             name: 'newaccount',
                             authorization: [
                                 {
-                                    actor: 'sterbon23451',
+                                    actor: 'guptaanmol12',
                                     permission: 'active',
                                 },
                             ],
                             data: {
-                                creator: 'sterbon23451',
+                                creator: 'guptaanmol12',
                                 name: account_name,
                                 owner: {
                                     threshold: 1,
@@ -189,12 +189,12 @@ export const createNewAccount = async (account_name, password, public_key, priva
                             name: 'buyrambytes',
                             authorization: [
                                 {
-                                    actor: 'sterbon23451',
+                                    actor: 'guptaanmol12',
                                     permission: 'active',
                                 },
                             ],
                             data: {
-                                payer: 'sterbon23451',
+                                payer: 'guptaanmol12',
                                 receiver: account_name,
                                 bytes: 8192,
                             },
@@ -204,12 +204,12 @@ export const createNewAccount = async (account_name, password, public_key, priva
                             name: 'delegatebw',
                             authorization: [
                                 {
-                                    actor: 'sterbon23451',
+                                    actor: 'guptaanmol12',
                                     permission: 'active',
                                 },
                             ],
                             data: {
-                                from: 'sterbon23451',
+                                from: 'guptaanmol12',
                                 receiver: account_name,
                                 stake_net_quantity: '1.0000 EOS',
                                 stake_cpu_quantity: '1.0000 EOS',
@@ -327,7 +327,7 @@ export async function uploadCrop(data) {
 
         "actions": [
             {
-                "account": "sterbon23451",
+                "account": "guptaanmol12",
                 "name": "uploadcrop",
                 "authorization": [
                     {
@@ -339,6 +339,7 @@ export async function uploadCrop(data) {
                     "producer": userName,
                     "cropName": data.pname,
                     "cropAmount": data.camount,
+                    "home": data.homelocation,
                     "imageHash": "QmImageHash",
                     "price": data.price,
                     "dateOfHarvest": data.harvest,
@@ -364,7 +365,7 @@ export async function buyCrop(productId) {
     const result = await api.transact({
         "actions": [
             {
-                "account": "sterbon23451",
+                "account": "guptaanmol12",
                 "name": "buycrop",
                 "authorization": [
                     {
@@ -386,4 +387,13 @@ export async function buyCrop(productId) {
         })
     console.log("Buying Result: ", result)
     return result
+}
+
+
+export async function updateTrackingDetails(data){
+/////////////////////
+}
+
+export async function retrieveTrackingDetails(data){
+    
 }

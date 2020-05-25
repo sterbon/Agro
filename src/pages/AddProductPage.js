@@ -22,6 +22,7 @@ class AddProductPage extends Component {
             pname: "",
             price: "",
             camount: "",
+            homelocation: "",
             harvest: "",
             sow: "",
             fertilizer: "",
@@ -44,22 +45,23 @@ class AddProductPage extends Component {
         var d = new Date();
         console.log(d.toDateString())
         var uploadDate = d.toDateString();
-        const { pname, price, camount, harvest, sow, fertilizer } = this.state;
-        const data = { pname, price, camount, harvest, sow, fertilizer, uploadDate };
+        const { pname, price, camount, homelocation, harvest, sow, fertilizer } = this.state;
+        const data = { pname, price, camount, homelocation, harvest, sow, fertilizer, uploadDate };
         console.log(data);
         uploadCrop(data)
             .then((result) => {
                 console.log("GGs: ", result);
                 getLatestCrop()
-                .then((res) => {
-                    this.setState({ latestCropId: res, openModal: true });
-                });
+                    .then((res) => {
+                        this.setState({ latestCropId: res, openModal: true });
+                    });
             })
 
         this.setState({
             pname: "",
             price: "",
             camount: "",
+            homelocation: "",
             harvest: "",
             sow: "",
             fertilizer: "",
@@ -87,24 +89,15 @@ class AddProductPage extends Component {
                 id="qr-modal"
             >
                 <Modal.Header>Print QR Code</Modal.Header>
-                <h4 className="success-message">Crop uploaded successfully</h4>
                 <Modal.Content>
                     <QRCode value={this.state.latestCropId} id="qrcode-canvas" />
                 </Modal.Content>
                 <Modal.Actions>
-                    <Button onClick={() => {
-                            this.closeModal(); 
-                            this.redirect_to_homepage();
-                        }} 
-                        negative
-                    >
+                    <Button onClick={() => {this.closeModal(); this.redirect_to_homepage();} } negative>
                         Cancel
                     </Button>
                     <Button
-                        onClick={() => {
-                            window.print();
-                            this.redirect_to_homepage();
-                        }}
+                        onClick={() => {window.print();this.redirect_to_homepage();}}
                         positive
                     >
                         Print
@@ -189,6 +182,20 @@ class AddProductPage extends Component {
                                         value={this.state.harvest}
                                         onChange={(e) => {
                                             this.setState({ harvest: String(e.target.value) });
+                                        }}
+                                        required
+                                    />
+                                </div>
+                                <div className="cropContainer">
+                                    <h4><label htmlFor="crop-price">Place of harvest(or Warehouse)</label></h4>
+                                    <input
+                                        id="location"
+                                        type="text"
+                                        name="crop-location"
+                                        placeholder="Current Location"
+                                        value={this.state.homelocation}
+                                        onChange={(e) => {
+                                            this.setState({ homelocation: e.target.value });
                                         }}
                                         required
                                     />

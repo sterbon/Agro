@@ -2,7 +2,7 @@
 #include <eosio/eosio.hpp>
 #include <eosio/transaction.hpp>
 #include <eosio/crypto.hpp>
-
+#include <vector>
 
 using namespace std;
 using namespace eosio;
@@ -23,7 +23,7 @@ class [[eosio::contract]] foodscm : public eosio::contract {
         bool sold;
         string uploadDate;
         string soldDate;
-
+        vector<string> tracking_details;
         auto primary_key()const { return productId;}
     };
     
@@ -43,8 +43,7 @@ class [[eosio::contract]] foodscm : public eosio::contract {
       uint64_t quantity;
       string cropName;
       checksum256 transactionID;
-      //string track_arr[];
-      // vector<string> tracking_details;
+
 
       auto primary_key()const { return productId;}
     };
@@ -85,7 +84,8 @@ class [[eosio::contract]] foodscm : public eosio::contract {
                        
     [[eosio::action]]
     void uploadcrop(name producer, string cropName, uint64_t cropAmount, string imageHash, 
-                    uint64_t price, string dateOfHarvest, string dateOfSow, string fertilizers, string uploadDate) {
+                    uint64_t price, string dateOfHarvest, string dateOfSow, string fertilizers,
+                     string uploadDate, vector<string> tracking_details) {
 
       _cropdata.emplace(_self, [&](auto& row) {
           row.productId = _cropdata.available_primary_key();
@@ -99,7 +99,7 @@ class [[eosio::contract]] foodscm : public eosio::contract {
           row.sold = false;
           row.buyer = producer;
           row.uploadDate = uploadDate;
-          
+          row.tracking_details.emplace_back("Crop Listed");
       }); 
     }
     
@@ -144,6 +144,7 @@ class [[eosio::contract]] foodscm : public eosio::contract {
             row.price = cost;
             row.quantity = quantity;
             row.cropName = cropName;
+//            row.tracking_details.emplace_back("Crop Listed");
             row.transactionID = get_trx_id();
           });
         }

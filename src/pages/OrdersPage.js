@@ -18,18 +18,18 @@ class OrderCard extends Component {
         }
         // console.log("Constructor: ", props);
         const cropName = props.transaction.cropName.trim();
-        const unsplash = new Unsplash({ 
-            accessKey: KEY 
+        const unsplash = new Unsplash({
+            accessKey: KEY
         });
         const query = `${cropName} crop`;
         unsplash.search.photos(query, 1, 1, { orientation: "landscape" })
-        .then(toJson)
-        .then(result => {
-            if(result.results[0].urls.regular) {
-                // cropImage = result.results[0].urls.raw;
-                this.setState({ cropImage : result.results[0].urls.regular });
-            }
-        });
+            .then(toJson)
+            .then(result => {
+                if (result.results[0].urls.regular) {
+                    // cropImage = result.results[0].urls.raw;
+                    this.setState({ cropImage: result.results[0].urls.regular });
+                }
+            });
     }
 
     render() {
@@ -80,11 +80,14 @@ class OrderCard extends Component {
                         <div id="btn-container">
                             {/* <Button href={trackerUrl} target="_blank" >See transaction at Bloks.io jungle</Button> */}
                             <Button>
-                                <ReceiptModal  
-                                    account = {account}
-                                    transaction = {transaction}
+                                <ReceiptModal
+                                    account={account}
+                                    transaction={transaction}
                                 />
                             </Button>
+                            {/* <Button>
+                                //Button for updating location   
+                            </Button> */}
                         </div>
                     </div>
                 </Segment>
@@ -98,7 +101,7 @@ class OrdersPage extends Component {
         super(props);
         var loggedIn = false;
         var currentUser = null;
-        if(sessionStorage.getItem("current_user") != null && sessionStorage.getItem("current_user") != "null" && sessionStorage.getItem("current_user") !== undefined) {
+        if (sessionStorage.getItem("current_user") != null && sessionStorage.getItem("current_user") != "null" && sessionStorage.getItem("current_user") !== undefined) {
             loggedIn = true;
             currentUser = sessionStorage.getItem("current_user");
         }
@@ -144,12 +147,12 @@ class OrdersPage extends Component {
                     //         )
                     // }),
 
-                        transactions.map((transaction) => {
-                            if (transaction.farmer === currentUser || transaction.buyer === currentUser) {
-                                transactionList.push(transaction);
-                            }
+                    transactions.map((transaction) => {
+                        if (transaction.farmer === currentUser || transaction.buyer === currentUser) {
+                            transactionList.push(transaction);
+                        }
 
-                        });
+                    });
                     this.setState({ transactionList });
                 });
         }
@@ -160,7 +163,7 @@ class OrdersPage extends Component {
         const { transactionList } = this.state;
         console.log("translist:", transactionList);
         // console.log("loggedIn", loggedIn);
-        let ListView = <p className="else-text"></p> ;
+        let ListView = <p className="else-text"></p>;
         if (transactionList.length) {
             ListView = Object.values(transactionList).map((transaction) => {
                 return <OrderCard
@@ -170,19 +173,21 @@ class OrdersPage extends Component {
                 />
             });
         }
-        else{
-            return <p className="else-text">No Orders Placed Yet.</p>
+        else {
+            return <div className="order-container">
+                <p className="else-text">No Orders Placed Yet.</p>
+            </div>
         }
 
         return (
             <React.Fragment>
-                 <div className="order-container"> 
+                <div className="order-container">
                     {
                         loggedIn ? <div><Header as='h2'>
-                        Your Transactions
-                        </Header> {ListView}</div> 
-                        : 
-                        <p className="else-text">Sorry. Currently you are not logged in.</p>
+                            Your Transactions
+                        </Header> {ListView}</div>
+                            :
+                            <p className="else-text">Sorry. Currently you are not logged in.</p>
                     }
                 </div>
             </React.Fragment>
