@@ -390,10 +390,6 @@ export async function buyCrop(productId) {
 }
 
 
-export async function updateTrackingDetails(data){
+export async function updateTrackingDetails(){
 /////////////////////
-}
-
-export async function retrieveTrackingDetails(data){
-    
 }
