@@ -79,15 +79,15 @@ class OrderCard extends Component {
                         </div>
                         <div id="btn-container">
                             {/* <Button href={trackerUrl} target="_blank" >See transaction at Bloks.io jungle</Button> */}
-                            <Button>
+                            <Button className="receiptBtn">
                                 <ReceiptModal
                                     account={account}
                                     transaction={transaction}
                                 />
                             </Button>
-                            {/* <Button>
-                                updateTrackingDetails(cropPid, location)
-                            </Button> */}
+                            <Button>
+                                Update Current Location
+                            </Button>
                         </div>
                     </div>
                 </Segment>
@@ -174,21 +174,27 @@ class OrdersPage extends Component {
             });
         }
         else {
-            return <div className="order-container">
-                <p className="else-text">No Orders Placed Yet.</p>
+            return (
+                <div className="orderContainer">
+                    <div className="order-container">
+                        <p className="else-text">No Orders Placed Yet.</p>
+                    </div>
             </div>
+            )
         }
 
         return (
             <React.Fragment>
-                <div className="order-container">
-                    {
-                        loggedIn ? <div><Header as='h2'>
-                            Your Transactions
-                        </Header> {ListView}</div>
-                            :
-                            <p className="else-text">Sorry. Currently you are not logged in.</p>
-                    }
+                <div className="orderContainer">
+                    <div className="order-container">
+                        {
+                            loggedIn ? <div><Header as='h2'>
+                                Your Transactions
+                            </Header> {ListView}</div>
+                                :
+                                <p className="else-text">Sorry. Currently you are not logged in.</p>
+                        }
+                    </div>
                 </div>
             </React.Fragment>
         )

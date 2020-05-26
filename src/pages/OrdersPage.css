@@ -1,7 +1,11 @@
-.order-container{
-    height: fit-content;
+.orderContainer{
+    height: 100%;
     background-color: #f6fdfa;
+}
+
+.order-container{
     position: relative;
+    height: 100%;
 }
 
 .ui.header {
@@ -80,6 +84,7 @@
 
 #btn-container{
     margin-top: .7rem;
+    /* border: 1px solid violet; */
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
@@ -89,11 +94,16 @@
     background: #ee6e6c;
     color: white;
     font-size: 12px;
+    /* margin: 0 10px;  */
 }
 
 .ui.button:hover{
     background: #052350;
     color: white;
+}
+
+.receiptBtn{
+    margin-right: 19px !important;
 }
 
 .orderDate-container {
