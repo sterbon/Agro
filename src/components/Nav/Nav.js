@@ -39,7 +39,7 @@ class Nav extends Component {
     logoutClick() {
         logout();
         this.setState({ loggedIn: false });
-        this.props.history.push('/');    
+        this.props.history.push('/Agro');    
     }
 
     drawerToggleClickHandler = () => {

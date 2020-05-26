@@ -26,7 +26,7 @@ class App extends Component{
             <React.Fragment>
                 <Nav /> 
                 <Switch>
-                    <Route exact path="/" component={ HomePage } />
+                    <Route exact path="/Agro" component={ HomePage } />
                     <Route exact path="/sign_up" component={ SignUpPage } />
                     <Route exact path="/login" component={ LoginPage } />
                     <Route path="/add_crop" component={ AddProductPage } />

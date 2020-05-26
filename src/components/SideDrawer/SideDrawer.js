@@ -17,7 +17,7 @@ class SideDrawer extends Component {
             <h1 
                 className="logo"
                 onClick={() => {
-                    this.props.history.push('/');
+                    this.props.history.push('/Agro');
                     this.props.click();
                 }}
             >

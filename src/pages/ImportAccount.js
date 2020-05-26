@@ -13,7 +13,7 @@ export class ImportAccount extends Component {
         };
     }
     redirect_to_homepage(){
-        this.props.history.push('/');    
+        this.props.history.push('/Agro');    
     }
         render() {
             return (

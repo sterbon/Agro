@@ -72,7 +72,7 @@ class AddProductPage extends Component {
     closeModal = () => this.setState({ openModal: false });
     
     redirect_to_homepage(){
-        this.props.history.push('/');    
+        this.props.history.push('/Agro');    
     }
     
     

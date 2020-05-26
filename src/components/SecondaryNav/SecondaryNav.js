@@ -14,7 +14,7 @@ class SecondaryNav extends Component {
     loginUser = () => this.props.dispatch(requestLogin());
     logOutUser = () => {
         this.props.dispatch(logout());
-        this.props.history.push('/');
+        this.props.history.push('/Agro');
     };
 
     render() {
@@ -23,7 +23,7 @@ class SecondaryNav extends Component {
 
         return(
             <header className="secondary-nav-container" >
-                <Link to="/">
+                <Link to="/Agro">
                     <h1  style={style} className="secondary-logo">Agro</h1>
                 </Link>
                 <nav>
