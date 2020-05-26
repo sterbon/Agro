@@ -42,12 +42,12 @@ export async function getCropDetailsTable() {
         const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { nodeFetch });
         const result = await rpc.get_table_rows({
             "json": true,
-            "code": "sterbon23451",
-            "scope": "sterbon23451",
+            "code": "sterbon12122",
+            "scope": "sterbon12122",
             "table": "agrotable5",
             "limit": 100,
         });
-        // const result = await rpc.get_account('sterbon23451')
+        // const result = await rpc.get_account('sterbon12122')
         console.log(result.rows.length);
         return (result);
     } catch (err) {
@@ -60,12 +60,12 @@ export async function getLatestCrop() {
         const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { nodeFetch });
         const result = await rpc.get_table_rows({
             "json": true,
-            "code": "sterbon23451",
-            "scope": "sterbon23451",
+            "code": "sterbon12122",
+            "scope": "sterbon12122",
             "table": "agrotable5",
             "limit": 100,
         });
-        // const result = await rpc.get_account('sterbon23451')
+        // const result = await rpc.get_account('sterbon12122')
         return ((result.rows.length - 1)+'');
     } catch (err) {
         console.error(err);
@@ -78,8 +78,8 @@ export async function getDetailsByCropId(cropId) {
 
         const result = await rpc.get_table_rows({
             "json": true,
-            "code": "sterbon23451",
-            "scope": "sterbon23451",
+            "code": "sterbon12122",
+            "scope": "sterbon12122",
             "table": "agrotable5",
             "limit": 1,
             "lower_bound": cropId,
@@ -96,9 +96,9 @@ export async function getTransactionDetails() {
         const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { nodeFetch });
         const result = await rpc.get_table_rows({
             "json": true,
-            "code": "sterbon23451",
-            "scope": "sterbon23451",
-            "table": "trxdetail1",
+            "code": "sterbon12122",
+            "scope": "sterbon12122",
+            "table": "trxdetail5",
         });
         return result
     } catch (err) {
@@ -153,12 +153,12 @@ export const createNewAccount = async (account_name, password, public_key, priva
                             name: 'newaccount',
                             authorization: [
                                 {
-                                    actor: 'sterbon23451',
+                                    actor: 'sterbon12122',
                                     permission: 'active',
                                 },
                             ],
                             data: {
-                                creator: 'sterbon23451',
+                                creator: 'sterbon12122',
                                 name: account_name,
                                 owner: {
                                     threshold: 1,
@@ -189,12 +189,12 @@ export const createNewAccount = async (account_name, password, public_key, priva
                             name: 'buyrambytes',
                             authorization: [
                                 {
-                                    actor: 'sterbon23451',
+                                    actor: 'sterbon12122',
                                     permission: 'active',
                                 },
                             ],
                             data: {
-                                payer: 'sterbon23451',
+                                payer: 'sterbon12122',
                                 receiver: account_name,
                                 bytes: 8192,
                             },
@@ -204,12 +204,12 @@ export const createNewAccount = async (account_name, password, public_key, priva
                             name: 'delegatebw',
                             authorization: [
                                 {
-                                    actor: 'sterbon23451',
+                                    actor: 'sterbon12122',
                                     permission: 'active',
                                 },
                             ],
                             data: {
-                                from: 'sterbon23451',
+                                from: 'sterbon12122',
                                 receiver: account_name,
                                 stake_net_quantity: '1.0000 EOS',
                                 stake_cpu_quantity: '1.0000 EOS',
@@ -329,7 +329,7 @@ export async function uploadCrop(data) {
 
         "actions": [
             {
-                "account": "sterbon23451",
+                "account": "sterbon12122",
                 "name": "uploadcrop",
                 "authorization": [
                     {
@@ -367,7 +367,7 @@ export async function buyCrop(productId) {
     const result = await api.transact({
         "actions": [
             {
-                "account": "sterbon23451",
+                "account": "sterbon12122",
                 "name": "buycrop",
                 "authorization": [
                     {
@@ -403,7 +403,7 @@ export async function updateTrackingDetails(cropPid, locData){
     const result = await api.transact({
         "actions": [
             {
-                "account": "sterbon23451",
+                "account": "sterbon12122",
                 "name": "updateloc",
                 "authorization": [
                     {
