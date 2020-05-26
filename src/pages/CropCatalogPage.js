@@ -51,7 +51,7 @@ class CropCatalogPage extends Component {
                             cropCatalogList[cropName].dateOfSow.push(crop.dateOfSow);
                             cropCatalogList[cropName].fertilizers.push(crop.fertilizers);
                             cropCatalogList[cropName].sold.push(crop.sold);
-                            // cropCatalogList[cropName].uploadDate.push(crop.uploadDate);
+                            cropCatalogList[cropName].uploadDate.push(crop.uploadDate);
                             this.setState({ cropCatalogList });
                         }
                         else {

@@ -113,13 +113,14 @@
   font-family: 'Nunito';
   font-weight: 600;
   margin: 3rem auto;
+  left: 20%;
   position: relative;
   line-height: 1.4em;
-  font-size: 1.03em;
+  font-size: 1.1em;
   padding: 50px;
   list-style: none;
   text-align: left;
-  max-width: 30%;
+  max-width: 40%;
 }
 
 .timeline h1,
@@ -128,7 +129,7 @@
   font-family: 'Roboto';
   font-weight: 600;
   /* font-size: 1.4em; */
-  font-size: 23px;
+  font-size: 25px;
   color: #052350;
   margin: 0 0 1rem 0;
 }
@@ -138,7 +139,7 @@
 }
 
 .timeline .event {
-  border-bottom: 1px dashed #052350;
+  /* border-bottom: 1px dashed #052350; */
   padding-bottom: 25px;
   margin-bottom: 50px;
   position: relative;
@@ -158,7 +159,7 @@
 }
 
 .timeline .event:before {
-  left: -200px;
+  left: -230px;
   color: #ee6e6c;
   content: attr(data-date);
   letter-spacing: 0.8px;

@@ -6,6 +6,7 @@ import { getTransactionDetails } from '../scatter/localWallet_helper';
 import './OrdersPage.css';
 import Unsplash, { toJson } from 'unsplash-js';
 import ReceiptModal from "../components/Receipt_Modal/Receipt_Modal"
+import UpdateLocationModal from "../components/UpdateLocation/UpdateLocationModal"
 import Spinner from '../components/Spinner'
 
 const KEY = "e7d3d4ff6d6694a54dc10ca8ddb7e32b8033a64b2e8971cbc27ac49ab2395f5e";
@@ -86,7 +87,9 @@ class OrderCard extends Component {
                                 />
                             </Button>
                             <Button>
-                                Update Current Location
+                            <UpdateLocationModal
+                                    transaction={transaction}
+                                />
                             </Button>
                         </div>
                     </div>

@@ -7,8 +7,8 @@ import {
 
 class Timeline extends Component {
     render() {
-        const { producer, cropName, price, buyer, cropAmount, dateOfHarvest, dateOfSow, fertilizers, sold, uploadDate } = this.props.cropDetails;
-        let status = "Available", purchasedElem = null;
+        const { producer, cropName, price, buyer, cropAmount, dateOfHarvest, dateOfSow, fertilizers, sold, uploadDate, tracking_details } = this.props.cropDetails;
+        let status = "Available", purchasedElem = null, track_loc = null;
         if(sold) {
             status = "Sold Out";
             purchasedElem = <li className="event" data-date="2019-11-12">
@@ -16,6 +16,24 @@ class Timeline extends Component {
                             <p>by { buyer }</p> 
                             <p>Total price : ₹ { price * cropAmount }</p>   
                         </li>;
+            
+            if(tracking_details!= null || tracking_details!== null || tracking_details!= undefined){
+                
+                track_loc = tracking_details.map((track, index) => {
+                    if(index > 0 ){
+                    return (
+                        <li className="event" data-date="2019-11-12">
+                            <h3>Crop Shipped</h3>
+                            <p>By : { producer }</p>
+                            <p>From : {tracking_details[index - 1 ]}</p>
+                            <p>To : {track} </p>  
+                        </li>
+                    )}
+                    // else{
+                    //     return null
+                    // }
+                });
+            }
         }
 
         return (
@@ -26,6 +44,7 @@ class Timeline extends Component {
                     <p>Sow Date : { dateOfSow }</p>
                     <p>Fertilizers used: {fertilizers}</p>
                     <p>Harvest Date : { dateOfHarvest }</p>
+                    <p>Place of Harvest : { tracking_details[0] }</p>
                 </li>
                 <li className="event" data-date={uploadDate}>
                     <h3>Crop Uploaded</h3>
@@ -35,6 +54,7 @@ class Timeline extends Component {
                     <p className="upload-desc">(Crop uploaded to Agro, decentralized supplychain.)</p>    
                 </li>
                 { purchasedElem }
+                { track_loc }
             </ul>
         );
     }

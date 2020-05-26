@@ -395,11 +395,14 @@ export async function updateTrackingDetails(cropPid, location){
     const signatureProvider = new JsSignatureProvider([currKey]);
     const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { nodeFetch });
     const api = new Api({ rpc, signatureProvider, textDecoder: new TextDecoder(), textEncoder: new TextEncoder() });
+    
+    console.log("Local wallet helper location - ",location);
+    
     const result = await api.transact({
         "actions": [
             {
                 "account": "guptaanmol12",
-                "name": "buycrop",
+                "name": "updateloc",
                 "authorization": [
                     {
                         "actor": userName,
@@ -409,7 +412,7 @@ export async function updateTrackingDetails(cropPid, location){
                 "data": {
                     "buyer": userName,
                     "cropPid": cropPid,
-                    "location": location,
+                    "location": location.currLocation,
                 },
             }]
     },
