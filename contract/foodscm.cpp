@@ -51,7 +51,7 @@ class [[eosio::contract]] foodscm : public eosio::contract {
     
     typedef eosio::multi_index<name("agrotable5"), cropdetails> crop_data;
     typedef eosio::multi_index<name("udata"), userdata> user_data;  
-    typedef eosio::multi_index<name("trxdetail"), transdetail> trans_detail;  
+    typedef eosio::multi_index<name("trxdetail1"), transdetail> trans_detail;  
 
     crop_data _cropdata;
     user_data _userdata;

@@ -7,7 +7,7 @@ import {
 
 class Timeline extends Component {
     render() {
-        const { producer, cropName, price, buyer, cropAmount, dateOfHarvest, dateOfSow, fertilizers, sold, uploadDate, tracking_details } = this.props.cropDetails;
+        const { producer, cropName, price, buyer, cropAmount, dateOfHarvest, dateOfSow, fertilizers, sold, uploadDate, trackingLocation, trackingDate } = this.props.cropDetails;
         let status = "Available", purchasedElem = null, track_loc = null;
         if(sold) {
             status = "Sold Out";
@@ -17,15 +17,15 @@ class Timeline extends Component {
                             <p>Total price : ₹ { price * cropAmount }</p>   
                         </li>;
             
-            if(tracking_details!= null || tracking_details!== null || tracking_details!= undefined){
+            if((trackingLocation!= null || trackingLocation!== null || trackingLocation!== undefined) && (trackingDate!= null || trackingDate!== null || trackingDate!== undefined)){
                 
-                track_loc = tracking_details.map((track, index) => {
+                track_loc = trackingLocation.map((track, index) => {
                     if(index > 0 ){
                     return (
-                        <li className="event" data-date="2019-11-12">
+                        <li className="event" data-date={trackingDate[index]}>
                             <h3>Crop Shipped</h3>
                             <p>By : { producer }</p>
-                            <p>From : {tracking_details[index - 1 ]}</p>
+                            <p>From : {trackingLocation[index - 1 ]}</p>
                             <p>To : {track} </p>  
                         </li>
                     )}
@@ -44,7 +44,7 @@ class Timeline extends Component {
                     <p>Sow Date : { dateOfSow }</p>
                     <p>Fertilizers used: {fertilizers}</p>
                     <p>Harvest Date : { dateOfHarvest }</p>
-                    <p>Place of Harvest : { tracking_details[0] }</p>
+                    <p>Place of Harvest : { trackingLocation[0] }</p>
                 </li>
                 <li className="event" data-date={uploadDate}>
                     <h3>Crop Uploaded</h3>

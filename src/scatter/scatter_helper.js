@@ -195,7 +195,7 @@
 //             "json": true,
 //             "code": "sterbon23411",
 //             "scope": "sterbon23411",
-//             "table": "trxdetail",
+//             "table": "trxdetail1",
 //         });
 //     } catch(err) {
 //         console.error(err);

@@ -98,7 +98,7 @@ export async function getTransactionDetails() {
             "json": true,
             "code": "sterbon23451",
             "scope": "sterbon23451",
-            "table": "trxdetail",
+            "table": "trxdetail1",
         });
         return result
     } catch (err) {
