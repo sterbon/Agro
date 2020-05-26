@@ -51,7 +51,7 @@ class CropCatalogPage extends Component {
                             cropCatalogList[cropName].dateOfSow.push(crop.dateOfSow);
                             cropCatalogList[cropName].fertilizers.push(crop.fertilizers);
                             cropCatalogList[cropName].sold.push(crop.sold);
-                            cropCatalogList[cropName].uploadDate.push(crop.uploadDate);
+                            // cropCatalogList[cropName].uploadDate.push(crop.uploadDate);
                             this.setState({ cropCatalogList });
                         }
                         else {
@@ -66,7 +66,8 @@ class CropCatalogPage extends Component {
                                         price: [crop.price],
                                         dateOfHarvest: [crop.dateOfHarvest],
                                         dateOfSow: [crop.dateOfSow],
-                                        fertilizers: [crop.fertilizers], 
+                                        fertilizers: [crop.fertilizers],
+                                        // uploadDate: [crop.uploadDate], 
                                         sold: [crop.sold],                                   
                                     }
                                 }

@@ -42,12 +42,12 @@ export async function getCropDetailsTable() {
         const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { nodeFetch });
         const result = await rpc.get_table_rows({
             "json": true,
-            "code": "guptaanmol12",
-            "scope": "guptaanmol12",
-            "table": "agrotable3",
+            "code": "sterbon23451",
+            "scope": "sterbon23451",
+            "table": "agrotable5",
             "limit": 100,
         });
-        // const result = await rpc.get_account('guptaanmol12')
+        // const result = await rpc.get_account('sterbon23451')
         console.log(result.rows.length);
         return (result);
     } catch (err) {
@@ -60,12 +60,12 @@ export async function getLatestCrop() {
         const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { nodeFetch });
         const result = await rpc.get_table_rows({
             "json": true,
-            "code": "guptaanmol12",
-            "scope": "guptaanmol12",
-            "table": "agrotable3",
+            "code": "sterbon23451",
+            "scope": "sterbon23451",
+            "table": "agrotable5",
             "limit": 100,
         });
-        // const result = await rpc.get_account('guptaanmol12')
+        // const result = await rpc.get_account('sterbon23451')
         return ((result.rows.length - 1)+'');
     } catch (err) {
         console.error(err);
@@ -78,9 +78,9 @@ export async function getDetailsByCropId(cropId) {
 
         const result = await rpc.get_table_rows({
             "json": true,
-            "code": "guptaanmol12",
-            "scope": "guptaanmol12",
-            "table": "agrotable3",
+            "code": "sterbon23451",
+            "scope": "sterbon23451",
+            "table": "agrotable5",
             "limit": 1,
             "lower_bound": cropId,
         });
@@ -96,8 +96,8 @@ export async function getTransactionDetails() {
         const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { nodeFetch });
         const result = await rpc.get_table_rows({
             "json": true,
-            "code": "guptaanmol12",
-            "scope": "guptaanmol12",
+            "code": "sterbon23451",
+            "scope": "sterbon23451",
             "table": "trxdetail",
         });
         return result
@@ -153,12 +153,12 @@ export const createNewAccount = async (account_name, password, public_key, priva
                             name: 'newaccount',
                             authorization: [
                                 {
-                                    actor: 'guptaanmol12',
+                                    actor: 'sterbon23451',
                                     permission: 'active',
                                 },
                             ],
                             data: {
-                                creator: 'guptaanmol12',
+                                creator: 'sterbon23451',
                                 name: account_name,
                                 owner: {
                                     threshold: 1,
@@ -189,12 +189,12 @@ export const createNewAccount = async (account_name, password, public_key, priva
                             name: 'buyrambytes',
                             authorization: [
                                 {
-                                    actor: 'guptaanmol12',
+                                    actor: 'sterbon23451',
                                     permission: 'active',
                                 },
                             ],
                             data: {
-                                payer: 'guptaanmol12',
+                                payer: 'sterbon23451',
                                 receiver: account_name,
                                 bytes: 8192,
                             },
@@ -204,12 +204,12 @@ export const createNewAccount = async (account_name, password, public_key, priva
                             name: 'delegatebw',
                             authorization: [
                                 {
-                                    actor: 'guptaanmol12',
+                                    actor: 'sterbon23451',
                                     permission: 'active',
                                 },
                             ],
                             data: {
-                                from: 'guptaanmol12',
+                                from: 'sterbon23451',
                                 receiver: account_name,
                                 stake_net_quantity: '1.0000 EOS',
                                 stake_cpu_quantity: '1.0000 EOS',
@@ -224,7 +224,9 @@ export const createNewAccount = async (account_name, password, public_key, priva
                 }
             );
             console.log('transaction_id is : ', result.transaction_id);
+            
             storeKeys(private_key, account_name, password)
+            
             return result.transaction_id;
         } catch (err) {
             console.log('error is : ___', err);
@@ -327,7 +329,7 @@ export async function uploadCrop(data) {
 
         "actions": [
             {
-                "account": "guptaanmol12",
+                "account": "sterbon23451",
                 "name": "uploadcrop",
                 "authorization": [
                     {
@@ -365,7 +367,7 @@ export async function buyCrop(productId) {
     const result = await api.transact({
         "actions": [
             {
-                "account": "guptaanmol12",
+                "account": "sterbon23451",
                 "name": "buycrop",
                 "authorization": [
                     {
@@ -401,7 +403,7 @@ export async function updateTrackingDetails(cropPid, locData){
     const result = await api.transact({
         "actions": [
             {
-                "account": "guptaanmol12",
+                "account": "sterbon23451",
                 "name": "updateloc",
                 "authorization": [
                     {
@@ -413,7 +415,7 @@ export async function updateTrackingDetails(cropPid, locData){
                     "buyer": userName,
                     "cropPid": cropPid,
                     "updatedLoc": locData.currLocation,
-                    // "updatedDate": locData.currDate,
+                    "updatedDate": locData.currDate,
                 },
             }]
     },

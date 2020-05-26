@@ -31,7 +31,7 @@ class UpdateLocationModal extends Component {
         
         console.log(data);
         
-        if ((data.currDate != null) && (data.currLocation != "" || data.currLocation != null)) {
+        if ((data.currDate != null) && (data.currLocation !== "" || data.currLocation != null)) {
             updateTrackingDetails(productId, data)
                 .then((result) => {
                     console.log("GGs: ", result);
