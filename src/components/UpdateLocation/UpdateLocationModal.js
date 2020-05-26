@@ -8,6 +8,7 @@ class UpdateLocationModal extends Component {
         super(props);
         this.state = {
             currLocation: "",
+            currDate: "",
         };
     };
 
@@ -15,19 +16,27 @@ class UpdateLocationModal extends Component {
     // uploadDetails = (data) => this.props.dispatch(uploadCrop(data));
     updateLocation(e) {
         e.preventDefault();
-        const { currLocation } = this.state;
+        const { currLocation, currDate } = this.state;
         const { transaction } = this.props;
         const { cropName, productId } = transaction;
-        const data = { currLocation };
 
+        var d = new Date();
+        console.log(d.toDateString())   
+
+        this.setState({
+            currDate: d.toDateString(),
+        })
+        
+        const data = { currLocation, currDate };
+        
         console.log(data);
-        console.log(transaction.productId);
-
-        updateTrackingDetails(productId, data)
-            .then((result) => {
-                console.log("GGs: ", result);
-            })
-
+        
+        if ((data.currDate != null) && (data.currLocation != "" || data.currLocation != null)) {
+            updateTrackingDetails(productId, data)
+                .then((result) => {
+                    console.log("GGs: ", result);
+                })
+        }
         this.setState({
             currLocation: "",
         });
@@ -63,6 +72,21 @@ class UpdateLocationModal extends Component {
                                                 this.setState({ currLocation: e.target.value });
                                             }}
 
+                                            required >
+                                        </input>
+
+                                        <input
+                                            type="text"
+                                            placeholder={this.state.currDate}
+                                            id="currDate"
+                                            name="crop-currDate"
+                                            value={this.state.currDate}
+                                            
+                                            // onChange={(e) => {
+                                            //     this.setState({ currDate: e.target.value });
+                                            // }}
+
+                                            readonly
                                             required >
                                         </input>
 
