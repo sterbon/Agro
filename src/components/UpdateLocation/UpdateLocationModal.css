@@ -1,142 +1,100 @@
-.receiptContainer .ui.modal{
+.updateLocationModalContainer .ui.modal{
     margin: 0;
     padding: 0;
-    width: 100% !important;
+    width: 95% !important;
 }
 
-.receiptHeader
+.updateLocation-container{
+    margin: 2rem 3rem;
+}
+
+.updateLocationHeader
 {
+    text-align: center;
+    margin-top: -3rem;
+    padding: 0rem 2.5rem 1.7rem 2.5rem;
+}
+
+.updateLocationHeader h2{
+    font-family: 'Roboto';
+    letter-spacing: 2px;
+    font-size: 31px;
+    color: #ee6e6c;
+}
+
+.updateLocationSubHead{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0rem 2.5rem;
+    justify-content: center;
+    flex-direction: row;
+    margin-bottom: 2rem;
 }
 
-.receiptHeading{
-    color: black;
-}
-
-.receiptHeading h2{
-    font-family: 'Courier Prime';
-    letter-spacing: 2px;
-}
-
-.receiptSubHeading{
-    margin-top: 1.7rem;
-}
-
-.receiptSubHeading h4{
-    margin: 0;
-    font-family: 'Courier Prime';
-}
-
-.receiptSub{
-    letter-spacing: 2px;
-}
-
-.receiptLogo h1{
-    font-size: 63px;
-    font-family: 'Great Vibes';
-    margin-top: -1rem !important;
-    margin: 0;
+.updateLocationSubHead h3{
+    margin: 0 2rem;
     padding: 0;
+    font-size: 15.6px;
+    color: #052350;
+    font-weight: 600;
+    font-family: 'Nunito';
 }
 
-.receiptForm-container{
-    padding: 2rem 0rem;
+.updateLocation-form{
+    text-align: center;
+    justify-items: center;
 }
 
-.receiptTable, .priceTable{
-    border-collapse: collapse;
+.updateLocation{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+    margin: auto;
+}
+
+.updateLocation label{
+    color: #052350;
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 15.7px;
+    text-align: left;
+    margin: 1rem 0 .6rem 0;
+}
+
+.updateLocation input{
+    padding: 1rem;
     width: 100%;
-}
-  
-.receiptTable th, .receiptTable td{
-    border: none;
-    text-align: center;
-    padding: 1rem 0;
-    font-family: 'Courier Prime';
-}
-
-.receiptPriceContainer{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2rem 2.5rem;
+    outline: none;
+    font-size: 14.7px;
+    border-radius: 5px;
+    border: 1px solid var(--dark-grey);
+    font-family: 'Nunito';
+    font-weight: 600;
+    color: var(--font-color);
+    margin-bottom: 1rem;
 }
 
-.receiptPriceRight{
-    padding-right: 1rem;
+.updateLocation input:focus{
+    border: 1px solid var(--font-color);
 }
 
-.priceTable th{
-    border: none;
-    text-align: center;
-    padding: 1rem 4.5rem;
-    font-family: 'Courier Prime';
-}
-
-.priceTable td{
-    border: none;
-    text-align: center;
-    padding: 1rem 0;
-    font-family: 'Courier Prime';
-}
-
-.partyDetails{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.5rem 2.5rem;
-}
-
-.sellerDetails h4, .buyerDetails h4{
-    font-family: 'Courier Prime';
-    padding-bottom: .3rem;
-}
-
-.sellerDetails p, .buyerDetails p{
-    font-family: 'Courier Prime';
-    font-size: 13px;
-    padding: 0.5rem 0;
-    margin: 0;
-}
-
-.printReceipt{
+.updateLocationBtn{
     margin-top: 1rem;
-    text-align: center;
 }
 
-.print-cta{
-    border: none;
-    border-bottom: 1px dotted black;
-    background-color: transparent;
-    font-family: 'Courier Prime';
-    font-weight: bold;
-    text-decoration: none;
+.update-cta
+{
+    padding: 14px 40px;
+    font-size: 14px;
+    font-weight: 700;
+    background: transparent;
+    border: 1.3px solid var(--font-color);
+    cursor: pointer;
+    color: var(--font-color);
+    border-radius: 5px;
+    transition: all 0.3s ease 0s;
     outline: none;
 }
 
-.print-cta:hover{
-    cursor: pointer;
-}
-
-.separator {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    font-family: 'Courier Prime';
-    padding: 3rem 2rem 0 2rem;
-    font-weight: bold;
-}
-.separator::before, .separator::after {
-    content: '';
-    flex: 1;
-    border-bottom: 1px solid #000;
-}
-.separator::before {
-    margin-right: 1em;
-}
-.separator::after {
-    margin-left: 1em;
+.update-cta:hover {
+    box-shadow: 0 2px 8px rgba(47, 72, 88, .30), 0 3px 3px rgba(47, 72, 88, .22);
 }

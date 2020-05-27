@@ -14,6 +14,7 @@ import LoginPage from './pages/LoginPage';
 import ImportAccount from './pages/ImportAccount'
 import Nav from './components/Nav/Nav';
 import Receipt from './components/Receipt_Modal/Receipt_Modal';
+import UpdateLocation from './components/UpdateLocation/UpdateLocationModal'
 
 class App extends Component{
     render(){
@@ -36,7 +37,7 @@ class App extends Component{
                     <Route path="/product" component={ ProductDetail } />
                     <Route path="/crop_tracking" component={ OrderTimelinePage } />
                     <Route path="/import_account" component={ ImportAccount } />
-                </Switch>
+                </Switch>   
             </React.Fragment>
         );
     }

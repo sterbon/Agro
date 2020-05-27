@@ -79,7 +79,6 @@ class OrderCard extends Component {
                             </div> */}
                         </div>
                         <div id="btn-container">
-                            {/* <Button href={trackerUrl} target="_blank" >See transaction at Bloks.io jungle</Button> */}
                             <Button className="receiptBtn">
                                 <ReceiptModal
                                     account={account}
@@ -191,6 +190,7 @@ class OrdersPage extends Component {
                 <div className="orderContainer">
                     <div className="order-container">
                         {
+                            
                             loggedIn ? <div><Header as='h2'>
                                 Your Transactions
                             </Header> {ListView}</div>

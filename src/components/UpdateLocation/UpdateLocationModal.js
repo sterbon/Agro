@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import { Button, Header, Icon, Modal } from 'semantic-ui-react'
-import '../Receipt_Modal/Receipt_Modal.css'
+import './UpdateLocationModal.css'
 import { updateTrackingDetails } from "../../scatter/localWallet_helper"
 class UpdateLocationModal extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -44,64 +45,54 @@ class UpdateLocationModal extends Component {
     render() {
         const { account, transaction } = this.props;
         const { cropName, productId } = transaction;
+        var currentDate = new Date()
         return (
-            <div className="receiptContainer">
+            <div className="updateLocationModalContainer">
                 <Modal trigger={<p>Update Current Location</p>} closeIcon>
                     <Modal.Content>
                         <div>
-                            <div className="receipt-container">
-                                <div className="receipt">
-                                    <div className="receiptHeader">
-                                        <div className="receiptHeader-left">
-                                            <div className="receiptHeading">
-                                                <h2>Update Current Location Of Shipment - {cropName}({productId})</h2>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="receiptForm-container">
-
+                            <div className="updateLocation-container">
+                                <div className="updateLocationHeader">
+                                    <h2>Update Current Location Of Shipment</h2>
+                                </div>
+                                <div className="updateLocationSubHead">
+                                    <h3>Crop Name : <span>{cropName}</span></h3>
+                                    <h3>Product ID : <span>{productId}</span></h3>
+                                </div>
+                                <div className="updateLocation-form">
+                                    <div className="updateLocation">
+                                        <label>Current Location</label>
                                         <input
                                             type="text"
                                             placeholder="Enter current location"
                                             id="currLocation"
                                             name="crop-currLocation"
                                             value={this.state.currLocation}
-
                                             onChange={(e) => {
-                                                this.setState({ currLocation: e.target.value });
-                                            }}
-
+                                                    this.setState({ currLocation: e.target.value });
+                                                }
+                                            }
                                             required >
                                         </input>
-
+                                        
+                                        <label>Current Date</label>
                                         <input
                                             type="text"
-                                            placeholder={this.state.currDate}
+                                            placeholder={currentDate.toDateString()}
                                             id="currDate"
                                             name="crop-currDate"
-                                            value={this.state.currDate}
-                                            
-                                            // onChange={(e) => {
-                                            //     this.setState({ currDate: e.target.value });
-                                            // }}
-
-                                            readonly
+                                            value={currentDate.toDateString()}
+                                            disabled
                                             required >
                                         </input>
 
-                                        <div className="printReceipt">
-
-                                            <button className="print-cta"
-                                                // onClick={() => {
-                                                //     this.updateLocation(productId, this.state.currLocation);
-                                                // } }
+                                        <div className="updateLocationBtn">
+                                            <button className="update-cta"
                                                 onClick={this.updateLocation.bind(this)}
                                                 name="submit-button"
                                                 value="Upload">
-
                                                 Update current location
-                                                </button>
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
