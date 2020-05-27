@@ -9,6 +9,7 @@ class Timeline extends Component {
     render() {
         const { producer, cropName, price, buyer, cropAmount, dateOfHarvest, dateOfSow, fertilizers, sold, uploadDate, trackingLocation, trackingDate } = this.props.cropDetails;
         let status = "Available", purchasedElem = null, track_loc = null;
+        console.log("Date-",trackingDate);
         if(sold) {
             status = "Sold Out";
             purchasedElem = <li className="event" data-date="2019-11-12">

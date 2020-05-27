@@ -68,8 +68,16 @@ class UpdateLocationModal extends Component {
                                             id="currLocation"
                                             name="crop-currLocation"
                                             value={this.state.currLocation}
-                                            onChange={(e) => {
-                                                    this.setState({ currLocation: e.target.value });
+                                            onChange={(e) => { 
+
+                                                var d = new Date();
+                                                    this.setState({ 
+                                                        currLocation: e.target.value,
+                                                        currDate: d.toDateString() 
+                                                    });
+                                                    // this.setState({ 
+                                                    //     currLocation: e.target.value
+                                                    // });
                                                 }
                                             }
                                             required >
@@ -78,10 +86,10 @@ class UpdateLocationModal extends Component {
                                         <label>Current Date</label>
                                         <input
                                             type="text"
-                                            placeholder={currentDate.toDateString()}
+                                            placeholder={this.state.currDate}
                                             id="currDate"
                                             name="crop-currDate"
-                                            value={currentDate.toDateString()}
+                                            value={this.state.currDate}
                                             disabled
                                             required >
                                         </input>
