@@ -71,7 +71,7 @@ class Nav extends Component {
                     <div className="toolbar__toggle-button">
                         <DrawerToggleButton click={this.drawerToggleClickHandler.bind(this)} />
                     </div>
-                    <Link to="/">
+                    <Link to="/Agro">
                         <h1 className="logo">Agro</h1>
                     </Link>
                     <nav>

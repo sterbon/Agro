@@ -9,6 +9,7 @@ class UpdateLocationModal extends Component {
         super(props);
         this.state = {
             currLocation: "",
+            showUpdateSuccess: false,
             currDate: "",
         };
     };
@@ -39,6 +40,7 @@ class UpdateLocationModal extends Component {
                 })
         }
         this.setState({
+            showUpdateSuccess: true,
             currLocation: "",
         });
     }
@@ -59,6 +61,14 @@ class UpdateLocationModal extends Component {
                                     <h3>Crop Name : <span>{cropName}</span></h3>
                                     <h3>Product ID : <span>{productId}</span></h3>
                                 </div>
+                                {
+                                    this.state.showUpdateSuccess && 
+                                    <h3 
+                                        style={{textAlign: 'center', color: 'green'}}
+                                    >
+                                        Current Location Updated
+                                    </h3>
+                                }
                                 <div className="updateLocation-form">
                                     <div className="updateLocation">
                                         <label>Current Location</label>
