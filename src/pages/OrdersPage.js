@@ -79,17 +79,17 @@ class OrderCard extends Component {
                             </div> */}
                         </div>
                         <div id="btn-container">
+                            {account === farmer ? (<Button>
+                            <UpdateLocationModal
+                                    transaction={transaction}
+                                />
+                            </Button>) : <p></p>}
                             <Button className="receiptBtn">
                                 <ReceiptModal
                                     account={account}
                                     transaction={transaction}
                                 />
                             </Button>
-                            {account === farmer ? (<Button>
-                            <UpdateLocationModal
-                                    transaction={transaction}
-                                />
-                            </Button>) : <p></p>}
                         </div>
                     </div>
                 </Segment>
