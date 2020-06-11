@@ -139,7 +139,7 @@ export const createNewAccount = async (account_name, password, public_key, priva
     var owner_publicKey = public_key
     var active_publicKey = public_key
 
-    const signatureProvider = new JsSignatureProvider(['5JdPutdYAYWcjZFsYudKMuLUY8xtnvSBvFg8Cgnbdaxg5rC3h2v']);
+    const signatureProvider = new JsSignatureProvider(['5JgcnGa4aRHJMkxkrFPj9BYeJn8xGi41NgtyzTsQBdahL6KkEoX']);
     const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { nodeFetch });
     const api = new Api({ rpc, signatureProvider, textDecoder: new TextDecoder(), textEncoder: new TextEncoder() });
 
@@ -153,12 +153,12 @@ export const createNewAccount = async (account_name, password, public_key, priva
                             name: 'newaccount',
                             authorization: [
                                 {
-                                    actor: 'sterbon23451',
+                                    actor: 'guptaanmol12',
                                     permission: 'active',
                                 },
                             ],
                             data: {
-                                creator: 'sterbon23451',
+                                creator: 'guptaanmol12',
                                 name: account_name,
                                 owner: {
                                     threshold: 1,
@@ -189,12 +189,12 @@ export const createNewAccount = async (account_name, password, public_key, priva
                             name: 'buyrambytes',
                             authorization: [
                                 {
-                                    actor: 'sterbon23451',
+                                    actor: 'guptaanmol12',
                                     permission: 'active',
                                 },
                             ],
                             data: {
-                                payer: 'sterbon23451',
+                                payer: 'guptaanmol12',
                                 receiver: account_name,
                                 bytes: 8192,
                             },
@@ -204,12 +204,12 @@ export const createNewAccount = async (account_name, password, public_key, priva
                             name: 'delegatebw',
                             authorization: [
                                 {
-                                    actor: 'sterbon23451',
+                                    actor: 'guptaanmol12',
                                     permission: 'active',
                                 },
                             ],
                             data: {
-                                from: 'sterbon23451',
+                                from: 'guptaanmol12',
                                 receiver: account_name,
                                 stake_net_quantity: '1.0000 EOS',
                                 stake_cpu_quantity: '1.0000 EOS',
