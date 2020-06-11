@@ -28,15 +28,16 @@ class ProductDetail extends Component {
             {
                 console.log(result)
                 this.setState({ productBought: true });
+                this.props.history.push('/orders');    
+
             });
     }
-
 
     render() {
         const { cropName, details } = this.props.location.state;
         // console.log("At product page: ", cropName, details);
         const { selectedProducer } = this.state;
-        const { cropImage, productId, cropAmount, price, producer, dateOfHarvest, dateOfSow, fertilizers, sold } = details;
+        const { cropImage, productId, cropAmount, price, producer, dateOfHarvest, dateOfSow, fertilizers, sold, trackingLocation } = details;
 
         let producersList = null;
         if (productId.length) {
@@ -93,6 +94,7 @@ class ProductDetail extends Component {
                             <p>{selectedProducer.dateOfSow}</p>
                             <p>{selectedProducer.dateOfHarvest}</p>
                             <p>{selectedProducer.fertilizers}</p>
+                            <p>{trackingLocation[0]}</p>
                         </div>
                     </div>
                     <div className="addToCart">
