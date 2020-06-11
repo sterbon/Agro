@@ -37,8 +37,8 @@ class ProductDetail extends Component {
         const { cropName, details } = this.props.location.state;
         // console.log("At product page: ", cropName, details);
         const { selectedProducer } = this.state;
-        const { cropImage, productId, cropAmount, price, producer, dateOfHarvest, dateOfSow, fertilizers, sold, trackingLocation } = details;
-
+        const { cropImage, productId, cropAmount, price, producer, dateOfHarvest, dateOfSow, fertilizers, sold, uploadDate, trackingLocation } = details;
+        console.log(uploadDate)
         let producersList = null;
         if (productId.length) {
             producersList = Object.keys(productId).map((key) => {
@@ -59,6 +59,8 @@ class ProductDetail extends Component {
                     dateOfSow: dateOfSow[key],
                     fertilizers: fertilizers[key],
                     sold: sold[key],
+                    trackingLocation: trackingLocation[key],
+                    uploadDate: uploadDate[key],
                 };
 
                 return <ProducerCard
@@ -67,6 +69,7 @@ class ProductDetail extends Component {
                     detail={detail}
                     click={() => {
                         this.selectProducer.bind(this)(detail);
+                        console.log("Selected producer ",selectedProducer)
                     }}
                 />;
             });
@@ -85,6 +88,8 @@ class ProductDetail extends Component {
                             <p>Sow date :</p>
                             <p>Harvest date :</p>
                             <p>Fertilizers used :</p>
+                            <p>Crop sold from :</p>
+                            <p>Crop listed on :</p>
                         </div>
 
                         <div className="productMisc-text">
@@ -94,7 +99,8 @@ class ProductDetail extends Component {
                             <p>{selectedProducer.dateOfSow}</p>
                             <p>{selectedProducer.dateOfHarvest}</p>
                             <p>{selectedProducer.fertilizers}</p>
-                            <p>{trackingLocation[0]}</p>
+                            <p>{selectedProducer.trackingLocation}</p>
+                            <p>{selectedProducer.uploadDate}</p>
                         </div>
                     </div>
                     <div className="addToCart">
