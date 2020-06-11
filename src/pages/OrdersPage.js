@@ -23,12 +23,12 @@ class OrderCard extends Component {
             accessKey: KEY
         });
         const query = `${cropName} crop`;
-        unsplash.search.photos(query, 1, 1, { orientation: "landscape" })
+        unsplash.search.photos(query, 1, 4, { orientation: "landscape" })
             .then(toJson)
             .then(result => {
                 if (result.results[0].urls.regular) {
                     // cropImage = result.results[0].urls.raw;
-                    this.setState({ cropImage: result.results[0].urls.regular });
+                    this.setState({ cropImage: result.results[3].urls.regular });
                 }
             });
     }
@@ -85,11 +85,11 @@ class OrderCard extends Component {
                                     transaction={transaction}
                                 />
                             </Button>
-                            <Button>
+                            {account === farmer ? (<Button>
                             <UpdateLocationModal
                                     transaction={transaction}
                                 />
-                            </Button>
+                            </Button>) : <p></p>}
                         </div>
                     </div>
                 </Segment>

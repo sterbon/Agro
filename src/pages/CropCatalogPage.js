@@ -29,14 +29,14 @@ class CropCatalogPage extends Component {
                     });
                     const query = `${cropName}`;
                     
-                    unsplash.search.photos(query, 1, 2, { orientation: "landscape" })
+                    unsplash.search.photos(query, 1, 4, { orientation: "landscape" })
                     .then(toJson)
                     .then(result => {
                         const { cropCatalogList } = this.state; 
                         let cropImage = Grain;
                         if(result.results[1].urls) {
                             // cropImage = result.results[0].urls.raw;
-                            cropImage = result.results[0].urls.regular;
+                            cropImage = result.results[3].urls.regular;
                         }
                         else{
                             cropImage = null;

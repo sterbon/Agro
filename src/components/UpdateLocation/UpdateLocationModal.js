@@ -23,16 +23,16 @@ class UpdateLocationModal extends Component {
         const { cropName, productId } = transaction;
 
         var d = new Date();
-        console.log(d.toDateString())   
+        console.log(d.toDateString())
 
         this.setState({
             currDate: d.toDateString(),
         })
-        
+
         const data = { currLocation, currDate };
-        
+
         console.log(data);
-        
+
         if ((data.currDate != null) && (data.currLocation !== "" || data.currLocation != null)) {
             updateTrackingDetails(productId, data)
                 .then((result) => {
@@ -62,9 +62,9 @@ class UpdateLocationModal extends Component {
                                     <h3>Product ID : <span>{productId}</span></h3>
                                 </div>
                                 {
-                                    this.state.showUpdateSuccess && 
-                                    <h3 
-                                        style={{textAlign: 'center', color: 'green'}}
+                                    this.state.showUpdateSuccess &&
+                                    <h3
+                                        style={{ textAlign: 'center', color: 'green' }}
                                     >
                                         Current Location Updated
                                     </h3>
@@ -78,21 +78,21 @@ class UpdateLocationModal extends Component {
                                             id="currLocation"
                                             name="crop-currLocation"
                                             value={this.state.currLocation}
-                                            onChange={(e) => { 
+                                            onChange={(e) => {
 
                                                 var d = new Date();
-                                                    this.setState({ 
-                                                        currLocation: e.target.value,
-                                                        currDate: d.toDateString() 
-                                                    });
-                                                    // this.setState({ 
-                                                    //     currLocation: e.target.value
-                                                    // });
-                                                }
+                                                this.setState({
+                                                    currLocation: e.target.value,
+                                                    currDate: d.toDateString()
+                                                });
+                                                // this.setState({ 
+                                                //     currLocation: e.target.value
+                                                // });
+                                            }
                                             }
                                             required >
                                         </input>
-                                        
+
                                         <label>Current Date</label>
                                         <input
                                             type="text"
