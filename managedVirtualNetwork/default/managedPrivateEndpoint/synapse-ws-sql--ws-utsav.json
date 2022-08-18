@@ -1,0 +1,10 @@
+{
+	"name": "synapse-ws-sql--ws-utsav",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/02d7af26-c502-4128-8e08-7966c0c0a770/resourceGroups/testUtsav/providers/Microsoft.Synapse/workspaces/ws-utsav",
+		"groupId": "sql",
+		"fqdns": [
+			"ws-utsav.103a8bb3-c935-4bef-b92b-9e2b74a537b1.sql.azuresynapse.net"
+		]
+	}
+}
