@@ -1,0 +1,416 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"workspaceName": {
+			"type": "string",
+			"metadata": "Workspace name",
+			"defaultValue": "ws-utsav"
+		},
+		"ws-utsav-WorkspaceDefaultStorage": {
+			"type": "string"
+		},
+		"MongoDbAtlas1": {
+			"type": "string"
+		}
+	},
+	"variables": {
+		"workspaceId": "[concat('Microsoft.Synapse/workspaces/', parameters('workspaceName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('workspaceName'), '/CopyPipeline_Mongodb-Batch-Gen2')]",
+			"type": "Microsoft.Synapse/workspaces/pipelines",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy_BatchOneTimeUpload",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [
+							{
+								"name": "Source",
+								"value": "mdbsynapsedlfs/superstore/superstore-master"
+							},
+							{
+								"name": "Destination",
+								"value": "dbo.SuperStore"
+							}
+						],
+						"typeProperties": {
+							"source": {
+								"type": "MongoDbAtlasSource",
+								"batchSize": 100
+							},
+							"sink": {
+								"type": "SqlPoolSink",
+								"allowCopyCommand": true
+							},
+							"enableStaging": true,
+							"stagingSettings": {
+								"linkedServiceName": {
+									"referenceName": "[parameters('ws-utsav-WorkspaceDefaultStorage')]",
+									"type": "LinkedServiceReference"
+								},
+								"path": "staging"
+							},
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"path": "$['RowID']"
+										},
+										"sink": {
+											"name": "RowID",
+											"type": "Int64"
+										}
+									},
+									{
+										"source": {
+											"path": "$['OrderID']"
+										},
+										"sink": {
+											"name": "OrderID",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "$['OrderDate']"
+										},
+										"sink": {
+											"name": "OrderDate",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "$['ShipDate']"
+										},
+										"sink": {
+											"name": "ShipDate",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "$['ShipMode']"
+										},
+										"sink": {
+											"name": "ShipMode",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "$['CustomerID']"
+										},
+										"sink": {
+											"name": "CustomerID",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "$['CustomerName']"
+										},
+										"sink": {
+											"name": "CustomerName",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "$['Segment']"
+										},
+										"sink": {
+											"name": "Segment",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "$['Country']"
+										},
+										"sink": {
+											"name": "Country",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "$['City']"
+										},
+										"sink": {
+											"name": "City",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "$['State']"
+										},
+										"sink": {
+											"name": "State",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "$['PostalCode']"
+										},
+										"sink": {
+											"name": "PostalCode",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "$['Region']"
+										},
+										"sink": {
+											"name": "Region",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "$['ProductID']"
+										},
+										"sink": {
+											"name": "ProductID",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "$['Category']"
+										},
+										"sink": {
+											"name": "Category",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "$['SubCategory']"
+										},
+										"sink": {
+											"name": "SubCategory",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "$['ProductName']"
+										},
+										"sink": {
+											"name": "ProductName",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "$['Sales']"
+										},
+										"sink": {
+											"name": "Sales",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"path": "$['Quantity']"
+										},
+										"sink": {
+											"name": "Quantity",
+											"type": "Int64"
+										}
+									},
+									{
+										"source": {
+											"path": "$['Discount']"
+										},
+										"sink": {
+											"name": "Discount",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"path": "$['Profit']"
+										},
+										"sink": {
+											"name": "Profit",
+											"type": "Decimal"
+										}
+									}
+								],
+								"collectionReference": ""
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "MongoDbAtlasCollection1",
+								"type": "DatasetReference"
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "DestinationDataset_g91",
+								"type": "DatasetReference"
+							}
+						]
+					}
+				],
+				"annotations": [],
+				"lastPublishTime": "2022-08-03T18:34:59Z"
+			},
+			"dependsOn": [
+				"[concat(variables('workspaceId'), '/datasets/MongoDbAtlasCollection1')]",
+				"[concat(variables('workspaceId'), '/datasets/DestinationDataset_g91')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/MongoDbAtlasCollection1')]",
+			"type": "Microsoft.Synapse/workspaces/datasets",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "[parameters('MongoDbAtlas1')]",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "MongoDbAtlasCollection",
+				"schema": [],
+				"typeProperties": {
+					"collection": "superstore"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/DestinationDataset_g91')]",
+			"type": "Microsoft.Synapse/workspaces/datasets",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"annotations": [],
+				"type": "SqlPoolTable",
+				"schema": [
+					{
+						"name": "RowID",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "OrderID",
+						"type": "varchar"
+					},
+					{
+						"name": "OrderDate",
+						"type": "varchar"
+					},
+					{
+						"name": "ShipDate",
+						"type": "varchar"
+					},
+					{
+						"name": "ShipMode",
+						"type": "varchar"
+					},
+					{
+						"name": "CustomerID",
+						"type": "varchar"
+					},
+					{
+						"name": "CustomerName",
+						"type": "varchar"
+					},
+					{
+						"name": "Segment",
+						"type": "varchar"
+					},
+					{
+						"name": "Country",
+						"type": "varchar"
+					},
+					{
+						"name": "City",
+						"type": "varchar"
+					},
+					{
+						"name": "State",
+						"type": "varchar"
+					},
+					{
+						"name": "PostalCode",
+						"type": "varchar"
+					},
+					{
+						"name": "Region",
+						"type": "varchar"
+					},
+					{
+						"name": "ProductID",
+						"type": "varchar"
+					},
+					{
+						"name": "Category",
+						"type": "varchar"
+					},
+					{
+						"name": "SubCategory",
+						"type": "varchar"
+					},
+					{
+						"name": "ProductName",
+						"type": "varchar"
+					},
+					{
+						"name": "Sales",
+						"type": "money",
+						"precision": 19,
+						"scale": 4
+					},
+					{
+						"name": "Quantity",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "Discount",
+						"type": "decimal",
+						"precision": 18,
+						"scale": 0
+					},
+					{
+						"name": "Profit",
+						"type": "decimal",
+						"precision": 18,
+						"scale": 0
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "SuperStore"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/default')]",
+			"type": "Microsoft.Synapse/workspaces/managedVirtualNetworks",
+			"apiVersion": "2019-06-01-preview",
+			"dependsOn": []
+		}
+	]
+}
