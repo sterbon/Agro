@@ -1,0 +1,24 @@
+{
+	"name": "Trigger 2",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "CopyPipeline_Mongodb-Batch-Gen2_copy1",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Month",
+				"interval": 15,
+				"startTime": "2022-08-22T08:36:00Z",
+				"timeZone": "UTC"
+			}
+		}
+	}
+}
