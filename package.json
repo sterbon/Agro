@@ -7,7 +7,7 @@
     "crypto-js": "^4.0.0",
     "eosjs": "^20.0.3",
     "eosjs-ecc": "^4.0.7",
-    "gh-pages": "^2.2.0",
+    "gh-pages": "^5.0.0",
     "node-fetch": "^2.6.0",
     "qr-code-scanner": "^1.0.7",
     "qrcode.react": "^1.0.0",
